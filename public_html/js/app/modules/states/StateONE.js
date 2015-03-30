@@ -8,6 +8,7 @@ define(['Phaser', 'jquery', 'modules/helpers/Logger'], function (Phaser, $, Logg
     };
 
     var preload = function () {
+        // Test
         gamePtr.load.spritesheet('gotchi', 'assets/images/sprites/presiGotchi_temp_vec.png', 27, 28, 6);
         //gamePtr.load.spritesheet('gotchi', 'assets/images/sprites/metalslug_mummy37x45.png', 37, 45, 18);
     };
