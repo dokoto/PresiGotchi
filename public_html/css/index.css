@@ -1,0 +1,281 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+}
+
+.status {
+    font-family: fantasy;
+    font-size: -webkit-xxx-large;
+    text-align: center;
+}
+
+.death {
+    font-family: fantasy;
+    font-size: -webkit-xxx-large;
+    color: red;
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 10%;
+}
+
+.controlls {
+    font-family: fantasy;
+    font-size: larger;
+    text-align: center;
+    margin-top: 10%;
+}
+
+input, select {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance:none;
+    appearance:none;   
+    -webkit-border-radius: 0;  /* Safari 3-4, iOS 1-3.2, Android 1.6- */    
+    -moz-border-radius: 0;  /* Firefox 1-3.6 */     
+    border-radius: 0;  /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+    background-color: white;
+    background: transparent url("../assets/img/down_arrow.png") no-repeat right;
+    background-position-x: 98%;
+    padding: 2px 2px 2px 4px;   
+    border: 1px solid black;
+}
+
+input {
+    -webkit-appearance: none;
+    -moz-appearance:none;
+    appearance:none;   
+    -webkit-border-radius: 0;  /* Safari 3-4, iOS 1-3.2, Android 1.6- */    
+    -moz-border-radius: 0;  /* Firefox 1-3.6 */     
+    border-radius: 0;  /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+    background-color: white;
+    border: 1px solid black;
+}
+
+.container {
+    display: table;
+    width: 100%;        
+}
+.button-bw {
+    display: block;    
+    border: 1px solid;
+    border-color: #ccc;
+    margin: 1%;
+    padding: 4%;
+    text-decoration: none !important;
+    color: darkgrey;
+}
+
+.button-bw.back {
+    border-color: blue;
+    color: blue;
+}
+
+.menu-bw {       
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    border: 1px solid;
+    transition: transform 0.5s ease;    
+}
+
+.menu-bw.stay-right {
+    transform: translate3d(100%, 0, 0);
+}
+
+.menu-bw.stay-left {
+    transform: translate3d(-100%, 0, 0);
+}
+
+.menu-bw.go-in{
+    transform: translate3d(0, 0, 0); 
+}
+
+.menu-bw.go-out-to-left {
+    transform: translate3d(-100%, 0, 0); 
+}
+
+.menu-bw.go-out-to-right {
+    transform: translate3d(100%, 0, 0); 
+}
+
+
+.page-bw {
+    text-align: center;
+    vertical-align: top;
+    display: table-cell;
+    border: 1px solid;
+    transition: transform 0.5s ease; 
+}
+
+.page-bw.stay-right {
+    transform: translate3d(100%, 0, 0);
+}
+
+.page-bw.stay-left {
+    transform: translate3d(-100%, 0, 0);
+}
+
+.page-bw.go-in{
+    transform: translate3d(0, 0, 0); 
+}
+
+.page-bw.go-out-to-left {
+    transform: translate3d(-100%, 0, 0); 
+}
+
+.page-bw.go-out-to-right {
+    transform: translate3d(100%, 0, 0); 
+}
+
+.list {
+    overflow-y: auto;
+}
+
+.row {
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+.col {
+    display: table-cell;
+}
+
+.input {
+    vertical-align:top;
+    height: 30px;
+    font-size: medium;
+}
+
+.input.focus {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+.input.key {
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+    height: 40px;
+    padding: 2%;
+    font-size: x-large;
+    color:dodgerblue;
+}
+.input.text {
+    width: 95%;
+    margin-left: 3%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.input.select {
+    width: auto;
+    margin-left: 7%;
+}
+
+.input.select.mini {
+    width: 50px;
+    margin-left: 7%;
+}
+
+.input.select.full {
+    width: 98%;
+    margin-left: 1%;
+}
+
+.col.left {
+    width: auto;
+}
+
+.col.right {
+    width: 100%;
+}
+
+.title.label {
+    background: tomato;
+    height: 55px;
+    font-size: xx-large;
+    padding-top: 6%;
+    color: seashell;
+    margin: 1%;
+}
+
+.title.label.pressed {
+    background: rgb(244, 198, 145);
+    height: 55px;
+    font-size: xx-large;
+    padding-top: 6%;
+    color: seashell;
+    margin: 1%;
+}
+
+.popup {
+    background-color: white;
+    border: 2px solid #dcdcdc;
+    margin: 5%;
+    padding: 2%;
+    z-index: 999999;
+    position: absolute;
+    top: 40%;
+    color: #666666;
+    font-family: arial;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.popup-row {
+    margin-top: 5%;
+}
+
+.popup-button {
+    -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6));
+    background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+    background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+    background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+    background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+    background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0);
+    background-color:#ffffff;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:inline-block;
+    cursor:pointer;
+    color:#666666;
+    font-family:arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff;    
+}
+
+.popup-button-full {
+    width: 80%;
+    margin: 1%;
+    text-align: center;
+}
+.popup-button:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6), color-stop(1, #ffffff));
+    background:-moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+    background:-webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+    background:-o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+    background:-ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+    background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0);
+    background-color:#f6f6f6;
+}
+.popup-button:active {
+    position:relative;
+    top:1px;
+}
