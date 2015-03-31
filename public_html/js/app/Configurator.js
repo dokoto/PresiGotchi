@@ -18,7 +18,7 @@ requirejs.onResourceLoad = function (context, map, depMaps) {
 };
 
 var updateModuleProgress = function (context, map, depMaps) {
-    var console = window.console;
+    var console = window.console;   
     if (console && console.log) {
         console.log('[LOAD PHASE]  ' + map.name + ' at ' + map.url);
     }

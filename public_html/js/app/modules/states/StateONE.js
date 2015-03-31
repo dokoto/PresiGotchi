@@ -1,30 +1,35 @@
-define(['Phaser', 'jquery', 'modules/helpers/Logger'], function (Phaser, $, Logger) {
+define(['Phaser', 'jquery', 'modules/helpers/Logger', 'modules/models/presiGotchi'], function (Phaser, $, Logger, presiGotchi) {
 
-    var gamePtr = null;
-    var gotchi = null;
+    var gamePtr = null;    
     
     var StageONE = function (game) {
-        gamePtr = game;
+        gamePtr = game;        
     };
 
     var preload = function () {
-        // Test
-        gamePtr.load.spritesheet('gotchi', 'assets/images/sprites/presiGotchi_temp_vec.png', 27, 28, 6);
-        //gamePtr.load.spritesheet('gotchi', 'assets/images/sprites/metalslug_mummy37x45.png', 37, 45, 18);
+        presiGotchi.preload(gamePtr);
     };
 
     var create = function () {
-        var gotchi = gamePtr.add.sprite(gamePtr.world.centerX, gamePtr.world.height/2, 'gotchi');
-        //gotchi = gamePtr.add.sprite(40, 100, 'gotchi');
-        gotchi.animations.add('waiting', [1, 2, 3]);
-        gotchi.anchor.set(0.5, 0.5);
-        gotchi.scale.set(4, 4);
-
-        gotchi.animations.play('waiting', 2, true);
-        //gamePtr.add.tween(gotchi).to({x: gamePtr.width}, 10000, Phaser.Easing.Linear.None, true);
+        presiGotchi.create();
     };
 
     var update = function () {
+        presiGotchi.update(states);        
+    };
+    
+    var states = {};
+    
+    states[presiGotchi.config.states.HUNGRY] = function() {
+            
+    };
+    
+    states[presiGotchi.config.states.THIRSTY] = function() {
+            
+    };
+    
+    states[presiGotchi.config.states.SLEEPY] = function() {
+            
     };
 
     StageONE.prototype = {
