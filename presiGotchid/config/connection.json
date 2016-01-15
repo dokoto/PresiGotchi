@@ -1,0 +1,50 @@
+{
+  "github.clientID": {
+    "value": "ec052859ef86d94ac7f5"
+  },
+  "github.clientSecret": {
+    "value": "a3ef2f6cde6dd1bdc4310795583b3d9a62df48ad"
+  },
+  "github.callback": {
+    "value": "/oauthcallback"
+  },
+  "google.clientID": {
+    "value": "570631603800-8t8nfekn7dvc5hu5v5gh6spunf7c1d10.apps.googleusercontent.com"
+  },
+  "google.clientSecret": {
+    "value": "HMoHO8FmipgTWMo_Mx93H42e"
+  },
+  "google.callback": {
+    "value": "/oauthcallback"
+  },
+  "service.ip": {
+    "value": "127.0.0.1"
+  },
+  "service.port": {
+    "value": 46969
+  },
+  "service.url": {
+    "value": {
+      "nodeLibs": [],
+      "code": "return 'http://' + this.connection['service.ip'].value + ':' + this.connection['service.port'].value;"
+    }
+  },
+  "service.files.url": {
+    "value": {
+      "nodeLibs": [],
+      "code": "return 'http://' + this.connection['service.ip'].value + '/public/files/';"
+    }
+  },
+  "proxy.url": {
+    "value" : "http://http.internetpsa.inetpsa.com"
+  },
+  "proxy.port": {
+    "value" : "80"
+  },
+  "proxy.user": {
+    "value" : "E454989"
+  },
+  "proxy.password": {
+    "value" : "a1122015"
+  }
+}

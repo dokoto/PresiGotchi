@@ -1,0 +1,8 @@
+{
+  "db.mongo.session.uri": {
+    "value": "mongodb://localhost:27017/presigotchi"
+  },
+  "db.mongo.session.collection": {
+    "value": "sessions"
+  }
+}
