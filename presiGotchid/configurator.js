@@ -196,7 +196,7 @@ var Configurator = (function() {
 
   configurator.prototype._Definitions = function() {
     var definitions = require('./definitions');
-    this._rest.use('/', definitions);
+    this.rest.use('/', definitions);
   };
 
   return configurator;
