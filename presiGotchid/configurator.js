@@ -146,7 +146,7 @@ var Configurator = (function() {
     });
 
     // https://console.developers.google.com/project
-    passport.use(new GoogleStrategy({
+    passport.use(new googleStrategy({
         clientID: Config.fetch('connection', 'google.clientID'),
         clientSecret: Config.fetch('connection', 'google.clientSecret'),
         callbackURL: Config.fetch('connection', 'service.url') + Config.fetch('connection', 'google.callback'),
