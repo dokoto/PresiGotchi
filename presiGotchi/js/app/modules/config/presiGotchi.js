@@ -18,12 +18,42 @@ define([], function (Phaser, $, Logger) {
       WAITING: 'WAITING'
     },
     states: {
+      HUNGRY: {
+        live: {
+          status: 0.0,
+          top: 100.0,
+          bottom: 0.0,
+          decrease: 20,0
+        },
+        time: {}
+      },
+      THIRSTY: {},
+      SLEEPY: {}
+    },
+    states: {
       HUNGRY: 'HUNGRY',
       THIRSTY: 'THIRSTY',
       SLEEPY: 'SLEEPY'
     },
-    liveStatusTop : 100,
-    liveStatus: {
+    live: {
+      status: {},
+      consts: {
+        top: {
+          HUNGRY: 100.0,
+          THIRSTY: 100.0,
+          SLEEPY: 100.0
+        },
+        bottom: {
+          HUNGRY: 0.0,
+          THIRSTY: 0.0,
+          SLEEPY: 0.0
+        },
+        decrease:{
+          HUNGRY: 30.0,
+          THIRSTY: 50.0,
+          SLEEPY: 20.0
+        }
+      }
     },
     times: {
       consts: { // milliseconds

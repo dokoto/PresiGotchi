@@ -49,7 +49,7 @@ define(['Phaser', 'jquery', 'modules/helpers/logger', 'modules/config/presiGotch
     var timeDiff, self;
     for (var state in this._config.states) {
       if ( this._config.times.elapsed[state] === 0.0 ) {
-        this._config.liveStatus[state] = this._config.liveStatusTop;
+        this._config.live.status[state] = this._config.liveStatusTop;
         this._config.times.elapsed[state] = this._gamePtr.time.time;
         continue;
       }
