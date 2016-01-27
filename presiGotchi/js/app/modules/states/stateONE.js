@@ -32,7 +32,7 @@ define(['Phaser', 'jquery', 'modules/helpers/logger', 'modules/models/presiGotch
     };
 
     statesActions['THIRSTY'] = function(state) {
-      if (this._config.status[state].live.status <= 0.0) {
+      if (this._config.states[state].live.status <= 0.0) {
         new Android_Toast({
           content: 'Im DEATH, motherFucker !! by ' + state,
           duration: 9 * 1000
@@ -41,10 +41,10 @@ define(['Phaser', 'jquery', 'modules/helpers/logger', 'modules/models/presiGotch
         gamePtr.state.start('MainMenu');
       } else {
         new Android_Toast({
-          content: 'Im thirsty, motherFucker !! ' + ' My thirsty status is : ' + this._config.status[state].live.status,
+          content: 'Im thirsty, motherFucker !! ' + ' My thirsty status is : ' + this._config.states[state].live.status,
           duration: 9 * 1000
         });
-        this._config.status[state].live.status -= this._config.status[state].live.decrease;
+        this._config.states[state].live.status -= this._config.states[state].live.decrease;
       }
     };
 
