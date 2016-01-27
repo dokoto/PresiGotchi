@@ -48,31 +48,31 @@ define(['Phaser', 'jquery', 'modules/helpers/logger', 'modules/config/presiGotch
   presiGotchi.prototype._dispacheStates = function(statesActions) {
     var timeDiff, self;
     for (var state in this._config.states) {
-      if ( this._config.times.elapsed[state] === 0.0 ) {
-        this._config.live.status[state] = this._config.liveStatusTop;
-        this._config.times.elapsed[state] = this._gamePtr.time.time;
-        continue;
-      }
-
       if (!this._config.states.hasOwnProperty(state)) {
-        Logger.ERROR_DESP(this._config.states[state] + ' doesnt exist in States');
+        Logger.ERROR_DESP('"' + state + '" doesnt exist in States');
         continue;
       }
 
-      timeDiff = this._gamePtr.time.time - this._config.times.elapsed[state];
-      if (timeDiff >= this._config.times.consts[state]) {
+      if ( this._config.states[state].time.elapsed === 0.0 ) {
+        this._config.states[state].live.status = this._config.states[state].live.top;
+        this._config.states[state].time.elapsed = this._gamePtr.time.time;
+        continue;
+      }
 
-        Logger.MSG_DESP('presiGotchi is in ' + this._config.states[state] + ' state.');
-        this._config.times.elapsed[state] = 0;
+      timeDiff = this._gamePtr.time.time - this._config.states[state].time.elapsed;
+      if (timeDiff >= this._config.states[state].time.interval) {
+
+        Logger.MSG_DESP('presiGotchi is in ' + state + ' state.');
+        this._config.states[state].time.elapsed = 0.0;
         if ($.isFunction(statesActions[state])) {
           self = this;
           setTimeout(statesActions[state].call(self, state), 1);
         } else {
-          Logger.ERROR_DESP(this._config.states[state] + ' is not Function');
+          Logger.ERROR_DESP('"statesActions[' + state + ']" parameter is not Function');
           break;
         }
 
-        this._config.times.elapsed[state] = this._gamePtr.time.time;
+        this._config.states[state].time.elapsed = this._gamePtr.time.time;
       }
     }
   };

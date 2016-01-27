@@ -1,4 +1,4 @@
-define([], function (Phaser, $, Logger) {
+define([], function(Phaser, $, Logger) {
 
   var config = {
     name: 'presiGotchi',
@@ -23,54 +23,42 @@ define([], function (Phaser, $, Logger) {
           status: 0.0,
           top: 100.0,
           bottom: 0.0,
-          decrease: 20,0
+          decrease: 120.0
         },
-        time: {}
-      },
-      THIRSTY: {},
-      SLEEPY: {}
-    },
-    states: {
-      HUNGRY: 'HUNGRY',
-      THIRSTY: 'THIRSTY',
-      SLEEPY: 'SLEEPY'
-    },
-    live: {
-      status: {},
-      consts: {
-        top: {
-          HUNGRY: 100.0,
-          THIRSTY: 100.0,
-          SLEEPY: 100.0
-        },
-        bottom: {
-          HUNGRY: 0.0,
-          THIRSTY: 0.0,
-          SLEEPY: 0.0
-        },
-        decrease:{
-          HUNGRY: 30.0,
-          THIRSTY: 50.0,
-          SLEEPY: 20.0
+        time: {
+          interval: 120 * 1000,
+          elapsed: 0.0
         }
-      }
-    },
-    times: {
-      consts: { // milliseconds
-        HUNGRY: 120*1000,
-        THIRSTY: 20*1000,
-        SLEEPY: 480*1000
       },
-      elapsed: {
-        HUNGRY: 0.0,
-        THIRSTY: 0.0,
-        SLEEPY: 0.0
+      THIRSTY: {
+        live: {
+          status: 0.0,
+          top: 100.0,
+          bottom: 0.0,
+          decrease: 30.0
+        },
+        time: {
+          interval: 20 * 1000,
+          elapsed: 0.0
+        }
+      },
+      SLEEPY: {
+        live: {
+          status: 0.0,
+          top: 100.0,
+          bottom: 0.0,
+          decrease: 50.0
+        },
+        time: {
+          interval: 480 * 1000,
+          elapsed: 0.0
+        }
       }
     }
   };
 
-    return  {
-        config: config
-    };
+  return {
+    config: config
+  };
 
 });

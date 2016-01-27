@@ -24,15 +24,15 @@ define(['Phaser', 'jquery', 'modules/helpers/logger', 'modules/models/presiGotch
 
 
   var setStateActions = function() {
-    statesActions[presiGotchi._config.states.HUNGRY] = function(state) {
+    statesActions['HUNGRY'] = function(state) {
       new Android_Toast({
         content: 'You must be a nasty-bastard son of the bitch. I have to eat !!!',
         duration: 9 * 1000
       });
     };
 
-    statesActions[presiGotchi._config.states.THIRSTY] = function(state) {
-      if (this._config.liveStatus[state] <= 0.0) {
+    statesActions['THIRSTY'] = function(state) {
+      if (this._config.status[state].live.status <= 0.0) {
         new Android_Toast({
           content: 'Im DEATH, motherFucker !! by ' + state,
           duration: 9 * 1000
@@ -41,14 +41,14 @@ define(['Phaser', 'jquery', 'modules/helpers/logger', 'modules/models/presiGotch
         gamePtr.state.start('MainMenu');
       } else {
         new Android_Toast({
-          content: 'Im thirsty, motherFucker !! ' + ' My thirsty status is : ' + this._config.liveStatus[state],
+          content: 'Im thirsty, motherFucker !! ' + ' My thirsty status is : ' + this._config.status[state].live.status,
           duration: 9 * 1000
         });
-        this._config.liveStatus[state] -= 50;
+        this._config.status[state].live.status -= this._config.status[state].live.decrease;
       }
     };
 
-    statesActions[presiGotchi._config.states.SLEEPY] = function(state) {
+    statesActions['SLEEPY'] = function(state) {
       new Android_Toast({
         content: 'Its time to sleep, where is my bed, bastard ??'
       });
