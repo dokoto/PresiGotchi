@@ -1,7 +1,7 @@
-define(['Phaser', 'jquery', 'modules/helpers/logger', 'modules/models/presiGotchi', 'modules/helpers/android_toast'], function(Phaser, $, Logger, PresiGotchi, Android_Toast) {
+define(['Phaser', 'jquery', 'modules/helpers/logger', 'modules/characters/gotchi', 'modules/helpers/android_toast'], function(Phaser, $, Logger, Gotchi, Android_Toast) {
 
   var gamePtr = null;
-  var presiGotchi = null;
+  var gotchi = null;
   var statesActions = {};
 
   var StageONE = function(game) {
@@ -9,17 +9,17 @@ define(['Phaser', 'jquery', 'modules/helpers/logger', 'modules/models/presiGotch
   };
 
   var preload = function() {
-    presiGotchi = PresiGotchi.init();
+    gotchi = Gotchi.init();
     setStateActions();
-    presiGotchi.preload(gamePtr);
+    gotchi.preload(gamePtr);
   };
 
   var create = function() {
-    presiGotchi.create();
+    gotchi.create();
   };
 
   var update = function() {
-    presiGotchi.update(statesActions);
+    gotchi.update(statesActions);
   };
 
 
@@ -35,16 +35,15 @@ define(['Phaser', 'jquery', 'modules/helpers/logger', 'modules/models/presiGotch
       if (this._config.states[state].live.status <= 0.0) {
         new Android_Toast({
           content: 'Im DEATH, motherFucker !! by ' + state,
-          duration: 9 * 1000
+          duration: 7 * 1000
         });
-        presiGotchi = null;
+        gotchi = null;
         gamePtr.state.start('MainMenu');
       } else {
         new Android_Toast({
           content: 'Im thirsty, motherFucker !! ' + ' My thirsty status is : ' + this._config.states[state].live.status,
-          duration: 9 * 1000
+          duration: 7 * 1000
         });
-        this._config.states[state].live.status -= this._config.states[state].live.decrease;
       }
     };
 

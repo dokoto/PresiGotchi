@@ -54,9 +54,6 @@ var Configurator = (function() {
       collectionKey: 'https',
       pathConfigFile: '/config/https.json'
     }, {
-      collectionKey: 'rfs',
-      pathConfigFile: '/config/rfs.json'
-    }, {
       collectionKey: 'db',
       pathConfigFile: '/config/db.json'
     }]);

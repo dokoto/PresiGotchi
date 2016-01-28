@@ -1,6 +1,11 @@
-define([], function(Phaser, $, Logger) {
+define(['./base/containerBase'], function(containerBase) {
+  'use strict';
 
-  var config = {
+  //*****************************************************
+  // PRIVATE AND SHARED MEMORY OBJECTS
+  //*****************************************************
+  /*
+  {
     name: 'presiGotchi',
     spriteSheet: {
       imagePath: 'assets/images/sprites/presiGotchi_temp_vec.png',
@@ -55,10 +60,33 @@ define([], function(Phaser, $, Logger) {
         }
       }
     }
-  };
+  }
+ */
+  //*****************************************************
+  // PUBLIC
+  //*****************************************************
+  var Gotchi = (function() {
+    function gotchi() {
+      containerBase.this.call(this);
+    }
+
+    // No hay problema con la comparticion de memoria de "_model" ya que baseModel
+    // clona el objeto es si mismo. "_model" solo se usa como patron de estructura
+    // no para contener datos, los datos se continene por instancia dentro de baseModel
+    gotchi.prototype = containerBase.create();
+    gotchi.prototype.constructor = gotchi;
+
+    return gotchi;
+
+  })();
+
 
   return {
-    config: config
+    create: function() {
+      return new Gotchi();
+    },
+    this: Gotchi
+
   };
 
-});
+}); 

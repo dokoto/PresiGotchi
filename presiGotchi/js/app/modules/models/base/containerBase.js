@@ -1,4 +1,4 @@
-define(['./modelBase'], function(modelBase) {
+define(['jquery', './modelBase'], function($, modelBase) {
   'use strict';
 
 
@@ -10,9 +10,9 @@ define(['./modelBase'], function(modelBase) {
   // PUBLIC
   //*****************************************************
   var ContainerBase = (function() {
-    function containerBase() {
+    function containerBase(options) {
       this._container = [];
-      this._model = modelBase.create();
+      this._model = modelBase.create(options);
     }
 
     containerBase.prototype.appendContainer = function(data) {
@@ -41,6 +41,42 @@ define(['./modelBase'], function(modelBase) {
 
     containerBase.prototype.cloneModel = function() {
       return modelBase.create(this._model._data);
+    };
+
+    containerBase.prototype.commit = function() {
+      var deferred = $.Deferred();
+
+      $.ajax({
+        type: 'POST',
+        url: this._rest + '/collection'
+        data: {
+          userID: this._userID,
+          collection: this._container,
+        }
+      }).done(function(response) {
+        deferred.resolve(response);
+      }).fail(function(error) {
+        deferred.reject(error);
+      });
+
+      return deferred.promise();
+    };
+    containerBase.prototype.fetch = function() {
+      var deferred = $.Deferred();
+
+      $.ajax({
+        type: 'GET',
+        url: this._rest + '/collection'
+        data: {
+          userID: this._userID,
+        }
+      }).done(function(response) {
+        deferred.resolve(response);
+      }).fail(function(error) {
+        deferred.reject(error);
+      });
+
+      return deferred.promise();
     };
 
     containerBase.prototype._appendContainer = function(data) {
@@ -95,8 +131,11 @@ define(['./modelBase'], function(modelBase) {
 
 
   return {
-    create: function() {
-      return new ContainerBase();
+    /*
+     * { restUrl: '', userID: ''}
+     */
+    create: function(options) {
+      return new ContainerBase(options);
     },
     this: ContainerBase
   };

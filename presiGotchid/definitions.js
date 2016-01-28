@@ -1,10 +1,10 @@
 'use strict';
 
 var express = require('express');
-var rfs = require('./routes/remotefilesystem/rfs');
+var gotchi = require('./routes/gotchi/gotchi');
 
 var router = express.Router();
 
-router.use('/', rfs);
+router.use('/', gotchi);
 
 module.exports = router;
