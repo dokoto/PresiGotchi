@@ -7,23 +7,23 @@ var Schema = require('mongoose').Schema;
 
 var schema = {
   email: {
-    type: [String],
+    type: String,
     trim: true,
     index: true,
     match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
   },
   name: {
-    type: [String],
+    type: String,
     trim: true,
     index: true
   },
   country: {
-    type: [String],
+    type: String,
     trim: true,
     index: true
   },
   type: {
-    type: [String],
+    type: String,
     required: true,
     uppercase: true,
     trim: true,
@@ -32,7 +32,7 @@ var schema = {
     default: 'POLITICIANS'
   },
   isDead: {
-    type: [Boolean],
+    type: Boolean,
     required: true,
     index: true
   },
@@ -95,7 +95,7 @@ var schema = {
 module.exports = {
   create: function() {
     var retSchema =  new Schema(schema);
-    //retSchema.index({email: 1, name: -1}, {unique: true});
+    retSchema.index({email: 1, name: 1}, {unique: true});
     retSchema.set('autoIndex', false );
 
     return retSchema;

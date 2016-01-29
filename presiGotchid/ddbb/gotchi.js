@@ -70,7 +70,8 @@ var Gotchi = (function() {
     var deferred = Q.defer();
     var gotchiModel = mongoose.model('Gotchi', gotchiSchema);
 
-    gotchiModel.find(query, function(error, response) {
+    gotchiModel.find(query)
+    .exec(function(error, response) {
       if (error) {
         deferred.reject(error);
       } else {
