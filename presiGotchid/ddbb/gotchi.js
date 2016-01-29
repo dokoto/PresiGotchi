@@ -2,117 +2,111 @@
 
 var Gotchi = (function() {
 
-      //*****************************************************
-      // PRIVATE AND SHARED OBJECTS
-      //*****************************************************
-      var mongoose = require('mongoose');
-      var gotchiSchema = require('../schemas/gotchi');
+  //*****************************************************
+  // PRIVATE AND SHARED OBJECTS
+  //*****************************************************
+  var mongoose = require('mongoose');
+  var gotchiSchema = require('../schemas/gotchi').create();
+  var Q = require('q');
 
 
-      //*****************************************************
-      // PUBLIC
-      //*****************************************************
-      function gotchi() {
-        mongoose.connect(Config.fetch('db', 'db.mongo.session.uri'));
+  //*****************************************************
+  // PUBLIC
+  //*****************************************************
+  function gotchi() {
+    mongoose.connect(Config.fetch('db', 'db.mongo.session.uri'));
+  }
+
+  gotchi.prototype.getModel = function(query) {
+    var deferred = Q.defer();
+    var gotchiModel = mongoose.model('gotchiModel', gotchiSchema);
+
+    gotchiModel.findOne(query, {}, function(error, docResponse) {
+      if (error) {
+        deferred.reject(error);
+      } else {
+        deferred.resolve(docResponse);
       }
+    });
 
-      gotchi.prototype.getModel = function(userID, gotchiID) {
-        var deferred = Q.defer();
-        var gotchiModel = mongoose.model('Gotchi', gotchiSchema);
+    return deferred.promise;
+  };
 
-        gotchiModel.find({
-          email: userID,
-          name: gotchiID
-        }, function(error, gotchi) {
-          if (error) {
-            deferred.reject(error);
-          } else {
-            deferred.resolve(gotchi);
-          }
-        });
+  gotchi.prototype.addModel = function(model) {
+    var deferred = Q.defer();
+    var gotchiModel = mongoose.model('gotchiModel', gotchiSchema);
+    var character = new gotchiModel(model);
 
-        return deferred.promise;
-      };
+    character.save(function(error, docResponse) {
+      if (error) {
+        deferred.reject(error);
+      } else {
+        deferred.resolve(docResponse);
+      }
+    });
 
-      gotchi.prototype.addModel = function((userID, gotchiID, model) {
-          var deferred = Q.defer();
-          var gotchiModel = new gotchiSchema(model);
+    return deferred.promise;
+  };
 
-          gotchiModel.save(function(error, numAffected) {
-            if (error) {
-              deferred.reject(error);
-            } else {
-              deferred.resolve(numAffected);
-            }
-          });
+  gotchi.prototype.updateModel = function(model) {
+    var deferred = Q.defer();
+    var gotchiModel = mongoose.model('gotchiModel', gotchiSchema);
 
-          return deferred.promise;
-        };
+    gotchiModel.findOneAndUpdate({
+      email: model.email,
+      name: model.name
+    }, model, {}, function(error, docResponse) {
+      if (error) {
+        deferred.reject(error);
+      } else {
+        deferred.resolve(docResponse);
+      }
+    });
 
-        gotchi.prototype.updateModel = function((userID, gotchiID, model) {
-            var deferred = Q.defer();
-            var gotchiModel = new gotchiSchema(model);
+    return deferred.promise;
+  };
 
-            gotchiModel.find({
-              email: userID,
-              name: gotchiID
-            }, function(error, gotchi) {
-              if (error) {
-                deferred.reject(error);
-              } else {
-                gotchi.save(function(error, numAffected) {
-                  if (error) {
-                    deferred.reject(error);
-                  } else {
-                    deferred.resolve(numAffected);
-                  }
-                });
-              }
-            });
+  gotchi.prototype.getCollection = function(query) {
+    var deferred = Q.defer();
+    var gotchiModel = mongoose.model('Gotchi', gotchiSchema);
 
-            return deferred.promise;
-          };
+    gotchiModel.find(query, function(error, response) {
+      if (error) {
+        deferred.reject(error);
+      } else {
+        deferred.resolve(response);
+      }
+    });
 
-          gotchi.prototype.getCollection = function(userID) {
-            var deferred = Q.defer();
-            var gotchiModel = mongoose.model('Gotchi', gotchiSchema);
+    return deferred.promise;
+  };
 
-            gotchiModel.find({
-              email: userID
-            }, function(error, gotchis) {
-              if (error) {
-                deferred.reject(error);
-              } else {
-                deferred.resolve(gotchis);
-              }
-            });
+  gotchi.prototype.addCollection = function(collection) {
+    var deferred = Q.defer();
+    var self = this;
+    var promeses = [];
 
-            return deferred.promise;
-          };
+    for (var i = 0; i < collection.length; i++) {
+        promeses.push(this.addModel(collection[i]));
+    }
 
-          gotchi.prototype.addCollection = function(userID, collection) {
-            var deferred = Q.defer();
-            var gotchiModel = mongoose.model('Gotchi', gotchiSchema);
+    Q.allSettled(promeses).then(function(response) {
+      deferred.resolve(response);
+    }, function(error) {
+      deferred.reject(error);
+    });
 
-            gotchiModel.collection.insert(collection, function(error, numAffected) {
-              if (error) {
-                deferred.reject(error);
-              } else {
-                deferred.resolve(numAffected);
-              }
-            });
+    return deferred.promise;
+  };
 
-            return deferred.promise;
-          };
+  return gotchi;
 
-          return gotchi;
-
-        })();
+})();
 
 
-      module.exports = {
-        create: function() {
-          return new Gotchi();
-        }
+module.exports = {
+  create: function() {
+    return new Gotchi();
+  }
 
-      };
+};

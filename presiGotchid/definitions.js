@@ -1,7 +1,7 @@
 'use strict';
 
 var express = require('express');
-var gotchi = require('./routes/gotchi/gotchi');
+var gotchi = require('./routes/characters/gotchi');
 
 var router = express.Router();
 

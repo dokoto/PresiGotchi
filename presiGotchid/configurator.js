@@ -28,13 +28,15 @@ var Configurator = (function() {
     this._rest = null;
     this._options = {};
     this._Global();
-    this.store = null;
+    this._store = null;
   };
 
   configurator.prototype.generate = function() {
     this._Options();
     this._SessionStorage();
-    this._Passport();
+    if (this._options.noAuth === false) {
+      this._Passport();
+    }
     this._Express();
     this._log4js();
     this._Definitions();
@@ -103,6 +105,13 @@ var Configurator = (function() {
     if (process.argv.indexOf("--noauth") !== -1) {
       this._options.noAuth = true;
     }
+
+    this._options.debug = false;
+    if (process.argv.indexOf("--debug") !== -1) {
+      this._options.noAuth = true;
+      this._options.nohttps = true;
+      this._options.nocluster = true;
+    }
   }
 
   configurator.prototype._showHelp = function() {
@@ -110,16 +119,17 @@ var Configurator = (function() {
     console.log('--nocluster [default cluster is on]');
     console.log('--nohttps [default is https]');
     console.log('--noauth [default is oAuth is on]');
+    console.log('--debug [default is debug off] Set --noauth, --nohttps, --nocluster ON');
   };
 
 
   configurator.prototype._SessionStorage = function() {
-    this.store = new mongoDBStore({
+    this._store = new mongoDBStore({
       uri: Config.fetch('db', 'db.mongo.session.uri'),
       collection: Config.fetch('db', 'db.mongo.session.collection')
     });
 
-    this.store.on('error', function(error) {
+    this._store.on('error', function(error) {
       assert.ifError(error);
       assert.ok(false);
     });
@@ -169,13 +179,13 @@ var Configurator = (function() {
   };
 
   configurator.prototype._Express = function() {
-    this.rest = express();
+    this._rest = express();
 
-    this.rest.use(bodyParser.urlencoded({
+    this._rest.use(bodyParser.urlencoded({
       extended: true
     }));
-    this.rest.use(methodOverride('X-HTTP-Method-Override'));
-    this.rest.use(session({
+    this._rest.use(methodOverride('X-HTTP-Method-Override'));
+    this._rest.use(session({
       secret: 'keyboard cat',
       resave: false,
       saveUninitialized: true,
@@ -183,17 +193,17 @@ var Configurator = (function() {
         secure: true,
         maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
       },
-      store: this.store
+      store: this._store
     }));
-    this.rest.use(passport.initialize());
-    this.rest.use(passport.session());
-    this.rest.use(express.static(__dirname + '/public'));
+    this._rest.use(passport.initialize());
+    this._rest.use(passport.session());
+    this._rest.use(express.static(__dirname + '/public'));
 
   };
 
   configurator.prototype._Definitions = function() {
     var definitions = require('./definitions');
-    this.rest.use('/', definitions);
+    this._rest.use('/', definitions);
   };
 
   return configurator;

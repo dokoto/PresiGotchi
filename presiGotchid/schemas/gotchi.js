@@ -6,8 +6,36 @@
 var Schema = require('mongoose').Schema;
 
 var schema = {
-  email: { type: [String], index: true },
-  name: { type: [String], index: true },
+  email: {
+    type: [String],
+    trim: true,
+    index: true,
+    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+  },
+  name: {
+    type: [String],
+    trim: true,
+    index: true
+  },
+  country: {
+    type: [String],
+    trim: true,
+    index: true
+  },
+  type: {
+    type: [String],
+    required: true,
+    uppercase: true,
+    trim: true,
+    index: true,
+    enum: ['POLITICIANS', 'DICTATORS', 'CELEBRITIES', 'RELIGIOUS'],
+    default: 'POLITICIANS'
+  },
+  isDead: {
+    type: [Boolean],
+    required: true,
+    index: true
+  },
   spriteSheet: {
     imagePath: String,
     boxSize: {
@@ -66,6 +94,10 @@ var schema = {
 
 module.exports = {
   create: function() {
-    return new new Schema(schema);
+    var retSchema =  new Schema(schema);
+    //retSchema.index({email: 1, name: -1}, {unique: true});
+    retSchema.set('autoIndex', false );
+
+    return retSchema;
   }
 };
