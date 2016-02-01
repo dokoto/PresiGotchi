@@ -12,8 +12,7 @@ define(['jquery'], function($) {
   //*****************************************************
   var ModelBase = (function() {
     function modelBase(options) {
-      this._restUrl: options.restUrl;
-      this._userID: options.restUrl;
+      this._options: options;
       this._data = {};
     }
 
@@ -34,15 +33,14 @@ define(['jquery'], function($) {
       this._set(prop, value);
     };
 
-    modelBase.prototype.commit = function() {
+    modelBase.prototype.updateDB = function() {
       var deferred = $.Deferred();
 
       $.ajax({
-        type: 'POST',
-        url: this._rest + '/model'
+        type: 'PUT',
+        url: this._options.restUrl + '/model'
         data: {
-          userID: this._userID,
-          model: this._data,
+          model: this._data
         }
       }).done(function(response) {
         deferred.resolve(response);
@@ -52,18 +50,57 @@ define(['jquery'], function($) {
 
       return deferred.promise();
     };
-    modelBase.prototype.fetch = function() {
+
+    modelBase.prototype.addDB = function() {
+      var deferred = $.Deferred();
+
+      $.ajax({
+        type: 'POST',
+        url: this._options.restUrl + '/model'
+        data: {
+          model: this._data
+        }
+      }).done(function(response) {
+        deferred.resolve(response);
+      }).fail(function(error) {
+        deferred.reject(error);
+      });
+
+      return deferred.promise();
+    };
+
+    modelBase.prototype.getDB = function() {
       var deferred = $.Deferred();
 
       $.ajax({
         type: 'GET',
-        url: this._rest + '/model'
+        url: this._options.restUrl + '/model'
         data: {
-          userID: this._userID,
-          gotchiID: this._data.gotchiID
+          email: this._data.email,
+          name: this._data.name
         }
       }).done(function(response) {
         deferred.resolve(response);
+      }).fail(function(error) {
+        deferred.reject(error);
+      });
+
+      return deferred.promise();
+    };
+
+    modelBase.prototype.syncDB = function() {
+      var deferred = $.Deferred();
+
+      $.ajax({
+        type: 'GET',
+        url: this._options.restUrl + '/model'
+        data: {
+          email: this._data.email,
+          name: this._data.name
+        }
+      }).done(function(response) {
+        this._data = response.value.model;
+        deferred.resolve(true);
       }).fail(function(error) {
         deferred.reject(error);
       });

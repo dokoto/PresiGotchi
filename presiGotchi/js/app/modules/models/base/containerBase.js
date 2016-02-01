@@ -43,14 +43,14 @@ define(['jquery', './modelBase'], function($, modelBase) {
       return modelBase.create(this._model._data);
     };
 
-    containerBase.prototype.commit = function() {
+
+    containerBase.prototype.updateDB = function() {
       var deferred = $.Deferred();
 
       $.ajax({
-        type: 'POST',
-        url: this._rest + '/collection'
+        type: 'PUT',
+        url: this._model._options.restUrl + '/collection'
         data: {
-          userID: this._userID,
           collection: this._container,
         }
       }).done(function(response) {
@@ -61,17 +61,51 @@ define(['jquery', './modelBase'], function($, modelBase) {
 
       return deferred.promise();
     };
-    containerBase.prototype.fetch = function() {
+
+    containerBase.prototype.addDB = function() {
+      var deferred = $.Deferred();
+
+      $.ajax({
+        type: 'POST',
+        url: this._model._options.restUrl + '/collection'
+        data: {
+          collection: this._container,
+        }
+      }).done(function(response) {
+        deferred.resolve(response);
+      }).fail(function(error) {
+        deferred.reject(error);
+      });
+
+      return deferred.promise();
+    };
+
+    containerBase.prototype.getDB = function(query) {
       var deferred = $.Deferred();
 
       $.ajax({
         type: 'GET',
-        url: this._rest + '/collection'
-        data: {
-          userID: this._userID,
-        }
+        url: this._model._options.restUrl + '/collection'
+        data: query
       }).done(function(response) {
         deferred.resolve(response);
+      }).fail(function(error) {
+        deferred.reject(error);
+      });
+
+      return deferred.promise();
+    };
+
+    containerBase.prototype.synctDB = function(query) {
+      var deferred = $.Deferred();
+
+      $.ajax({
+        type: 'GET',
+        url: this._model._options.restUrl + '/collection'
+        data: query
+      }).done(function(response) {
+        this._container = response.value.collection;
+        deferred.resolve(true);
       }).fail(function(error) {
         deferred.reject(error);
       });

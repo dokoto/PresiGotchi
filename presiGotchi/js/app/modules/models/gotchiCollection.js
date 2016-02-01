@@ -6,57 +6,86 @@ define(['./base/containerBase'], function(containerBase) {
   //*****************************************************
   /*
   {
-    name: 'presiGotchi',
+    email: {
+      type: String,
+      trim: true,
+      index: true,
+      match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+    },
+    name: {
+      type: String,
+      trim: true,
+      index: true
+    },
+    country: {
+      type: String,
+      trim: true,
+      index: true
+    },
+    type: {
+      type: String,
+      required: true,
+      uppercase: true,
+      trim: true,
+      index: true,
+      enum: ['POLITICIANS', 'DICTATORS', 'CELEBRITIES', 'RELIGIOUS'],
+      default: 'POLITICIANS'
+    },
+    isDead: {
+      type: Boolean,
+      required: true,
+      index: true
+    },
     spriteSheet: {
-      imagePath: 'assets/images/sprites/presiGotchi_temp_vec.png',
+      imagePath: String,
       boxSize: {
-        width: 27,
-        height: 28
+        width: Number,
+        height: Number
       },
       position: {
-        x: 0,
-        y: 0
+        x: Number,
+        y: Number
       },
-      frames: 6
+      frames: Number
     },
     actions: {
-      WAITING: 'WAITING'
+      WAITING: String
     },
     states: {
       HUNGRY: {
         live: {
-          status: 0.0,
-          top: 100.0,
-          bottom: 0.0,
-          decrease: 120.0
+          status: Number,
+          top: Number,
+          bottom: Number,
+          decrease: Number
         },
         time: {
-          interval: 120 * 1000,
-          elapsed: 0.0
+          interval: Number,
+          elapsed: Number
         }
       },
       THIRSTY: {
         live: {
-          status: 0.0,
-          top: 100.0,
-          bottom: 0.0,
-          decrease: 30.0
+          status: Number,
+          top: Number,
+          bottom: Number,
+          decrease: Number
         },
         time: {
-          interval: 20 * 1000,
-          elapsed: 0.0
+          interval: Number,
+          elapsed: Number
         }
       },
       SLEEPY: {
         live: {
-          status: 0.0,
-          top: 100.0,
-          bottom: 0.0,
-          decrease: 50.0
+          status: Number,
+          top: Number,
+          bottom: Number,
+          decrease: Number
         },
         time: {
-          interval: 480 * 1000,
-          elapsed: 0.0
+          interval: Number,
+          elapsed: Number
         }
       }
     }
