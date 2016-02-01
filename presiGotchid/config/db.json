@@ -4,5 +4,8 @@
   },
   "db.mongo.session.collection": {
     "value": "sessions"
+  },
+  "db.mongo.gotchi.collection": {
+    "value": "gotchimodels"
   }
 }

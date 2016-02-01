@@ -26,21 +26,22 @@
   "homepage": "https://github.com/dokoto/PresiGotchi",
   "devDependencies": {
     "body-parser": "^1.14.0",
+    "connect-mongodb-session": "^1.1.0",
     "express": "^4.13.3",
     "express-cluster": "0.0.4",
+    "express-session": "^1.13.0",
     "file-stream-rotator": "0.0.6",
     "log4js": "^0.6.27",
     "method-override": "^2.3.5",
+    "mongodb": "^2.1.4",
+    "mongoose": "^4.3.5",
     "node-apk-parser": "^0.2.3",
+    "passport": "^0.3.2",
+    "passport-google-oauth2": "^0.1.6",
     "q": "^1.4.1",
     "randomstring": "^1.1.0",
     "request": "^2.64.0",
     "shelljs": "^0.5.3",
-    "underscore": "^1.8.3",
-    "connect-mongodb-session": "^1.1.0",
-    "express-session": "^1.13.0",
-    "mongoose": "^4.3.5",
-    "passport": "^0.3.2",
-    "passport-google-oauth2": "^0.1.6"
+    "underscore": "^1.8.3"
   }
 }

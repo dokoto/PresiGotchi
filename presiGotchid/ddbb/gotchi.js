@@ -19,7 +19,7 @@ var Gotchi = (function() {
 
   gotchi.prototype.getModel = function(query) {
     var deferred = Q.defer();
-    var gotchiModel = mongoose.model('gotchiModel', gotchiSchema);
+    var gotchiModel = mongoose.model('gotchiModel', gotchiSchema, Config.fetch('db', 'db.mongo.gotchi.collection'));
 
     gotchiModel.findOne(query, {}, function(error, docResponse) {
       if (error) {
@@ -34,7 +34,7 @@ var Gotchi = (function() {
 
   gotchi.prototype.addModel = function(model) {
     var deferred = Q.defer();
-    var gotchiModel = mongoose.model('gotchiModel', gotchiSchema);
+    var gotchiModel = mongoose.model('gotchiModel', gotchiSchema, Config.fetch('db', 'db.mongo.gotchi.collection'));
     var character = new gotchiModel(model);
 
     character.save(function(error, docResponse) {
@@ -50,7 +50,7 @@ var Gotchi = (function() {
 
   gotchi.prototype.updateModel = function(model) {
     var deferred = Q.defer();
-    var gotchiModel = mongoose.model('gotchiModel', gotchiSchema);
+    var gotchiModel = mongoose.model('gotchiModel', gotchiSchema, Config.fetch('db', 'db.mongo.gotchi.collection'));
 
     gotchiModel.findOneAndUpdate({
       email: model.email,
@@ -68,10 +68,9 @@ var Gotchi = (function() {
 
   gotchi.prototype.getCollection = function(query) {
     var deferred = Q.defer();
-    var gotchiModel = mongoose.model('Gotchi', gotchiSchema);
+    var gotchiModel = mongoose.model('Gotchi', gotchiSchema, Config.fetch('db', 'db.mongo.gotchi.collection'));
 
-    gotchiModel.find(query)
-    .exec(function(error, response) {
+    gotchiModel.find().exec(function(error, response) {
       if (error) {
         deferred.reject(error);
       } else {
@@ -88,7 +87,25 @@ var Gotchi = (function() {
     var promeses = [];
 
     for (var i = 0; i < collection.length; i++) {
-        promeses.push(this.addModel(collection[i]));
+      promeses.push(this.addModel(collection[i]));
+    }
+
+    Q.allSettled(promeses).then(function(response) {
+      deferred.resolve(response);
+    }, function(error) {
+      deferred.reject(error);
+    });
+
+    return deferred.promise;
+  };
+
+  gotchi.prototype.updateCollection = function(collection) {
+    var deferred = Q.defer();
+    var self = this;
+    var promeses = [];
+
+    for (var i = 0; i < collection.length; i++) {
+      promeses.push(this.updateModel(collection[i]));
     }
 
     Q.allSettled(promeses).then(function(response) {
