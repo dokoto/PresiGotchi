@@ -13,7 +13,7 @@ define(['Phaser', 'jquery', 'modules/helpers/Logger', 'modules/helpers/Utils'], 
         }
     };
 
-    var MainMenu = function (game) {
+    var IntroMenu = function (game) {
         gamePtr = game;
     };
 
@@ -57,13 +57,13 @@ define(['Phaser', 'jquery', 'modules/helpers/Logger', 'modules/helpers/Utils'], 
         }
     };
 
-    MainMenu.prototype = {
-        constructor: MainMenu,
+    IntroMenu.prototype = {
+        constructor: IntroMenu,
         preload: preload,
         create: create,
         update: update
     };
 
-    return MainMenu;
+    return IntroMenu;
 
 });

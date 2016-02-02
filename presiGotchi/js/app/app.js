@@ -4,17 +4,17 @@ define(['jquery', 'modules/helpers/logger'], function($, Logger) {
 
   var run = function() {
 
-    require(['modules/config/game', 'modules/screens/stages/boot', 'modules/screens/menus/mainMenu', 'modules/screens/stages/one'], function(Game, BootProcess, MainMenu, StageONE) {
+    require(['modules/config/game', 'modules/screens/stages/boot', 'modules/screens/menus/introMenu', 'modules/screens/stages/one'], function(Game, BootProcess, IntroMenu, StageONE) {
 
       Logger.APP_TITLE('START: PRESIGOTCHI');
       $('#header-region').empty();
 
       var game = new Game.create();
       game.state.add('BootProcess', BootProcess);
-      game.state.add('MainMenu', MainMenu);
+      game.state.add('IntroMenu', IntroMenu);
       game.state.add('StageONE', StageONE);
 
-      game.state.start('BootProcess');      
+      game.state.start('BootProcess');
     });
 
   };
