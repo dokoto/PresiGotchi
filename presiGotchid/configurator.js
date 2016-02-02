@@ -125,8 +125,8 @@ var Configurator = (function() {
 
   configurator.prototype._SessionStorage = function() {
     this._store = new mongoDBStore({
-      uri: Config.fetch('db', 'db.mongo.session.uri'),
-      collection: Config.fetch('db', 'db.mongo.session.collection')
+      uri: Config.fetch('db', 'db.mongo.gotchi.uri'),
+      collection: Config.fetch('db', 'db.mongo.gotchi.collections.sessions')
     });
 
     this._store.on('error', function(error) {

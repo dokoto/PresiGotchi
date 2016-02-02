@@ -13,24 +13,22 @@ define(['Phaser', 'jquery', 'modules/helpers/logger', 'modules/models/gotchiColl
     return new gotchi();
   }
 
-  /*
-   * { restUrl: '', userID: '', gotchiID: ''}
-   */
+
   function gotchi(options) {
     this._gamePtr = null;
     this._gotchi = null;
-    this._collection = gotchiCollection.create(options);
-    this._model = this._collection.get(options.gotchiID);
+    this._model = null;
   }
 
   gotchi.prototype.switchGotchi = function(gotchiID) {
     this._model.commit();
     this._model = null;
-    this._model = this._collection.get(gotchiID);
+    this._model = this._gamePtr._collection.get(gotchiID);
   };
 
   gotchi.prototype.preload = function(game) {
     this._gamePtr = game;
+    this._model = game._collection.getByName('Mariano Rajoy');
     this._gamePtr.load.spritesheet(this._model.get('name'), this._model.get('spriteSheet.imagePath'), this._model.get('spriteSheet.boxSize.width'), this._model.get('spriteSheet.boxSize.height'), this._model.get('spriteSheet.frames'));
   };
 

@@ -44,10 +44,13 @@ window.onerror = function(message, file, line, col, error) {
     console.error(file + ' linea ' + line + ' - col ' + col);
 };
 
+
+
 require(['app'], function (PRESIGOTCHI) {
 
     'use strict';
 
+    PRESIGOTCHI.ajaxConf();
     PRESIGOTCHI.run();
 
 });

@@ -14,18 +14,30 @@ var Gotchi = (function() {
   // PUBLIC
   //*****************************************************
   function gotchi() {
-    mongoose.connect(Config.fetch('db', 'db.mongo.session.uri'));
+    mongoose.connect(Config.fetch('db', 'db.mongo.gotchi.uri'));
+    this._charactersCollectionName = Config.fetch('db', 'db.mongo.gotchi.collections.characters');
+    this._gotchiModelName = 'gotchiModel';
   }
 
   gotchi.prototype.getModel = function(query) {
     var deferred = Q.defer();
-    var gotchiModel = mongoose.model('gotchiModel', gotchiSchema, Config.fetch('db', 'db.mongo.gotchi.collection'));
+    var gotchiModel = mongoose.model(this._gotchiModelName, gotchiSchema, this._charactersCollectionName);
 
-    gotchiModel.findOne(query, {}, function(error, docResponse) {
+    gotchiModel.findOne(query, {}, function(error, response) {
       if (error) {
         deferred.reject(error);
       } else {
-        deferred.resolve(docResponse);
+        if (response === null) {
+          deferred.resolve({
+            data: new gotchiModel(),
+            isNew: true
+          });
+        } else {
+          deferred.resolve({
+            data: response,
+            isNew: false
+          });
+        }
       }
     });
 
@@ -34,14 +46,17 @@ var Gotchi = (function() {
 
   gotchi.prototype.addModel = function(model) {
     var deferred = Q.defer();
-    var gotchiModel = mongoose.model('gotchiModel', gotchiSchema, Config.fetch('db', 'db.mongo.gotchi.collection'));
+    var gotchiModel = mongoose.model(this._gotchiModelName, gotchiSchema, this._charactersCollectionName);
     var character = new gotchiModel(model);
 
-    character.save(function(error, docResponse) {
+    character.save(function(error, response) {
       if (error) {
         deferred.reject(error);
       } else {
-        deferred.resolve(docResponse);
+        deferred.resolve({
+          data: response,
+          isNew: false
+        });
       }
     });
 
@@ -50,16 +65,19 @@ var Gotchi = (function() {
 
   gotchi.prototype.updateModel = function(model) {
     var deferred = Q.defer();
-    var gotchiModel = mongoose.model('gotchiModel', gotchiSchema, Config.fetch('db', 'db.mongo.gotchi.collection'));
+    var gotchiModel = mongoose.model(this._gotchiModelName, gotchiSchema, this._charactersCollectionName);
 
     gotchiModel.findOneAndUpdate({
       email: model.email,
       name: model.name
-    }, model, {}, function(error, docResponse) {
+    }, model, {}, function(error, response) {
       if (error) {
         deferred.reject(error);
       } else {
-        deferred.resolve(docResponse);
+        deferred.resolve({
+          data: response,
+          isNew: false
+        });
       }
     });
 
@@ -68,13 +86,25 @@ var Gotchi = (function() {
 
   gotchi.prototype.getCollection = function(query) {
     var deferred = Q.defer();
-    var gotchiModel = mongoose.model('Gotchi', gotchiSchema, Config.fetch('db', 'db.mongo.gotchi.collection'));
+    var gotchiModel = mongoose.model(this._gotchiModelName, gotchiSchema, this._charactersCollectionName);
 
     gotchiModel.find().exec(function(error, response) {
       if (error) {
         deferred.reject(error);
       } else {
-        deferred.resolve(response);
+        if (response.length === 0) {
+          response.push(new gotchiModel());
+          deferred.resolve({
+            data: response,
+            isNew: true
+          });
+        } else {
+          deferred.resolve({
+            data: response,
+            isNew: false
+          });
+        }
+
       }
     });
 
@@ -91,7 +121,10 @@ var Gotchi = (function() {
     }
 
     Q.allSettled(promeses).then(function(response) {
-      deferred.resolve(response);
+      deferred.resolve({
+        data: response,
+        isNew: false
+      });
     }, function(error) {
       deferred.reject(error);
     });
@@ -109,7 +142,10 @@ var Gotchi = (function() {
     }
 
     Q.allSettled(promeses).then(function(response) {
-      deferred.resolve(response);
+      deferred.resolve({
+        data: response,
+        isNew: false
+      });
     }, function(error) {
       deferred.reject(error);
     });

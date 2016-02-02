@@ -1,4 +1,4 @@
-define(['./base/containerBase'], function(containerBase) {
+define(['./base/collectionBase'], function(collectionBase) {
   'use strict';
 
   //*****************************************************
@@ -95,14 +95,14 @@ define(['./base/containerBase'], function(containerBase) {
   // PUBLIC
   //*****************************************************
   var Gotchi = (function() {
-    function gotchi() {
-      containerBase.this.call(this);
+    function gotchi(options) {
+      collectionBase.this.call(this, options);
     }
 
     // No hay problema con la comparticion de memoria de "_model" ya que baseModel
     // clona el objeto es si mismo. "_model" solo se usa como patron de estructura
     // no para contener datos, los datos se continene por instancia dentro de baseModel
-    gotchi.prototype = containerBase.create();
+    gotchi.prototype = collectionBase.create();
     gotchi.prototype.constructor = gotchi;
 
     return gotchi;
@@ -111,8 +111,8 @@ define(['./base/containerBase'], function(containerBase) {
 
 
   return {
-    create: function() {
-      return new Gotchi();
+    create: function(options) {
+      return new Gotchi(options);
     },
     this: Gotchi
 

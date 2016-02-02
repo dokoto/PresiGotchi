@@ -12,7 +12,7 @@ define(['jquery'], function($) {
   //*****************************************************
   var ModelBase = (function() {
     function modelBase(options) {
-      this._options: options;
+      this._options = options;
       this._data = {};
     }
 
@@ -25,8 +25,7 @@ define(['jquery'], function($) {
     };
 
     modelBase.prototype.get = function(prop) {
-      //return this._get(prop);
-      return this.__getPath(this._data, prop);
+      return this._getPath(this._data, prop);
     };
 
     modelBase.prototype.set = function(prop, value) {
@@ -38,14 +37,19 @@ define(['jquery'], function($) {
 
       $.ajax({
         type: 'PUT',
-        url: this._options.restUrl + '/model'
+        url: this._options.restUrl + '/model',
         data: {
           model: this._data
         }
       }).done(function(response) {
-        deferred.resolve(response);
+        deferred.resolve({
+          success: true
+        });
       }).fail(function(error) {
-        deferred.reject(error);
+        deferred.reject({
+          success: false,
+          err: error
+        });
       });
 
       return deferred.promise();
@@ -56,25 +60,31 @@ define(['jquery'], function($) {
 
       $.ajax({
         type: 'POST',
-        url: this._options.restUrl + '/model'
+        url: this._options.restUrl + '/model',
         data: {
           model: this._data
         }
       }).done(function(response) {
-        deferred.resolve(response);
+        deferred.resolve({
+          success: true
+        });
       }).fail(function(error) {
-        deferred.reject(error);
+        deferred.reject({
+          success: false,
+          err: error
+        });
       });
 
       return deferred.promise();
     };
 
+    /*
     modelBase.prototype.getDB = function() {
       var deferred = $.Deferred();
 
       $.ajax({
         type: 'GET',
-        url: this._options.restUrl + '/model'
+        url: this._options.restUrl + '/model',
         data: {
           email: this._data.email,
           name: this._data.name
@@ -86,23 +96,33 @@ define(['jquery'], function($) {
       });
 
       return deferred.promise();
-    };
+    };*/
 
     modelBase.prototype.syncDB = function() {
       var deferred = $.Deferred();
+      var self = this;
 
       $.ajax({
         type: 'GET',
-        url: this._options.restUrl + '/model'
+        url: this._options.restUrl + '/model',
         data: {
           email: this._data.email,
           name: this._data.name
         }
       }).done(function(response) {
-        this._data = response.value.model;
-        deferred.resolve(true);
+        if (response.isNew === true) {
+          console.log('DDBB does not exist, synchronizing a void model');
+        } else {
+          self._container = response.value.model;
+        }
+        deferred.resolve({
+          success: true
+        });
       }).fail(function(error) {
-        deferred.reject(error);
+        deferred.reject({
+          success: false,
+          err: error
+        });
       });
 
       return deferred.promise();
