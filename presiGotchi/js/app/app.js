@@ -3,15 +3,17 @@ define(['jquery', 'modules/helpers/logger'], function($, Logger) {
   'use strict';
 
   var run = function() {
-
-    require(['modules/config/game', 'modules/screens/stages/boot', 'modules/screens/menus/introMenu', 'modules/screens/stages/one'], function(Game, BootProcess, IntroMenu, StageONE) {
+    $('#header-region').hide();
+    require(['modules/config/game', 'modules/screens/stages/boot', 'modules/screens/menus/intro', 'modules/screens/menus/options', 'modules/screens/menus/select', 'modules/screens/stages/one'],
+    function(Game, BootProcess, IntroMenu, OptionsMenu, SelectMenu, StageONE) {
 
       Logger.APP_TITLE('START: PRESIGOTCHI');
-      $('#header-region').empty();
 
       var game = new Game.create();
       game.state.add('BootProcess', BootProcess);
       game.state.add('IntroMenu', IntroMenu);
+      game.state.add('OptionsMenu', OptionsMenu);
+      game.state.add('SelectMenu', SelectMenu);
       game.state.add('StageONE', StageONE);
 
       game.state.start('BootProcess');

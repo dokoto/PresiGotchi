@@ -3,11 +3,21 @@ requirejs.config({
         domReady: '../vendor/domReady/domReady',
         Phaser: '../vendor/phaser/build/phaser.min',
         jquery: '../vendor/jquery/dist/jquery.min',
-        hammer: '../vendor/hammer/hammer.min'
+        hammer: '../vendor/hammer/hammer.min',
+        freewall: '../vendor/freewall/freewall',
+        underscore: '../vendor/underscore/underscore-min',
+        text: '../vendor/text/text'
     },
     shim: {
         hammer: {
             exports: 'Hammer'
+        },
+        freewall: {
+          deps: ['jquery'],
+          exports: 'freewall'
+        },
+        underscore: {
+          exports: '_'
         }
     }
 });

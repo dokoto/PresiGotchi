@@ -1,4 +1,4 @@
-define(['Phaser', 'jquery', 'modules/helpers/Logger', 'modules/helpers/Utils'], function (Phaser, $, Logger, Utils) {
+define(['Phaser', 'jquery'], function (Phaser, $) {
 
     var gamePtr = null;
     var text = {
@@ -13,12 +13,12 @@ define(['Phaser', 'jquery', 'modules/helpers/Logger', 'modules/helpers/Utils'], 
         }
     };
 
-    var IntroMenu = function (game) {
+    var Intro = function (game) {
         gamePtr = game;
     };
 
     var preload = function () {
-
+      $('#container-region').show();
     };
 
     var create = function () {
@@ -42,7 +42,8 @@ define(['Phaser', 'jquery', 'modules/helpers/Logger', 'modules/helpers/Utils'], 
 
     var nextStage = function() {
         console.log('Next Stage');
-        gamePtr.state.start('StageONE');
+        $('#container-region').hide();
+        gamePtr.state.start('SelectMenu');
     };
 
     var update = function () {
@@ -57,13 +58,13 @@ define(['Phaser', 'jquery', 'modules/helpers/Logger', 'modules/helpers/Utils'], 
         }
     };
 
-    IntroMenu.prototype = {
-        constructor: IntroMenu,
+    Intro.prototype = {
+        constructor: Intro,
         preload: preload,
         create: create,
         update: update
     };
 
-    return IntroMenu;
+    return Intro;
 
 });

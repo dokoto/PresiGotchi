@@ -10,7 +10,7 @@ define(['Phaser', 'jquery', 'modules/models/gotchiCollection'], function (Phaser
     var self = this;
     this._gamePtr._collection = gotchiCollection.create({restUrl: 'http://127.0.0.1:46969/gotchi'});
     $.when(this._gamePtr._collection.syncDB()).done(function(data, textStatus, jqXHR) {
-      self._gamePtr.state.start('MainMenu');
+      self._gamePtr.state.start('IntroMenu');
     }).fail(function(error) {
       console.error(error);
     });
