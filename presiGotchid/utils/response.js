@@ -40,14 +40,15 @@ var Response = (function () {
     Q.when(promise, function(responseDoc) {
       if (responseDoc) {
         var resp = {};
-        if (Array.isArray(responseDoc) === true) {
+        if (Array.isArray(responseDoc.data) === true) {
           resp.collection = [];
-          for (var i = 0; i < responseDoc.length; i++) {
-            resp.collection.push( (responseDoc[i].value)? responseDoc[i].value.toJSON():responseDoc[i].toJSON() );
+          for (var i = 0; i < responseDoc.data.length; i++) {
+            resp.collection.push( (responseDoc.data[i].value) ? responseDoc.data[i].value.data.toJSON() : responseDoc.data[i].toJSON() );
           }
         } else {
-          resp.model = responseDoc.toJSON();
+          resp.model = responseDoc.data.toJSON();
         }
+        resp.isNew = responseDoc.isNew;
         self.standardWithValue(servResponse, '200', 'OK', resp);
       } else {
         self.standardWithValue(servResponse, '200', 'ERROR', {

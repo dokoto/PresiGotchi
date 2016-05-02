@@ -1,5 +1,3 @@
-'use strict';
-
 //*****************************************************
 // PRIVATE AND SHARED OBJECTS
 //*****************************************************
@@ -10,17 +8,20 @@ var schema = {
     type: String,
     trim: true,
     index: true,
-    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'],
+    default: ''
   },
   name: {
     type: String,
     trim: true,
-    index: true
+    index: true,
+    default: ''
   },
   country: {
     type: String,
     trim: true,
-    index: true
+    index: true,
+    default: ''
   },
   description: {
     type: String
@@ -32,63 +33,157 @@ var schema = {
     trim: true,
     index: true,
     enum: ['POLITICIANS', 'DICTATORS', 'CELEBRITIES', 'RELIGIOUS'],
-    default: 'POLITICIANS'
+    default: ''
   },
   isDead: {
     type: Boolean,
     required: true,
-    index: true
+    index: true,
+    default: false
+  },
+  thumb: {
+    height: {
+      type: Number,
+      default: 0.0
+    },
+    width: {
+      type: Number,
+      default: 0.0
+    },
+    url: {
+      type: String,
+      default: ''
+    },
+    credit: {
+      type: String,
+      default: ''
+    }
   },
   spriteSheet: {
-    imagePath: String,
+    imagePath: {
+      type: String,
+      default: ''
+    },
     boxSize: {
-      width: Number,
-      height: Number
+      width: {
+        type: Number,
+        default: 0.0
+      },
+      height: {
+        type: Number,
+        default: 0.0
+      }
     },
     position: {
-      x: Number,
-      y: Number
+      x: {
+        type: Number,
+        default: 0.0
+      },
+      y: {
+        type: Number,
+        default: 0.0
+      }
     },
-    frames: Number
+    frames: {
+      type: Number,
+      default: 0.0
+    }
   },
   actions: {
-    WAITING: String
+    WAITING: {
+      type: String,
+      default: ''
+    }
   },
   states: {
     HUNGRY: {
       live: {
-        status: Number,
-        top: Number,
-        bottom: Number,
-        decrease: Number
+        status: {
+          type: Number,
+          default: 0.0
+        },
+        top: {
+          type: Number,
+          default: 0.0
+        },
+        bottom: {
+          type: Number,
+          default: 0.0
+        },
+        decrease: {
+          type: Number,
+          default: 0.0
+        }
       },
       time: {
-        interval: Number,
-        elapsed: Number
+        interval: {
+          type: Number,
+          default: 0.0
+        },
+        elapsed: {
+          type: Number,
+          default: 0.0
+        }
       }
     },
     THIRSTY: {
       live: {
-        status: Number,
-        top: Number,
-        bottom: Number,
-        decrease: Number
+        status: {
+          type: Number,
+          default: 0.0
+        },
+        top: {
+          type: Number,
+          default: 0.0
+        },
+        bottom: {
+          type: Number,
+          default: 0.0
+        },
+        decrease: {
+          type: Number,
+          default: 0.0
+        }
       },
       time: {
-        interval: Number,
-        elapsed: Number
+        interval: {
+          type: Number,
+          default: 0.0
+        },
+        elapsed: {
+          type: Number,
+          default: 0.0
+        }
       }
     },
     SLEEPY: {
       live: {
-        status: Number,
-        top: Number,
-        bottom: Number,
-        decrease: Number
+        status: {
+          type: Number,
+          default: 0.0
+        },
+        top: {
+          type: Number,
+          default: 0.0
+        },
+        bottom: {
+          type: Number,
+          default: 0.0
+        },
+        decrease: {
+          type: Number,
+          default: 0.0
+        }
       },
       time: {
-        interval: Number,
-        elapsed: Number
+        interval: {
+          type: Number,
+          default: 0.0
+        },
+        elapsed: {
+          type: Number,
+          default: 0.0
+        }
       }
     }
   }

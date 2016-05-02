@@ -3,11 +3,22 @@ requirejs.config({
         domReady: '../vendor/domReady/domReady',
         Phaser: '../vendor/phaser/build/phaser.min',
         jquery: '../vendor/jquery/dist/jquery.min',
-        hammer: '../vendor/hammer/hammer.min'
+        hammer: '../vendor/hammer/hammer.min',
+        freewall: '../vendor/freewall/freewall',
+        underscore: '../vendor/underscore/underscore-min',
+        text: '../vendor/text/text',
+        json: '../vendor/requirejs-plugins/src/json',
     },
     shim: {
         hammer: {
             exports: 'Hammer'
+        },
+        freewall: {
+          deps: ['jquery'],
+          exports: 'freewall'
+        },
+        underscore: {
+          exports: '_'
         }
     }
 });
@@ -44,10 +55,13 @@ window.onerror = function(message, file, line, col, error) {
     console.error(file + ' linea ' + line + ' - col ' + col);
 };
 
+
+
 require(['app'], function (PRESIGOTCHI) {
 
     'use strict';
 
+    PRESIGOTCHI.ajaxConf();
     PRESIGOTCHI.run();
 
 });

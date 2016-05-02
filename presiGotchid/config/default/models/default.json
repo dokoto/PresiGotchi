@@ -5,6 +5,12 @@
     "description": "Capitalistium zopencus",
     "type": "POLITICIANS",
     "isDead": false,
+    "thumb": {
+        "height": 100,
+        "width": 100,
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Mariano_Rajoy_2005_%28cropped%29.jpg",
+        "credit": "Por European People&#039;s Party [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], undefined"
+    },
     "spriteSheet": {
         "imagePath": "assets/images/sprites/presiGotchi_temp_vec.png",
         "boxSize": {
@@ -65,6 +71,12 @@
     "description": "Borregum clonicus",
     "type": "POLITICIANS",
     "isDead": false,
+    "thumb": {
+        "height": 100,
+        "width": 100,
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Pedro_S%C3%A1nchez_2015b_%28cropped%29.jpg",
+        "credit": "Por psoe extremadura [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], undefined"
+    },
     "spriteSheet": {
         "imagePath": "assets/images/sprites/presiGotchi_temp_vec.png",
         "boxSize": {

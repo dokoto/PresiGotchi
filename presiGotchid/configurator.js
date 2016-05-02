@@ -1,4 +1,4 @@
-var Configurator = (function() {
+var ConfiguratorWrapper = (function() {
     'use strict';
 
     //*****************************************************
@@ -23,14 +23,14 @@ var Configurator = (function() {
     /*
      * collections = {collectionKey, pathConfigFile}
      */
-    function configurator(collections) {
+    function Configurator(collections) {
         this._rest = null;
         this._options = {};
         this._Global();
         this._store = null;
-    };
+    }
 
-    configurator.prototype.generate = function() {
+    Configurator.prototype.generate = function() {
         this._Options();
         this._SessionStorage();
         if (this._options.noAuth === false) {
@@ -44,10 +44,10 @@ var Configurator = (function() {
         return {
             app: this._rest,
             options: this._options
-        }
+        };
     };
 
-    configurator.prototype._Global = function() {
+    Configurator.prototype._Global = function() {
         global.Base = process.cwd();
         global.Config = require('./utils/Config').create([{
             collectionKey: 'connection',
@@ -71,12 +71,12 @@ var Configurator = (function() {
                 return next();
             }
             Logger.info('User not authenticated');
-            res.redirect('/noauth')
+            res.redirect('/noauth');
         };
 
     };
 
-    configurator.prototype._Options = function() {
+    Configurator.prototype._Options = function() {
         /*
          * ALERTA !!! HAY QUE REGENERAR LAS KEYS
          * - openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365
@@ -119,7 +119,7 @@ var Configurator = (function() {
         }
     };
 
-    configurator.prototype._showHelp = function() {
+    Configurator.prototype._showHelp = function() {
         console.log('$> restestd [options]');
         console.log('--nocluster [default cluster is on]');
         console.log('--nohttps [default is https]');
@@ -129,7 +129,7 @@ var Configurator = (function() {
     };
 
 
-    configurator.prototype._SessionStorage = function() {
+    Configurator.prototype._SessionStorage = function() {
         this._store = new mongoDBStore({
             uri: Config.fetch('db', 'db.mongo.session.uri'),
             collection: Config.fetch('db', 'db.mongo.session.collection')
@@ -141,7 +141,7 @@ var Configurator = (function() {
         });
     };
 
-    configurator.prototype._initActions = function() {
+    Configurator.prototype._initActions = function() {
         if (this._options.initdb === true) {
             var gotchiDB = require('./ddbb/gotchi').create();
             var defaultModels = require('./config/default/models/default.json');
@@ -153,7 +153,20 @@ var Configurator = (function() {
         }
     };
 
-    configurator.prototype._Passport = function() {
+    Configurator.prototype._SessionStorage = function() {
+        this._store = new mongoDBStore({
+            uri: Config.fetch('db', 'db.mongo.gotchi.uri'),
+            collection: Config.fetch('db', 'db.mongo.gotchi.collections.sessions')
+        });
+
+        this._store.on('error', function(error) {
+            assert.ifError(error);
+            assert.ok(false);
+        });
+    };
+
+
+    Configurator.prototype._Passport = function() {
         // Passport session setup.
         //   To support persistent login sessions, Passport needs to be able to
         //   serialize users into and deserialize users out of the session.  Typically,
@@ -186,16 +199,16 @@ var Configurator = (function() {
         ));
     };
 
-    configurator.prototype._log4js = function() {
+    Configurator.prototype._log4js = function() {
         var log4js = require('log4js');
-        fs.existsSync('log') || fs.mkdirSync('log')
+        if (fs.existsSync('log') === false) {
+          fs.mkdirSync('log');
+        }
         log4js.configure('./config/log4js.json');
-
         global.Logger = log4js.getLogger(app.info().name.toUpperCase());
-
     };
 
-    configurator.prototype._Express = function() {
+    Configurator.prototype._Express = function() {
         this._rest = express();
 
         this._rest.use(bodyParser.urlencoded({
@@ -218,19 +231,19 @@ var Configurator = (function() {
 
     };
 
-    configurator.prototype._Definitions = function() {
+    Configurator.prototype._Definitions = function() {
         var definitions = require('./definitions');
         this._rest.use('/', definitions);
     };
 
-    return configurator;
+    return Configurator;
 
 })();
 
 
 module.exports = {
     create: function() {
-        return new Configurator();
+        return new ConfiguratorWrapper();
     }
 
 };

@@ -1,0 +1,4 @@
+<% _.each(gotchiCollection, function(gotchi) { %>
+  <div data-id="<%= gotchi.name %>" class='item' style='width:<%= gotchi.thumb.width%>px; height: <%= gotchi.thumb.height%>px; background-image: url(<%= gotchi.thumb.url%>);'>
+  </div>
+<% }); %>

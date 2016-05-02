@@ -1,11 +1,11 @@
 {
-  "db.mongo.session.uri": {
-    "value": "mongodb://localhost:27017/presigotchi"
+  "db.mongo.gotchi.uri": {
+    "value": "mongodb://localhost:27017/Gotchi"
   },
-  "db.mongo.session.collection": {
-    "value": "gotchiSessions"
+  "db.mongo.gotchi.collections.sessions": {
+    "value": "Sessions"
   },
-  "db.mongo.gotchi.collection": {
-    "value": "gotchiModels"
+  "db.mongo.gotchi.collections.characters": {
+    "value": "Characters"
   }
 }

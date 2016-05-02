@@ -1,6 +1,7 @@
-define(['Phaser', 'jquery', 'modules/helpers/Logger', 'modules/helpers/Utils'], function (Phaser, $, Logger, Utils) {
+define(['Phaser', 'jquery'], function (Phaser, $) {
 
     var gamePtr = null;
+    var gotchiCollection = null;
     var text = {
         consts: {
             title: 'PresiGotchi',
@@ -13,12 +14,16 @@ define(['Phaser', 'jquery', 'modules/helpers/Logger', 'modules/helpers/Utils'], 
         }
     };
 
-    var MainMenu = function (game) {
+    var Intro = function (game) {
         gamePtr = game;
     };
 
-    var preload = function () {
+    var init = function(collection) {
+        gotchiCollection = collection;
+    };
 
+    var preload = function () {
+      $('#container-region').show();
     };
 
     var create = function () {
@@ -42,7 +47,8 @@ define(['Phaser', 'jquery', 'modules/helpers/Logger', 'modules/helpers/Utils'], 
 
     var nextStage = function() {
         console.log('Next Stage');
-        gamePtr.state.start('SelectCharacterOptionMenu');
+        $('#container-region').hide();
+        gamePtr.state.start('SelectMenu', true, false, gotchiCollection);
     };
 
     var update = function () {
@@ -57,13 +63,14 @@ define(['Phaser', 'jquery', 'modules/helpers/Logger', 'modules/helpers/Utils'], 
         }
     };
 
-    MainMenu.prototype = {
-        constructor: MainMenu,
+    Intro.prototype = {
+        constructor: Intro,
         preload: preload,
         create: create,
-        update: update
+        update: update,
+        init: init
     };
 
-    return MainMenu;
+    return Intro;
 
 });
