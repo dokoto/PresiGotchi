@@ -1,0 +1,121 @@
+[{
+    "email": "presigotchid@gmail.com",
+    "name": "Morinum Rajor",
+    "country": "Corruptania",
+    "description": "Capitalistium zopencus",
+    "type": "POLITICIANS",
+    "isDead": false,
+    "spriteSheet": {
+        "imagePath": "assets/images/sprites/presiGotchi_temp_vec.png",
+        "boxSize": {
+            "width": 27,
+            "height": 28
+        },
+        "position": {
+            "x": 0,
+            "y": 0
+        },
+        "frames": 6
+    },
+    "actions": {
+        "WAITING": "WAITING"
+    },
+    "states": {
+        "HUNGRY": {
+            "live": {
+                "status": 100,
+                "top": 150,
+                "bottom": 0,
+                "decrease": 10
+            },
+            "time": {
+                "interval": 35000,
+                "elapsed": 0
+            }
+        },
+        "THIRSTY": {
+            "live": {
+                "status": 100,
+                "top": 150,
+                "bottom": 0,
+                "decrease": 10
+            },
+            "time": {
+                "interval": 15000,
+                "elapsed": 0
+            }
+        },
+        "SLEEPY": {
+            "live": {
+                "status": 100,
+                "top": 150,
+                "bottom": 0,
+                "decrease": 10
+            },
+            "time": {
+                "interval": 92000,
+                "elapsed": 0
+            }
+        }
+    }
+}, {
+    "email": "presigotchid@gmail.com",
+    "name": "Pecor Sancha",
+    "country": "Corruptania",
+    "description": "Borregum clonicus",
+    "type": "POLITICIANS",
+    "isDead": false,
+    "spriteSheet": {
+        "imagePath": "assets/images/sprites/presiGotchi_temp_vec.png",
+        "boxSize": {
+            "width": 27,
+            "height": 28
+        },
+        "position": {
+            "x": 0,
+            "y": 0
+        },
+        "frames": 6
+    },
+    "actions": {
+        "WAITING": "WAITING"
+    },
+    "states": {
+        "HUNGRY": {
+            "live": {
+                "status": 100,
+                "top": 150,
+                "bottom": 0,
+                "decrease": 10
+            },
+            "time": {
+                "interval": 35000,
+                "elapsed": 0
+            }
+        },
+        "THIRSTY": {
+            "live": {
+                "status": 100,
+                "top": 150,
+                "bottom": 0,
+                "decrease": 10
+            },
+            "time": {
+                "interval": 15000,
+                "elapsed": 0
+            }
+        },
+        "SLEEPY": {
+            "live": {
+                "status": 100,
+                "top": 150,
+                "bottom": 0,
+                "decrease": 10
+            },
+            "time": {
+                "interval": 92000,
+                "elapsed": 0
+            }
+        }
+    }
+}]

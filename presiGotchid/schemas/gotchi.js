@@ -22,6 +22,9 @@ var schema = {
     trim: true,
     index: true
   },
+  description: {
+    type: String
+  },
   type: {
     type: String,
     required: true,

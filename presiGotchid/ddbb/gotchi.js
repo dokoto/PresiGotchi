@@ -8,14 +8,22 @@ var Gotchi = (function() {
   var mongoose = require('mongoose');
   var gotchiSchema = require('../schemas/gotchi').create();
   var Q = require('q');
+  var db = null;
 
 
   //*****************************************************
   // PUBLIC
   //*****************************************************
   function gotchi() {
-    mongoose.connect(Config.fetch('db', 'db.mongo.session.uri'));
+    if (db === null) {
+      db = mongoose.connect(Config.fetch('db', 'db.mongo.session.uri'));
+    }
   }
+
+  gotchi.prototype.desconect = function() {
+      mongoose.connection.close();
+      db = null;
+  };
 
   gotchi.prototype.getModel = function(query) {
     var deferred = Q.defer();

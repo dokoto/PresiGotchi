@@ -1,163 +1,163 @@
 define(['jquery'], function($) {
-  'use strict';
+    'use strict';
 
 
-  //*****************************************************
-  // PRIVATE AND SHARED MEMORY OBJECTS
-  //*****************************************************
+    //*****************************************************
+    // PRIVATE AND SHARED MEMORY OBJECTS
+    //*****************************************************
 
 
-  //*****************************************************
-  // PUBLIC
-  //*****************************************************
-  var ModelBase = (function() {
-    function modelBase(options) {
-      this._options: options;
-      this._data = {};
-    }
-
-    modelBase.prototype.insert = function(data) {
-      this._insert(data);
-    };
-
-    modelBase.prototype.delete = function(prop) {
-      return this._delete(prop);
-    };
-
-    modelBase.prototype.get = function(prop) {
-      //return this._get(prop);
-      return this.__getPath(this._data, prop);
-    };
-
-    modelBase.prototype.set = function(prop, value) {
-      this._set(prop, value);
-    };
-
-    modelBase.prototype.updateDB = function() {
-      var deferred = $.Deferred();
-
-      $.ajax({
-        type: 'PUT',
-        url: this._options.restUrl + '/model'
-        data: {
-          model: this._data
+    //*****************************************************
+    // PUBLIC
+    //*****************************************************
+    var ModelBaseWrapper = (function() {
+        function ModelBase(options) {
+            this._options = options;
+            this._data = options.data || {};
         }
-      }).done(function(response) {
-        deferred.resolve(response);
-      }).fail(function(error) {
-        deferred.reject(error);
-      });
 
-      return deferred.promise();
+        ModelBase.prototype.insert = function(data) {
+            this._insert(data);
+        };
+
+        ModelBase.prototype.delete = function(prop) {
+            return this._delete(prop);
+        };
+
+        ModelBase.prototype.get = function(prop) {
+            return this._get(prop);
+        };
+
+        ModelBase.prototype.set = function(prop, value) {
+            this._set(prop, value);
+        };
+
+        ModelBase.prototype.cloneModel = function() {
+            return modelBase.create(this._options);
+        };
+
+        ModelBase.prototype.updateDB = function() {
+            var deferred = $.Deferred();
+
+            $.ajax({
+                type: 'PUT',
+                url: this._options.restUrl + '/model',
+                data: {
+                    model: this._data
+                }
+            }).done(function(response) {
+                deferred.resolve(response);
+            }).fail(function(error) {
+                deferred.reject(error);
+            });
+
+            return deferred.promise();
+        };
+
+        ModelBase.prototype.addDB = function() {
+            var deferred = $.Deferred();
+
+            $.ajax({
+                type: 'POST',
+                url: this._options.restUrl + '/model',
+                data: {
+                    model: this._data
+                }
+            }).done(function(response) {
+                deferred.resolve(response);
+            }).fail(function(error) {
+                deferred.reject(error);
+            });
+
+            return deferred.promise();
+        };
+
+        ModelBase.prototype.getDB = function() {
+            var deferred = $.Deferred();
+
+            $.ajax({
+                type: 'GET',
+                url: this._options.restUrl + '/model',
+                data: {
+                    email: this._data.email,
+                    name: this._data.name
+                }
+            }).done(function(response) {
+                deferred.resolve(response);
+            }).fail(function(error) {
+                deferred.reject(error);
+            });
+
+            return deferred.promise();
+        };
+
+        ModelBase.prototype.syncDB = function() {
+            var deferred = $.Deferred();
+            var self = this;
+            $.ajax({
+                type: 'GET',
+                url: this._options.restUrl + '/model',
+                data: {
+                    email: this._data.email,
+                    name: this._data.name
+                }
+            }).done(function(response) {
+                self._data = response.value.model;
+                deferred.resolve(true);
+            }).fail(function(error) {
+                deferred.reject(error);
+            });
+
+            return deferred.promise();
+        };
+
+        ModelBase.prototype._insert = function(data) {
+            for (var prop in data) {
+                if (!data.hasOwnProperty(prop)) continue;
+                this._set(prop, data[prop]);
+            }
+        };
+
+        ModelBase.prototype._detete = function(prop) {
+            return delete this._data[prop];
+        };
+
+        ModelBase.prototype._get = function(prop) {
+            try {
+                return prop.split('.').reduce(function(prev, curr) {
+                    return prev[curr];
+                }, this._data);
+            } catch (e) {
+                console.error('path to property ' + path + ' does not exist in this model');
+                return null;
+            }
+        };
+
+        ModelBase.prototype._set = function(prop, value) {
+            try {
+                prop.split('.').reduce(function(prev, curr, index, vec) {
+                    if (index === vec.length - 1) {
+                        prev[curr] = value;
+                    }
+                    return prev[curr];
+                }, this._data);
+            } catch (e) {
+                console.error('path to property ' + path + ' does not exist in this model');
+                return null;
+            }
+
+        };
+
+        return ModelBase;
+
+    })();
+
+
+    return {
+        create: function(options) {
+            return new ModelBaseWrapper(options);
+        },
+        this: ModelBaseWrapper
     };
-
-    modelBase.prototype.addDB = function() {
-      var deferred = $.Deferred();
-
-      $.ajax({
-        type: 'POST',
-        url: this._options.restUrl + '/model'
-        data: {
-          model: this._data
-        }
-      }).done(function(response) {
-        deferred.resolve(response);
-      }).fail(function(error) {
-        deferred.reject(error);
-      });
-
-      return deferred.promise();
-    };
-
-    modelBase.prototype.getDB = function() {
-      var deferred = $.Deferred();
-
-      $.ajax({
-        type: 'GET',
-        url: this._options.restUrl + '/model'
-        data: {
-          email: this._data.email,
-          name: this._data.name
-        }
-      }).done(function(response) {
-        deferred.resolve(response);
-      }).fail(function(error) {
-        deferred.reject(error);
-      });
-
-      return deferred.promise();
-    };
-
-    modelBase.prototype.syncDB = function() {
-      var deferred = $.Deferred();
-
-      $.ajax({
-        type: 'GET',
-        url: this._options.restUrl + '/model'
-        data: {
-          email: this._data.email,
-          name: this._data.name
-        }
-      }).done(function(response) {
-        this._data = response.value.model;
-        deferred.resolve(true);
-      }).fail(function(error) {
-        deferred.reject(error);
-      });
-
-      return deferred.promise();
-    };
-
-    modelBase.prototype._insert = function(data) {
-      for (var prop in data) {
-        if (!data.hasOwnProperty(prop)) continue;
-        this._set(prop, data[prop]);
-      }
-    };
-
-    modelBase.prototype._detete = function(prop) {
-      return delete this._data[prop];
-    };
-
-    modelBase.prototype._get = function(prop) {
-      if (this._data[prop] === undefined) {
-        console.error('property ' + prop + ' does not exist in this model');
-        return null;
-      } else {
-        return this._data[prop];
-      }
-    };
-
-    modelBase.prototype._getPath = function(obj, path) {
-      try {
-        var current = obj;
-        path.split('.').forEach(function(p) {
-          current = current[p];
-        });
-        return current;
-      } catch (e) {
-        console.error('path to property ' + path + ' does not exist in this model');
-        return null;
-      }
-    };
-
-    modelBase.prototype._set = function(prop, value) {
-      this._data[prop] = value;
-    };
-
-    return modelBase;
-
-  })();
-
-
-  return {
-    /*
-     * { restUrl: '', userID: ''}
-     */
-    create: function(options) {
-      return new ModelBase(options);
-    },
-    this: ModelBase
-  };
 
 });

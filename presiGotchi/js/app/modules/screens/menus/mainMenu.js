@@ -42,7 +42,7 @@ define(['Phaser', 'jquery', 'modules/helpers/Logger', 'modules/helpers/Utils'], 
 
     var nextStage = function() {
         console.log('Next Stage');
-        gamePtr.state.start('StageONE');
+        gamePtr.state.start('SelectCharacterOptionMenu');
     };
 
     var update = function () {

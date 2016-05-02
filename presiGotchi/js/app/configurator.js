@@ -20,7 +20,7 @@ requirejs.onResourceLoad = function (context, map, depMaps) {
 var updateModuleProgress = function (context, map, depMaps) {
     var console = window.console;
     if (console && console.log) {
-        console.log('[LOAD PHASE]  ' + map.name + ' at ' + map.url);
+        console.log('[LOADED SOURCE]  ' + map.name + ' at ' + map.url);
     }
 };
 
@@ -32,7 +32,7 @@ require(['jquery', 'domReady'], function ($, domReady) {
             if (loadingStatusEl && loadingModuleNameEl) {
                 loadingStatusEl.innerHTML = loadingStatusEl.innerHTML += '.'; //add one more dot character
                 loadingModuleNameEl.innerHTML = map.name + (map.url ? ' at ' + map.url : '');
-                console.log('[LOAD PHASE]  ' + map.name + ' at ' + map.url);
+                console.log('[LOADED SOURCE]  ' + map.name + ' at ' + map.url);
             }
         };
     });
