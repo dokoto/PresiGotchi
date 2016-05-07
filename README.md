@@ -1,6 +1,6 @@
 # PresiGotchi
 
-Is a game like tamaGotchi but the character is fictitious country president. You should feed your presi Gotchi because if 
+Is a game like tamaGotchi but the character is fictitious country president. You should feed your presiGotchi because if 
 presiGotchi is hungry or thirsty he will tell you whatever to get his food, somethings 
 like : "I going to cut taxes" but if presigotchi is healthy he will tell something like : "I going to cut for the richest".
 
