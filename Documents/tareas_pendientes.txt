@@ -1,0 +1,22 @@
+* Imagen de fondo de seleccion de presis, cambiar el fondo a negro y el simbolo de dolar de negro a un gris oscuro
+
+* Crear una logica que permita que presiGotchi diga frases de wikiQuote
+ - La logica tiene que incluir que cuanto mejor alimentado este presiGotchi mas barbaridades tiene que soltar
+ - Cuanto peor alimentado este presiGotchi mas mentiras y cosas buenas tiene que decir
+ - Entre ambos estados(bien alimentado - mal alimentado) soltara frases tomadas de wikiQuote
+
+* Montar la interface para alimentar a presiGotchi
+
+* Terminar la autentificacion por oAuth2
+
+* Decidir como se va ha comportar la app en fondo y cuando este apagada del todo. Abria que montar un sistema de GCM para
+  que presiGotchi pueda decirle cosas al usuario mietras la app este en fondo o apagada
+
+* Hacer sprites de dos presiGotchi y thumbnails
+
+* Hay que montar el un sistema de estadisticas para poder ofrecer datos de cuantos presiGotchis han muerto. Hay que
+  pensar en pedir y u obtener datos de la provincia del que juega
+
+* Crear un menu principal desde donde poder seleccionar los presiGotchi que jugamos o añadir nuevos. Ver estadisticas. Y creditos
+
+* Buscar musica y sonidos para presiGotchi    
