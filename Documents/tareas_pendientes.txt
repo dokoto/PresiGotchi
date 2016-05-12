@@ -4,6 +4,13 @@
  - La logica tiene que incluir que cuanto mejor alimentado este presiGotchi mas barbaridades tiene que soltar
  - Cuanto peor alimentado este presiGotchi mas mentiras y cosas buenas tiene que decir
  - Entre ambos estados(bien alimentado - mal alimentado) soltara frases tomadas de wikiQuote
+ - La cosa sería tener un sistema de evolución y desevolución. Según se alimente el debe volverse cada vez más nazi.
+   Según el nivel de poder que tenga empezará a tomar decisiones muy cabronas, subir impuestos, quitar Sanidad,
+   educación prohibida para los pobres. Según tenga más poder se irá convirtiendo en algún dictador como hitler,
+   Franco, mussolini, polpot, etc. Me gustaría que llegado un punto si se convierte en hitler empecé hablar en alemán y
+   envíe mensajes al usuario con vídeo fachas de youtube. Sería la polla que enviase videos sobre animalitos cosas muy
+   agradables cuando no tiene poder. Según el nivel de poder debería haber una base de datos conteniendo frases cabronas.
+   Y según se alcanzan estos niveles se dicen esas frases al usuario.
 
 * Terminar la autentificacion por oAuth2
 

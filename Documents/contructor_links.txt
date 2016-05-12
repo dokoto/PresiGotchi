@@ -1,0 +1,4 @@
+https://github.com/sabarasaba/modern-backbone-starterkit/blob/master/webpack.config.js
+https://github.com/Olical/EventEmitter
+https://github.com/webpack/grunt-webpack
+http://krasimirtsonev.com/blog/article/a-modern-react-starter-pack-based-on-webpack
