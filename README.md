@@ -1,6 +1,6 @@
 # PresiGotchi
 
-<p align="center"><img src="https://github.com/dokoto/PresiGotchi/blob/master/presiGotchi/assets/images/logo_medium.png" width="400" /></p>
+<p align="center"><img src="https://github.com/dokoto/PresiGotchi/blob/master/Prototype-WebApp-B/assets/images/logo_medium.png" width="400" /></p>
 
 
 Is a game like tamaGotchi but the character is fictitious country president. You should feed your presiGotchi because if 
