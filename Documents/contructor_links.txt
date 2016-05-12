@@ -2,3 +2,7 @@ https://github.com/sabarasaba/modern-backbone-starterkit/blob/master/webpack.con
 https://github.com/Olical/EventEmitter
 https://github.com/webpack/grunt-webpack
 http://krasimirtsonev.com/blog/article/a-modern-react-starter-pack-based-on-webpack
+
+https://65535th.com/configuring-webpack/
+https://github.com/webpack/grunt-webpack/issues/30
+http://stackoverflow.com/questions/34998114/webpack-grunt-webpack-stop-logging-on-prod-build-task
