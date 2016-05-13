@@ -71,7 +71,7 @@ var doMap = {
     return data;
   },
 
-  args: function(grunt, conf, data) {
+  args: function(grunt, data) {
     var packageApp = grunt.file.readJSON('package.json');
     data.baseDir = process.cwd();
     data.pkg = packageApp;
@@ -80,12 +80,12 @@ var doMap = {
     if (grunt.option('versionApp') === undefined) {
       grunt.fail.fatal('El parametro --versionApp es obliglatorio para el constructor');
     } else {
-      data.args.versionTablet = grunt.option('versionApp');
+      data.args.versionApp = grunt.option('versionApp');
     }
 
-    data.args.mode = (grunt.option('mode') || 'debug').toLowerCase();
-    if (data.args.mode !== 'debug' && data.args.mode !== 'release') {
-      grunt.fail.fatal('El parametro --mode solo puede contener los valores "debug" o "release"');
+    data.args.mode = (grunt.option('mode') || 'dev').toLowerCase();
+    if (data.args.mode !== 'dev' && data.args.mode !== 'prod') {
+      grunt.fail.fatal('El parametro --mode solo puede contener los valores "dev" o "prod"');
     }
 
     data.args.target = (grunt.option('target') || 'device');
@@ -104,15 +104,18 @@ var doMap = {
 
     data.args.mocks = utils.misc.convBoolean(grunt.option, 'mocks', false);
     data.args.logger = grunt.option('logger') || 0;
+
+    return data;
   },
 
   base: function(grunt, conf, data) {
     data.base = {};
 
-    data.base.proxy = conf.main.fetch(['proxy']);
-    data.base.log = conf.main.fetch(['log']);
-    data.base.keystore = conf.main.fetch(['keyStore']).path + (grunt.option('keystore') || 'default');
-    data.base.buildFolder = conf.main.fetch(['buildFolder']);
+    data.base.appName = conf.base.fetch(['appName']);
+    data.base.proxy = conf.base.fetch(['proxy']);
+    data.base.log = conf.base.fetch(['log']);
+    data.base.keystore = conf.base.fetch(['keyStore']).path + (grunt.option('keystore') || 'default');
+    data.base.buildFolder = conf.base.fetch(['buildFolder']);
     data.base.proyectFolderName = __dirname.substr(__dirname.lastIndexOf(path.sep) + 1);
 
     return data;
@@ -120,7 +123,7 @@ var doMap = {
 
   git: function(grunt, conf, data) {
     data.git = conf.git.data;
-    
+
     return data;
   },
 
@@ -131,14 +134,14 @@ function header(grunt, data) {
   grunt.log.writeln('**************************************************');
   grunt.log.writeln('Gotchi Constructor System... ' + data.pkg.version + 'v');
   grunt.log.writeln('**************************************************');
-  grunt.log.writeln('OS Target         : ' + data.targetOS);
-  grunt.log.writeln('Device Target     : ' + data.target);
+  grunt.log.writeln('OS Target         : ' + data.args.targetOS);
+  grunt.log.writeln('Device Target     : ' + data.args.target);
   if (data.targetOS === 'android') {
-    grunt.log.writeln('Keystore          : ' + data.keystore);
+    grunt.log.writeln('Keystore          : ' + data.base.keystore);
   }
-  grunt.log.writeln('Project           : ' + data.proyectFolderName);
-  grunt.log.writeln('App version    : ' + data.versionApp);
-  grunt.log.writeln('Compilation Mode  : ' + data.mode);
+  grunt.log.writeln('Project           : ' + data.base.proyectFolderName);
+  grunt.log.writeln('App version       : ' + data.args.versionApp);
+  grunt.log.writeln('Compilation Mode  : ' + data.args.mode);
   grunt.log.writeln('**************************************************');
 }
 
@@ -147,7 +150,7 @@ function mainProcess(grunt, data) {
   var conf = doMap.mkConf(grunt);
 
   // ARGUMENTS
-  data = doMap.args(grunt, conf, data);
+  data = doMap.args(grunt, data);
 
   // BASE
   data = doMap.base(grunt, conf, data);

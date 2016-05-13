@@ -30,4 +30,4 @@ module.exports = {
       src: ['<%=git.destinationFolderName%>/js/app/**/*.js']
     }
   }
-}
+};

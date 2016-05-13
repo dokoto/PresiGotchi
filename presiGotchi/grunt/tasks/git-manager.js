@@ -1,17 +1,19 @@
 /*global module*/
 
-module.exports = function(grunt, options) {
+module.exports = function(grunt) {
+
+  var options = grunt.config.data;
   grunt.registerTask('git-manager', function() {
     'use strict';
 
+    var sh = require('shelljs');
+    var utilsShell = require('../utils/shell');
     var executeGitCmd = function(cmd, forceVerbose) {
-      var hideCmdArgs = ' --username ' + options.proxy.user + ' --password ' + options.proxy.password;
       var execlog;
 
-      execlog = utils.execCmd(grunt, options, cmd, {
+      execlog = utilsShell.execCmd(grunt, options, cmd, {
         asyncMode: false,
-        forceVerbose: forceVerbose,
-        hideCmdArgs: hideCmdArgs
+        forceVerbose: forceVerbose
       });
       grunt.file.setBase(options.baseDir);
       if (execlog.code !== 0) {
@@ -19,31 +21,27 @@ module.exports = function(grunt, options) {
       }
     };
 
-    if (!sh.which(options.git.cmd) === false) {
+    if (sh.which(options.git.cmd)) {
       var fs = require('fs');
       var path = require('path');
 
-
       try {
         var cmd;
-        Log.info.v0(path.join(options.git.destinationFolderName, options.git.configFile));
-        if (fs.existsSync(path.join(options.git.destinationFolderName, options.git.configFile))) {
-          Log.info.v0('* Updating sources from git');
-          grunt.file.setBase(path.join(options.baseDir, options.git.destinationFolderName));
-          cmd = 'git pull';
-          execlog(cmd, true);
-        } else {
-          Log.info.v0('* Cloning sources from git  ');
-          cmd = 'git clone ' + options.git.repoUrl + ' ' + options.git.destinationFolderName;
-          execlog(cmd, false);
-        }
+        Log.info.v0('* Updating sources from git');
+        Log.info.v0('==> Changin to path : ' + path.join(options.baseDir, options.git.destinationFolderName));
+        grunt.file.setBase(path.join(options.baseDir, options.git.destinationFolderName));
+        cmd = 'git pull';
+        executeGitCmd(cmd, true);
+
       } catch (error) {
         grunt.file.setBase(options.baseDir);
         Log.error.v0(error);
       }
+
     } else {
       Log.error.v0('git command not found. Please install command-line git and try again.');
     }
+
   });
 
-});
+};

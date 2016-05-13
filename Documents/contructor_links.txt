@@ -6,3 +6,8 @@ http://krasimirtsonev.com/blog/article/a-modern-react-starter-pack-based-on-webp
 https://65535th.com/configuring-webpack/
 https://github.com/webpack/grunt-webpack/issues/30
 http://stackoverflow.com/questions/34998114/webpack-grunt-webpack-stop-logging-on-prod-build-task
+
+
+
+https://marionette.gitbooks.io/marionette-guides/content/en/getting_started/installing_marionette.html
+https://github.com/webpack/webpack/issues/192

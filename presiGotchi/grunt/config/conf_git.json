@@ -1,6 +1,6 @@
 {
   "cmd": "git",
-  "destinationFolderName": "../src",
+  "destinationFolderName": "src",
   "configFile": ".git",
   "commitMsg": "Update Release",
   "master": {

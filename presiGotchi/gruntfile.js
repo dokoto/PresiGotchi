@@ -8,10 +8,10 @@ module.exports = function(grunt) {
     loadGruntTasks: {
       config: require('./package.json'),
       scope: 'devDependencies',
-      pattern: ['grunt-*']
+      pattern: 'grunt-*'
     }
   });
 
   grunt.loadTasks('grunt/utils');
-  grunt.loadTasks('grunt/tasks');
+  grunt.loadTasks('grunt/tasks');  
 };

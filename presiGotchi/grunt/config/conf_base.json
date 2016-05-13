@@ -3,6 +3,7 @@
     "base": "logs/",
     "commits": "releases_log.csv"
   },
+  "appName": "PresiGotchi",
   "buildFolder": "build/",
   "proxy": {
     "url": "http://http.internetpsa.inetpsa.com",

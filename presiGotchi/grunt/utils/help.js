@@ -12,7 +12,7 @@ module.exports = function (grunt, options) {
     Log.info.v0('Los parametros son obligatorios en todas las tareas porque es lo que le indica al constructor sobre que build/[gotchi_XX_XX_XXX] trabajar');
     Log.info.v0('*os             : Sistema operativo objetivo ej: --os=android');
     Log.info.v0('*appTablet      : Version a generar ej: --appTablet=287.3.3');
-    Log.info.v0('mode            : Tipo de compilacion ej: --mode=[debug(por defecto)|release]');
+    Log.info.v0('mode            : Tipo de compilacion ej: --mode=[dev(por defecto)|prod]');
     Log.info.v0('keystore        : Nombre de la carpeta keystore desde donde cagar la firma ej: --keystore=[default(por defecto en assets/config/android/keyStore/default)]');
     Log.info.v0('testPrefix      : Prefijo añadir al nombre de la app ej: --testPrefix=test_');
 

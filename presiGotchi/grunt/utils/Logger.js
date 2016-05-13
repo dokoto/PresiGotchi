@@ -1,4 +1,4 @@
-var Logger = (function() {
+var LoggerWrapper = (function() {
   'use strict';
 
   //*****************************************************
@@ -26,17 +26,19 @@ var Logger = (function() {
   }
 
   function _print(priority, type, message, color) {
-    if (priority <= _self.options.logger) {
+    if (priority <= _self.options.args.logger) {
       _printTYPE(type, message, color);
     }
   }
 
   function _factory(typeMsg) {
     var funcs = {};
+    var dFunc = function(i, typeMsg, message, color) {
+      return _print(i, typeMsg, message, color);
+    };
+
     for (var i = 0; i < _self.verboseDeep; i++) {
-      funcs['v' + i] = function(i, typeMsg, message, color) {
-        return _print(i, typeMsg, message, color);
-      }.bind(_self, i, typeMsg);
+      funcs['v' + i] = dFunc.bind(_self, i, typeMsg);
     }
     return funcs;
   }
@@ -44,7 +46,7 @@ var Logger = (function() {
   //*****************************************************
   // PUBLIC
   //*****************************************************
-  function logger(verboseDeep, grunt, options) {
+  function Logger(verboseDeep, grunt, options) {
     _self = this;
     this.grunt = grunt;
     this.options = options;
@@ -57,15 +59,15 @@ var Logger = (function() {
     this.error = _factory(this.typeMsg.ERROR);
   }
 
-  logger.prototype.info = function() {
+  Logger.prototype.info = function() {
     return this.info;
   };
 
-  logger.prototype.error = function() {
+  Logger.prototype.error = function() {
     return this.error;
   };
 
-  return logger;
+  return Logger;
 
 })();
 
@@ -73,7 +75,7 @@ var Logger = (function() {
 module.exports = {
   VERBOSE_DEEP: 2,
   create: function(grunt, options) {
-    return new Logger(this.VERBOSE_DEEP, grunt, options);
+    return new LoggerWrapper(this.VERBOSE_DEEP, grunt, options);
   }
 
 };

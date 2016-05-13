@@ -1,78 +1,129 @@
-webpack: {
-  dev: {
-    // webpack options
-    entry: '<%=git.destinationFolderName%>/js/app/app.js',
-    output: {
-        path: "asserts/",
-        filename: "[hash].js",
-    },
+module.exports = function(grunt) {
+  'use strict';
 
-    stats: {
+  var webpack = require('webpack');
+  var options = grunt.config.data;
+
+  return {
+    dev: {
+      cache: true,
+      debug: true,
+      devtool: 'eval',
+
+      // webpack options
+      entry: './src/js/app/app.js',
+      output: {
+        path: "builds/dev/",
+        filename: "<%=base.appName%>.js",
+      },
+
+      stats: {
         // Configure the console output
         colors: false,
         modules: true,
         reasons: true
+      },
+      // stats: false disables the stats output
+
+      storeStatsTo: "webpackStatus", // writes the status to a variable named xyz
+      // you may use it later in grunt i.e. <%= xyz.hash %>
+
+      progress: true, // Don't show progress
+      // Defaults to true
+
+      failOnError: true, // don't report error to grunt if webpack find errors
+      // Use this if webpack errors are tolerable and grunt should continue
+
+      inline: true, // embed the webpack-dev-server runtime into the bundle
+      // Defaults to false
+
+      module: {
+        loaders: [{
+          test: /\.hbs$/,
+          loader: 'handlebars-loader'
+        }]
+      },
+
+      plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.DefinePlugin({
+          BUILD_MODE: '<%= args.mode %>',
+          VERSION: '<%= args.versionApp %>',
+          TARGET: '<%= args.target %>',
+          TARGET_OS: '<%= args.targetOS %>',
+        }),
+        new webpack.ProvidePlugin({
+          $: 'jquery',
+          _: 'underscore',
+          Backbone: 'backbone',
+          Marionette: 'backbone.marionette'
+        })
+      ],
+      resolve: {
+        modulesDirectories: ['./node_modules'],
+        root: './src/js/app'
+      },
+      resolveLoader: {
+        root: './node_modules'
+      }
+
     },
-    // stats: false disables the stats output
+    prod: {
+      debug: false,
 
-    storeStatsTo: "webpackStatus", // writes the status to a variable named xyz
-    // you may use it later in grunt i.e. <%= xyz.hash %>
+      // webpack options
+      entry: './src/js/app/app.js',
+      output: {
+        path: "builds/prod/",
+        filename: "<%=base.appName%>.js",
+      },
 
-    progress: true, // Don't show progress
-    // Defaults to true
-
-    failOnError: true, // don't report error to grunt if webpack find errors
-    // Use this if webpack errors are tolerable and grunt should continue
-
-    watch: true, // use webpacks watcher
-    // You need to keep the grunt process alive
-
-    keepalive: true, // don't finish the grunt task
-    // Use this in combination with the watch option
-
-    inline: true,  // embed the webpack-dev-server runtime into the bundle
-    // Defaults to false
-
-    hot: true, // adds the HotModuleReplacementPlugin and switch the server to hot mode
-    // Use this in combination with the inline option
-
-  },
-  release: {
-    // webpack options
-    entry: '<%=git.destinationFolderName%>/js/app/app.js',
-    output: {
-        path: "asserts/",
-        filename: "[hash].js",
-    },
-
-    stats: {
+      stats: {
         // Configure the console output
         colors: false,
         modules: true,
         reasons: true
-    },
-    // stats: false disables the stats output
+      },
+      // stats: false disables the stats output
 
-    storeStatsTo: "webpackStatus", // writes the status to a variable named xyz
-    // you may use it later in grunt i.e. <%= xyz.hash %>
+      storeStatsTo: "webpackStatus", // writes the status to a variable named xyz
+      // you may use it later in grunt i.e. <%= xyz.hash %>
 
-    progress: true, // Don't show progress
-    // Defaults to true
+      progress: true, // Don't show progress
+      // Defaults to true
 
-    failOnError: true, // don't report error to grunt if webpack find errors
-    // Use this if webpack errors are tolerable and grunt should continue
+      failOnError: true, // don't report error to grunt if webpack find errors
+      // Use this if webpack errors are tolerable and grunt should continue
 
-    watch: true, // use webpacks watcher
-    // You need to keep the grunt process alive
+      inline: true, // embed the webpack-dev-server runtime into the bundle
+      // Defaults to false
 
-    keepalive: true, // don't finish the grunt task
-    // Use this in combination with the watch option
+      module: {
+        loaders: [{
+          test: /\.hbs$/,
+          loader: 'handlebars-loader'
+        }]
+      },
 
-    inline: true,  // embed the webpack-dev-server runtime into the bundle
-    // Defaults to false
-
-    hot: true, // adds the HotModuleReplacementPlugin and switch the server to hot mode
-    // Use this in combination with the inline option
-
-  }
-}
+      plugins: [
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+          compressor: {
+            screw_ie8: true,
+            warnings: false
+          },
+          output: {
+            comments: false
+          }
+        }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.DefinePlugin({
+          BUILD_MODE: '<%= args.mode %>',
+          VERSION: '<%= args.versionApp %>',
+          TARGET: '<%= args.target %>',
+          TARGET_OS: '<%= args.targetOS %>',
+        })
+      ]
+    }
+  };
+};
