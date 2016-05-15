@@ -3,24 +3,32 @@ module.exports = function(grunt, options) {
 
   var build_android_full_dev = [
     'jshint',
-    'webpack:dev'
+    'clean:sources',
+    'webpack:dev',
+    'copy:sources_html'
   ];
 
   var build_android_dev = [
     'jshint',
-    'webpack:dev'
+    'clean:sources',
+    'webpack:dev',
+    'copy:sources_html'
   ];
 
   var build_android_full_prod = [
     'git-manager',
     'jshint',
-    'webpack:prod'
+    'clean:sources',
+    'webpack:prod',
+    'copy:sources_html'
   ];
 
   var build_android_prod = [
     'git-manager',
     'jshint',
-    'webpack:prod'
+    'clean:sources',
+    'webpack:prod',
+    'copy:sources_html'
   ];
 
   function test(key) {
@@ -51,11 +59,11 @@ module.exports = function(grunt, options) {
 
   }
 
-  if (options && options.args.targetOS) {
+  if (options && options.args && options.args.targetOS) {
     return {
       'default': ['help'],
-      'build-full': resolve('build-full', options.targetOS, options.args.mode),
-      'build': resolve('build', options.targetOS, options.args.mode),
+      'build-full': resolve('build-full', options.args.targetOS, options.args.mode),
+      'build': resolve('build', options.args.targetOS, options.args.mode),
     };
   } else {
     return {

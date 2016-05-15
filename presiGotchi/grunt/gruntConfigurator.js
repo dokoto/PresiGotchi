@@ -169,7 +169,8 @@ exports.doMap = function(grunt) {
   // GLOBAL
   var data = doMap.global(grunt);
   if (process.argv.length === 2) {
-    data.logger = grunt.option('logger') || 0;
+    data.args = {};
+    data.args.logger = grunt.option('logger') || 0;
   } else if (process.argv.length > 2) {
     data = mainProcess(grunt, data);
   }

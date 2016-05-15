@@ -1,8 +1,7 @@
+var $ = require('jquery');
 var Backbone = require('backbone');
-Backbone.Wreqr = require('backbone.wreqr');
+Backbone.$ = $;
 var Marionette = require('backbone.marionette');
-Marionette.$ = Backbone.$ = require('jquery');
-
 
 var Router = require('./router_app');
 
