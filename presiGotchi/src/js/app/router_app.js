@@ -2,31 +2,25 @@ var $ = require('jquery');
 var _ = require('underscore');
 var Backbone = require('backbone');
 
-var HelloView = require('./views/hello');
-
 
 module.exports = function() {
   return Backbone.Router.extend({
 
     routes: {
-      '': 'dashboard',
-      'about': 'about'
+      '': 'initialize',
+      'hello': 'hello'
     },
 
     initialize: function() {
-      $('body').append('<div id="js-app"></div>');
+    },
+
+    hello: function() {
+      var HelloView = require('./hello/hello');
+      HelloView.show();
     },
 
     dashboard: function() {
       var helloView = new HelloView().render();
-
-      $('#js-app').empty().append(helloView.$el);
-    },
-
-    about: function() {
-      var helloView = new HelloView({
-        template: _.template('Im the about page')
-      }).render();
 
       $('#js-app').empty().append(helloView.$el);
     }

@@ -17,12 +17,6 @@ module.exports = function(grunt) {
                 path: "builds/dev/",
                 filename: "<%=base.appName%>.js",
             },
-            alias: {
-                // Force all modules to use versions of backbone and underscore defined
-                // in package.json to prevent duplicate dependencies
-                'backbone': path.join(__dirname, 'node_modules', 'backbone', 'backbone.js'),
-                'underscore': path.join(__dirname, 'node_modules', 'underscore', 'underscore.js')
-            },
             stats: {
                 // Configure the console output
                 colors: false,
@@ -45,8 +39,8 @@ module.exports = function(grunt) {
 
             module: {
                 loaders: [{
-                    test: /\.hbs$/,
-                    loader: 'handlebars-loader'
+                    test: /\.html$/,
+                    loader: "underscore-template-loader"
                 }]
             },
 
@@ -100,8 +94,8 @@ module.exports = function(grunt) {
 
             module: {
                 loaders: [{
-                    test: /\.hbs$/,
-                    loader: 'handlebars-loader'
+                    test: /\.html$/,
+                    loader: "underscore-template-loader"
                 }]
             },
 

@@ -1,7 +1,6 @@
 var $ = require('jquery');
 var Marionette = require('backbone.marionette');
-var _ = require('underscore');
-var template = require('./template.hbs');
+var template = require('./templates/template.html');
 
 module.exports = function() {
   return Marionette.ItemView.extend({
