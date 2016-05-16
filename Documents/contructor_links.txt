@@ -1,3 +1,10 @@
+
+https://marionette.gitbooks.io/marionette-guides/content/en/index.html
+
+
+
+
+//OLD
 https://github.com/sabarasaba/modern-backbone-starterkit/blob/master/webpack.config.js
 https://github.com/Olical/EventEmitter
 https://github.com/webpack/grunt-webpack
