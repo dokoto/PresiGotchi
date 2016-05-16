@@ -1,15 +1,18 @@
-var helloView = require('./hello_view');
+var HelloView = require('./hello_view');
+var APP = require('app');
 
 module.exports = function() {
 
-    app.module('hello', function (Ride, TAXI, Backbone, Marionette) {
-        var RideController = Marionette.Controller.extend({
-            show: function (coors) {
-                Ride.show(coors);
+    APP.module('hello', function (moduleHello, APP, Backbone, Marionette) {
+        var HelloController = Marionette.Controller.extend({
+            run: function () {
+                var view = new HelloView();
+                APP.mainRegion.show(view);
             }
         });
 
-        Ride.Controller = new RideController();
+        moduleHello.Controller = new HelloController();
     });
 
+    return APP.moduleHello.Controller;
 };

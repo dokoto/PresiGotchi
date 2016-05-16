@@ -1,12 +1,12 @@
 var $ = require('jquery');
 var _ = require('underscore');
-var Backbone = require('backbone');
+var Marionette = require('backbone.marionette');
 
 
 module.exports = function() {
-  return Backbone.Router.extend({
+  return Marionette.AppRouter.extend({
 
-    routes: {
+    appRoutes: {
       '': 'initialize',
       'hello': 'hello'
     },
@@ -15,14 +15,8 @@ module.exports = function() {
     },
 
     hello: function() {
-      var HelloView = require('./hello/hello');
-      HelloView.show();
-    },
-
-    dashboard: function() {
-      var helloView = new HelloView().render();
-
-      $('#js-app').empty().append(helloView.$el);
+      var HelloView = require('./hello/hello_controller');
+      HelloView.run();
     }
 
   });
