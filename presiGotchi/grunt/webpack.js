@@ -12,7 +12,7 @@ module.exports = function(grunt) {
             devtool: 'eval',
 
             // webpack options
-            entry: './src/js/app/main.js',
+            entry: './src/js/app/app.js',
             output: {
                 path: "builds/dev/",
                 filename: "<%=base.appName%>.js",
@@ -66,7 +66,7 @@ module.exports = function(grunt) {
             debug: false,
 
             // webpack options
-            entry: './src/js/app/main.js',
+            entry: './src/js/app/app.js',
             output: {
                 path: "builds/prod/",
                 filename: "<%=base.appName%>.js",
