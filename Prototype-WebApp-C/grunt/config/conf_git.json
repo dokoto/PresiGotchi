@@ -1,0 +1,9 @@
+{
+  "cmd": "git",
+  "destinationFolderName": "src",
+  "configFile": ".git",
+  "commitMsg": "Update Release",
+  "master": {
+    "repoUrl": "https://github.com/dokoto/PresiGotchi.git"
+  }
+}
