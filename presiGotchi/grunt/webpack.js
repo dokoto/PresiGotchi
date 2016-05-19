@@ -41,6 +41,9 @@ module.exports = function(grunt) {
                 loaders: [{
                     test: /\.html$/,
                     loader: "underscore-template-loader"
+                }, {
+                    test: /\.css$/,
+                    loader: "style-loader!css-loader"
                 }]
             },
 
@@ -96,6 +99,9 @@ module.exports = function(grunt) {
                 loaders: [{
                     test: /\.html$/,
                     loader: "underscore-template-loader"
+                }, {
+                    test: /\.css$/,
+                    loader: "style-loader!css-loader"
                 }]
             },
 

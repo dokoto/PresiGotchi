@@ -1,0 +1,31 @@
+body {
+  /*background: rgba(231, 231, 231, 0.43);*/
+  background-color: rgba(64, 60, 60, 0.43);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+	line-height: 1.125em;
+	color: white;
+	max-width: 1920px;
+	margin: 0px auto;
+  padding: 0px;
+	position: relative;
+	font-family: 'Lato', Helvetica, Arial, Tahoma;
+	text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+}
+
+.menu {
+  margin: 2px;
+}
+
+.item {
+  background: rgb(135, 199, 135);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  background-color: #222;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}

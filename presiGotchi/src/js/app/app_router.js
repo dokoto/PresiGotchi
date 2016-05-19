@@ -1,4 +1,10 @@
+/*global define, module, require*/
+/*jshint globalstrict: true*/
+
+'use strict';
+
 var Backbone = require('backbone');
+var Log = require('utils/logger.js');
 
 var Router = Backbone.Router.extend({
   routes: {
@@ -7,13 +13,14 @@ var Router = Backbone.Router.extend({
   },
 
   help: function() {
-    console.log('Router App: start');
+    Log.MSG_DESP('[APP ROUTER] Gotchi Help');
   },
 
   start: function() {
-    console.log('Router App: start');
-    var module1Router = require('modules/module1/module1_router').create();
-    module1Router.navigate('module1/start', {trigger: true});
+    Log.APP_TITLE('=== GOTCHI ENGINE ===');
+    Log.MSG_DESP('[APP ROUTER] Starting');
+    var intro = require('modules/intro/intro_router').create();
+    intro.navigate('intro/start', {trigger: true});
   }
 
 });
