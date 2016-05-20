@@ -143,12 +143,38 @@ var ConfiguratorWrapper = (function() {
 
     Configurator.prototype._initActions = function() {
         if (this._options.initdb === true) {
-            var gotchiDB = require('./ddbb/gotchi').create();
-            var defaultModels = require('./config/default/models/default.json');
-            gotchiDB.addCollection(defaultModels).then(function(request) {
-                gotchiDB.desconect();
+            var Q = require('q');
+            var promises = [];
+            var DBManagerOptions = {
+                'uri': Config.fetch('db', 'db.mongo.gotchi.uri'),
+                'collections': {
+                    'gotchi': {
+                        modelName: 'gotchiModel',
+                        schema: require('./schemas/gotchi').create(),
+                        collectionName: Config.fetch('db', 'db.mongo.gotchi.collections.characters')
+                    },
+                    'menus': {
+                        modelName: 'menusModel',
+                        schema: require('./schemas/menus').create(),
+                        collectionName: Config.fetch('db', 'db.mongo.gotchi.collections.menus')
+                    }
+                }
+            };
+
+            var DBManager = require('./ddbb/DBManager').create(DBManagerOptions);
+
+            var gotchiModels = require('./config/default/gotchi.json');
+            var menusModels = require('./config/default/menus.json');
+
+            promises.push(dbManagerMenus.addCollection('gotchi', gotchiModels));
+            promises.push(dbManagerGotchi.addCollection('menus', menusModels));
+
+            Q.allSettled(promises).then(function(requestsArray) {
+                dbManagerGotchi.desconect();
+                dbManagerMenus.desconect();
             }).fail(function(error) {
-                gotchiDB.desconect();
+                dbManagerGotchi.desconect();
+                dbManagerMenus.desconect();
             });
         }
     };
@@ -202,7 +228,7 @@ var ConfiguratorWrapper = (function() {
     Configurator.prototype._log4js = function() {
         var log4js = require('log4js');
         if (fs.existsSync('log') === false) {
-          fs.mkdirSync('log');
+            fs.mkdirSync('log');
         }
         log4js.configure('./config/log4js.json');
         global.Logger = log4js.getLogger(app.info().name.toUpperCase());

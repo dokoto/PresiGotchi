@@ -33,7 +33,7 @@ var schema = {
     trim: true,
     index: true,
     enum: ['POLITICIANS', 'DICTATORS', 'CELEBRITIES', 'RELIGIOUS'],
-    default: ''
+    default: 'POLITICIANS'
   },
   isDead: {
     type: Boolean,
@@ -187,15 +187,20 @@ var schema = {
       }
     }
   }
-};
+  };
 
 
-module.exports = {
-  create: function() {
-    var retSchema =  new Schema(schema);
-    retSchema.index({email: 1, name: 1}, {unique: true});
-    retSchema.set('autoIndex', false );
+  module.exports = {
+      create: function() {
+          var retSchema = new Schema(schema);
+          retSchema.index({
+              email: 1,
+              name: 1
+          }, {
+              unique: true
+          });
+          retSchema.set('autoIndex', false);
 
-    return retSchema;
-  }
-};
+          return retSchema;
+      }
+  };

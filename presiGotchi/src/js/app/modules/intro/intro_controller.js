@@ -26,7 +26,8 @@ Controller.prototype.show = function() {
 };
 
 Controller.prototype._gotomainHandler = function() {
-  
+  var main = require('modules/main/main_router').create();
+  main.navigate('main/start', {trigger: true});
 };
 
 Controller.prototype._completeHandler = function(gotchiCollection) {
