@@ -5,8 +5,10 @@
 
 
 var CollectionBase = require('./base/CollectionBase');
+var _ = require('underscore');
 
 var GotchiCollection = CollectionBase.self.extend({});
+_.extend(GotchiCollection.prototype.defaults, CollectionBase.self.prototype.defaults);
 
 module.exports = {
     create: function() {

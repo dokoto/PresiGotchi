@@ -11,6 +11,9 @@ var ModelBase = Backbone.Model.extend({
     urlRoot: baseParams.urlRoot,
     url: function() {
       return this.urlRoot + '/model' + '?email=' + this.email + '&name=' + this.name;
+    },
+    parse: function(response) {
+        return response;
     }
 });
 

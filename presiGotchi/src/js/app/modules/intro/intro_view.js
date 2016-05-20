@@ -5,19 +5,23 @@
 
 var Backbone = require('backbone');
 var template = require('./templates/intro.html');
+var baseParams = require('json!../../config/baseParams.json');
 
 var View = Backbone.View.extend({
-  el: '#container-region',
-  template: template,
+    el: '#container-region',
+    template: template,
 
-  render: function() {
-   this.$el.html(this.template({name: 'DOKOTOR KING OF METAL'}));
-   return this;
- }
+    render: function() {
+        this.$el.html(this.template({
+            title: baseParams.appName,
+            message: 'Press screen to continue '
+        }));
+        return this;
+    }
 });
 
-module.exports =  {
-  create: function() {
-    return new View();
-  }
+module.exports = {
+    create: function() {
+        return new View();
+    }
 };
