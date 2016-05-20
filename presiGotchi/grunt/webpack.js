@@ -9,17 +9,20 @@ module.exports = function(grunt) {
         dev: {
             cache: false,
             debug: true,
-            devtool: 'eval',
+            devtool: 'source-map',
 
             // webpack options
             entry: './src/js/app/app.js',
             output: {
+                devtoolLineToLine: true,
                 path: "builds/dev/",
                 filename: "<%=base.appName%>.js",
+                pathinfo: true,
+                sourceMapFilename: "<%=base.appName%>.js.map",
             },
             stats: {
                 // Configure the console output
-                colors: false,
+                colors: true,
                 modules: true,
                 reasons: true
             },
