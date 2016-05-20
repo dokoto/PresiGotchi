@@ -10,18 +10,23 @@ var baseParams = require('json!../../config/baseParams.json');
 var View = Backbone.View.extend({
     el: '#container-region',
     template: template,
-
+    events: {
+      '#intro-container': 'gotoMain'
+    },
     render: function() {
         this.$el.html(this.template({
             title: baseParams.appName,
             message: 'Press screen to continue '
         }));
         return this;
+    },
+    gotoMain: function(e) {
+      this.trigger('intro:gotomain');
     }
 });
 
 module.exports = {
-    create: function() {
+    create: function(options) {
         return new View();
     }
 };
