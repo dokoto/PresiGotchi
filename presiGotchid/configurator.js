@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 var ConfiguratorWrapper = (function() {
     'use strict';
 
@@ -74,6 +75,8 @@ var ConfiguratorWrapper = (function() {
             res.redirect('/noauth');
         };
 
+        global.DBManager = {};
+
     };
 
     Configurator.prototype._Options = function() {
@@ -142,40 +145,45 @@ var ConfiguratorWrapper = (function() {
     };
 
     Configurator.prototype._initActions = function() {
-        if (this._options.initdb === true) {
-            var Q = require('q');
-            var promises = [];
-            var DBManagerOptions = {
-                'uri': Config.fetch('db', 'db.mongo.gotchi.uri'),
-                'collections': {
-                    'gotchi': {
-                        modelName: 'gotchiModel',
-                        schema: require('./schemas/gotchi').create(),
-                        collectionName: Config.fetch('db', 'db.mongo.gotchi.collections.characters')
-                    },
-                    'menus': {
-                        modelName: 'menusModel',
-                        schema: require('./schemas/menus').create(),
-                        collectionName: Config.fetch('db', 'db.mongo.gotchi.collections.menus')
-                    }
+        var DBManagerOptions = {
+            'uri': Config.fetch('db', 'db.mongo.gotchi.uri'),
+            'collections': {
+                'gotchi': {
+                    modelName: 'gotchiModel',
+                    schema: require('./schemas/gotchi').create(),
+                    collectionName: Config.fetch('db', 'db.mongo.gotchi.collections.characters')
+                },
+                'menus': {
+                    modelName: 'menusModel',
+                    schema: require('./schemas/menus').create(),
+                    collectionName: Config.fetch('db', 'db.mongo.gotchi.collections.menus')
                 }
-            };
+            }
+        };
 
-            var DBManager = require('./ddbb/DBManager').create(DBManagerOptions);
+        var dbManager = require('./utils/dbManager').create(DBManagerOptions);
 
+        if (this._options.initdb === true) {
             var gotchiModels = require('./config/default/gotchi.json');
             var menusModels = require('./config/default/menus.json');
 
-            promises.push(dbManagerMenus.addCollection('gotchi', gotchiModels));
-            promises.push(dbManagerGotchi.addCollection('menus', menusModels));
+            dbManager.addCollections([{
+                collectionName: 'gotchi',
+                collection: gotchiModels
+            }, {
+                collectionName: 'menus',
+                collection: menusModels
+            }]);
 
-            Q.allSettled(promises).then(function(requestsArray) {
-                dbManagerGotchi.desconect();
-                dbManagerMenus.desconect();
-            }).fail(function(error) {
-                dbManagerGotchi.desconect();
-                dbManagerMenus.desconect();
+            dbManager.once('complete-collections', (responses) => {
+                global.dbManager = dbManager;
             });
+
+            dbManager.once('error', (error) => {
+                global.dbManager = {};
+                console.error(error);
+            });
+
         }
     };
 

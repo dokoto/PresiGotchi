@@ -4,10 +4,11 @@
 var Schema = require('mongoose').Schema;
 
 var schema = {
-    menu: {
-        type: Object,
-        enum: ['ES'],
-        default: 'ES'
+    name: {
+      type: String,
+    },
+    texts: {
+      type: Object
     }
 };
 

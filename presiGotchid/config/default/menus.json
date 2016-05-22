@@ -1,5 +1,6 @@
-{
-    "main": {
+[{
+    "name": "main",
+    "texts": {
         "ES": ["Nuevo Gotchid", "Salir de Titulo"]
     }
-}
+}]
