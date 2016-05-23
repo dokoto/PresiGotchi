@@ -1,73 +1,63 @@
+/*global define, module, require, dbManager*/
+/*jshint esversion: 6 */
+/*jshint globalstrict: true*/
+'use strict';
+
 var router = require('express').Router();
 var tools = {
     response: require('../../utils/response').create(),
-    request: require('../../utils/request').create()
 };
 
+
 /*
- * GET /gotchi/model
+ * GET /characters/gotchis
  */
-router.get('/gotchi/model', function(request, response) {
-    var queryParams = tools.request.decodeQueryParams(request);
-    tools.response.returnJSON(response, dbManager.getModel(queryParams), 'Model no found');
+router.get('/gotchis', function(request, response) {
+    dbManager.getCollection('gotchi', request.query);
+
+    dbManager.once('complete', (collectionResponse) => {
+        tools.response.standardWithValue(response, '200', 'OK', collectionResponse);
+    });
+
+    dbManager.once('error', (error) => {
+        tools.response.standardWithValue(response, '200', 'ERROR', {
+            'error': error
+        });
+    });
 });
 
 /*
- * GET /gotchi/model/:email/:name
+ * POST  /characters/gotchis
  */
-router.get('/gotchi/model/:email/:name', function(request, response) {
-    var queryParams = {
-        email: request.params.email,
-        name: request.params.name
-    };
-    tools.response.returnJSON(response, dbManager.getModel(queryParams), 'Model no found');
+router.post('/gotchis', function(request, response) {
+    dbManager.addCollection('gotchi', request.body.collection);
+
+    dbManager.once('complete', (collectionResponse) => {
+        tools.response.standardWithValue(response, '200', 'OK', collectionResponse);
+    });
+
+    dbManager.once('error', (error) => {
+        tools.response.standardWithValue(response, '200', 'ERROR', {
+            'error': error
+        });
+    });
 });
 
 /*
- * POST  /gotchi/model
+ * PUT  /characters/gotchis
  */
-router.post('/gotchi/model', function(request, response) {
-    tools.response.returnJSON(response, dbManager.addModel(request.body.model), 'Model no created');
-});
+router.put('/gotchis', function(request, response) {
+    dbManager.updateCollection('gotchi', request.body.collection);
 
-/*
- * PUT  /gotchi/model
- */
-router.put('/gotchi/model', function(request, response) {
-    tools.response.returnJSON(response, dbManager.updateModel(request.body.model), 'Model no updated');
-});
+    dbManager.once('complete', (collectionResponse) => {
+        tools.response.standardWithValue(response, '200', 'OK', collectionResponse);
+    });
 
-/*
- * GET  /gotchi/
- */
-router.get('/gotchi/collection', function(request, response) {
-    var queryParams = tools.request.decodeQueryParams(request);
-    tools.response.returnJSON(response, dbManager.getCollection(queryParams), 'Collection no found');
-});
-
-/*
- * GET  /gotchi/:email/:name
- */
-router.get('/gotchi/collection/:email/:name', function(request, response) {
-    var queryParams = {
-        email: request.params.email,
-        name: request.params.name
-    };
-    tools.response.returnJSON(response, dbManager.getCollection(queryParams), 'Collection no found');
-});
-
-/*
- * POST  /gotchi/collection
- */
-router.post('/gotchi/collection', function(request, response) {
-    tools.response.returnJSON(response, dbManager.addCollection(request.body.collection), 'Collection no created');
-});
-
-/*
- * PUT  /gotchi/collection
- */
-router.put('/gotchi/collection', function(request, response) {
-    tools.response.returnJSON(response, dbManager.updateCollection(request.body.collection), 'Collection no updated');
+    dbManager.once('error', (error) => {
+        tools.response.standardWithValue(response, '200', 'ERROR', {
+            'error': error
+        });
+    });
 });
 
 module.exports = router;

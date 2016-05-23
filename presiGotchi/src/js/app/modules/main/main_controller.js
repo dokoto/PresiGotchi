@@ -5,9 +5,17 @@
 
 var Log = require('utils/logger');
 
-function Controller(options) {  
+function Controller(options) {
 }
 
+Controller.prototype.fetch = function() {
+  var menusCollection = require('models/menuCollection').create();
+  menusCollection.on('sync', this._completeHandler, this, gotchiCollection);
+  menusCollection.on('error', this._errorHandler, this, gotchiCollection);
+  menusCollection.fetch({data: {
+    name: baseParams.email
+  }});
+};
 
 Controller.prototype.show = function() {
     var menuModel = require('models/menuModel').create();

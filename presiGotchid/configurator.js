@@ -75,7 +75,7 @@ var ConfiguratorWrapper = (function() {
             res.redirect('/noauth');
         };
 
-        global.DBManager = {};
+        global.dbManager = {};
 
     };
 
@@ -161,7 +161,7 @@ var ConfiguratorWrapper = (function() {
             }
         };
 
-        var dbManager = require('./utils/dbManager').create(DBManagerOptions);
+        dbManager = require('./utils/dbManager').create(DBManagerOptions);
 
         if (this._options.initdb === true) {
             var gotchiModels = require('./config/default/gotchi.json');

@@ -7,8 +7,11 @@ var schema = {
     name: {
       type: String,
     },
+    lang: {
+      type: String,
+    },
     texts: {
-      type: Object
+      type: Array
     }
 };
 

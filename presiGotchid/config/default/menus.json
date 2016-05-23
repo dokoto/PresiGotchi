@@ -1,6 +1,10 @@
 [{
     "name": "main",
-    "texts": {
-        "ES": ["Nuevo Gotchid", "Salir de Titulo"]
-    }
+    "lang": "ES",
+    "texts": ["Nuevo Gotchid", "Salir de Titulo"]
+},
+{
+    "name": "main",
+    "lang": "EN",
+    "texts": ["New Gotchid", "Close Game"]
 }]

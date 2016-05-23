@@ -1,76 +1,40 @@
+/*global define, module, require, dbManager*/
+/*jshint esversion: 6 */
+/*jshint globalstrict: true*/
 'use strict';
 
-var tpl = require('./tpl').create();
-var Q = require('q');
+const tpl = require('./tpl').create();
 
-var Response = (function () {
+class Response {
+    constructor() {
 
-  //*****************************************************
-  // PRIVATE
-  //*****************************************************
+    }
 
-  //*****************************************************
-  // PUBLIC
-  //*****************************************************
-  function response() {
-  }
+    standard(res, status, message) {
 
-  response.prototype.standard = function (res, status, message) {
+        let params = {
+            status: status,
+            message: message
+        };
 
-    var params = {
-      status: status,
-      message: message
-    };
+        res.status(status).json(tpl.fromFile('../templates/responses/standard.json', params));
+    }
 
-    res.status(status).json( tpl.fromFile('../templates/responses/standard.json', params) );
-  };
+    standardWithValue(res, status, message, value) {
+        let params = {
+            status: status,
+            message: message,
+            value: ((value === undefined) ? 'null' : value)
+        };
 
-  response.prototype.standardWithValue = function (res, status, message, value) {
-    var params = {
-      status: status,
-      message: message,
-      value: ((value===undefined)?'null':value)
-    };
+        res.status(status).json(params);
+    }
 
-    res.status(status).json( params );
-  };
-
-  response.prototype.returnJSON = function(servResponse, promise, errorMsg) {
-    var self = this;
-    Q.when(promise, function(responseDoc) {
-      if (responseDoc) {
-        var resp = {};
-        if (Array.isArray(responseDoc.data) === true) {
-          resp.collection = [];
-          for (var i = 0; i < responseDoc.data.length; i++) {
-            resp.collection.push( (responseDoc.data[i].value) ? responseDoc.data[i].value.data.toJSON() : responseDoc.data[i].toJSON() );
-          }
-        } else {
-          resp.model = responseDoc.data.toJSON();
-        }
-        resp.isNew = responseDoc.isNew;
-        self.standardWithValue(servResponse, '200', 'OK', resp);
-      } else {
-        self.standardWithValue(servResponse, '200', 'ERROR', {
-          error: errorMsg
-        });
-      }
-    }, function(error) {
-      self.standardWithValue(servResponse, '200', 'ERROR', {
-        error: responseDoc
-      });
-    });
-  };
-
-
-  return response;
-
-})();
-
+}
 
 module.exports = {
-  create: function () {
-    return new Response();
-  }
+    create: function() {
+        return new Response();
+    }
 
 };

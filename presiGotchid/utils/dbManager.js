@@ -84,23 +84,14 @@ class DBManager extends EventEmitter {
         let mongooseModel = mongoose.model(this.collections[collectionName].modelName,
             this.collections[collectionName].schema, this.collections[collectionName].collectionName);
 
-        mongooseModel.find().exec(function(error, response) {
+        mongooseModel.find(query).exec(function(error, response) {
             if (error) {
                 this.emit('error', error);
             } else {
-                if (response.length === 0) {
-                    response.push(new mongooseModel());
-                    this.emit('complete', {
-                        data: response,
-                        isNew: true
-                    });
-                } else {
-                    this.emit('complete', {
-                        data: response,
-                        isNew: false
-                    });
-                }
-
+                this.emit('complete', {
+                    data: response,
+                    isNew: true
+                });
             }
         }.bind(this));
 
@@ -126,21 +117,21 @@ class DBManager extends EventEmitter {
     }
 
     addCollections(poll) {
-      for (var i = 0; i < poll.length; i++) {
-          this.addCollection(poll[i].collectionName, poll[i].collection);
-      }
-      let itemsCompleted = 0;
-      let responses = [];
-      this.on('complete-collection', (response) => {
-          itemsCompleted++;
-          responses.push(response);
-          if (itemsCompleted === poll.length) {
-              this.emit('complete-collections', {
-                  data: responses,
-                  isNew: false
-              });
-          }
-      });
+        for (var i = 0; i < poll.length; i++) {
+            this.addCollection(poll[i].collectionName, poll[i].collection);
+        }
+        let itemsCompleted = 0;
+        let responses = [];
+        this.on('complete-collection', (response) => {
+            itemsCompleted++;
+            responses.push(response);
+            if (itemsCompleted === poll.length) {
+                this.emit('complete-collections', {
+                    data: responses,
+                    isNew: false
+                });
+            }
+        });
     }
 
     updateCollection(collectionName, collection) {
