@@ -10,8 +10,7 @@ var ModelBase = require('./modelBase');
 var CollectionBase = Backbone.Collection.extend({
     model: ModelBase.self,
     parse: function(response) {
-        //return response.value.collection;
-        return response;
+        return response.value.data;
     }
 });
 

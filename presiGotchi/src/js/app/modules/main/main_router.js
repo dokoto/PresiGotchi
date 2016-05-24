@@ -14,12 +14,12 @@ var Router = Backbone.Router.extend({
 
     start: function() {
         Log.MSG_DESP('[MAIN ROUTER] Starting');
-        require("../../../../css/intro.css");
-        Router.mainMenu();
+        require("./css/main.css");        
+        this.mainMenu();
     },
     mainMenu: function() {
       var controller = require('./main_controller').create();
-      controller.showMainMenu();
+      controller.show();
     }
 
 });

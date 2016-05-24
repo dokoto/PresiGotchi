@@ -4,9 +4,9 @@
 'use strict';
 
 
-var CollectionBase = require('./base/modelBase');
+var CollectionBase = require('./base/CollectionBase');
 var _ = require('underscore');
-var baseParams = require('json!../../config/baseParams.json');
+var baseParams = require('json!config/baseParams.json');
 
 var MenuCollection = CollectionBase.self.extend({
   urlRoot: baseParams.urlRoot,

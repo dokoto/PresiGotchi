@@ -1,7 +1,9 @@
 <div id="main-menu-container" class="main-menu-container">
     <ul id="main-menu-list" class="main-menu-list">
-        <% _.each(items, function(item) { %>
-          <li id="main-menu-item" class="main-menu-item"><%=itemText%></li>
-        <%});%>
+        <% this.model.get('items').forEach(function(element, index, array) { %>
+            <li id="<%=element.id%>" class="<%= (index === array.length-1)?'main-menu-item main-menu-item-last':'main-menu-item'%>">
+                <%=element.text%>
+            </li>
+            <%});%>
     </ul>
 </div>

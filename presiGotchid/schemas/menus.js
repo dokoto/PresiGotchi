@@ -10,7 +10,7 @@ var schema = {
     lang: {
       type: String,
     },
-    texts: {
+    items: {
       type: Array
     }
 };

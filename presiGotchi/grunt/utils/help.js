@@ -3,15 +3,15 @@ module.exports = function (grunt, options) {
     'use strict';
 
     Log.info.v0('Use : #> grunt [options] [task]');
-    Log.info.v0('Ej: #> grunt --os=android --mode=debug --versionTablet=0.0.1 --logger=0 fake-task');
-    Log.info.v0('Debug Win Ej: #> node-debug C:\\Users\\e454989\\AppData\\Roaming\\nvm\\v5.5.0\\node_modules\\grunt-cli\\bin\\grunt --os=android --mode=debug --versionTablet=0.0.1 --logger=0 fake-task');
-    Log.info.v0('Debug Win Ej: #> %gruntd% --os=android --mode=debug --versionTablet=0.0.1 --logger=0 fake-task');
+    Log.info.v0('Ej: #> grunt --os=android --mode=debug --versionApp=0.0.1 --logger=0 fake-task');
+    Log.info.v0('Debug Win Ej: #> node-debug C:\\Users\\e454989\\AppData\\Roaming\\nvm\\v5.5.0\\node_modules\\grunt-cli\\bin\\grunt --os=android --mode=debug --versionApp=0.0.1 --logger=0 fake-task');
+    Log.info.v0('Debug Win Ej: #> %gruntd% --os=android --mode=debug --versionApp=0.0.1 --logger=0 fake-task');
 
     Log.info.v0(' ');
     Log.info.v0('[Opciones *:parametro obligatorio] >', 'blue');
     Log.info.v0('Los parametros son obligatorios en todas las tareas porque es lo que le indica al constructor sobre que build/[gotchi_XX_XX_XXX] trabajar');
     Log.info.v0('*os             : Sistema operativo objetivo ej: --os=android');
-    Log.info.v0('*appTablet      : Version a generar ej: --appTablet=287.3.3');
+    Log.info.v0('*versionApp     : Version a generar ej: --versionApp=287.3.3');
     Log.info.v0('mode            : Tipo de compilacion ej: --mode=[dev(por defecto)|prod]');
     Log.info.v0('keystore        : Nombre de la carpeta keystore desde donde cagar la firma ej: --keystore=[default(por defecto en assets/config/android/keyStore/default)]');
     Log.info.v0('testPrefix      : Prefijo añadir al nombre de la app ej: --testPrefix=test_');

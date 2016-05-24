@@ -6,7 +6,7 @@
 
 var CollectionBase = require('./base/CollectionBase');
 var _ = require('underscore');
-var baseParams = require('json!../../config/baseParams.json');
+var baseParams = require('json!config/baseParams.json');
 
 var GotchiCollection = CollectionBase.self.extend({
   urlRoot: baseParams.urlRoot,

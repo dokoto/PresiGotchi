@@ -1,5 +1,5 @@
 {
-    "urlRoot": "http://127.0.0.1:46969/gotchi",
-    "email": "presigotchi@gmail.com",
+    "urlRoot": "http://127.0.0.1:46969",
+    "email": "presigotchid@gmail.com",
     "appName": "PresiGotchi"
 }

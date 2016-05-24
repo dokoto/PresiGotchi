@@ -1,10 +1,21 @@
 [{
     "name": "main",
     "lang": "ES",
-    "texts": ["Nuevo Gotchid", "Salir de Titulo"]
-},
-{
+    "items": [{
+        "id": "new",
+        "text": "Nuevo Gotchi"
+    }, {
+        "id": "close",
+        "text": "Salir de Titulo"
+    }]
+}, {
     "name": "main",
     "lang": "EN",
-    "texts": ["New Gotchid", "Close Game"]
+    "items": [{
+        "id": "new",
+        "text": "New Gotchi"
+    }, {
+        "id": "close",
+        "text": "Close Game"
+    }]
 }]

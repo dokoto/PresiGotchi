@@ -28,13 +28,11 @@ class DBManager extends EventEmitter {
             } else {
                 if (response === null) {
                     this.emit('complete', {
-                        data: new model(),
-                        isNew: true
+                        data: new model()
                     });
                 } else {
                     this.emit('complete', {
-                        data: response,
-                        isNew: false
+                        data: response
                     });
                 }
             }
@@ -52,8 +50,7 @@ class DBManager extends EventEmitter {
                 this.emit('error', error);
             } else {
                 this.emit('complete', {
-                    data: response,
-                    isNew: false
+                    data: response
                 });
             }
         }.bind(this));
@@ -72,8 +69,7 @@ class DBManager extends EventEmitter {
                 this.emit('error', error);
             } else {
                 this.emit('complete', {
-                    data: response,
-                    isNew: false
+                    data: response
                 });
             }
         }.bind(this));
@@ -89,8 +85,7 @@ class DBManager extends EventEmitter {
                 this.emit('error', error);
             } else {
                 this.emit('complete', {
-                    data: response,
-                    isNew: true
+                    data: response
                 });
             }
         }.bind(this));
@@ -108,8 +103,7 @@ class DBManager extends EventEmitter {
             responses.push(response);
             if (itemsCompleted === collection.length) {
                 this.emit('complete-collection', {
-                    data: responses,
-                    isNew: false
+                    data: responses
                 });
             }
         });
@@ -127,8 +121,7 @@ class DBManager extends EventEmitter {
             responses.push(response);
             if (itemsCompleted === poll.length) {
                 this.emit('complete-collections', {
-                    data: responses,
-                    isNew: false
+                    data: responses
                 });
             }
         });
@@ -145,8 +138,7 @@ class DBManager extends EventEmitter {
             responses.push(response);
             if (itemsCompleted === collection.length) {
                 this.emit('complete-collection', {
-                    data: responses,
-                    isNew: false
+                    data: responses
                 });
             }
         });

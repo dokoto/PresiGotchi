@@ -10,10 +10,23 @@ var View = Backbone.View.extend({
     el: '#container-region',
     template: template,
     events: {
+        'click .main-menu-item': 'menuHandler'
     },
-    render: function() {
+    render: function(e) {
         this.$el.html(this.template());
         return this;
+    },
+    menuHandler: function(e) {
+        switch (e.target.id) {
+            case 'new':
+                break;
+            case 'close':
+                var intro = require('modules/intro/intro_router').create();
+                intro.navigate('intro/start', {
+                    trigger: true
+                });
+                break;
+        }
     }
 });
 

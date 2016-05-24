@@ -11,7 +11,7 @@ var View = Backbone.View.extend({
     el: '#container-region',
     template: template,
     events: {
-      '#intro-container': 'gotoMain'
+      'click #intro-container': 'gotoMain'
     },
     render: function() {
         this.$el.html(this.template({
