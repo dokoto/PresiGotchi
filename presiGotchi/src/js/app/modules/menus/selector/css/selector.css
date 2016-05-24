@@ -1,0 +1,40 @@
+.selector-menu-container {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    font-family: sans-serif;
+    padding: 1px;
+}
+.selector-menu-item {
+    background: rgb(135, 199, 135);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    background-color: #222;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    border: solid 1px white;
+}
+.selector-menu-item:active {
+    border-color: darkblue;
+}
+.dollar-background {
+    color: white;
+    position: absolute;
+    font-size: 400px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    font-family: fantasy;
+}
+.dollar-background-rotate {
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration: 100s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+@-webkit-keyframes rotate {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}

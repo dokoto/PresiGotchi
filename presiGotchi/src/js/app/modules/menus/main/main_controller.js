@@ -22,7 +22,7 @@ Controller.prototype._fetch = function() {
 Controller.prototype._completeHandler = function(menusCollection) {
     Log.MSG_DESP('[MAIN CONTROLLER] Successful synchronized Menus collection with ddbb. ' + menusCollection.length + ' Items requested.');
     Gotchi.menusCollection = menusCollection;
-    var view = require('./main_menu_view').create({
+    var view = require('./main_view').create({
         'viewOptions': {
             'model': menusCollection.findWhere({
                 name: 'main'

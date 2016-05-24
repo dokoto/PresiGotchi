@@ -28,8 +28,8 @@ Controller.prototype.show = function() {
 };
 
 Controller.prototype._gotomainHandler = function() {
-    var main = require('modules/main/main_router').create();
-    main.navigate('main/start', {
+    var main = require('modules/menus/main/main_router').create();
+    main.navigate('menus/main/start', {
         trigger: true
     });
 };

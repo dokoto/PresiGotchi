@@ -1,0 +1,9 @@
+<div id="dollar-background" class="dollar-background dollar-background-rotate">$</div>
+<div id="selector-menu-container" class="selector-menu-container">
+    <div id="selector-menu-grid" class="selector-menu-grid">
+        <% this.collection.each(function(model) { %>
+            <div id="<%= model.get('name') %>" class="selector-menu-item" style="width:<%= model.get('thumb').width%>px; height: <%= model.get('thumb').height%>px; background-image: url(<%= model.get('thumb').url%>);">
+            </div>
+            <% }); %>
+    </div>
+</div>

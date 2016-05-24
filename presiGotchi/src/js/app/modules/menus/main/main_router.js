@@ -8,13 +8,13 @@ var Log = require('utils/logger');
 
 var Router = Backbone.Router.extend({
     routes: {
-        'main/start': 'start',
-        'main/menu': 'mainMenu'
+        'menus/main/start': 'start',
+        'menus/main/menu': 'mainMenu'
     },
 
     start: function() {
         Log.MSG_DESP('[MAIN ROUTER] Starting');
-        require("./css/main.css");        
+        require("./css/main.css");
         this.mainMenu();
     },
     mainMenu: function() {
