@@ -57,6 +57,11 @@ module.exports = function(grunt) {
                     VERSION: '<%= args.versionApp %>',
                     TARGET: '<%= args.target %>',
                     TARGET_OS: '<%= args.targetOS %>',
+                }),
+                new webpack.ProvidePlugin({
+                    $: "jquery",
+                    jQuery: "jquery",
+                    "window.jQuery": "jquery"
                 })
             ],
             resolve: {

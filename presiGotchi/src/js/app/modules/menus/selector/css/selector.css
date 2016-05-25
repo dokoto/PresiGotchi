@@ -3,7 +3,7 @@
     height: 100%;
     background-color: black;
     font-family: sans-serif;
-    padding: 1px;
+    /*padding: 1px;*/
 }
 .selector-menu-item {
     background: rgb(135, 199, 135);
@@ -14,7 +14,7 @@
     background-color: #222;
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
-    border: solid 1px white;
+    /*border: solid 3px white;*/
 }
 .selector-menu-item:active {
     border-color: darkblue;

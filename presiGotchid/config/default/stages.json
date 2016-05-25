@@ -1,0 +1,99 @@
+//https://github.com/natetyler/wikiquotes-api/blob/master/wikiquote-api.js
+/* STAGES:
+  UNTOUCHABLE-ASKS: Frases utopicas sobre la vida
+  http://www.frasesypensamientos.com.ar/frases-de-utopia.html
+
+  HOMELESS-ASKS: Frases muy idealistas sobre la situacion
+  http://www.unafrasecelebre.com/frases-celebres.asp
+
+  CANDIDATE-ASKS: Frases y preguntas que quiere oir el populacho ya mas cerca de los grupos financieros
+  http://www.muyhistoria.es/contemporanea/articulo/10-frases-celebres-de-adolfo-suarez-951395601978
+  
+  POWERFUL-ASKS: Afirmaciones y reproches.. Y muchas leyes cabronas
+  GOD: Afirmaciones en modo dios y algunas amanazas
+  MASTER_AND_COMMANDER: Mayormente amenazas, leyes super represibas
+  NAZI: Aqui ya solo habla aleman
+ */
+{
+    "UNTOUCHABLE": {
+        "level": {
+            "min": -500,
+            "max": -300
+        },
+        "asks": [{
+            "lang": "ES",
+            "question": "La utopía es el principio de todo progreso y el diseño de un futuro mejor",
+            "response": {
+                "yes": "Amen",
+                "no": "No me fio"
+            }
+        }, {
+            "lang": "ES",
+            "question": "Los seres humanos serán más felices cuando encuentren caminos para vivir como las antiguas comunidades primitivas",
+            "response": {
+                "yes": "ohhhhh !",
+                "no": "Que miedo !"
+            }
+        }],
+        "quotes": [{
+          "lang": "ES",
+          "urlRoot": "https://es.wikiquote.org/w/api.php",
+          "page": "Mariano_Rajoy"
+          }]
+
+    },
+    "HOMELESS": {
+        "level": {
+            "min": -500,
+            "max": -300
+        },
+        "asks": [{
+            "lang": "ES",
+            "question": "La más estricta justicia no creo que sea siempre la mejor política",
+            "response": {
+                "yes": "Guauuu",
+                "no": "No se.. yo"
+            }
+        }, {
+            "lang": "ES",
+            "question": "El mundo no está en peligro por las malas personas sino por aquellas que permiten la maldad",
+            "response": {
+                "yes": "Amen hermano",
+                "no": "Se te ve el plumero"
+            }
+        }],
+        "quotes": [{
+          "lang": "ES",
+          "urlRoot": "https://es.wikiquote.org/w/api.php",
+          "page": "Mariano_Rajoy"
+          }]
+
+    },
+    "CANDIDATE": {
+        "level": {
+            "min": -500,
+            "max": -300
+        },
+        "asks": [{
+            "lang": "ES",
+            "question": "El poder se tiene mientras se ejerce y su única legitimidad es la entrega total al servicio de los demás",
+            "response": {
+                "yes": "Dabuti",
+                "no": "Ni de coña"
+            }
+        }, {
+            "lang": "ES",
+            "question": "Agradeceré busquen siempre las cosas que les unen y dialoguen con serenidad y espíritu de justicia sobre aquellas que les separan",
+            "response": {
+                "yes": "Claro, Crack!",
+                "no": "Tu muertos"
+            }
+        }],
+        "quotes": [{
+          "lang": "ES",
+          "urlRoot": "https://es.wikiquote.org/w/api.php",
+          "page": "Mariano_Rajoy"
+          }]
+
+    }
+}
