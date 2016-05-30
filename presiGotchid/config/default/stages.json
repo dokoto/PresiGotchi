@@ -1,72 +1,108 @@
 //https://github.com/natetyler/wikiquotes-api/blob/master/wikiquote-api.js
 /* STAGES:
-  UNTOUCHABLE-ASKS: Frases utopicas sobre la vida
+  FILOSOFER-ASKS: Frases utopicas sobre la vida
   http://www.frasesypensamientos.com.ar/frases-de-utopia.html
 
-  HOMELESS-ASKS: Frases muy idealistas sobre la situacion
+  REVOLUTIONARY-ASKS: Frases muy idealistas sobre la situacion
+  http://www.frasesypensamientos.com.ar/frases-de-resistencia.html
+  http://www.frasesypensamientos.com.ar/frases-de-lucha.html
   http://www.unafrasecelebre.com/frases-celebres.asp
 
   CANDIDATE-ASKS: Frases y preguntas que quiere oir el populacho ya mas cerca de los grupos financieros
   http://www.muyhistoria.es/contemporanea/articulo/10-frases-celebres-de-adolfo-suarez-951395601978
-  
+
   POWERFUL-ASKS: Afirmaciones y reproches.. Y muchas leyes cabronas
-  GOD: Afirmaciones en modo dios y algunas amanazas
-  MASTER_AND_COMMANDER: Mayormente amenazas, leyes super represibas
-  NAZI: Aqui ya solo habla aleman
+  MASTER_AND_COMMANDER-ASKS: Afirmaciones en terminos absolutos y amenazas
+  NAZI-ASKS: Aqui ya solo habla aleman
  */
 {
-    "UNTOUCHABLE": {
+    "FILOSOFER": {
         "level": {
             "min": -500,
             "max": -300
         },
+        "power": {
+            "yes": 30,
+            "no": -20
+        },
         "asks": [{
             "lang": "ES",
-            "question": "La utopía es el principio de todo progreso y el diseño de un futuro mejor",
-            "response": {
+            "questions": [
+                "La utopía es el principio de todo progreso y el diseño de un futuro mejor",
+                "Los seres humanos serán más felices cuando encuentren caminos para vivir como las antiguas comunidades primitivas",
+                "En la utopía de ayer, se incubó la realidad de hoy, así como en la utopía de mañana palpitarán nuevas realidades.",
+                "La utopía está en el horizonte. Camino dos pasos, ella se aleja dos pasos y el horizonte se corre diez pasos más allá. ¿Entonces para que sirve la utopía? Para eso, sirve para caminar.",
+                "El cielo es el hogar. La utopía está aquí. El Nirvana es ahora.",
+                "La literatura es mi utopía. No hay barrera de sentidos que me pueda quitar este placer. Los libros me hablan sin impedimentos de ninguna clase.",
+                "La utopía de un siglo, a menudo se convirtió en la idea vulgar del siglo siguiente.",
+                "Melancolía y utopía son cabeza y cola de la misma moneda.",
+                "Las utopías nacen solamente dentro de aquellas culturas donde se encuentra claramente diseñada una edad feliz que desapareció.",
+                "Somos utopistas, tanto que llegamos a creer que la revolución debe y puede garantizar a todos: alojamiento, vestido y pan.",
+                "En realidad, hay dos especies de utopías: las utopías proletarias socialistas que gozan de la propiedad de no realizarse nunca, y las utopías capitalistas que, desgraciadamente, tienden a realizarse con mucha frecuencia.",
+                "La utopía es pensar y anhelar algo que parece imposible algo digno de la condición de los hombres. Ponerse a trabajar, marginalmente en la utopía, pero tomando las precauciones para que nunca se cumpla del todo.",
+                "¿Qué nos faltó para que la utopía venciera a la realidad? ¿Qué derrotó a la utopía?",
+                "¿Qué es lo que busca a fin de cuentas? El máximo de amor y de placer, como un sueño o idea, es una utopía. Esto lo entiende perfectamente, por eso está triste. Su tristeza también es profunda, una profunda tristeza humana, una tristeza infinita, imposible librarse de ella.",
+                "Sólo en la mente de los traidores y de los viles, de los hombres como yo, pueden surgir los bellos sueños que llamamos utopías.",
+                "En realidad, poco me importan mis oportunidades de ser realmente colmado. Sólo brilla, indestructible, la voluntad de saciedad. Por esta voluntad, me abandono: forma en mí la utopía de un sujeto sustraído al rechazo: soy ya ese sujeto.",
+                "Que sepulten la utopía... Dame clases de poesía con tu cuerpo esta noche.",
+                "El tiempo es pura esperanza. Es incluso el lugar de origen de la esperanza. Esperanza de un mundo acabado en el que el hombre y su trabajo no sean mercancías. Esperanza y utopía sin las cuales la actividad que culmina el ser -es decir, la humanidad- no podría empezar ni continuar en su larga paciencia de ciencia y esfuerzo.",
+                "¿Qué ocurre cuando nuestros sueños se hacen realidad? ¿Cuándo se ha conseguido aquello por lo que se luchaba? ¿Cómo se vive cuando el enemigo ha desaparecido y ahora lo que tenemos ante nosotros somos nosotros mismos?",
+                "Y no hay nada como el sueño para engendrar el porvenir. Hoy; utopía; mañana, carne y hueso.",
+                "El final de las utopías totalitarias sólo es liberatorio si viene acompañado de la conciencia de que la redención, prometida y echada a perder por esas utopías, tiene que buscarse con mayor paciencia y modestia, sabiendo que no poseemos ninguna receta definitiva, pero también sin escarnecerla.",
+                "Dar produce más felicidad que recibir, no porque sea una privación, sino porque en el acto de dar está la expresión de mi vitalidad.",
+                "Se puede soportar cualquier verdad, por muy destructiva que sea, a condición de que sea total, que lleve en sí tanta vitalidad como la esperanza a la que ha sustituido.",
+                "La experiencia, en el grado en que es experiencia, es vitalidad elevada.",
+                "La energía tiene tal vitalidad, que sobrevive a todos los desastres y provee a todos los esfuerzos.",
+                "El hombre vive en un estado de bajo nivel de vitalidad. Aún cuando generalmente no sufre mucho, sabe poco acerca de lo que es vivir en forma verdaderamente creativa.",
+                "La calidad del guerrero da origen a la belleza natural. Las técnicas sutiles de un guerrero surgen tan naturalmente como aparecen la primavera, el verano, el otoño y el invierno. La calidad del guerrero no es otra cosa que la vitalidad que sustenta toda vida.",
+                "La vitalidad se revela no solamente en la capacidad de persistir sino en la de volver a empezar.",
+                "El pensamiento no puede existir sin la conciencia, pero la conciencia no necesita al pensamiento.",
+                "En contacto con la tierra, el hombre puede permitirse existir nuevamente en su totalidad.",
+                "Pensar en el existir no hace que lo que no existe exista."
+
+            ],
+            "responses": [{
                 "yes": "Amen",
                 "no": "No me fio"
-            }
-        }, {
-            "lang": "ES",
-            "question": "Los seres humanos serán más felices cuando encuentren caminos para vivir como las antiguas comunidades primitivas",
-            "response": {
+            }, {
                 "yes": "ohhhhh !",
                 "no": "Que miedo !"
-            }
+            }]
         }],
         "quotes": [{
-          "lang": "ES",
-          "urlRoot": "https://es.wikiquote.org/w/api.php",
-          "page": "Mariano_Rajoy"
-          }]
-
+            "lang": "ES",
+            "urlRoot": "https://es.wikiquote.org/w/api.php",
+            "page": "Mariano_Rajoy"
+        }]
     },
-    "HOMELESS": {
+    "REVOLUTIONARY": {
         "level": {
             "min": -500,
             "max": -300
         },
+        "power": {
+            "yes": 30,
+            "no": -20
+        },
         "asks": [{
             "lang": "ES",
-            "question": "La más estricta justicia no creo que sea siempre la mejor política",
-            "response": {
+            "questions": [
+                "La más estricta justicia no creo que sea siempre la mejor política",
+                "El mundo no está en peligro por las malas personas sino por aquellas que permiten la maldad"
+            ],
+            "responses": [{
                 "yes": "Guauuu",
                 "no": "No se.. yo"
-            }
-        }, {
-            "lang": "ES",
-            "question": "El mundo no está en peligro por las malas personas sino por aquellas que permiten la maldad",
-            "response": {
+            }, {
                 "yes": "Amen hermano",
                 "no": "Se te ve el plumero"
-            }
+            }]
         }],
         "quotes": [{
-          "lang": "ES",
-          "urlRoot": "https://es.wikiquote.org/w/api.php",
-          "page": "Mariano_Rajoy"
-          }]
+            "lang": "ES",
+            "urlRoot": "https://es.wikiquote.org/w/api.php",
+            "page": "Mariano_Rajoy"
+        }]
 
     },
     "CANDIDATE": {
@@ -74,26 +110,28 @@
             "min": -500,
             "max": -300
         },
+        "power": {
+            "yes": 30,
+            "no": -20
+        },
         "asks": [{
             "lang": "ES",
-            "question": "El poder se tiene mientras se ejerce y su única legitimidad es la entrega total al servicio de los demás",
-            "response": {
+            "questions": [
+                "El poder se tiene mientras se ejerce y su única legitimidad es la entrega total al servicio de los demás",
+                "Agradeceré busquen siempre las cosas que les unen y dialoguen con serenidad y espíritu de justicia sobre aquellas que les separan"
+            ],
+            "responses": [{
                 "yes": "Dabuti",
                 "no": "Ni de coña"
-            }
-        }, {
-            "lang": "ES",
-            "question": "Agradeceré busquen siempre las cosas que les unen y dialoguen con serenidad y espíritu de justicia sobre aquellas que les separan",
-            "response": {
+            }, {
                 "yes": "Claro, Crack!",
                 "no": "Tu muertos"
-            }
+            }]
         }],
         "quotes": [{
-          "lang": "ES",
-          "urlRoot": "https://es.wikiquote.org/w/api.php",
-          "page": "Mariano_Rajoy"
-          }]
-
+            "lang": "ES",
+            "urlRoot": "https://es.wikiquote.org/w/api.php",
+            "page": "Mariano_Rajoy"
+        }]
     }
 }
