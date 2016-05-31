@@ -25,9 +25,9 @@
             "yes": 30,
             "no": -20
         },
-        "asks": [{
+        "questions": [{
             "lang": "ES",
-            "questions": [
+            "texts": [
                 "La utopía es el principio de todo progreso y el diseño de un futuro mejor",
                 "Los seres humanos serán más felices cuando encuentren caminos para vivir como las antiguas comunidades primitivas",
                 "En la utopía de ayer, se incubó la realidad de hoy, así como en la utopía de mañana palpitarán nuevas realidades.",
@@ -59,19 +59,29 @@
                 "El pensamiento no puede existir sin la conciencia, pero la conciencia no necesita al pensamiento.",
                 "En contacto con la tierra, el hombre puede permitirse existir nuevamente en su totalidad.",
                 "Pensar en el existir no hace que lo que no existe exista."
-
             ],
-            "responses": [{
-                "yes": "Amen",
-                "no": "No me fio"
-            }, {
-                "yes": "ohhhhh !",
-                "no": "Que miedo !"
-            }]
+
+        }, {
+            "lang": "EN",
+            "texts": []
+        }, ],
+        "responses": [{
+            "lang": "ES",
+            "texts": {
+                "yes": ["Amen", "Que miedo !"],
+                "no": ["No me fio", "ohhhhh !"]
+            }
+        }, {
+            "lang": "EN",
+            "texts": {}
         }],
         "quotes": [{
             "lang": "ES",
             "urlRoot": "https://es.wikiquote.org/w/api.php",
+            "page": "Mariano_Rajoy"
+        }, {
+            "lang": "EN",
+            "urlRoot": "https://en.wikiquote.org/w/api.php",
             "page": "Mariano_Rajoy"
         }]
     },
@@ -84,23 +94,69 @@
             "yes": 30,
             "no": -20
         },
-        "asks": [{
+        "questions": [{
             "lang": "ES",
-            "questions": [
+            "texts": [
                 "La más estricta justicia no creo que sea siempre la mejor política",
-                "El mundo no está en peligro por las malas personas sino por aquellas que permiten la maldad"
-            ],
-            "responses": [{
-                "yes": "Guauuu",
-                "no": "No se.. yo"
-            }, {
-                "yes": "Amen hermano",
-                "no": "Se te ve el plumero"
-            }]
+                "El mundo no está en peligro por las malas personas sino por aquellas que permiten la maldad",
+                "Si quieres ser ave, vuela, si quieres ser gusano, arrástrate, pero no grites cuando te aplasten",
+                "Es mejor morir de pie que vivir de rodillas",
+                "La tierra es para quien la trabaja",
+                "Muchos de ellos, por complacer a tiranos, por un puñado de monedas, o por cohecho o soborno están traicionando y derramando la sangre de sus hermanos",
+                "Cuando sea posible hablar de libertad, el Estado como tal dejará de existir",
+                "¡Cuando un pueblo enérgico y viril llora, la injusticia tiembla!",
+                "Si no eres parte de la solución, eres parte del problema, ¡actúa!",
+                "La revolución no se hace, sino que se organiza",
+                "La victoria de la revolución será la dictadura del proletariado y el campesinado",
+                "Lo que nosotros tenemos que practicar hoy, es la solidaridad",
+                "Si avanzo, seguidme; si me detengo, empujadme; si retrocedo, matadme",
+                "Todo lo que paguemos significa la retribución de lo que recibimos y una retribución correcta y honesta",
+                "En una revolución se triunfa o se muere, si es verdadera",
+                "Esta revolución se propone arrancar de raíz las injusticias",
+                "Luchamos contra la miseria pero al mismo tiempo luchamos contra la alienación",
+                "Donde quiera que la muerte nos sorprenda, sera bien recibida mientras nuestro grito de guerra sea escuchado",
+                "La revolución se lleva en el corazón no en la boca para vivir de ella",
+                "Nuestro sacrificio es consciente; cuota para pagar la libertad que construimos",
+                "Aunque se firmó la paz, sin embargo, es de interés que mantenga la paz",
+                "El que deja de ser mejor a cada paso simplemente deja de ser bueno",
+                "La sutileza puede engañarte; la integridad nunca lo hará",
+                "La sutileza puede engañarte; la integridad nunca lo hará",
+                "Con el fin de conquistar, lo que necesitamos es atrevernos",
+                "No queremos un rey condenado ... queremos verlo muerto",
+                "Después del pan, la educación es la primera necesidad de la gente",
+                "Hay que atreverse, atreverse otra vez, y seguir atreviendose",
+                "Por fin veo que las revoluciones del poder supremo recaen en los más abandonados",
+                "Audacia, más audacia, siempre audacia",
+                "Jamás pretendí proponer romper el nervio revolucionario, ya que dije que la Constitución debía dormir mientras el pueblo estuvo ocupado golpeando a sus enemigos",
+                "La voz de la verdad que resuena en los corazones corrompidos se parece a los sones que retumban en los sepulcros sin despertar a los muertos",
+                "Sólo la naturaleza hace grandes obras sin esperar recompensa alguna",
+                "La vida me ha enseñado a pensar, pero el pensamiento no me ha enseñado a vivir",
+                "Estoy verdaderamente horrorizado por el hombre moderno. Tal ausencia de sentimiento, tal estrechez de miras, esa falta de pasión y de información, como debilidad de pensamiento",
+                "Se puede llevar por mal camino a toda una generación, volverla ciega, conducirla hacia una locura y dirigirla hacia un falso objetivo. Napoleón lo demostró",
+                "Nadie tiene la culpa. No es su defecto ni el nuestro. Esta es la desgracia de nacer en un mundo que se está muriendo",
+                "El liberalismo, austero en nimiedades políticas, ha aprendido cada vez más ingeniosamente para unir una protesta constante contra el gobierno con una sumisión constante a él"
+            ]
+        }, {
+            "lang": "EN",
+            "texts": []
+        }],
+        "responses": [{
+            "lang": "ES",
+            "texts": {
+                "yes": ["Guauuu", "Amen hermano"],
+                "no": ["No se.. yo", "Se te ve el plumero"]
+            }
+        }, {
+            "lang": "EN",
+            "texts": {}
         }],
         "quotes": [{
             "lang": "ES",
             "urlRoot": "https://es.wikiquote.org/w/api.php",
+            "page": "Mariano_Rajoy"
+        }, {
+            "lang": "EN",
+            "urlRoot": "https://en.wikiquote.org/w/api.php",
             "page": "Mariano_Rajoy"
         }]
 
@@ -114,23 +170,146 @@
             "yes": 30,
             "no": -20
         },
-        "asks": [{
+        "questions": [{
             "lang": "ES",
-            "questions": [
+            "texts": [
                 "El poder se tiene mientras se ejerce y su única legitimidad es la entrega total al servicio de los demás",
-                "Agradeceré busquen siempre las cosas que les unen y dialoguen con serenidad y espíritu de justicia sobre aquellas que les separan"
+                "Agradeceré busquen siempre las cosas que les unen y dialoguen con serenidad y espíritu de justicia sobre aquellas que les separan",
+                "Pertenezco por convicción y talante a una mayoría de ciudadanos que desea hablar un lenguaje moderado, de concordia y conciliación",
+                "Quienes alcanzan el poder con demagogia terminan haciéndole pagar al país un precio muy caro",
+                "Las elecciones no resuelven por sí mismas los problemas, aunque son el paso previo y necesario para su solución",
+                "Un presidente no puede decir que conoce bien lo que está pasando, porque ve los atascos de tráfico desde el helicóptero",
+                ""
             ],
-            "responses": [{
-                "yes": "Dabuti",
-                "no": "Ni de coña"
-            }, {
-                "yes": "Claro, Crack!",
-                "no": "Tu muertos"
-            }]
+        }, {
+            "lang": "EN",
+            "texts": []
+        }],
+        "responses": [{
+            "lang": "ES",
+            "texts": {
+                "yes": ["Dabuti", "Claro, Crack!"],
+                "no": ["Ni de coña", "Tu muertos"]
+            }
+        }, {
+            "lang": "EN",
+            "texts": {}
         }],
         "quotes": [{
             "lang": "ES",
             "urlRoot": "https://es.wikiquote.org/w/api.php",
+            "page": "Mariano_Rajoy"
+        }, {
+            "lang": "EN",
+            "urlRoot": "https://en.wikiquote.org/w/api.php",
+            "page": "Mariano_Rajoy"
+        }]
+    },
+    "POWERFUL": {
+        "level": {
+            "min": -500,
+            "max": -300
+        },
+        "power": {
+            "yes": 30,
+            "no": -20
+        },
+        "questions": [{
+            "lang": "ES",
+            "texts": [],
+        }, {
+            "lang": "EN",
+            "texts": []
+        }],
+        "responses": [{
+            "lang": "ES",
+            "texts": {
+                "yes": [],
+                "no": []
+            }
+        }, {
+            "lang": "EN",
+            "texts": {}
+        }],
+        "quotes": [{
+            "lang": "ES",
+            "urlRoot": "https://es.wikiquote.org/w/api.php",
+            "page": "Mariano_Rajoy"
+        }, {
+            "lang": "EN",
+            "urlRoot": "https://en.wikiquote.org/w/api.php",
+            "page": "Mariano_Rajoy"
+        }]
+    },
+    "MASTER_AND_COMMANDER": {
+        "level": {
+            "min": -500,
+            "max": -300
+        },
+        "power": {
+            "yes": 30,
+            "no": -20
+        },
+        "questions": [{
+            "lang": "ES",
+            "texts": [],
+        }, {
+            "lang": "EN",
+            "texts": []
+        }],
+        "responses": [{
+            "lang": "ES",
+            "texts": {
+                "yes": [],
+                "no": []
+            }
+        }, {
+            "lang": "EN",
+            "texts": {}
+        }],
+        "quotes": [{
+            "lang": "ES",
+            "urlRoot": "https://es.wikiquote.org/w/api.php",
+            "page": "Mariano_Rajoy"
+        }, {
+            "lang": "EN",
+            "urlRoot": "https://en.wikiquote.org/w/api.php",
+            "page": "Mariano_Rajoy"
+        }]
+    },
+    "NAZI": {
+        "level": {
+            "min": -500,
+            "max": -300
+        },
+        "power": {
+            "yes": 30,
+            "no": -20
+        },
+        "questions": [{
+            "lang": "ES",
+            "texts": [],
+        }, {
+            "lang": "EN",
+            "texts": []
+        }],
+        "responses": [{
+            "lang": "ES",
+            "texts": {
+                "yes": [],
+                "no": []
+            }
+        }, {
+            "lang": "EN",
+            "texts": {}
+        }],
+        "quotes": [{
+            "lang": "ES",
+            "urlRoot": "https://es.wikiquote.org/w/api.php",
+            "page": "Mariano_Rajoy"
+        }, {
+            "lang": "EN",
+            "urlRoot": "https://en.wikiquote.org/w/api.php",
             "page": "Mariano_Rajoy"
         }]
     }
