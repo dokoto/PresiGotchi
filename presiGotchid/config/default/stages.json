@@ -27,7 +27,11 @@
             "yes": 30,
             "no": -20
         },
-        "questions": [{
+        "quotes": [{
+            "lang": "ES",
+            "urlRoot": "https://es.wikiquote.org/w/api.php",
+            "page": "Mariano_Rajoy"
+        }, {
             "lang": "ES",
             "texts": [
                 "La utopía es el principio de todo progreso y el diseño de un futuro mejor",
@@ -62,29 +66,9 @@
                 "En contacto con la tierra, el hombre puede permitirse existir nuevamente en su totalidad.",
                 "Pensar en el existir no hace que lo que no existe exista."
             ],
-
         }, {
             "lang": "EN",
             "texts": []
-        }, ],
-        "responses": [{
-            "lang": "ES",
-            "texts": {
-                "yes": ["Amen", "Que miedo !"],
-                "no": ["No me fio", "ohhhhh !"]
-            }
-        }, {
-            "lang": "EN",
-            "texts": {}
-        }],
-        "quotes": [{
-            "lang": "ES",
-            "urlRoot": "https://es.wikiquote.org/w/api.php",
-            "page": "Mariano_Rajoy"
-        }, {
-            "lang": "EN",
-            "urlRoot": "https://en.wikiquote.org/w/api.php",
-            "page": "Mariano_Rajoy"
         }]
     },
     "REVOLUTIONARY": {
@@ -96,7 +80,11 @@
             "yes": 30,
             "no": -20
         },
-        "questions": [{
+        "quotes": [{
+            "lang": "ES",
+            "urlRoot": "https://es.wikiquote.org/w/api.php",
+            "page": "Mariano_Rajoy"
+        }, {
             "lang": "ES",
             "texts": [
                 "La más estricta justicia no creo que sea siempre la mejor política",
@@ -138,30 +126,7 @@
                 "Nadie tiene la culpa. No es su defecto ni el nuestro. Esta es la desgracia de nacer en un mundo que se está muriendo",
                 "El liberalismo, austero en nimiedades políticas, ha aprendido cada vez más ingeniosamente para unir una protesta constante contra el gobierno con una sumisión constante a él"
             ]
-        }, {
-            "lang": "EN",
-            "texts": []
-        }],
-        "responses": [{
-            "lang": "ES",
-            "texts": {
-                "yes": ["Guauuu", "Amen hermano"],
-                "no": ["No se.. yo", "Se te ve el plumero"]
-            }
-        }, {
-            "lang": "EN",
-            "texts": {}
-        }],
-        "quotes": [{
-            "lang": "ES",
-            "urlRoot": "https://es.wikiquote.org/w/api.php",
-            "page": "Mariano_Rajoy"
-        }, {
-            "lang": "EN",
-            "urlRoot": "https://en.wikiquote.org/w/api.php",
-            "page": "Mariano_Rajoy"
         }]
-
     },
     "CANDIDATE": {
         "level": {
@@ -172,7 +137,11 @@
             "yes": 30,
             "no": -20
         },
-        "questions": [{
+        "quotes": [{
+            "lang": "ES",
+            "urlRoot": "https://es.wikiquote.org/w/api.php",
+            "page": "Mariano_Rajoy"
+        }, {
             "lang": "ES",
             "texts": [
                 "El poder se tiene mientras se ejerce y su única legitimidad es la entrega total al servicio de los demás",
@@ -226,28 +195,6 @@
                 "No hay nada fácil en política. Y hay mucha gente que se cree que se puede improvisar, pero no se puede improvisar. Hay que tener muy pensado a donde se quiere ir",
                 "Tenemos que garantizar nuestras cuentas públicas, y reducir el déficit y la deuda pública. Plantearemos una reforma de nuestro sistema fiscal"
             ],
-        }, {
-            "lang": "EN",
-            "texts": []
-        }],
-        "responses": [{
-            "lang": "ES",
-            "texts": {
-                "yes": ["Dabuti", "Claro, Crack!"],
-                "no": ["Ni de coña", "Tu muertos"]
-            }
-        }, {
-            "lang": "EN",
-            "texts": {}
-        }],
-        "quotes": [{
-            "lang": "ES",
-            "urlRoot": "https://es.wikiquote.org/w/api.php",
-            "page": "Mariano_Rajoy"
-        }, {
-            "lang": "EN",
-            "urlRoot": "https://en.wikiquote.org/w/api.php",
-            "page": "Mariano_Rajoy"
         }]
     },
     "POWERFUL": {
@@ -259,97 +206,54 @@
             "yes": 30,
             "no": -20
         },
-        "questions": [{
+        "quotes": [{
+            "lang": "ES",
+            "urlRoot": "https://es.wikiquote.org/w/api.php",
+            "page": "Mariano_Rajoy"
+        }, {
+            "lang": "ES",
+            "urlRoot": "https://es.wikiquote.org/w/api.php",
+            "page": "Jean-Marie_Le_Pen"
+        }, {
+            "lang": "ES",
+            "urlRoot": "https://es.wikiquote.org/w/api.php",
+            "page": "Federico_Jiménez_Losantos"
+        }, {
+            "lang": "ES",
+            "urlRoot": "https://es.wikiquote.org/w/api.php",
+            "page": "Eduardo_García_Serrano"
+        }, {
             "lang": "ES",
             "texts": [
-              "El Rey se ha convertido en un referente institucional clave en determinados momentos difíciles. Y no sólo eso: la Monarquía es, además, una institución querida y respetada por la gran mayoría",
-              "El único modo de proteger a nuestro pueblo, el único modo de asegurar la paz, el único modo de controlar nuestro destino pasa por nuestro liderazgo",
-              "Nuestra bandera no es un símbolo de un partido político porque ha de serlo de todos; no es un símbolo de la derecha ni de la izquierda porque ha de ondear en todo el espectro ideológico constitucional; no es un símbolo de los militares, aunque la custodian y la honran, sino también de los civiles",
-              "¡Y si se ponen tontos, se les pega un cañonazo y punto!",
-              "No les vamos a dejar romper nada y a lo mejor somos nosotros los que les rompemos algo",
-              "En vez de hablar tanto hay que trabajar más",
-              "Yo sólo pido perdón ante Dios y mi confesor",
-              "Las únicas sociedades que han sido capaces de crear una prosperidad relativa ampliamente extendida han sido aquéllas que han confiado principalmente en los mercados capitalistas",
-              "Hay un viejo dicho que reza: 'si quieres cazar a un ladrón, llama a otro para que lo atrape'. La virtud del capitalismo de libre empresa es aquél que coloca a un empresario frente a otro, y ese es el método más efectivo de control",
-              "La responsabilidad social de los negocios consiste en incrementar sus beneficios",
-              "Los almuerzos gratis no existen.",
-              "El salario mínimo impide a muchas personas obtener un empleo",
-              "Nadie gasta el dinero de otra persona tan cuidadosamente como gasta el suyo. Nadie usa los recursos de otra persona con tanto cuidado como utiliza los suyos. Así que si quieres la eficiencia y la eficacia, si desea que el conocimiento sea utilizado apropiadamente, usted tiene que hacerlo a través de los medios de propiedad privada",
-              "EL MATRIMONIO HOMOSEXUAL ES COMO LA UNIÓN ENTRE DOS HERMANAS, UN PERRO Y UNA SEÑORA O UNA SEÑORA Y UN DELFÍN",
-              "No hay rebaja de sueldo a los funcionarios. Hay un retraimiento de la paga",
-              "No subimos los impuestos, es un cambio de ponderación",
-              "Estoy encontrando partidas maravillosas para recortar",
-              "La sanidad publica es un lastre para el contribuyente, la unica forma mantener un sistema estable es la privatizacion",
-              "Algunos se han acordado de sus padres cuando ha habido subvenciones para encontrarle",
-              "La sanidad universal no es para todo el universo",
-              "Nosotros no privatizamos, externalizamos",
-              "Nos dicen que estamos privatizando la sanidad. Bueno, ganen ustedes las elecciones y lo podrán revertir. ¿Por qué pusimos un plazo de 30 años? Porque calculamos que menos de 30 años no van a estar en la oposición",
-              "Nustros votantes pagan la hipoteca aunque tengan que dejar de comer",
-              "Gano 15.100 euros al mes y las paso canutas",
-              "Los jóvenes que quieran buscar oportunidades fuera pueden hacerlo, porque a eso se le llama movilidad exterior",
-              "El regadío hay que utilizarlo como a las mujeres, con mucho cuidado, que le pueden perder a uno",
-              "Escrache: tratar de violentar el voto es nazismo puro",
-              "A algunos les vendría mejor dar su piso en dación en pago para comprarse otro",
-              ""
+                "El Rey se ha convertido en un referente institucional clave en determinados momentos difíciles. Y no sólo eso: la Monarquía es, además, una institución querida y respetada por la gran mayoría",
+                "El único modo de proteger a nuestro pueblo, el único modo de asegurar la paz, el único modo de controlar nuestro destino pasa por nuestro liderazgo",
+                "Nuestra bandera no es un símbolo de un partido político porque ha de serlo de todos; no es un símbolo de la derecha ni de la izquierda porque ha de ondear en todo el espectro ideológico constitucional; no es un símbolo de los militares, aunque la custodian y la honran, sino también de los civiles",
+                "¡Y si se ponen tontos, se les pega un cañonazo y punto!",
+                "No les vamos a dejar romper nada y a lo mejor somos nosotros los que les rompemos algo",
+                "En vez de hablar tanto hay que trabajar más",
+                "Yo sólo pido perdón ante Dios y mi confesor",
+                "Las únicas sociedades que han sido capaces de crear una prosperidad relativa ampliamente extendida han sido aquéllas que han confiado principalmente en los mercados capitalistas",
+                "Hay un viejo dicho que reza: 'si quieres cazar a un ladrón, llama a otro para que lo atrape'. La virtud del capitalismo de libre empresa es aquél que coloca a un empresario frente a otro, y ese es el método más efectivo de control",
+                "La responsabilidad social de los negocios consiste en incrementar sus beneficios",
+                "Los almuerzos gratis no existen.",
+                "El salario mínimo impide a muchas personas obtener un empleo",
+                "Nadie gasta el dinero de otra persona tan cuidadosamente como gasta el suyo. Nadie usa los recursos de otra persona con tanto cuidado como utiliza los suyos. Así que si quieres la eficiencia y la eficacia, si desea que el conocimiento sea utilizado apropiadamente, usted tiene que hacerlo a través de los medios de propiedad privada",
+                "EL MATRIMONIO HOMOSEXUAL ES COMO LA UNIÓN ENTRE DOS HERMANAS, UN PERRO Y UNA SEÑORA O UNA SEÑORA Y UN DELFÍN",
+                "No hay rebaja de sueldo a los funcionarios. Hay un retraimiento de la paga",
+                "No subimos los impuestos, es un cambio de ponderación",
+                "Estoy encontrando partidas maravillosas para recortar",
+                "La sanidad publica es un lastre para el contribuyente, la unica forma mantener un sistema estable es la privatizacion",
+                "Algunos se han acordado de sus padres cuando ha habido subvenciones para encontrarle",
+                "La sanidad universal no es para todo el universo",
+                "Nosotros no privatizamos, externalizamos",
+                "Nos dicen que estamos privatizando la sanidad. Bueno, ganen ustedes las elecciones y lo podrán revertir. ¿Por qué pusimos un plazo de 30 años? Porque calculamos que menos de 30 años no van a estar en la oposición",
+                "Nustros votantes pagan la hipoteca aunque tengan que dejar de comer",
+                "Gano 15.100 euros al mes y las paso canutas",
+                "Los jóvenes que quieran buscar oportunidades fuera pueden hacerlo, porque a eso se le llama movilidad exterior",
+                "El regadío hay que utilizarlo como a las mujeres, con mucho cuidado, que le pueden perder a uno",
+                "Escrache: tratar de violentar el voto es nazismo puro",
+                "A algunos les vendría mejor dar su piso en dación en pago para comprarse otro"
             ],
-        }, {
-            "lang": "EN",
-            "texts": []
-        }],
-        "responses": [{
-            "lang": "ES",
-            "texts": {
-                "yes": [],
-                "no": []
-            }
-        }, {
-            "lang": "EN",
-            "texts": {}
-        }],
-        "quotes": [{
-            "lang": "ES",
-            "urlRoot": "https://es.wikiquote.org/w/api.php",
-            "page": "Mariano_Rajoy"
-        }, {
-            "lang": "EN",
-            "urlRoot": "https://en.wikiquote.org/w/api.php",
-            "page": "Mariano_Rajoy"
-        }]
-    },
-    "MASTER_AND_COMMANDER": {
-        "level": {
-            "min": -500,
-            "max": -300
-        },
-        "power": {
-            "yes": 30,
-            "no": -20
-        },
-        "questions": [{
-            "lang": "ES",
-            "texts": [],
-        }, {
-            "lang": "EN",
-            "texts": []
-        }],
-        "responses": [{
-            "lang": "ES",
-            "texts": {
-                "yes": [],
-                "no": []
-            }
-        }, {
-            "lang": "EN",
-            "texts": {}
-        }],
-        "quotes": [{
-            "lang": "ES",
-            "urlRoot": "https://es.wikiquote.org/w/api.php",
-            "page": "Mariano_Rajoy"
-        }, {
-            "lang": "EN",
-            "urlRoot": "https://en.wikiquote.org/w/api.php",
-            "page": "Mariano_Rajoy"
         }]
     },
     "NAZI": {
@@ -361,31 +265,16 @@
             "yes": 30,
             "no": -20
         },
-        "questions": [{
-            "lang": "ES",
-            "texts": [],
-        }, {
-            "lang": "EN",
-            "texts": []
-        }],
-        "responses": [{
-            "lang": "ES",
-            "texts": {
-                "yes": [],
-                "no": []
-            }
-        }, {
-            "lang": "EN",
-            "texts": {}
-        }],
         "quotes": [{
             "lang": "ES",
             "urlRoot": "https://es.wikiquote.org/w/api.php",
             "page": "Mariano_Rajoy"
         }, {
+            "lang": "ES",
+            "texts": [],
+        }, {
             "lang": "EN",
-            "urlRoot": "https://en.wikiquote.org/w/api.php",
-            "page": "Mariano_Rajoy"
+            "texts": []
         }]
     }
 }
