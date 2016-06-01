@@ -17,264 +17,268 @@
   MASTER_AND_COMMANDER-ASKS: Afirmaciones en terminos absolutos y amenazas
   NAZI-ASKS: Aqui ya solo habla aleman
  */
-{
-    "FILOSOFER": {
-        "level": {
-            "min": -500,
-            "max": -300
-        },
-        "power": {
-            "yes": 30,
-            "no": -20
-        },
-        "quotes": [{
-            "lang": "ES",
-            "urlRoot": "https://es.wikiquote.org/w/api.php",
-            "page": "Mariano_Rajoy"
-        }, {
-            "lang": "ES",
-            "texts": [
-                "La utopía es el principio de todo progreso y el diseño de un futuro mejor",
-                "Los seres humanos serán más felices cuando encuentren caminos para vivir como las antiguas comunidades primitivas",
-                "En la utopía de ayer, se incubó la realidad de hoy, así como en la utopía de mañana palpitarán nuevas realidades.",
-                "La utopía está en el horizonte. Camino dos pasos, ella se aleja dos pasos y el horizonte se corre diez pasos más allá. ¿Entonces para que sirve la utopía? Para eso, sirve para caminar.",
-                "El cielo es el hogar. La utopía está aquí. El Nirvana es ahora.",
-                "La literatura es mi utopía. No hay barrera de sentidos que me pueda quitar este placer. Los libros me hablan sin impedimentos de ninguna clase.",
-                "La utopía de un siglo, a menudo se convirtió en la idea vulgar del siglo siguiente.",
-                "Melancolía y utopía son cabeza y cola de la misma moneda.",
-                "Las utopías nacen solamente dentro de aquellas culturas donde se encuentra claramente diseñada una edad feliz que desapareció.",
-                "Somos utopistas, tanto que llegamos a creer que la revolución debe y puede garantizar a todos: alojamiento, vestido y pan.",
-                "En realidad, hay dos especies de utopías: las utopías proletarias socialistas que gozan de la propiedad de no realizarse nunca, y las utopías capitalistas que, desgraciadamente, tienden a realizarse con mucha frecuencia.",
-                "La utopía es pensar y anhelar algo que parece imposible algo digno de la condición de los hombres. Ponerse a trabajar, marginalmente en la utopía, pero tomando las precauciones para que nunca se cumpla del todo.",
-                "¿Qué nos faltó para que la utopía venciera a la realidad? ¿Qué derrotó a la utopía?",
-                "¿Qué es lo que busca a fin de cuentas? El máximo de amor y de placer, como un sueño o idea, es una utopía. Esto lo entiende perfectamente, por eso está triste. Su tristeza también es profunda, una profunda tristeza humana, una tristeza infinita, imposible librarse de ella.",
-                "Sólo en la mente de los traidores y de los viles, de los hombres como yo, pueden surgir los bellos sueños que llamamos utopías.",
-                "En realidad, poco me importan mis oportunidades de ser realmente colmado. Sólo brilla, indestructible, la voluntad de saciedad. Por esta voluntad, me abandono: forma en mí la utopía de un sujeto sustraído al rechazo: soy ya ese sujeto.",
-                "Que sepulten la utopía... Dame clases de poesía con tu cuerpo esta noche.",
-                "El tiempo es pura esperanza. Es incluso el lugar de origen de la esperanza. Esperanza de un mundo acabado en el que el hombre y su trabajo no sean mercancías. Esperanza y utopía sin las cuales la actividad que culmina el ser -es decir, la humanidad- no podría empezar ni continuar en su larga paciencia de ciencia y esfuerzo.",
-                "¿Qué ocurre cuando nuestros sueños se hacen realidad? ¿Cuándo se ha conseguido aquello por lo que se luchaba? ¿Cómo se vive cuando el enemigo ha desaparecido y ahora lo que tenemos ante nosotros somos nosotros mismos?",
-                "Y no hay nada como el sueño para engendrar el porvenir. Hoy; utopía; mañana, carne y hueso.",
-                "El final de las utopías totalitarias sólo es liberatorio si viene acompañado de la conciencia de que la redención, prometida y echada a perder por esas utopías, tiene que buscarse con mayor paciencia y modestia, sabiendo que no poseemos ninguna receta definitiva, pero también sin escarnecerla.",
-                "Dar produce más felicidad que recibir, no porque sea una privación, sino porque en el acto de dar está la expresión de mi vitalidad.",
-                "Se puede soportar cualquier verdad, por muy destructiva que sea, a condición de que sea total, que lleve en sí tanta vitalidad como la esperanza a la que ha sustituido.",
-                "La experiencia, en el grado en que es experiencia, es vitalidad elevada.",
-                "La energía tiene tal vitalidad, que sobrevive a todos los desastres y provee a todos los esfuerzos.",
-                "El hombre vive en un estado de bajo nivel de vitalidad. Aún cuando generalmente no sufre mucho, sabe poco acerca de lo que es vivir en forma verdaderamente creativa.",
-                "La calidad del guerrero da origen a la belleza natural. Las técnicas sutiles de un guerrero surgen tan naturalmente como aparecen la primavera, el verano, el otoño y el invierno. La calidad del guerrero no es otra cosa que la vitalidad que sustenta toda vida.",
-                "La vitalidad se revela no solamente en la capacidad de persistir sino en la de volver a empezar.",
-                "El pensamiento no puede existir sin la conciencia, pero la conciencia no necesita al pensamiento.",
-                "En contacto con la tierra, el hombre puede permitirse existir nuevamente en su totalidad.",
-                "Pensar en el existir no hace que lo que no existe exista."
-            ],
-        }, {
-            "lang": "EN",
-            "texts": []
-        }]
+[{
+    "status": "FILOSOFER",
+    "index": 0,
+    "level": {
+        "min": -500,
+        "max": -300
     },
-    "REVOLUTIONARY": {
-        "level": {
-            "min": -500,
-            "max": -300
-        },
-        "power": {
-            "yes": 30,
-            "no": -20
-        },
-        "quotes": [{
-            "lang": "ES",
-            "urlRoot": "https://es.wikiquote.org/w/api.php",
-            "page": "Mariano_Rajoy"
-        }, {
-            "lang": "ES",
-            "texts": [
-                "La más estricta justicia no creo que sea siempre la mejor política",
-                "El mundo no está en peligro por las malas personas sino por aquellas que permiten la maldad",
-                "Si quieres ser ave, vuela, si quieres ser gusano, arrástrate, pero no grites cuando te aplasten",
-                "Es mejor morir de pie que vivir de rodillas",
-                "La tierra es para quien la trabaja",
-                "Muchos de ellos, por complacer a tiranos, por un puñado de monedas, o por cohecho o soborno están traicionando y derramando la sangre de sus hermanos",
-                "Cuando sea posible hablar de libertad, el Estado como tal dejará de existir",
-                "¡Cuando un pueblo enérgico y viril llora, la injusticia tiembla!",
-                "Si no eres parte de la solución, eres parte del problema, ¡actúa!",
-                "La revolución no se hace, sino que se organiza",
-                "La victoria de la revolución será la dictadura del proletariado y el campesinado",
-                "Lo que nosotros tenemos que practicar hoy, es la solidaridad",
-                "Si avanzo, seguidme; si me detengo, empujadme; si retrocedo, matadme",
-                "Todo lo que paguemos significa la retribución de lo que recibimos y una retribución correcta y honesta",
-                "En una revolución se triunfa o se muere, si es verdadera",
-                "Esta revolución se propone arrancar de raíz las injusticias",
-                "Luchamos contra la miseria pero al mismo tiempo luchamos contra la alienación",
-                "Donde quiera que la muerte nos sorprenda, sera bien recibida mientras nuestro grito de guerra sea escuchado",
-                "La revolución se lleva en el corazón no en la boca para vivir de ella",
-                "Nuestro sacrificio es consciente; cuota para pagar la libertad que construimos",
-                "Aunque se firmó la paz, sin embargo, es de interés que mantenga la paz",
-                "El que deja de ser mejor a cada paso simplemente deja de ser bueno",
-                "La sutileza puede engañarte; la integridad nunca lo hará",
-                "La sutileza puede engañarte; la integridad nunca lo hará",
-                "Con el fin de conquistar, lo que necesitamos es atrevernos",
-                "No queremos un rey condenado ... queremos verlo muerto",
-                "Después del pan, la educación es la primera necesidad de la gente",
-                "Hay que atreverse, atreverse otra vez, y seguir atreviendose",
-                "Por fin veo que las revoluciones del poder supremo recaen en los más abandonados",
-                "Audacia, más audacia, siempre audacia",
-                "Jamás pretendí proponer romper el nervio revolucionario, ya que dije que la Constitución debía dormir mientras el pueblo estuvo ocupado golpeando a sus enemigos",
-                "La voz de la verdad que resuena en los corazones corrompidos se parece a los sones que retumban en los sepulcros sin despertar a los muertos",
-                "Sólo la naturaleza hace grandes obras sin esperar recompensa alguna",
-                "La vida me ha enseñado a pensar, pero el pensamiento no me ha enseñado a vivir",
-                "Estoy verdaderamente horrorizado por el hombre moderno. Tal ausencia de sentimiento, tal estrechez de miras, esa falta de pasión y de información, como debilidad de pensamiento",
-                "Se puede llevar por mal camino a toda una generación, volverla ciega, conducirla hacia una locura y dirigirla hacia un falso objetivo. Napoleón lo demostró",
-                "Nadie tiene la culpa. No es su defecto ni el nuestro. Esta es la desgracia de nacer en un mundo que se está muriendo",
-                "El liberalismo, austero en nimiedades políticas, ha aprendido cada vez más ingeniosamente para unir una protesta constante contra el gobierno con una sumisión constante a él"
-            ]
-        }]
+    "power": {
+        "like": 30,
+        "dislike": -20
     },
-    "CANDIDATE": {
-        "level": {
-            "min": -500,
-            "max": -300
-        },
-        "power": {
-            "yes": 30,
-            "no": -20
-        },
-        "quotes": [{
-            "lang": "ES",
-            "urlRoot": "https://es.wikiquote.org/w/api.php",
-            "page": "Mariano_Rajoy"
-        }, {
-            "lang": "ES",
-            "texts": [
-                "El poder se tiene mientras se ejerce y su única legitimidad es la entrega total al servicio de los demás",
-                "Agradeceré busquen siempre las cosas que les unen y dialoguen con serenidad y espíritu de justicia sobre aquellas que les separan",
-                "Pertenezco por convicción y talante a una mayoría de ciudadanos que desea hablar un lenguaje moderado, de concordia y conciliación",
-                "Quienes alcanzan el poder con demagogia terminan haciéndole pagar al país un precio muy caro",
-                "Las elecciones no resuelven por sí mismas los problemas, aunque son el paso previo y necesario para su solución",
-                "Un presidente no puede decir que conoce bien lo que está pasando, porque ve los atascos de tráfico desde el helicóptero",
-                "Si fuera fácil resolver el problema del hambre, no tendríamos hambre",
-                "Al que no le gusta la política corre el riesgo de pasar su vida entera siendo mandado por aquel al que le gusta",
-                "Cuando los políticos no tienen la capacidad de gobernar, crean las comisiones",
-                "En política lo importante no es que se tenga razón sino que se la den a uno",
-                "La historia es la suma total de todas aquellas cosas que hubieran podido evitarse",
-                "El arte de la política consiste en saber precisamente cuando es necesario golpear al oponente por debajo del cinturón",
-                "Todos los órganos humanos se cansan alguna vez, salvo la lengua",
-                "En democracia, nadie es más que nadie salvo quien elige el pueblo",
-                "No hay muro, por alto, ancho o largo que sea, y cualquiera que sea el material que lo conforme, que pueda imponerse al sueño de una vida mejor",
-                "La honestidad es el primer capítulo en el libro de la sabiduría",
-                "Tiene derecho a criticar, quien está dispuesto a ayudar",
-                "Si no podemos poner fin a nuestras diferencias, contribuyamos a que el mundo sea un lugar apto para ellas",
-                "La paz del mundo no exige que cada hombre ame a su prójimo; solamente que ambos vivan juntos, tolerándose mutuamente, sometiendo sus disputas a un arreglo justo y pacífico",
-                "No os preguntéis qué puede hacer vuestro país por vosotros. Preguntaos qué podéis hacer vosotros por vuestro país",
-                "Los chinos utilizan dos pinceladas para escribir la palabra 'crisis'. Una pincelada significa 'peligro' la otra 'oportunidad'. En una crisis toma conciencia del peligro pero reconoce la oportunidad",
-                "Se puede engañar a todos poco tiempo, se puede engañar a algunos todo el tiempo, pero no se puede engañar a todos todo el tiempo",
-                "La democracia es una forma superior de gobierno, porque se basa en el respeto del hombre como ser racional",
-                "El valor en la vida es con frecuencia un espectáculo menos dramático que el valor ante el momento final; pero no deja de ser una magnífica amalgama del triunfo y tragedia. Un hombre hace lo que debe -sin importarle las consecuencias personales, los obstáculos, las presiones ni los peligros-, y este es el fundamento de toda moralidad humana",
-                "Un hombre inteligente es aquel que sabe ser tan inteligente como para contratar gente más inteligente que él",
-                "La educación es la clave del futuro. La clave del destino del hombre y de su posibilidad de actuar en un mundo mejor",
-                "La libertad política es la condición previa del desarrollo económico y del cambio social",
-                "Los que hacen imposible una evolución pacífica, harán inevitable una revolución violenta",
-                "Los terroristas deben ser privados del oxígeno de la publicidad del que dependen",
-                "Puede que sea el gallo el que canta, pero es la gallina la que pone los huevos",
-                "La inflación es la madre del paro, y la ladrona invisible de los que han ahorrado",
-                "Obligarse uno mismo a hacer lo que sabe que es correcto e importante, aunque difícil, es el mejor camino hacia el orgullo, la autoestima y la satisfacción personal",
-                "En cuanto se concede a la mujer la igualdad con el hombre, se vuelve superior a él",
-                "No sé de nadie que haya llegado a lo más alto sin trabajar duro. Esa es la receta. No siempre te llevará a lo más alto, pero debería acercarte bastante",
-                "Ser poderoso es como ser una dama. Si tienes que andar diciéndoselo a la gente, es que no lo eres",
-                "Si tu única oportunidad es ser igual, entonces, no es oportunidad",
-                "Si tuvieses la intención de gustar a los demás, estarías preparado para transigir sobre cualquier cosa en cualquier momento, y no conseguirías nada",
-                "La paciencia es una virtud, excepto cuando se trata de apartar los inconvenientes",
-                "Nadie recordaría al buen samaritano, si además de buenas intenciones no hubiera tenido dinero",
-                "Vale la pena conocer al enemigo... entre otras cosas por la posibilidad de que algún día se convierta en un amigo",
-                "La misión de lo políticos no es la de gustar a todo el mundo",
-                "El socialismo fracasa cuando se les acaba el dinero de los demás",
-                "No mientes deliberadamente, pero, a veces, tienes que ser evasivo",
-                "La economía es el método. La finalidad es cambiar el corazón y el alma",
-                "Se aprende más de quien no nos da la razón",
-                "No se ganan amigos por la vía de la sustitución sino por la vía de la ampliación",
-                "Tanto el laicismo como los fundamentalismos religiosos son enemigos de la libertad y, si logran imponerse, conducen inexorablemente al totalitarismo",
-                "La victoria en la guerra sólo se consigue cuando se hace ganar también a los vencidos",
-                "No hay nada fácil en política. Y hay mucha gente que se cree que se puede improvisar, pero no se puede improvisar. Hay que tener muy pensado a donde se quiere ir",
-                "Tenemos que garantizar nuestras cuentas públicas, y reducir el déficit y la deuda pública. Plantearemos una reforma de nuestro sistema fiscal"
-            ],
-        }]
+    "quotes": [{
+        "lang": "ES",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Mariano_Rajoy"
+    }, {
+        "lang": "ES",
+        "texts": [
+            "La utopía es el principio de todo progreso y el diseño de un futuro mejor",
+            "Los seres humanos serán más felices cuando encuentren caminos para vivir como las antiguas comunidades primitivas",
+            "En la utopía de ayer, se incubó la realidad de hoy, así como en la utopía de mañana palpitarán nuevas realidades.",
+            "La utopía está en el horizonte. Camino dos pasos, ella se aleja dos pasos y el horizonte se corre diez pasos más allá. ¿Entonces para que sirve la utopía? Para eso, sirve para caminar.",
+            "El cielo es el hogar. La utopía está aquí. El Nirvana es ahora.",
+            "La literatura es mi utopía. No hay barrera de sentidos que me pueda quitar este placer. Los libros me hablan sin impedimentos de ninguna clase.",
+            "La utopía de un siglo, a menudo se convirtió en la idea vulgar del siglo siguiente.",
+            "Melancolía y utopía son cabeza y cola de la misma moneda.",
+            "Las utopías nacen solamente dentro de aquellas culturas donde se encuentra claramente diseñada una edad feliz que desapareció.",
+            "Somos utopistas, tanto que llegamos a creer que la revolución debe y puede garantizar a todos: alojamiento, vestido y pan.",
+            "En realidad, hay dos especies de utopías: las utopías proletarias socialistas que gozan de la propiedad de no realizarse nunca, y las utopías capitalistas que, desgraciadamente, tienden a realizarse con mucha frecuencia.",
+            "La utopía es pensar y anhelar algo que parece imposible algo digno de la condición de los hombres. Ponerse a trabajar, marginalmente en la utopía, pero tomando las precauciones para que nunca se cumpla del todo.",
+            "¿Qué nos faltó para que la utopía venciera a la realidad? ¿Qué derrotó a la utopía?",
+            "¿Qué es lo que busca a fin de cuentas? El máximo de amor y de placer, como un sueño o idea, es una utopía. Esto lo entiende perfectamente, por eso está triste. Su tristeza también es profunda, una profunda tristeza humana, una tristeza infinita, imposible librarse de ella.",
+            "Sólo en la mente de los traidores y de los viles, de los hombres como yo, pueden surgir los bellos sueños que llamamos utopías.",
+            "En realidad, poco me importan mis oportunidades de ser realmente colmado. Sólo brilla, indestructible, la voluntad de saciedad. Por esta voluntad, me abandono: forma en mí la utopía de un sujeto sustraído al rechazo: soy ya ese sujeto.",
+            "Que sepulten la utopía... Dame clases de poesía con tu cuerpo esta noche.",
+            "El tiempo es pura esperanza. Es incluso el lugar de origen de la esperanza. Esperanza de un mundo acabado en el que el hombre y su trabajo no sean mercancías. Esperanza y utopía sin las cuales la actividad que culmina el ser -es decir, la humanidad- no podría empezar ni continuar en su larga paciencia de ciencia y esfuerzo.",
+            "¿Qué ocurre cuando nuestros sueños se hacen realidad? ¿Cuándo se ha conseguido aquello por lo que se luchaba? ¿Cómo se vive cuando el enemigo ha desaparecido y ahora lo que tenemos ante nosotros somos nosotros mismos?",
+            "Y no hay nada como el sueño para engendrar el porvenir. Hoy; utopía; mañana, carne y hueso.",
+            "El final de las utopías totalitarias sólo es liberatorio si viene acompañado de la conciencia de que la redención, prometida y echada a perder por esas utopías, tiene que buscarse con mayor paciencia y modestia, sabiendo que no poseemos ninguna receta definitiva, pero también sin escarnecerla.",
+            "Dar produce más felicidad que recibir, no porque sea una privación, sino porque en el acto de dar está la expresión de mi vitalidad.",
+            "Se puede soportar cualquier verdad, por muy destructiva que sea, a condición de que sea total, que lleve en sí tanta vitalidad como la esperanza a la que ha sustituido.",
+            "La experiencia, en el grado en que es experiencia, es vitalidad elevada.",
+            "La energía tiene tal vitalidad, que sobrevive a todos los desastres y provee a todos los esfuerzos.",
+            "El hombre vive en un estado de bajo nivel de vitalidad. Aún cuando generalmente no sufre mucho, sabe poco acerca de lo que es vivir en forma verdaderamente creativa.",
+            "La calidad del guerrero da origen a la belleza natural. Las técnicas sutiles de un guerrero surgen tan naturalmente como aparecen la primavera, el verano, el otoño y el invierno. La calidad del guerrero no es otra cosa que la vitalidad que sustenta toda vida.",
+            "La vitalidad se revela no solamente en la capacidad de persistir sino en la de volver a empezar.",
+            "El pensamiento no puede existir sin la conciencia, pero la conciencia no necesita al pensamiento.",
+            "En contacto con la tierra, el hombre puede permitirse existir nuevamente en su totalidad.",
+            "Pensar en el existir no hace que lo que no existe exista."
+        ],
+    }, {
+        "lang": "EN",
+        "texts": []
+    }]
+}, {
+    "status": "REVOLUTIONARY",
+    "index": 1,
+    "level": {
+        "min": -500,
+        "max": -300
     },
-    "POWERFUL": {
-        "level": {
-            "min": -500,
-            "max": -300
-        },
-        "power": {
-            "yes": 30,
-            "no": -20
-        },
-        "quotes": [{
-            "lang": "ES",
-            "urlRoot": "https://es.wikiquote.org/w/api.php",
-            "page": "Mariano_Rajoy"
-        }, {
-            "lang": "ES",
-            "urlRoot": "https://es.wikiquote.org/w/api.php",
-            "page": "Jean-Marie_Le_Pen"
-        }, {
-            "lang": "ES",
-            "urlRoot": "https://es.wikiquote.org/w/api.php",
-            "page": "Federico_Jiménez_Losantos"
-        }, {
-            "lang": "ES",
-            "urlRoot": "https://es.wikiquote.org/w/api.php",
-            "page": "Eduardo_García_Serrano"
-        }, {
-            "lang": "ES",
-            "texts": [
-                "El Rey se ha convertido en un referente institucional clave en determinados momentos difíciles. Y no sólo eso: la Monarquía es, además, una institución querida y respetada por la gran mayoría",
-                "El único modo de proteger a nuestro pueblo, el único modo de asegurar la paz, el único modo de controlar nuestro destino pasa por nuestro liderazgo",
-                "Nuestra bandera no es un símbolo de un partido político porque ha de serlo de todos; no es un símbolo de la derecha ni de la izquierda porque ha de ondear en todo el espectro ideológico constitucional; no es un símbolo de los militares, aunque la custodian y la honran, sino también de los civiles",
-                "¡Y si se ponen tontos, se les pega un cañonazo y punto!",
-                "No les vamos a dejar romper nada y a lo mejor somos nosotros los que les rompemos algo",
-                "En vez de hablar tanto hay que trabajar más",
-                "Yo sólo pido perdón ante Dios y mi confesor",
-                "Las únicas sociedades que han sido capaces de crear una prosperidad relativa ampliamente extendida han sido aquéllas que han confiado principalmente en los mercados capitalistas",
-                "Hay un viejo dicho que reza: 'si quieres cazar a un ladrón, llama a otro para que lo atrape'. La virtud del capitalismo de libre empresa es aquél que coloca a un empresario frente a otro, y ese es el método más efectivo de control",
-                "La responsabilidad social de los negocios consiste en incrementar sus beneficios",
-                "Los almuerzos gratis no existen.",
-                "El salario mínimo impide a muchas personas obtener un empleo",
-                "Nadie gasta el dinero de otra persona tan cuidadosamente como gasta el suyo. Nadie usa los recursos de otra persona con tanto cuidado como utiliza los suyos. Así que si quieres la eficiencia y la eficacia, si desea que el conocimiento sea utilizado apropiadamente, usted tiene que hacerlo a través de los medios de propiedad privada",
-                "EL MATRIMONIO HOMOSEXUAL ES COMO LA UNIÓN ENTRE DOS HERMANAS, UN PERRO Y UNA SEÑORA O UNA SEÑORA Y UN DELFÍN",
-                "No hay rebaja de sueldo a los funcionarios. Hay un retraimiento de la paga",
-                "No subimos los impuestos, es un cambio de ponderación",
-                "Estoy encontrando partidas maravillosas para recortar",
-                "La sanidad publica es un lastre para el contribuyente, la unica forma mantener un sistema estable es la privatizacion",
-                "Algunos se han acordado de sus padres cuando ha habido subvenciones para encontrarle",
-                "La sanidad universal no es para todo el universo",
-                "Nosotros no privatizamos, externalizamos",
-                "Nos dicen que estamos privatizando la sanidad. Bueno, ganen ustedes las elecciones y lo podrán revertir. ¿Por qué pusimos un plazo de 30 años? Porque calculamos que menos de 30 años no van a estar en la oposición",
-                "Nustros votantes pagan la hipoteca aunque tengan que dejar de comer",
-                "Gano 15.100 euros al mes y las paso canutas",
-                "Los jóvenes que quieran buscar oportunidades fuera pueden hacerlo, porque a eso se le llama movilidad exterior",
-                "El regadío hay que utilizarlo como a las mujeres, con mucho cuidado, que le pueden perder a uno",
-                "Escrache: tratar de violentar el voto es nazismo puro",
-                "A algunos les vendría mejor dar su piso en dación en pago para comprarse otro"
-            ],
-        }]
+    "power": {
+        "like": 30,
+        "dislike": -20
     },
-    "NAZI": {
-        "level": {
-            "min": -500,
-            "max": -300
-        },
-        "power": {
-            "yes": 30,
-            "no": -20
-        },
-        "quotes": [{
-            "lang": "ES",
-            "urlRoot": "https://es.wikiquote.org/w/api.php",
-            "page": "Mariano_Rajoy"
-        }, {
-            "lang": "ES",
-            "texts": [],
-        }, {
-            "lang": "EN",
-            "texts": []
-        }]
-    }
-}
+    "quotes": [{
+        "lang": "ES",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Mariano_Rajoy"
+    }, {
+        "lang": "ES",
+        "texts": [
+            "La más estricta justicia no creo que sea siempre la mejor política",
+            "El mundo no está en peligro por las malas personas sino por aquellas que permiten la maldad",
+            "Si quieres ser ave, vuela, si quieres ser gusano, arrástrate, pero no grites cuando te aplasten",
+            "Es mejor morir de pie que vivir de rodillas",
+            "La tierra es para quien la trabaja",
+            "Muchos de ellos, por complacer a tiranos, por un puñado de monedas, o por cohecho o soborno están traicionando y derramando la sangre de sus hermanos",
+            "Cuando sea posible hablar de libertad, el Estado como tal dejará de existir",
+            "¡Cuando un pueblo enérgico y viril llora, la injusticia tiembla!",
+            "Si no eres parte de la solución, eres parte del problema, ¡actúa!",
+            "La revolución no se hace, sino que se organiza",
+            "La victoria de la revolución será la dictadura del proletariado y el campesinado",
+            "Lo que nosotros tenemos que practicar hoy, es la solidaridad",
+            "Si avanzo, seguidme; si me detengo, empujadme; si retrocedo, matadme",
+            "Todo lo que paguemos significa la retribución de lo que recibimos y una retribución correcta y honesta",
+            "En una revolución se triunfa o se muere, si es verdadera",
+            "Esta revolución se propone arrancar de raíz las injusticias",
+            "Luchamos contra la miseria pero al mismo tiempo luchamos contra la alienación",
+            "Donde quiera que la muerte nos sorprenda, sera bien recibida mientras nuestro grito de guerra sea escuchado",
+            "La revolución se lleva en el corazón no en la boca para vivir de ella",
+            "Nuestro sacrificio es consciente; cuota para pagar la libertad que construimos",
+            "Aunque se firmó la paz, sin embargo, es de interés que mantenga la paz",
+            "El que deja de ser mejor a cada paso simplemente deja de ser bueno",
+            "La sutileza puede engañarte; la integridad nunca lo hará",
+            "La sutileza puede engañarte; la integridad nunca lo hará",
+            "Con el fin de conquistar, lo que necesitamos es atrevernos",
+            "No queremos un rey condenado ... queremos verlo muerto",
+            "Después del pan, la educación es la primera necesidad de la gente",
+            "Hay que atreverse, atreverse otra vez, y seguir atreviendose",
+            "Por fin veo que las revoluciones del poder supremo recaen en los más abandonados",
+            "Audacia, más audacia, siempre audacia",
+            "Jamás pretendí proponer romper el nervio revolucionario, ya que dije que la Constitución debía dormir mientras el pueblo estuvo ocupado golpeando a sus enemigos",
+            "La voz de la verdad que resuena en los corazones corrompidos se parece a los sones que retumban en los sepulcros sin despertar a los muertos",
+            "Sólo la naturaleza hace grandes obras sin esperar recompensa alguna",
+            "La vida me ha enseñado a pensar, pero el pensamiento no me ha enseñado a vivir",
+            "Estoy verdaderamente horrorizado por el hombre moderno. Tal ausencia de sentimiento, tal estrechez de miras, esa falta de pasión y de información, como debilidad de pensamiento",
+            "Se puede llevar por mal camino a toda una generación, volverla ciega, conducirla hacia una locura y dirigirla hacia un falso objetivo. Napoleón lo demostró",
+            "Nadie tiene la culpa. No es su defecto ni el nuestro. Esta es la desgracia de nacer en un mundo que se está muriendo",
+            "El liberalismo, austero en nimiedades políticas, ha aprendido cada vez más ingeniosamente para unir una protesta constante contra el gobierno con una sumisión constante a él"
+        ]
+    }]
+}, {
+    "status": "CANDIDATE",
+    "index": 3,
+    "level": {
+        "min": -500,
+        "max": -300
+    },
+    "power": {
+        "like": 30,
+        "dislike": -20
+    },
+    "quotes": [{
+        "lang": "ES",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Mariano_Rajoy"
+    }, {
+        "lang": "ES",
+        "texts": [
+            "El poder se tiene mientras se ejerce y su única legitimidad es la entrega total al servicio de los demás",
+            "Agradeceré busquen siempre las cosas que les unen y dialoguen con serenidad y espíritu de justicia sobre aquellas que les separan",
+            "Pertenezco por convicción y talante a una mayoría de ciudadanos que desea hablar un lenguaje moderado, de concordia y conciliación",
+            "Quienes alcanzan el poder con demagogia terminan haciéndole pagar al país un precio muy caro",
+            "Las elecciones no resuelven por sí mismas los problemas, aunque son el paso previo y necesario para su solución",
+            "Un presidente no puede decir que conoce bien lo que está pasando, porque ve los atascos de tráfico desde el helicóptero",
+            "Si fuera fácil resolver el problema del hambre, no tendríamos hambre",
+            "Al que no le gusta la política corre el riesgo de pasar su vida entera siendo mandado por aquel al que le gusta",
+            "Cuando los políticos no tienen la capacidad de gobernar, crean las comisiones",
+            "En política lo importante no es que se tenga razón sino que se la den a uno",
+            "La historia es la suma total de todas aquellas cosas que hubieran podido evitarse",
+            "El arte de la política consiste en saber precisamente cuando es necesario golpear al oponente por debajo del cinturón",
+            "Todos los órganos humanos se cansan alguna vez, salvo la lengua",
+            "En democracia, nadie es más que nadie salvo quien elige el pueblo",
+            "No hay muro, por alto, ancho o largo que sea, y cualquiera que sea el material que lo conforme, que pueda imponerse al sueño de una vida mejor",
+            "La honestidad es el primer capítulo en el libro de la sabiduría",
+            "Tiene derecho a criticar, quien está dispuesto a ayudar",
+            "Si no podemos poner fin a nuestras diferencias, contribuyamos a que el mundo sea un lugar apto para ellas",
+            "La paz del mundo no exige que cada hombre ame a su prójimo; solamente que ambos vivan juntos, tolerándose mutuamente, sometiendo sus disputas a un arreglo justo y pacífico",
+            "No os preguntéis qué puede hacer vuestro país por vosotros. Preguntaos qué podéis hacer vosotros por vuestro país",
+            "Los chinos utilizan dos pinceladas para escribir la palabra 'crisis'. Una pincelada significa 'peligro' la otra 'oportunidad'. En una crisis toma conciencia del peligro pero reconoce la oportunidad",
+            "Se puede engañar a todos poco tiempo, se puede engañar a algunos todo el tiempo, pero no se puede engañar a todos todo el tiempo",
+            "La democracia es una forma superior de gobierno, porque se basa en el respeto del hombre como ser racional",
+            "El valor en la vida es con frecuencia un espectáculo menos dramático que el valor ante el momento final; pero no deja de ser una magnífica amalgama del triunfo y tragedia. Un hombre hace lo que debe -sin importarle las consecuencias personales, los obstáculos, las presiones ni los peligros-, y este es el fundamento de toda moralidad humana",
+            "Un hombre inteligente es aquel que sabe ser tan inteligente como para contratar gente más inteligente que él",
+            "La educación es la clave del futuro. La clave del destino del hombre y de su posibilidad de actuar en un mundo mejor",
+            "La libertad política es la condición previa del desarrollo económico y del cambio social",
+            "Los que hacen imposible una evolución pacífica, harán inevitable una revolución violenta",
+            "Los terroristas deben ser privados del oxígeno de la publicidad del que dependen",
+            "Puede que sea el gallo el que canta, pero es la gallina la que pone los huevos",
+            "La inflación es la madre del paro, y la ladrona invisible de los que han ahorrado",
+            "Obligarse uno mismo a hacer lo que sabe que es correcto e importante, aunque difícil, es el mejor camino hacia el orgullo, la autoestima y la satisfacción personal",
+            "En cuanto se concede a la mujer la igualdad con el hombre, se vuelve superior a él",
+            "No sé de nadie que haya llegado a lo más alto sin trabajar duro. Esa es la receta. No siempre te llevará a lo más alto, pero debería acercarte bastante",
+            "Ser poderoso es como ser una dama. Si tienes que andar diciéndoselo a la gente, es que no lo eres",
+            "Si tu única oportunidad es ser igual, entonces, no es oportunidad",
+            "Si tuvieses la intención de gustar a los demás, estarías preparado para transigir sobre cualquier cosa en cualquier momento, y no conseguirías nada",
+            "La paciencia es una virtud, excepto cuando se trata de apartar los inconvenientes",
+            "Nadie recordaría al buen samaritano, si además de buenas intenciones no hubiera tenido dinero",
+            "Vale la pena conocer al enemigo... entre otras cosas por la posibilidad de que algún día se convierta en un amigo",
+            "La misión de lo políticos no es la de gustar a todo el mundo",
+            "El socialismo fracasa cuando se les acaba el dinero de los demás",
+            "No mientes deliberadamente, pero, a veces, tienes que ser evasivo",
+            "La economía es el método. La finalidad es cambiar el corazón y el alma",
+            "Se aprende más de quien no nos da la razón",
+            "No se ganan amigos por la vía de la sustitución sino por la vía de la ampliación",
+            "Tanto el laicismo como los fundamentalismos religiosos son enemigos de la libertad y, si logran imponerse, conducen inexorablemente al totalitarismo",
+            "La victoria en la guerra sólo se consigue cuando se hace ganar también a los vencidos",
+            "No hay nada fácil en política. Y hay mucha gente que se cree que se puede improvisar, pero no se puede improvisar. Hay que tener muy pensado a donde se quiere ir",
+            "Tenemos que garantizar nuestras cuentas públicas, y reducir el déficit y la deuda pública. Plantearemos una reforma de nuestro sistema fiscal"
+        ],
+    }]
+}, {
+    "status": "POWERFUL",
+    "index": 4,
+    "level": {
+        "min": -500,
+        "max": -300
+    },
+    "power": {
+        "yes": 30,
+        "no": -20
+    },
+    "quotes": [{
+        "lang": "ES",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Mariano_Rajoy"
+    }, {
+        "lang": "ES",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Jean-Marie_Le_Pen"
+    }, {
+        "lang": "ES",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Federico_Jiménez_Losantos"
+    }, {
+        "lang": "ES",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Eduardo_García_Serrano"
+    }, {
+        "lang": "ES",
+        "texts": [
+            "El Rey se ha convertido en un referente institucional clave en determinados momentos difíciles. Y no sólo eso: la Monarquía es, además, una institución querida y respetada por la gran mayoría",
+            "El único modo de proteger a nuestro pueblo, el único modo de asegurar la paz, el único modo de controlar nuestro destino pasa por nuestro liderazgo",
+            "Nuestra bandera no es un símbolo de un partido político porque ha de serlo de todos; no es un símbolo de la derecha ni de la izquierda porque ha de ondear en todo el espectro ideológico constitucional; no es un símbolo de los militares, aunque la custodian y la honran, sino también de los civiles",
+            "¡Y si se ponen tontos, se les pega un cañonazo y punto!",
+            "No les vamos a dejar romper nada y a lo mejor somos nosotros los que les rompemos algo",
+            "En vez de hablar tanto hay que trabajar más",
+            "Yo sólo pido perdón ante Dios y mi confesor",
+            "Las únicas sociedades que han sido capaces de crear una prosperidad relativa ampliamente extendida han sido aquéllas que han confiado principalmente en los mercados capitalistas",
+            "Hay un viejo dicho que reza: 'si quieres cazar a un ladrón, llama a otro para que lo atrape'. La virtud del capitalismo de libre empresa es aquél que coloca a un empresario frente a otro, y ese es el método más efectivo de control",
+            "La responsabilidad social de los negocios consiste en incrementar sus beneficios",
+            "Los almuerzos gratis no existen.",
+            "El salario mínimo impide a muchas personas obtener un empleo",
+            "Nadie gasta el dinero de otra persona tan cuidadosamente como gasta el suyo. Nadie usa los recursos de otra persona con tanto cuidado como utiliza los suyos. Así que si quieres la eficiencia y la eficacia, si desea que el conocimiento sea utilizado apropiadamente, usted tiene que hacerlo a través de los medios de propiedad privada",
+            "EL MATRIMONIO HOMOSEXUAL ES COMO LA UNIÓN ENTRE DOS HERMANAS, UN PERRO Y UNA SEÑORA O UNA SEÑORA Y UN DELFÍN",
+            "No hay rebaja de sueldo a los funcionarios. Hay un retraimiento de la paga",
+            "No subimos los impuestos, es un cambio de ponderación",
+            "Estoy encontrando partidas maravillosas para recortar",
+            "La sanidad publica es un lastre para el contribuyente, la unica forma mantener un sistema estable es la privatizacion",
+            "Algunos se han acordado de sus padres cuando ha habido subvenciones para encontrarle",
+            "La sanidad universal no es para todo el universo",
+            "Nosotros no privatizamos, externalizamos",
+            "Nos dicen que estamos privatizando la sanidad. Bueno, ganen ustedes las elecciones y lo podrán revertir. ¿Por qué pusimos un plazo de 30 años? Porque calculamos que menos de 30 años no van a estar en la oposición",
+            "Nustros votantes pagan la hipoteca aunque tengan que dejar de comer",
+            "Gano 15.100 euros al mes y las paso canutas",
+            "Los jóvenes que quieran buscar oportunidades fuera pueden hacerlo, porque a eso se le llama movilidad exterior",
+            "El regadío hay que utilizarlo como a las mujeres, con mucho cuidado, que le pueden perder a uno",
+            "Escrache: tratar de violentar el voto es nazismo puro",
+            "A algunos les vendría mejor dar su piso en dación en pago para comprarse otro"
+        ],
+    }]
+}, {
+    "status": "NAZI",
+    "index": 5,
+    "level": {
+        "min": -500,
+        "max": -300
+    },
+    "power": {
+        "like": 30,
+        "dislike": -20
+    },
+    "quotes": [{
+        "lang": "ES",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Mariano_Rajoy"
+    }, {
+        "lang": "ES",
+        "texts": [],
+    }, {
+        "lang": "EN",
+        "texts": []
+    }]
+}]
