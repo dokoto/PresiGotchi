@@ -25,6 +25,4 @@
 
 * Hacer sprites de dos presiGotchi y thumbnails
 
-* Imagen de fondo de seleccion de presis, cambiar el fondo a negro y el simbolo de dolar de negro a un gris oscuro
-
 * Buscar musica y sonidos para presiGotchi
