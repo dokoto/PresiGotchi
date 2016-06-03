@@ -1,0 +1,14 @@
+- Pantalla de intruduccion
+- Se muestra un menu con las opciones para seleccionar un gotchi, crear uno nuevo, ver las estadisticas o salir
+- Cuando se crea un nuevo gotchi se hacen una serie de preguntas para configurara el mismo. Las preguntas van encaminadas
+a crear un gotchi con tendencia de derechas o de izquierdas. Preguntado que tipo de familia tiene, donde estudio, la musica que
+le gusta, donde vivian, a que se dedicaban sus padres, Entonces
+- Un vez creado el gotChi se habra determinado su tendencia, funcion de eso se pasara por tres fases: CANDIDATO, PODEROSO, NAZI.
+Las preguntas o citas que se muestren iran en funcion de lo que guste. Si se hace una cita y gusta se obtienen puntos, si la cita
+era de derechas las posibilidades de que la siguiente tambien lo sea aumentan. Cuando de propone un soborno y se acepta ganamos puntos.
+Tanto si nos disgusta un soborno como un cita perdemos puntos. Si perdemos muchos puntos el CANDIDATO se volvera filosofo para intentar
+envaucar de nuevo al usuario y asi ganar poder, sino no se le da poder acabara por morir. Si el candidato gana mucho poder llegara
+al status NAZI.
+- El algoritmo que determina que preguntas hacer se basara en porcentajes. Se ira acumulando el numero de LIKE y DISLIKE vinculandolos
+con RIGHT, LEFT, o RANDOM. Si la mayoria de nuestros LIKE son de RIGHT se nos haran cada vez mas preguntas de RIGHT. Aunque habra siempre un
+pequeño porcentaje del resto.

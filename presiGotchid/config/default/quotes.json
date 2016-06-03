@@ -1,39 +1,28 @@
-//https://github.com/natetyler/wikiquotes-api/blob/master/wikiquote-api.js
-/* STAGES:
-  FILOSOFER-ASKS: Frases utopicas sobre la vida
-  http://www.frasesypensamientos.com.ar/frases-de-utopia.html
-
-  REVOLUTIONARY-ASKS: Frases muy idealistas sobre la situacion
-  http://www.frasesypensamientos.com.ar/frases-de-resistencia.html
-  http://www.frasesypensamientos.com.ar/frases-de-lucha.html
-  http://www.unafrasecelebre.com/frases-celebres.asp
-
-  CANDIDATE-ASKS: Frases y preguntas que quiere oir el populacho ya mas cerca de los grupos financieros
-  http://www.muyhistoria.es/contemporanea/articulo/10-frases-celebres-de-adolfo-suarez-951395601978
-
-  POWERFUL-ASKS: Afirmaciones y reproches.. Y muchas leyes cabronas
-  http://www.frasecelebre.net/profesiones/politicos.html
-
-  MASTER_AND_COMMANDER-ASKS: Afirmaciones en terminos absolutos y amenazas
-  NAZI-ASKS: Aqui ya solo habla aleman
- */
 [{
     "status": "FILOSOFER",
-    "index": 0,
-    "level": {
-        "min": -500,
-        "max": -300
-    },
-    "power": {
-        "like": 30,
-        "dislike": -20
-    },
     "quotes": [{
         "lang": "ES",
+        "direction": "RANDOM",
         "urlRoot": "https://es.wikiquote.org/w/api.php",
-        "page": "Mariano_Rajoy"
+        "page": "Buda_Gautama"
+    }, {
+        "lang": "EN",
+        "direction": "RANDOM",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Eckhart_Tolle"
+    }, {
+        "lang": "EN",
+        "direction": "RANDOM",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Piotr_Kropotkin"
+    }, {
+        "lang": "EN",
+        "direction": "RANDOM",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Mijaíl_Bakunin"
     }, {
         "lang": "ES",
+        "direction": "RANDOM",
         "texts": [
             "La utopía es el principio de todo progreso y el diseño de un futuro mejor",
             "Los seres humanos serán más felices cuando encuentren caminos para vivir como las antiguas comunidades primitivas",
@@ -67,27 +56,125 @@
             "En contacto con la tierra, el hombre puede permitirse existir nuevamente en su totalidad.",
             "Pensar en el existir no hace que lo que no existe exista."
         ],
-    }, {
-        "lang": "EN",
-        "texts": []
     }]
 }, {
-    "status": "REVOLUTIONARY",
-    "index": 1,
-    "level": {
-        "min": -500,
-        "max": -300
-    },
-    "power": {
-        "like": 30,
-        "dislike": -20
-    },
-    "quotes": [{
+    "status": "CANDIDATE",
+    "corruption": [{
         "lang": "ES",
-        "urlRoot": "https://es.wikiquote.org/w/api.php",
-        "page": "Mariano_Rajoy"
+        "question": "Mañana se reúnen la asociación de empresarios del cine, y les gustaría que vinieras para hablar sobre la piratería",
+        "points": 60
     }, {
         "lang": "ES",
+        "question": "Te quiero invitar a mi casa en Marbella para hablar sobre tu futuro...",
+        "points": 60
+    }, {
+        "lang": "ES",
+        "question": "Hay un homenaje al expresidente de la CEOE, nos gustaría que vinieras a conocernos.",
+        "points": 60
+    }, {
+        "lang": "ES",
+        "question": "Me gustaría presentarte al presidente de Telefónica para comentar la situación laboral. Seria en el Hilton.",
+        "points": 60
+    }, {
+        "lang": "ES",
+        "question": "Te gustan los BMW ? BMW Motor Spain quiere regalarte un X5 para que te sea más cómodo desplazarte",
+        "points": 60
+    }, {
+        "lang": "ES",
+        "question": "La conferencia episcopal quiere darte un premio al futuro presidente más honrado y decente. Seria en el hotel Rizt",
+        "points": 60
+    }, {
+        "lang": "ES",
+        "question": "La SGAE piensa que tienes un gran potencial y les gustaría reunirse contigo en Baqueira Beret para hablar sobre la música.",
+        "points": 60
+    }],
+    "quotes": [{
+        "lang": "ES",
+        "direction": "LEFT",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Juan_Manuel_Sánchez_Gordillo"
+    }, {
+        "lang": "ES",
+        "direction": "RIGHT",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Adam_Smith"
+    }, {
+        "lang": "ES",
+        "direction": "RANDOM",
+        "texts": [
+            "The Smiths, después de todo, no inventaron nada."
+            "Sí, conozco ese disco, me incluyeron en los agradecimientos."
+            "Una vez puse Sigur Rós en una fiesta."
+            "Si una canción que me gusta es usada en un anuncio, ya no me gusta."
+            "No creo que los conozcas. Es imposible."
+            "Yo prefiero la versión acústica que viene en el 45 japonés."
+            "Enésimos clones de Joy Division."
+            "Si quieres te hago un recopilatorio."
+            "La escena canadiense es inmensamente superior a las demás."
+            "No odio a Coldplay porque son mainstream, los odio porque son basura."
+            "¿En serio escuchas a Muse? Loser."
+            "Los Death Cab for Cutie son unos vendidos. Son una boyband indie."
+            "Me limpio el culo con la NME."
+            "Yo dejé de escuchar a Modest Mouse después de 'The Moon & Antarctica'."
+            "El proyecto paralelo de la violoncelista de Frog Eyes es genial."
+            "The Killers son una mierda."
+            "Concierto decepcionante, no tocaron el lado B que tanto me encanta."
+            "La palabra 'indie' ha perdido su sentido original."
+            "El segundo disco es casi siempre una decepción."
+            "Bloc Party comenzaron bien pero luego demostraron ser un fiasco total."
+            "En Godspeed You Black Emperor falta un signo de admiración después de 'You'."
+            "The Beatles están sobrevalorados."
+            "Ya tengo mi lista de los mejores 20 discos de la década."
+            "Yo ya escuchaba a Captain Beefheart hace 10 años."
+            "La única vez que he pogueado en mi vida fue con Fugazi."
+            "Yo tengo la camiseta de Mogwai."
+            "2 estrellas de 5."
+            "Prefiero esperar a que salga en vinilo."
+            "Sí, lo sé. Soy amigo del guitarrista."
+            "No puedo ponerlo entre los mejores discos del año porque lo bajé en diciembre del año pasado."
+            "Nirvana es una banda de versiones de Pixies."
+            "Los REM se han vuelto demasiado comerciales, ya no los escucho."
+            "'The Dark Side of the Moon' es el disco más sobrevalorado de la historia."
+            "Me escribía con el cantante antes de que se hiciera famoso."
+            "Bajos martillantes, guitarras afiladas, batería enérgica, voces sucias. Me gusta."
+            "Voy en la tercera escucha y no me dice nada."
+            "Se dice Bright Eyes no 'los Bright Eyes'."
+            "Cat Power es mi sueño húmedo."
+            "Yo a la reunión de Pavement no voy."
+            "Mi canción favorita de los Beatles es 'Revolution 9′."
+            "Estoy pensando en crear mi propio sello discográfico."
+            "Más de cuatro minutos es progresivo."
+            "El iPod es un accesorio de moda, yo sigo escuchando mi viejo reproductor de CD portátil."
+            "Los géneros no existen."
+            "El álbum no está mal, pero en vivo no son nada."
+            "Cuando estoy en el coche escucho Slint, Low y Múm. ¿Y qué?"
+            "Todas las canciones me suenan iguales."
+            "The Shins ya no son cool."
+            "No he comprado la entrada para el festival, estoy esperando el pase."
+            "Me dan pena esos borregos que se pelean por estar en primera fila."
+            "Los covers son casi siempre mejores que la canción original."
+            "Se pronuncia 'ainstiurzende noibauten'."
+            "Mi banda favorita de los 60 son los Monkees."
+            "Yoko Ono tenía mucho más talento que John Lennon."
+            "Sólo se salva el bonus track."
+            "Antes de dar mi opinión tendría que leer algunas reseñas del disco."
+            "Sin Isobel los Belle and Sebastian no son nada."
+            "Yo tengo el vinilo rojo en edición limitada. Lo encontré en un mercado de Londres hace diez años."
+            "Los Depeche Mode son objetivamente un grupo importante en la historia de la música. Pero para mí son una buena mierda."
+            "Todavía no sé si me gusta o no el 'Kid A'."
+            "Soy fan de Burzum."
+            "'Television' de Marquee Moon es el disco clave de mi vida."
+            "A nadie le gusta lo nuevo de MGMT. Así que debe ser un gran disco."
+            "Cuanto mejor sea un grupo técnicamente es más probable que sean una mierda."
+            "Ir al concierto con la camiseta del grupo es patético."
+            "'Tago Mago' de Can es sin duda un disco fundamental, aunque nunca lo he escuchado."
+            "La versión del EP que ellos mismos produjeron es mejor que la del álbum."
+            "El punk murió cuando The Clash se volvieron comerciales."
+            "Sí, los he escuchado pero todavía no profundizo mucho en ellos. ¿Cómo? ¿Qué has inventado el nombre?."
+        ],
+    }, {
+        "lang": "ES",
+        "direction": "LEFT",
         "texts": [
             "La más estricta justicia no creo que sea siempre la mejor política",
             "El mundo no está en peligro por las malas personas sino por aquellas que permiten la maldad",
@@ -128,24 +215,57 @@
             "Nadie tiene la culpa. No es su defecto ni el nuestro. Esta es la desgracia de nacer en un mundo que se está muriendo",
             "El liberalismo, austero en nimiedades políticas, ha aprendido cada vez más ingeniosamente para unir una protesta constante contra el gobierno con una sumisión constante a él"
         ]
-    }]
-}, {
-    "status": "CANDIDATE",
-    "index": 3,
-    "level": {
-        "min": -500,
-        "max": -300
-    },
-    "power": {
-        "like": 30,
-        "dislike": -20
-    },
-    "quotes": [{
-        "lang": "ES",
-        "urlRoot": "https://es.wikiquote.org/w/api.php",
-        "page": "Mariano_Rajoy"
     }, {
         "lang": "ES",
+        "direction": "RIGHT",
+        "texts": [
+            "Es tal la problemática que cualquier iniciativa debería ponerse en consideración y no en duda. La política del 'no a todo' se impone frente a los números. Romper los esquemas mentales de quienes piensan en mantener las recetas de siempre es el principal reto",
+            "Algunos todavía creen que el gasto lo soluciona todo, venga de donde venga, pero cuando éste se desequilibra trae más déficit y endeudamiento. El gasto como solución es una utopía viciada que sólo sirve para confundir a la ciudadanía",
+            "Hemos enterrado de la manera más absurda, más frívola y menos sensata miles de millones de euros que podrían haber servido para consolidar y crear activos que rindieran en el futuro. El despilfarro debería ser un escándalo público. El gasto público debe controlarse y evaluarse con un rigor y un mimo exagerados",
+            "Es de chiste que un presidente del Gobierno cobre unos 80.000 euros brutos al año.Los políticos están muy mal pagados. Hay que pagarlos mejor y, eso sí, reducirlos en número. ¿Cómo vamos a incentivar a los mejores a ejercer la política si están mál pagados y la valoración ciudadana es tan baja?",
+            "En España hay cuatro niveles de administraciones públicas. ¿De verdad son necesarios? Se debería plantear la eliminación de algún nivel o, al menos, agrupar algunos ayuntamientos, y también reducir el número de organismos, agencias y empresas públicas. Tener una mejor o peor administración repercute en varios puntos del PIB",
+            "¿Es lógico que una secretaria, un conductor, un agente de seguridad, un catedrático de universidad o incluso un médico sean funcionarios? ¿Qué tiene eso de función pública? Son servicios ciudadanos que pueden darse perfectamente de manera externa. Si hubiese una mayor participación del sector privado en algunos servicios públicos se lograrían mayores ganancias de eficiencia y calidad del servicio, y también un menor coste en su prestación",
+            "Cada año se emiten más de 13.000 normas entre las comunidades autónomas y el Estado y se llenan más de 700.000 páginas de boletines oficiales. Cambiamos tanto y tan rápido la legislación que es imposible valorar objetivamente su bondad. La consecuencia de todo esto es una enorme inseguridad jurídica y mayores costes económicos para las empresas",
+            "En España los datos del desempleo tienen grandes debilidades en cuanto a exactitud. No podemos permitirnos dar informaciones que, estamos seguros, se alejan bastante de la realidad, especialmente cuando los damos a conocer en el exterior, ya que deterioramos nuestra imagen y deformamos nuestra realidad",
+            "Nuestra legislación laboral es densa, prolija y confusa. La reforma laboral ha supuesto un paso importante en su proceso de modernización, pero no va a ser la última ni será la definitiva. Hay demasiados tipos de contratos, con cinco o seis habría más que suficiente",
+            "Han sido unos perfectos defensores de un statu quo en lo laboral que está archidemostrado que no funciona y que sólo es bueno para quienes tienen un empleo fijo, pero que penaliza a los que aspiran a tener un nuevo empleo. Si la patronal está en plena refundación, algo parecido deberían hacer los sindicatos, empezando por su financiación y gobernanza",
+            "Hay que combatir los funcionarios prepotentes e incumplidores. Para eso hay que evaluarlos y penalizarlos. Y convencerlos de que trabajan para nosotros, que no son dueños de su puesto de trabajo",
+            "No va a ser nada fácil, nos va a costar muchísimos sacrificios y pagar, a lo mejor, más impuestos y tener menos servicios, pero así es la vida. La vida no es fácil",
+            "Los parados quieren los miniempleos de 400 euros al mes",
+            "Como aquí el subsidio dura hasta 24 meses, la gente encuentra trabajo milagrosamente cuando falta un mes o dos para agotar el subsidio",
+            "A lo mejor es mejor ponerles un subsidio a que estén en la Administración consumiendo papel, consumiendo teléfono y tratando de crear leyes",
+            "Aunque los sindicatos lo llaman contratos basura, nosotros creemos que es mejor tener a la gente trabajando una hora, dos horas o tres horas que cero. Esa es nuestra teoría",
+            "No utilicemos más ni el INE ni la EPA. La EPA de los seis millones de parados no es verdad. 'Para saber los parados lo mejor es ir al registro'",
+            "Rosell plantea quitar a los trabajadores fijos algunos de sus 'privilegios, por llamarlos de alguna manera' y aumentárselos a los temporales",
+            "Una de las claves de por qué se ha disparado el paro hasta el 25% es el crecimiento demográfico; otra, la incorporación de la mujer al mundo laboral",
+            "Un millón de amos y amas de casa están apuntados al paro para intentar cobrar algún subsidio",
+            "Los empresarios no somos culpables de la crisis, hemos creado riqueza",
+            "Hay que trabajar más y ganar menos para salir de la crisis",
+            "Sería mejor ponerles (a los funcionarios) un subsidio a que estén en la Administración consumiendo papel, consumiendo teléfono y tratando de crear leyes. Eso tiene un coste tremendo",
+            "Hay que aceptar trabajos aunque sean en Laponia",
+            "En Laponia nació Papa Noel, es un sitio muy bonito, con trabajos intensos de temporada y muy bien remunerados",
+            "La mejor empresa pública es la que no existe",
+            "Quien se apunte al paro porque sí, habrá que decirle que no",
+            "Quien no apueste en 2007 por la energía nuclear se equivoca. Tenemos que empezar a ser mayores y a asumir riesgos",
+            "El Estatuto de los Trabajadores 'se hizo pensando que los viajes se hacen en diligencia, pues se dan cuatro días para un permiso por defunción que, evidentemente con los vehículos que hay ahora, se trata de horas de desplazamiento, o a veces de una hora'",
+            "El transporte público es demasiado barato",
+            "Nos debemos de olvidar de los salarios fijos indexados para siempre, tienen que ser variables",
+            "A los funcionarios sería mejor darles un subsidio a tenerlos en la Administración consumiendo papel",
+            "La gente encuentra trabajo milagrosamente cuando falta un mes o dos para agotar el subsidio",
+            "A un parado, si se le puede ofrecer un contrato de cuatro horas y sacarle de la listas del paro, pues es mejor que estar en el desempleo",
+            "Habria que... Ampliar del 15% al 30% el margen de horas complementarias.",
+            "Habria que... Cambiar contratos a tiempo completo en parciales al antojo",
+            "Seria bueno... Que una parte de los sueldos sea variable y dependa de la situación de la empresa",
+            "Seria bueno... Más trabas a los jueces para que no puedan 'tumbar' los ERE",
+            "Habria que... Reducir las modalidades de contratos",
+            "Habria que... Limitar las pensiones de viudedad a las personas sin recurso",
+            "Habria que... Ampliar el límite de edad para los contratos de formación",
+            "Seria bueno que... Los médicos de las Mutuas pudieran dar las altas médica",
+            "Habria que... Concatenar contratos temporales"
+        ]
+    }, {
+        "lang": "ES",
+        "direction": "RANDOM",
         "texts": [
             "El poder se tiene mientras se ejerce y su única legitimidad es la entrega total al servicio de los demás",
             "Agradeceré busquen siempre las cosas que les unen y dialoguen con serenidad y espíritu de justicia sobre aquellas que les separan",
@@ -201,33 +321,60 @@
     }]
 }, {
     "status": "POWERFUL",
-    "index": 4,
-    "level": {
-        "min": -500,
-        "max": -300
-    },
-    "power": {
-        "yes": 30,
-        "no": -20
-    },
+    "corruption": [],
     "quotes": [{
         "lang": "ES",
+        "direction": "LEFT",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Pablo_Iglesias_Turrión"
+    }, {
+        "lang": "ES",
+        "direction": "LEFT",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Nicolás_Maduro"
+    }, {
+        "lang": "ES",
+        "direction": "RIGHT",
         "urlRoot": "https://es.wikiquote.org/w/api.php",
         "page": "Mariano_Rajoy"
     }, {
         "lang": "ES",
+        "direction": "RIGHT",
         "urlRoot": "https://es.wikiquote.org/w/api.php",
         "page": "Jean-Marie_Le_Pen"
     }, {
         "lang": "ES",
+        "direction": "RIGHT",
         "urlRoot": "https://es.wikiquote.org/w/api.php",
         "page": "Federico_Jiménez_Losantos"
     }, {
         "lang": "ES",
+        "direction": "RIGHT",
         "urlRoot": "https://es.wikiquote.org/w/api.php",
         "page": "Eduardo_García_Serrano"
     }, {
         "lang": "ES",
+        "direction": "RIGHT",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "José_María_Aznar"
+    }, {
+        "lang": "ES",
+        "direction": "RIGHT",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Albert_Rivera"
+    }, {
+        "lang": "ES",
+        "direction": "LEFT",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Julio_Anguita"
+    }, {
+        "lang": "ES",
+        "direction": "LEFT",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Felipe_González"
+    }, {
+        "lang": "ES",
+        "direction": "RIGHT",
         "texts": [
             "El Rey se ha convertido en un referente institucional clave en determinados momentos difíciles. Y no sólo eso: la Monarquía es, además, una institución querida y respetada por la gran mayoría",
             "El único modo de proteger a nuestro pueblo, el único modo de asegurar la paz, el único modo de controlar nuestro destino pasa por nuestro liderazgo",
@@ -261,19 +408,67 @@
     }]
 }, {
     "status": "NAZI",
-    "index": 5,
-    "level": {
-        "min": -500,
-        "max": -300
-    },
-    "power": {
-        "like": 30,
-        "dislike": -20
-    },
+    "corruption": [],
     "quotes": [{
         "lang": "ES",
+        "direction": "RIGHT",
         "urlRoot": "https://es.wikiquote.org/w/api.php",
-        "page": "Mariano_Rajoy"
+        "page": "Adolf_Hitler"
+    }, {
+        "lang": "DE",
+        "direction": "RIGHT",
+        "urlRoot": "https://de.wikiquote.org/w/api.php",
+        "page": "Adolf_Hitler"
+    }, {
+        "lang": "ES",
+        "direction": "RIGHT",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Pol_Pot"
+    }, {
+        "lang": "ES",
+        "direction": "LEFT",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Iósif_Stalin"
+    }, {
+        "lang": "ES",
+        "direction": "RIGHT",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Francisco_Franco"
+    }, {
+        "lang": "ES",
+        "direction": "RIGHT",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Benito_Mussolini"
+    }, {
+        "lang": "ES",
+        "direction": "RIGHT",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Margaret_Thatcher"
+    }, {
+        "lang": "ES",
+        "direction": "RIGHT",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Augusto_Pinochet"
+    }, {
+        "lang": "ES",
+        "direction": "LEFT",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Lenin"
+    }, {
+        "lang": "ES",
+        "direction": "LEFT",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Mao_Zedong"
+    }, {
+        "lang": "ES",
+        "direction": "LEFT",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Fidel_Castro"
+    }, {
+        "lang": "ES",
+        "direction": "LEFT",
+        "urlRoot": "https://es.wikiquote.org/w/api.php",
+        "page": "Hugo_Chávez"
     }, {
         "lang": "ES",
         "texts": [],
