@@ -1,0 +1,55 @@
+[
+    {
+        "index": 0,
+        "type": "family",
+        "question": "Donde nacio ?",
+        "responses" : [
+            { "text": "Madrid - Villaverde", "thumb": "", "direction": "LEFT"},
+            { "text": "Madrid - Vallekas", "thumb": "", "direction": "LEFT"},
+            { "text": "Madrid - La elipa", "thumb": "", "direction": "LEFT"},
+            { "text": "Madrid - La moraleja", "thumb": "", "direction": "RIGHT"},
+            { "text": "Madrid - Pozuelo", "thumb": "", "direction": "RIGHT"},
+            { "text": "Madrid - Retiro", "thumb": "", "direction": "RIGHT"},
+            { "text": "Baceona - Sarrià Gervasi", "thumb": "", "direction": "RIGHT"},
+            { "text": "Baceona - Passeig de Gràcia", "thumb": "", "direction": "RIGHT"},
+            { "text": "Baceona - Pedralbes", "thumb": "", "direction": "RIGHT"},
+            { "text": "Baceona - Trinitat Nova", "thumb": "", "direction": "LEFT"},
+            { "text": "Baceona - Nou Barris", "thumb": "", "direction": "LEFT"},
+            { "text": "Baceona - Ciutat-Vella", "thumb": "", "direction": "LEFT"}
+        ]
+    },
+    {
+        "index": 0,
+        "type": "family",
+        "question": "Cual es la ocupacion de sus padres ?",
+        "responses" : [
+            { "text": "Madre: Ama de casa, Padre: Albañil", "thumb": "", "direction": "LEFT"},
+            { "text": "Madre: Cajera supermercado, Padre: Conductor de autobus", "thumb": "", "direction": "LEFT"},
+            { "text": "Madre: Enfermera, Padre: Taxita", "thumb": "", "direction": "LEFT"},
+            { "text": "Padre: Abogado, Madre: Ama de casa", "thumb": "", "direction": "RANDOM"},
+            { "text": "Padre: Barrendero, Madre: Profesora", "thumb": "", "direction": "RANDOM"},
+            { "text": "Madre: Gerente en Multinacional, Padre: Presidente de Banca", "thumb": "", "direction": "RIGHT"},
+            { "text": "Madre: Cargo de la UE, Padre: Embajador", "thumb": "", "direction": "RIGHT"},
+            { "text": "Padre: Dueño de Banco multinacional, Madre: Condesa", "thumb": "", "direction": "RIGHT"},
+            { "text": "Padre: Rey de España, Madre: Reina de España", "thumb": "", "direction": "RIGHT"},
+            { "text": "Madre: En Paro, Padre: En Paro", "thumb": "", "direction": "RANDOM"},
+            { "text": "Padre: Muerto al nacer, Madre: Cobra pension por discapacidad de 300€/Mes", "thumb": "", "direction": "LEFT"},
+            { "text": "Madre: Prostituta, Padre: Drogadicto en la carcel", "thumb": "", "direction": "LEFT"}
+        ]
+    },
+    {
+        "index": 1,
+        "type": "studies",
+        "question": "Donde estudio ?",
+        "responses" : [
+            { "text": "MIT - Massachusetts", "thumb": "", "direction": "RIGHT"},
+            { "text": "Univerdad Complutense - Madrid", "thumb": "", "direction": "RANDOM"},
+            { "text": "La Sorbona - Paris", "thumb": "", "direction": "RANDOM"},
+            { "text": "FP Grado Superior - Algeciras", "thumb": "", "direction": "LEFT"},
+            { "text": "Educacion Basica - Puebla de Valles", "thumb": "", "direction": "RANDOM"},
+            { "text": "Universidad de Yale (Miembro de Skull and Bones)", "thumb": "", "direction": "RIGHT"},
+            { "text": "Universidad de la Habana - Cuba", "thumb": "", "direction": "LEFT"},
+            { "text": "Universidad Nacional E. Simon Rodriguez - Venezuela", "thumb": "", "direction": "RANDOM"}
+        ]
+    }
+]
