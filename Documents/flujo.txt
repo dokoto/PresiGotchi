@@ -12,3 +12,5 @@ al status NAZI.
 - El algoritmo que determina que preguntas hacer se basara en porcentajes. Se ira acumulando el numero de LIKE y DISLIKE vinculandolos
 con RIGHT, LEFT, o RANDOM. Si la mayoria de nuestros LIKE son de RIGHT se nos haran cada vez mas preguntas de RIGHT. Aunque habra siempre un
 pequeño porcentaje del resto.
+- Las estadisticas deberia reflejar el numero de presigotchis que murieron por comunidad autonoma, y en el numero que hay en los
+diferentes status en cada comunidad. Quizas se podria hacer un mapa con colores por comunidad o algo..
