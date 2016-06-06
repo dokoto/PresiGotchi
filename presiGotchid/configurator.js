@@ -34,7 +34,7 @@ var ConfiguratorWrapper = (function() {
     Configurator.prototype.generate = function() {
         this._Options();
         this._SessionStorage();
-        if (this._options.noAuth === false) {
+        if (this._options.args.noAuth === false) {
             this._Passport();
         }
         this._Express();
@@ -50,6 +50,7 @@ var ConfiguratorWrapper = (function() {
 
     Configurator.prototype._Global = function() {
         global.Base = process.cwd();
+        global.options = this._options;
         global.Config = require('./utils/Config').create([{
             collectionKey: 'connection',
             pathConfigFile: '/config/connection.json'
@@ -85,6 +86,7 @@ var ConfiguratorWrapper = (function() {
          * - openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365
          * - openssl rsa -in key.pem -out newkey.pem && mv newkey.pem key.pem
          */
+        console.log('ALERTA !!! HAY QUE REGENERAR LAS KEYS');
         this._options.key = fs.readFileSync(path.join(Base, Config.fetch('https', 'https.pathToKey')));
         this._options.cert = fs.readFileSync(path.join(Base, Config.fetch('https', 'https.pathToCert')));
 
@@ -94,41 +96,50 @@ var ConfiguratorWrapper = (function() {
             process.exit();
         }
 
-        this._options.nocluster = false;
+        this._options.args = {};
+        this._options.args.nocluster = false;
         if (process.argv.indexOf("--nocluster") !== -1) {
-            this._options.nocluster = true;
+            this._options.args.nocluster = true;
         }
 
-        this._options.nohttps = false;
+        this._options.args.nohttps = false;
         if (process.argv.indexOf("--nohttps") !== -1) {
-            this._options.nohttps = true;
+            this._options.args.nohttps = true;
         }
 
-        this._options.noAuth = false;
+        this._options.args.noAuth = false;
         if (process.argv.indexOf("--noauth") !== -1) {
-            this._options.noAuth = true;
+            this._options.args.noAuth = true;
         }
 
-        this._options.debug = false;
+        this._options.args.debug = false;
         if (process.argv.indexOf("--debug") !== -1) {
-            this._options.noAuth = true;
-            this._options.nohttps = true;
-            this._options.nocluster = true;
+            this._options.args.noAuth = true;
+            this._options.args.nohttps = true;
+            this._options.args.nocluster = true;
+            console.log('[DEBUG] Activated arguments: ');
+            console.log(JSON.stringify(this._options.args));
         }
 
-        this._options.initdb = false;
+        this._options.args.initdb = false;
         if (process.argv.indexOf("--initdb") !== -1) {
-            this._options.initdb = true;
+            this._options.args.initdb = true;
+            this._options.args.noAuth = true;
+            this._options.args.nohttps = true;
+            this._options.args.nocluster = true;
+            console.log('[DEBUG] Activated arguments: ');
+            console.log(JSON.stringify(this._options.args));
         }
+
     };
 
     Configurator.prototype._showHelp = function() {
-        console.log('$> restestd [options]');
+        console.log('$> ' + app.name + ' [options]');
         console.log('--nocluster [default cluster is on]');
-        console.log('--nohttps [default is https]');
-        console.log('--noauth [default is oAuth is on]');
-        console.log('--debug [default is debug off] Set --noauth, --nohttps, --nocluster ON');
-        console.log('--initdb [default is initdb is off]');
+        console.log('--nohttps   [default is https]');
+        console.log('--noauth    [default is oAuth is on]');
+        console.log('--debug     [default is debug off] Set --noauth, --nohttps, --nocluster ON');
+        console.log('--initdb    [default is initdb is off]');
     };
 
 
@@ -145,46 +156,14 @@ var ConfiguratorWrapper = (function() {
     };
 
     Configurator.prototype._initActions = function() {
-        var DBManagerOptions = {
-            'uri': Config.fetch('db', 'db.mongo.gotchi.uri'),
-            'collections': {
-                'gotchi': {
-                    modelName: 'gotchiModel',
-                    schema: require('./schemas/gotchi').create(),
-                    collectionName: Config.fetch('db', 'db.mongo.gotchi.collections.characters')
-                },
-                'menus': {
-                    modelName: 'menusModel',
-                    schema: require('./schemas/menus').create(),
-                    collectionName: Config.fetch('db', 'db.mongo.gotchi.collections.menus')
-                }
-            }
-        };
-
-        dbManager = require('./utils/dbManager').create(DBManagerOptions);
-
-        if (this._options.initdb === true) {
-            var gotchiModels = require('./config/default/gotchi.json');
-            var menusModels = require('./config/default/menus.json');
-
-            dbManager.addCollections([{
-                collectionName: 'gotchi',
-                collection: gotchiModels
-            }, {
-                collectionName: 'menus',
-                collection: menusModels
-            }]);
-
-            dbManager.once('complete-collections', (responses) => {
-                global.dbManager = dbManager;
-            });
-
-            dbManager.once('error', (error) => {
-                global.dbManager = {};
-                console.error(error);
-            });
-
-        }
+        var initParams = require('./utils/initParams').create();
+        initParams.ddbb();
+        initParams.once('complete', function(response) {
+            global.dbManager = response.dbManager;
+        });
+        initParams.once('error', function(response) {
+            console.error(response.error);
+        });
     };
 
     Configurator.prototype._SessionStorage = function() {

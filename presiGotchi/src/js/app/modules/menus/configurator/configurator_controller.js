@@ -8,22 +8,14 @@ var _ = require('underscore');
 
 function Controller(options) {}
 
-
-Controller.prototype._show = function(menusCollection) {
-    var view = require('./main_view').create({
-        'viewOptions': {
-            'model': Gotchi.menusCollection.findWhere({
-                name: 'main'
-            })
-        }
-    });
-    view.render();
-};
-
 Controller.prototype.show = function() {
-    this._show();
+  var view = require('./configurator_view').create({
+      'viewOptions': {
+          'collection': Gotchi.configuratorCollection
+      }
+  });
+  view.render();
 };
-
 
 module.exports = {
     create: function(options) {

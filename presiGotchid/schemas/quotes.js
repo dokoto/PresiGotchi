@@ -8,26 +8,6 @@ var schema = {
         type: String,
         index: true
     },
-    index: {
-        type: Number,
-        index: true
-    },
-    level: {
-        min: {
-            type: Number,
-        },
-        max: {
-            type: Number,
-        }
-    },
-    power: {
-        like: {
-            type: Number,
-        },
-        dislike: {
-            type: Number,
-        }
-    },
     quotes: [{
         lang: {
             type: String,
@@ -35,6 +15,13 @@ var schema = {
             trim: true,
             enum: ['ES', 'EN', 'DE'],
             default: 'ES'
+        },
+        direction: {
+            type: String,
+            uppercase: true,
+            trim: true,
+            enum: ['LEFT', 'RANDOM', 'RIGHT'],
+            default: 'RANDOM'
         },
         urlRoot: {
             type: String
@@ -53,8 +40,7 @@ module.exports = {
     create: function() {
         var retSchema = new Schema(schema);
         retSchema.index({
-            status: 1,
-            index: 1
+            status: 1
         }, {
             unique: true
         });

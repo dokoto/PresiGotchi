@@ -1,7 +1,7 @@
 [
     {
         "index": 0,
-        "type": "family",
+        "block": "family",
         "question": "Donde nacio ?",
         "responses" : [
             { "text": "Madrid - Villaverde", "thumb": "", "direction": "LEFT"},
@@ -10,17 +10,17 @@
             { "text": "Madrid - La moraleja", "thumb": "", "direction": "RIGHT"},
             { "text": "Madrid - Pozuelo", "thumb": "", "direction": "RIGHT"},
             { "text": "Madrid - Retiro", "thumb": "", "direction": "RIGHT"},
-            { "text": "Baceona - Sarrià Gervasi", "thumb": "", "direction": "RIGHT"},
-            { "text": "Baceona - Passeig de Gràcia", "thumb": "", "direction": "RIGHT"},
-            { "text": "Baceona - Pedralbes", "thumb": "", "direction": "RIGHT"},
-            { "text": "Baceona - Trinitat Nova", "thumb": "", "direction": "LEFT"},
-            { "text": "Baceona - Nou Barris", "thumb": "", "direction": "LEFT"},
-            { "text": "Baceona - Ciutat-Vella", "thumb": "", "direction": "LEFT"}
+            { "text": "Barcelona - Sarrià Gervasi", "thumb": "", "direction": "RIGHT"},
+            { "text": "Barcelona - Passeig de Gràcia", "thumb": "", "direction": "RIGHT"},
+            { "text": "Barcelona - Pedralbes", "thumb": "", "direction": "RIGHT"},
+            { "text": "Barcelona - Trinitat Nova", "thumb": "", "direction": "LEFT"},
+            { "text": "Barcelona - Nou Barris", "thumb": "", "direction": "LEFT"},
+            { "text": "Barcelona - Ciutat-Vella", "thumb": "", "direction": "LEFT"}
         ]
     },
     {
         "index": 0,
-        "type": "family",
+        "block": "family",
         "question": "Cual es la ocupacion de sus padres ?",
         "responses" : [
             { "text": "Madre: Ama de casa, Padre: Albañil", "thumb": "", "direction": "LEFT"},
@@ -38,8 +38,21 @@
         ]
     },
     {
+        "index": 0,
+        "block": "family",
+        "question": "Quien eran tus abuelos ?",
+        "responses" : [
+            { "text": "Mis abuelos eran los Duques de SoplaVentillo", "thumb": "", "direction": "RIGHT"},
+            { "text": "Mi abuelo era pastor, y su mujer cuidaba de la casa", "thumb": "", "direction": "RANDOM"},
+            { "text": "Mi abuelo era carpintero y su mujer ama de casa", "thumb": "", "direction": "LEFT"},
+            { "text": "Mi abuelo era minero y su mujer ama de casa", "thumb": "", "direction": "LEFT"},
+            { "text": "Mis abuelos eran los Reyes de España", "thumb": "", "direction": "RIGHT"},
+            { "text": "Mi abuelo tenia tierras en Cuba para el cultivo de la caña de azucar", "thumb": "", "direction": "RIGHT"}
+        ]
+    },
+    {
         "index": 1,
-        "type": "studies",
+        "block": "studies",
         "question": "Donde estudio ?",
         "responses" : [
             { "text": "MIT - Massachusetts", "thumb": "", "direction": "RIGHT"},

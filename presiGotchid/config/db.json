@@ -10,5 +10,11 @@
   },
   "db.mongo.gotchi.collections.menus": {
     "value": "Menus"
+  },
+  "db.mongo.gotchi.collections.quotes": {
+    "value": "Quotes"
+  },
+  "db.mongo.gotchi.collections.configurator": {
+    "value": "Configurator"
   }
 }

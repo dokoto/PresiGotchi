@@ -1,3 +1,7 @@
+/*global define, module, require, Config, global, console, Logger, process*/
+/*jshint esversion: 6 */
+/*jshint globalstrict: true*/
+
 'use strict';
 
 var configurator = require('./configurator').create();
@@ -23,8 +27,8 @@ function httpServer() {
   });
 }
 
-if (restful.options.nocluster === true) {
-  if (restful.options.nohttps === true) {
+if (restful.options.args.nocluster === true) {
+  if (restful.options.args.nohttps === true) {
     httpServer();
   } else {
     httpsServer();
@@ -32,7 +36,7 @@ if (restful.options.nocluster === true) {
 } else {
   var cluster = require('express-cluster');
   cluster(function () {
-    if (restful.options.nohttps === true) {
+    if (restful.options.args.nohttps === true) {
       httpServer();
     } else {
       httpsServer();
