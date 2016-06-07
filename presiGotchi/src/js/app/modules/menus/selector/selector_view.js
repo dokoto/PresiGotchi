@@ -37,7 +37,7 @@ var View = Backbone.View.extend({
         Gotchi.selected = Gotchi.gotchiCollection.findWhere({
             name: e.target.id
         });
-        
+
         var stage = require('modules/stage/stage_router').create();
         stage.navigate('menus/stage/start', {
             trigger: true

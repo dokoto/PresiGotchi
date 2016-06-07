@@ -1,8 +1,11 @@
-<div id="intro-container" class="intro-container">
+<div id="intro-container" class="intro-container" data-enable-click="false">
     <div id="intro-title" class="intro-title">
         <%=title%>
     </div>
-    <div id="intro-menu" class="intro-go-menu blink_text">
+    <div id="intro-menu" class="intro-go-menu blink_text" style="display: none;">
         <%=message%>
+    </div>
+    <div id="intro-progress" class="intro-progress">
+        <%=loadingMsg%>
     </div>
 </div>
