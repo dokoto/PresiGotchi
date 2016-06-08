@@ -29,6 +29,7 @@ var ConfiguratorWrapper = (function() {
         this._options = {};
         this._Global();
         this._store = null;
+        require('events').EventEmitter.prototype._maxListeners = 100;
     }
 
     Configurator.prototype.generate = function() {

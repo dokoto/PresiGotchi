@@ -12,7 +12,7 @@ function Controller(options) {}
 Controller.prototype._show = function(menusCollection) {
     var view = require('./main_view').create({
         'viewOptions': {
-            'model': Gotchi.menusCollection.findWhere({
+            'model': Gotchi.collections.menus.findWhere({
                 name: 'main'
             })
         }

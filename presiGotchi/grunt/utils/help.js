@@ -3,7 +3,7 @@ module.exports = function (grunt, options) {
     'use strict';
 
     Log.info.v0('Use : #> grunt [options] [task]');
-    Log.info.v0('Ej: #> grunt --os=android --mode=debug --versionApp=0.0.1 --logger=0 fake-task');
+    Log.info.v0('Ej: #> grunt --os=android --mode=dev --versionApp=0.0.1 --logger=0 fake-task');
     Log.info.v0('Debug Win Ej: #> node-debug C:\\Users\\USER\\AppData\\Roaming\\nvm\\v5.5.0\\node_modules\\grunt-cli\\bin\\grunt --os=android --mode=debug --versionApp=0.0.1 --logger=0 fake-task');
     Log.info.v0('Debug Win Ej: #> node-debug C:\\Users\\USER\\AppData\\Roaming\\npm\\node_modules\\grunt-cli\\bin\\grunt --os=android --mode=debug --versionApp=0.0.1 --logger=0 fake-task');
     Log.info.v0('Debug Win Ej: #> %gruntd% --os=android --mode=dev --versionApp=0.0.1 --logger=0 fake-task');

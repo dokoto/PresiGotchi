@@ -16,10 +16,10 @@ function Controller(options) {
 }
 
 Controller.prototype.loadPool = [
-    function() {
+    function(index, total) {
         var gotchiCollection = require('models/gotchiCollection').create();
         Gotchi.collections.gotchi = {};
-        gotchiCollection.on('sync', this._completeHandler.bind(this, gotchiCollection, Gotchi.collections.gotchi, 'Gotchi'));
+        gotchiCollection.on('sync', this._completeHandler.bind(this, gotchiCollection.uuid, 'gotchi', index, total));
         gotchiCollection.on('error', this._errorHandler, this, gotchiCollection);
         gotchiCollection.fetch({
             data: {
@@ -28,10 +28,10 @@ Controller.prototype.loadPool = [
         });
     },
 
-    function() {
+    function(index, total) {
         var menusCollection = require('models/menuCollection').create();
         Gotchi.collections.menus = {};
-        menusCollection.on('sync', this._completeHandler.bind(this, menusCollection, Gotchi.collections.menus, 'Menus'));
+        menusCollection.on('sync', this._completeHandler.bind(this, menusCollection.uuid, 'menus', index, total));
         menusCollection.on('error', this._errorHandler, this, menusCollection);
         menusCollection.fetch({
             data: {
@@ -40,25 +40,25 @@ Controller.prototype.loadPool = [
         });
     },
 
-    function() {
+    function(index, total) {
         var configuratorCollection = require('models/configuratorCollection').create();
         Gotchi.collections.configurator = {};
-        configuratorCollection.on('sync', this._completeHandler.bind(this, configuratorCollection, Gotchi.collections.configurator, 'Configurator'));
+        configuratorCollection.on('sync', this._completeHandler.bind(this, configuratorCollection.uuid, 'configurator', index, total));
         configuratorCollection.on('error', this._errorHandler, this, configuratorCollection);
         configuratorCollection.fetch();
     },
 
-    function() {
+    function(index, total) {
         var quotesCollection = require('models/quotesCollection').create();
         Gotchi.collections.quotes = {};
-        quotesCollection.on('sync', this._completeHandler.bind(this, quotesCollection, Gotchi.collections.quotes, 'Quotes'));
+        quotesCollection.on('sync', this._completeHandler.bind(this, quotesCollection.uuid, 'quotes', index, total));
         quotesCollection.on('error', this._errorHandler, this, quotesCollection);
         quotesCollection.fetch();
     }
 ];
 
+/*
 Controller.prototype.resourceLoader = function() {
-
     this.loadPool.forEach(function(func, index, array) {
         func.call(this);
         this.emiter.trigger('on-process-pool', index, array.length);
@@ -67,7 +67,7 @@ Controller.prototype.resourceLoader = function() {
         }
     }, this);
 
-};
+};*/
 
 Controller.prototype.loadResources = function() {
     this.emiter.once('complete-pool', function() {
@@ -75,12 +75,20 @@ Controller.prototype.loadResources = function() {
         $('#intro-menu').show();
         $('#intro-container').data('enable-click', 'true');
     }, this);
-
-    this.emiter.on('on-process-pool', function(current, total) {
-        this.progress(current, total);
+    /*
+        this.emiter.on('on-process-pool', function(current, total) {
+            this.progress(current, total);
+        }, this);
+    */
+    this.emiter.on('on-processed-resource', function(index, total) {
+        this.progress(index, total);
+        this.loadPool[index].call(this, index, total);
     }, this);
 
-    this.resourceLoader();
+    this.loadPool[0].call(this, 0, this.loadPool.length);
+    //this.resourceLoader();
+
+
 };
 
 Controller.prototype.progress = function(current, total) {
@@ -105,9 +113,12 @@ Controller.prototype._gotomainHandler = function() {
     });
 };
 
-Controller.prototype._completeHandler = function(collection, globalScope, text) {
-    Log.MSG_DESP('[INTRO CONTROLLER] Successful synchronized collection ' + text + ' with backend. ' + collection.length + ' Items requested.');
-    globalScope = collection;
+Controller.prototype._completeHandler = function(uuid, collectionName, index, total, model, errors, options) {
+    Log.MSG_DESP('[INTRO CONTROLLER] Successful synchronized collection ' + collectionName + ' id: ' + uuid + ' with backend. ' + model.length + ' Items requested.');
+    Gotchi.collections[collectionName] = model;
+    if (index < total-1) {
+        this.emiter.trigger('on-processed-resource', index + 1, total);
+    }
 };
 
 Controller.prototype._errorHandler = function(error) {

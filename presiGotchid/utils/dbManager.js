@@ -1,4 +1,4 @@
-/*global define, module, require*/
+/*global define, module, require, console*/
 /*jshint esversion: 6 */
 /*jshint globalstrict: true*/
 'use strict';
@@ -77,18 +77,20 @@ class DBManager extends EventEmitter {
     }
 
     getCollection(collectionName, query) {
+        //console.log('[GETCOLLECTION] COLLECTION-NAME: ' + collectionName + ' QUERY: ' + JSON.stringify(query));
         let mongooseModel = mongoose.model(this.collections[collectionName].modelName,
             this.collections[collectionName].schema, this.collections[collectionName].collectionName);
 
-        mongooseModel.find(query).exec(function(error, response) {
+        mongooseModel.find(query).exec(function(collectionName, error, response) {
             if (error) {
                 this.emit('error', error);
             } else {
+                console.log('[GETCOLLECTION] COLLECTION-NAME: ' + collectionName + ' RESPONSE: ' + JSON.stringify(response).substr(0, 150));
                 this.emit('complete', {
                     data: response
                 });
             }
-        }.bind(this));
+        }.bind(this, collectionName));
 
     }
 
