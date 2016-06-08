@@ -57,38 +57,19 @@ Controller.prototype.loadPool = [
     }
 ];
 
-/*
-Controller.prototype.resourceLoader = function() {
-    this.loadPool.forEach(function(func, index, array) {
-        func.call(this);
-        this.emiter.trigger('on-process-pool', index, array.length);
-        if (index === array.length - 1) {
-            this.emiter.trigger('complete-pool');
-        }
-    }, this);
-
-};*/
-
 Controller.prototype.loadResources = function() {
     this.emiter.once('complete-pool', function() {
         $('#intro-progress').hide();
         $('#intro-menu').show();
         $('#intro-container').data('enable-click', 'true');
     }, this);
-    /*
-        this.emiter.on('on-process-pool', function(current, total) {
-            this.progress(current, total);
-        }, this);
-    */
+
     this.emiter.on('on-processed-resource', function(index, total) {
         this.progress(index, total);
         this.loadPool[index].call(this, index, total);
     }, this);
 
     this.loadPool[0].call(this, 0, this.loadPool.length);
-    //this.resourceLoader();
-
-
 };
 
 Controller.prototype.progress = function(current, total) {
@@ -116,8 +97,10 @@ Controller.prototype._gotomainHandler = function() {
 Controller.prototype._completeHandler = function(uuid, collectionName, index, total, model, errors, options) {
     Log.MSG_DESP('[INTRO CONTROLLER] Successful synchronized collection ' + collectionName + ' id: ' + uuid + ' with backend. ' + model.length + ' Items requested.');
     Gotchi.collections[collectionName] = model;
-    if (index < total-1) {
+    if (index < total - 1) {
         this.emiter.trigger('on-processed-resource', index + 1, total);
+    } else if (index === total - 1) {
+        this.emiter.trigger('complete-pool');
     }
 };
 
