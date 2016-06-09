@@ -1,4 +1,4 @@
-# PresiGotchi
+# TrepiGotchi
 Social game to experiment and measure how the power flow goes from people to governments
 <p align="center"><img src="https://github.com/dokoto/PresiGotchi/blob/master/Prototype-WebApp-B/assets/images/logo_medium.png" width="400" /></p>
 
