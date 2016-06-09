@@ -19,7 +19,7 @@ var Router = Backbone.Router.extend({
     },
     configuratorMenu: function() {
       var controller = require('./configurator_controller').create();
-      controller.show();
+      controller.run();
     }
 
 });

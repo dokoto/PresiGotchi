@@ -1,4 +1,4 @@
-/*global define, module, require, clearTimeout, document, setTimeout*/
+/*global define, module, require, clearTimeout, document, setTimeout, $*/
 /*jshint globalstrict: true*/
 
 /*
@@ -7,6 +7,8 @@ Android-Toast
 */
 
 "use strict";
+
+require("css/android_toast.min.css");
 
 function Pmsg(options) {
     this.timeout_id = null;
@@ -34,6 +36,10 @@ Pmsg.prototype.set = function(options) {
           this.position = 'bottom';
       }
   }
+  if (options.fixed) {
+      this.fixed = options.fixed;
+  }
+
 };
 
 Pmsg.prototype.show = function(options) {
@@ -59,8 +65,14 @@ Pmsg.prototype.show = function(options) {
     toast.setAttribute('id', 'android_toast');
     toast.innerHTML = this.content;
     toast_container.appendChild(toast);
-    this.timeout_id = setTimeout(this.hide, this.duration);
+    this.timeout_id = setTimeout(this.hide.bind(this), this.duration);
+
     return true;
+};
+
+Pmsg.prototype.showFixedPopup = function() {
+    $("#fixed-error").text(this.content);
+    $("#fixed-error").slideToggle('slow');
 };
 
 Pmsg.prototype.hide = function() {
@@ -82,6 +94,10 @@ Pmsg.prototype.hide = function() {
     toast_container.addEventListener('animationEnd', remove_toast);
     toast_container.addEventListener('msAnimationEnd', remove_toast);
     toast_container.addEventListener('oAnimationEnd', remove_toast);
+
+    if (this.fixed === true) {
+        this.showFixedPopup();
+    }
     return true;
 };
 

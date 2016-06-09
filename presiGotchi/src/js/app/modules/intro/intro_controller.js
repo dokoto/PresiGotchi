@@ -7,6 +7,7 @@ var Log = require('utils/logger');
 var baseParams = require('json!config/baseParams.json');
 var _ = require('underscore');
 var Backbone = require('backbone');
+var pmsg = require('utils/pmsg').create();
 
 function Controller(options) {
     window.Gotchi = window.Gotchi || {};
@@ -20,7 +21,7 @@ Controller.prototype.loadPool = [
         var gotchiCollection = require('models/gotchiCollection').create();
         Gotchi.collections.gotchi = {};
         gotchiCollection.on('sync', this._completeHandler.bind(this, gotchiCollection.uuid, 'gotchi', index, total));
-        gotchiCollection.on('error', this._errorHandler, this, gotchiCollection);
+        gotchiCollection.on('error', this._errorHandler, this);
         gotchiCollection.fetch({
             data: {
                 email: baseParams.email
@@ -32,7 +33,7 @@ Controller.prototype.loadPool = [
         var menusCollection = require('models/menuCollection').create();
         Gotchi.collections.menus = {};
         menusCollection.on('sync', this._completeHandler.bind(this, menusCollection.uuid, 'menus', index, total));
-        menusCollection.on('error', this._errorHandler, this, menusCollection);
+        menusCollection.on('error', this._errorHandler, this);
         menusCollection.fetch({
             data: {
                 lang: 'ES'
@@ -44,7 +45,7 @@ Controller.prototype.loadPool = [
         var configuratorCollection = require('models/configuratorCollection').create();
         Gotchi.collections.configurator = {};
         configuratorCollection.on('sync', this._completeHandler.bind(this, configuratorCollection.uuid, 'configurator', index, total));
-        configuratorCollection.on('error', this._errorHandler, this, configuratorCollection);
+        configuratorCollection.on('error', this._errorHandler, this);
         configuratorCollection.fetch();
     },
 
@@ -52,7 +53,7 @@ Controller.prototype.loadPool = [
         var quotesCollection = require('models/quotesCollection').create();
         Gotchi.collections.quotes = {};
         quotesCollection.on('sync', this._completeHandler.bind(this, quotesCollection.uuid, 'quotes', index, total));
-        quotesCollection.on('error', this._errorHandler, this, quotesCollection);
+        quotesCollection.on('error', this._errorHandler, this);
         quotesCollection.fetch();
     }
 ];
@@ -74,7 +75,7 @@ Controller.prototype.loadResources = function() {
 
 Controller.prototype.progress = function(current, total) {
     var progress = ((current + 1) * 100) / total;
-    $('#intro-progress').text('Loading ....... ' + progress + '%');
+    $('#intro-progress').text('Cargando ....... ' + progress + '%');
 };
 
 Controller.prototype.show = function() {
@@ -104,8 +105,9 @@ Controller.prototype._completeHandler = function(uuid, collectionName, index, to
     }
 };
 
-Controller.prototype._errorHandler = function(error) {
-    Log.ERROR_DESP(error);
+Controller.prototype._errorHandler = function(model, response, options) {
+    Log.ERROR_DESP('[INTRO CONTROLLER] Error synchroning collection ' + model.uuid + ' Msg: ' + options.textStatus);
+    pmsg.show({duration: 3000, content: 'Error de conexion :(', position: 'bottom', fixed: true});
 };
 
 
