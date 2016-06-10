@@ -1,0 +1,39 @@
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+body {
+    padding: 0;
+    margin: 0;
+}
+.container {
+    background-color: black;
+}
+.slider-title {
+    font-family: sans-serif;
+    color: white;
+}
+.slider-container {
+    width: 100%;
+    height: 200px;
+    top: 20%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+.slider-item {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: inline-block;
+}
+.slider-item-background {
+    background-image: url();
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
