@@ -9,4 +9,9 @@ $(document).ready(function() {
             $(value).css("background-image", "url(" + images[index] + ")");
         });
     });
+
+    $('#container-region').click(function() {
+        $('#t1').fadeOut(2000);
+        $('#cc1').fadeIn(3000);
+    });
 });
