@@ -4,18 +4,18 @@
         "block": "family",
         "question": "Donde nacio ?",
         "responses" : [
-            { "text": "Madrid - Villaverde", "thumb": "", "direction": "LEFT"},
-            { "text": "Madrid - Vallekas", "thumb": "", "direction": "LEFT"},
-            { "text": "Madrid - La elipa", "thumb": "", "direction": "LEFT"},
-            { "text": "Madrid - La moraleja", "thumb": "", "direction": "RIGHT"},
-            { "text": "Madrid - Pozuelo", "thumb": "", "direction": "RIGHT"},
-            { "text": "Madrid - Retiro", "thumb": "", "direction": "RIGHT"},
-            { "text": "Barcelona - Sarrià Gervasi", "thumb": "", "direction": "RIGHT"},
-            { "text": "Barcelona - Passeig de Gràcia", "thumb": "", "direction": "RIGHT"},
-            { "text": "Barcelona - Pedralbes", "thumb": "", "direction": "RIGHT"},
-            { "text": "Barcelona - Trinitat Nova", "thumb": "", "direction": "LEFT"},
-            { "text": "Barcelona - Nou Barris", "thumb": "", "direction": "LEFT"},
-            { "text": "Barcelona - Ciutat-Vella", "thumb": "", "direction": "LEFT"}
+            { "text": "Madrid - Villaverde", "thumb": "http://cdn.20m.es/img2/recortes/2011/12/17/42253-786-550.jpg", "direction": "LEFT"},
+            { "text": "Madrid - Vallekas", "thumb": "https://i.ytimg.com/vi/cwPhsqIRoXA/maxresdefault.jpg", "direction": "LEFT"},
+            { "text": "Madrid - La elipa", "thumb": "http://cdn.20m.es/img/2010/01/20/1038288.jpg", "direction": "LEFT"},
+            { "text": "Madrid - La moraleja", "thumb": "http://www.spain-select.com/file_upload/property/photos/979x306/mo3_979x306_3193.jpg", "direction": "RIGHT"},
+            { "text": "Madrid - Pozuelo", "thumb": "http://www.estoa.es/wp-content/uploads/2015/10/Pozuelo-2-ret.jpg", "direction": "RIGHT"},
+            { "text": "Madrid - Retiro", "thumb": "http://e01-elmundo.uecdn.es/assets/multimedia/imagenes/2014/09/25/14116668499869.jpg", "direction": "RIGHT"},
+            { "text": "Barcelona - Sarrià Gervasi", "thumb": "http://www.reparacionlavadorasgonzalez.com/user_files/imagenes/sarria-sant-gervasi_141203095111.png", "direction": "RIGHT"},
+            { "text": "Barcelona - Passeig de Gràcia", "thumb": "http://www.quenosvamos.com/images/espana/barcelona/compras/gracia/2.jpg", "direction": "RIGHT"},
+            { "text": "Barcelona - Pedralbes", "thumb": "http://estaticos.qdq.com/swdata/photos/969/969037607/1447666093234-taxis-aeropuerto-pedralbes-barcelona.jpg", "direction": "RIGHT"},
+            { "text": "Barcelona - Trinitat Nova", "thumb": "http://ep00.epimg.net/ccaa/imagenes/2013/04/06/catalunya/1365271438_848061_1365271541_noticia_normal.jpg", "direction": "LEFT"},
+            { "text": "Barcelona - Nou Barris", "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/58/Barcelona_barris_El_Verdum,_Trinitat,_Quaranta_Metros.jpg", "direction": "LEFT"},
+            { "text": "Barcelona - Ciutat-Vella", "thumb": "http://dreamhotels.es/wp-content/uploads/2014/12/visitar-barcelona-1.jpg", "direction": "LEFT"}
         ]
     },
     {
@@ -25,7 +25,7 @@
         "responses" : [
             { "text": "Madre: Ama de casa, Padre: Albañil", "thumb": "", "direction": "LEFT"},
             { "text": "Madre: Cajera supermercado, Padre: Conductor de autobus", "thumb": "", "direction": "LEFT"},
-            { "text": "Madre: Enfermera, Padre: Taxita", "thumb": "", "direction": "LEFT"},
+            { "text": "Madre: Enfermera, Padre: Taxista", "thumb": "", "direction": "LEFT"},
             { "text": "Padre: Abogado, Madre: Ama de casa", "thumb": "", "direction": "RANDOM"},
             { "text": "Padre: Barrendero, Madre: Profesora", "thumb": "", "direction": "RANDOM"},
             { "text": "Madre: Gerente en Multinacional, Padre: Presidente de Banca", "thumb": "", "direction": "RIGHT"},
