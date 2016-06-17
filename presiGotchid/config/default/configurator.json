@@ -1,68 +1,175 @@
-[
-    {
-        "index": 0,
-        "block": "family",
+[{
+    "index": 0,
+    "block": "family",
+    "blockDescription" : "La Familia",
+    "questions": [{
         "question": "Donde nacio ?",
-        "responses" : [
-            { "text": "Madrid - Villaverde", "thumb": "http://cdn.20m.es/img2/recortes/2011/12/17/42253-786-550.jpg", "direction": "LEFT"},
-            { "text": "Madrid - Vallekas", "thumb": "https://i.ytimg.com/vi/cwPhsqIRoXA/maxresdefault.jpg", "direction": "LEFT"},
-            { "text": "Madrid - La elipa", "thumb": "http://cdn.20m.es/img/2010/01/20/1038288.jpg", "direction": "LEFT"},
-            { "text": "Madrid - La moraleja", "thumb": "http://www.spain-select.com/file_upload/property/photos/979x306/mo3_979x306_3193.jpg", "direction": "RIGHT"},
-            { "text": "Madrid - Pozuelo", "thumb": "http://www.estoa.es/wp-content/uploads/2015/10/Pozuelo-2-ret.jpg", "direction": "RIGHT"},
-            { "text": "Madrid - Retiro", "thumb": "http://e01-elmundo.uecdn.es/assets/multimedia/imagenes/2014/09/25/14116668499869.jpg", "direction": "RIGHT"},
-            { "text": "Barcelona - Sarrià Gervasi", "thumb": "http://www.reparacionlavadorasgonzalez.com/user_files/imagenes/sarria-sant-gervasi_141203095111.png", "direction": "RIGHT"},
-            { "text": "Barcelona - Passeig de Gràcia", "thumb": "http://www.quenosvamos.com/images/espana/barcelona/compras/gracia/2.jpg", "direction": "RIGHT"},
-            { "text": "Barcelona - Pedralbes", "thumb": "http://estaticos.qdq.com/swdata/photos/969/969037607/1447666093234-taxis-aeropuerto-pedralbes-barcelona.jpg", "direction": "RIGHT"},
-            { "text": "Barcelona - Trinitat Nova", "thumb": "http://ep00.epimg.net/ccaa/imagenes/2013/04/06/catalunya/1365271438_848061_1365271541_noticia_normal.jpg", "direction": "LEFT"},
-            { "text": "Barcelona - Nou Barris", "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/58/Barcelona_barris_El_Verdum,_Trinitat,_Quaranta_Metros.jpg", "direction": "LEFT"},
-            { "text": "Barcelona - Ciutat-Vella", "thumb": "http://dreamhotels.es/wp-content/uploads/2014/12/visitar-barcelona-1.jpg", "direction": "LEFT"}
-        ]
-    },
-    {
-        "index": 0,
-        "block": "family",
+        "responses": [{
+            "text": "Madrid - Villaverde",
+            "thumb": "http://i.imgur.com/YMeT1rR.png",
+            "direction": "LEFT"
+        }, {
+            "text": "Madrid - Vallekas",
+            "thumb": "http://i.imgur.com/82TpoEJ.png",
+            "direction": "LEFT"
+        }, {
+            "text": "Madrid - La elipa",
+            "thumb": "http://i.imgur.com/4e9mS2t.png",
+            "direction": "LEFT"
+        }, {
+            "text": "Madrid - La moraleja",
+            "thumb": "http://i.imgur.com/ICNrept.png",
+            "direction": "RIGHT"
+        }, {
+            "text": "Madrid - Pozuelo",
+            "thumb": "http://i.imgur.com/lWUo5XH.png",
+            "direction": "RIGHT"
+        }, {
+            "text": "Madrid - Retiro",
+            "thumb": "http://i.imgur.com/dPbX1Ql.png",
+            "direction": "RIGHT"
+        }, {
+            "text": "Barcelona - Sarrià Gervasi",
+            "thumb": "http://i.imgur.com/Yu9MoEm.png",
+            "direction": "RIGHT"
+        }, {
+            "text": "Barcelona - Passeig de Gràcia",
+            "thumb": "http://i.imgur.com/aziww46.png",
+            "direction": "RIGHT"
+        }, {
+            "text": "Barcelona - Pedralbes",
+            "thumb": "http://i.imgur.com/hTwrDxE.png",
+            "direction": "RIGHT"
+        }, {
+            "text": "Barcelona - Trinitat Nova",
+            "thumb": "http://i.imgur.com/4lcqFla.png",
+            "direction": "LEFT"
+        }, {
+            "text": "Barcelona - Nou Barris",
+            "thumb": "http://i.imgur.com/MoPK5jT.png",
+            "direction": "LEFT"
+        }, {
+            "text": "Barcelona - Ciutat-Vella",
+            "thumb": "http://i.imgur.com/uMN87hE.png",
+            "direction": "LEFT"
+        }]
+    }, {
         "question": "Cual es la ocupacion de sus padres ?",
-        "responses" : [
-            { "text": "Madre: Ama de casa, Padre: Albañil", "thumb": "", "direction": "LEFT"},
-            { "text": "Madre: Cajera supermercado, Padre: Conductor de autobus", "thumb": "", "direction": "LEFT"},
-            { "text": "Madre: Enfermera, Padre: Taxista", "thumb": "", "direction": "LEFT"},
-            { "text": "Padre: Abogado, Madre: Ama de casa", "thumb": "", "direction": "RANDOM"},
-            { "text": "Padre: Barrendero, Madre: Profesora", "thumb": "", "direction": "RANDOM"},
-            { "text": "Madre: Gerente en Multinacional, Padre: Presidente de Banca", "thumb": "", "direction": "RIGHT"},
-            { "text": "Madre: Cargo de la UE, Padre: Embajador", "thumb": "", "direction": "RIGHT"},
-            { "text": "Padre: Dueño de Banco multinacional, Madre: Condesa", "thumb": "", "direction": "RIGHT"},
-            { "text": "Padre: Rey de España, Madre: Reina de España", "thumb": "", "direction": "RIGHT"},
-            { "text": "Madre: En Paro, Padre: En Paro", "thumb": "", "direction": "RANDOM"},
-            { "text": "Padre: Muerto al nacer, Madre: Cobra pension por discapacidad de 300€/Mes", "thumb": "", "direction": "LEFT"},
-            { "text": "Madre: Prostituta, Padre: Drogadicto en la carcel", "thumb": "", "direction": "LEFT"}
-        ]
-    },
-    {
-        "index": 0,
-        "block": "family",
+        "responses": [{
+            "text": "Madre: Ama de casa, Padre: Albañil",
+            "thumb": "http://i.imgur.com/moRtXi8.png",
+            "direction": "LEFT"
+        }, {
+            "text": "Madre: Cajera supermercado, Padre: Conductor de autobus",
+            "thumb": "http://i.imgur.com/6FpektT.png",
+            "direction": "LEFT"
+        }, {
+            "text": "Madre: Enfermera, Padre: Taxista",
+            "thumb": "http://i.imgur.com/Wlz4cAP.png",
+            "direction": "LEFT"
+        }, {
+            "text": "Padre: Abogado, Madre: Ama de casa",
+            "thumb": "http://i.imgur.com/pCITlL6.png",
+            "direction": "RANDOM"
+        }, {
+            "text": "Padre: Barrendero, Madre: Profesora",
+            "thumb": "http://i.imgur.com/u9hpyWz.png",
+            "direction": "RANDOM"
+        }, {
+            "text": "Madre: Gerente en Multinacional, Padre: Presidente de Banca",
+            "thumb": "",
+            "direction": "RIGHT"
+        }, {
+            "text": "Madre: Cargo de la UE, Padre: Embajador",
+            "thumb": "",
+            "direction": "RIGHT"
+        }, {
+            "text": "Padre: Dueño de Banco multinacional, Madre: Condesa",
+            "thumb": "",
+            "direction": "RIGHT"
+        }, {
+            "text": "Padre: Rey de España, Madre: Reina de España",
+            "thumb": "",
+            "direction": "RIGHT"
+        }, {
+            "text": "Madre: En Paro, Padre: En Paro",
+            "thumb": "http://i.imgur.com/j1iyYSL.png",
+            "direction": "RANDOM"
+        }, {
+            "text": "Padre: Muerto al nacer, Madre: Cobra pension por discapacidad de 300€/Mes",
+            "thumb": "",
+            "direction": "LEFT"
+        }, {
+            "text": "Madre: Prostituta, Padre: Drogadicto en la carcel",
+            "thumb": "http://i.imgur.com/Dhyq1CW.png",
+            "direction": "LEFT"
+        }]
+    }, {
         "question": "Quien eran tus abuelos ?",
-        "responses" : [
-            { "text": "Mis abuelos eran los Duques de SoplaVentillo", "thumb": "", "direction": "RIGHT"},
-            { "text": "Mi abuelo era pastor, y su mujer cuidaba de la casa", "thumb": "", "direction": "RANDOM"},
-            { "text": "Mi abuelo era carpintero y su mujer ama de casa", "thumb": "", "direction": "LEFT"},
-            { "text": "Mi abuelo era minero y su mujer ama de casa", "thumb": "", "direction": "LEFT"},
-            { "text": "Mis abuelos eran los Reyes de España", "thumb": "", "direction": "RIGHT"},
-            { "text": "Mi abuelo tenia tierras en Cuba para el cultivo de la caña de azucar", "thumb": "", "direction": "RIGHT"}
-        ]
-    },
-    {
-        "index": 1,
-        "block": "studies",
+        "responses": [{
+            "text": "Mis abuelos eran los Duques de SoplaVentillo",
+            "thumb": "http://i.imgur.com/cvI1po2.png",
+            "direction": "RIGHT"
+        }, {
+            "text": "Mi abuelo era pastor, y su mujer cuidaba de la casa",
+            "thumb": "http://i.imgur.com/fppinI7.png",
+            "direction": "RANDOM"
+        }, {
+            "text": "Mi abuelo era carpintero y su mujer ama de casa",
+            "thumb": "",
+            "direction": "LEFT"
+        }, {
+            "text": "Mi abuelo era minero y su mujer ama de casa",
+            "thumb": "",
+            "direction": "LEFT"
+        }, {
+            "text": "Mis abuelos eran los Reyes de España",
+            "thumb": "",
+            "direction": "RIGHT"
+        }, {
+            "text": "Mi abuelo tenia tierras en Cuba para el cultivo de la caña de azucar",
+            "thumb": "",
+            "direction": "RIGHT"
+        }]
+    }]
+}, {
+    "index": 1,
+    "block": "studies",
+    "blockDescription" : "Los Estudios",
+    "questions": [{
         "question": "Donde estudio ?",
-        "responses" : [
-            { "text": "MIT - Massachusetts", "thumb": "", "direction": "RIGHT"},
-            { "text": "Univerdad Complutense - Madrid", "thumb": "", "direction": "RANDOM"},
-            { "text": "La Sorbona - Paris", "thumb": "", "direction": "RANDOM"},
-            { "text": "FP Grado Superior - Algeciras", "thumb": "", "direction": "LEFT"},
-            { "text": "Educacion Basica - Puebla de Valles", "thumb": "", "direction": "RANDOM"},
-            { "text": "Universidad de Yale (Miembro de Skull and Bones)", "thumb": "", "direction": "RIGHT"},
-            { "text": "Universidad de la Habana - Cuba", "thumb": "", "direction": "LEFT"},
-            { "text": "Universidad Nacional E. Simon Rodriguez - Venezuela", "thumb": "", "direction": "RANDOM"}
-        ]
-    }
-]
+        "responses": [{
+            "text": "MIT - Massachusetts",
+            "thumb": "",
+            "direction": "RIGHT"
+        }, {
+            "text": "Univerdad Complutense - Madrid",
+            "thumb": "",
+            "direction": "RANDOM"
+        }, {
+            "text": "La Sorbona - Paris",
+            "thumb": "",
+            "direction": "RANDOM"
+        }, {
+            "text": "FP Grado Superior - Algeciras",
+            "thumb": "",
+            "direction": "LEFT"
+        }, {
+            "text": "Educacion Basica - Puebla de Valles",
+            "thumb": "",
+            "direction": "RANDOM"
+        }, {
+            "text": "Universidad de Yale (Miembro de Skull and Bones)",
+            "thumb": "",
+            "direction": "RIGHT"
+        }, {
+            "text": "Universidad de la Habana - Cuba",
+            "thumb": "",
+            "direction": "LEFT"
+        }, {
+            "text": "Universidad Nacional E. Simon Rodriguez - Venezuela",
+            "thumb": "",
+            "direction": "RANDOM"
+        }]
+    }]
+}]

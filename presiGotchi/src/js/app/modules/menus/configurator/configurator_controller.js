@@ -9,14 +9,13 @@ var _ = require('underscore');
 function Controller(options) {}
 
 Controller.prototype.run = function() {
-
+    this.show();
 };
-//http://stereobit.github.io/dragend/
-//http://stackoverflow.com/questions/18751811/smooth-native-style-swipe-scrolling-with-acceleration-deceleration-on-ios-using
+
 Controller.prototype.show = function() {
   var view = require('./configurator_view').create({
       'viewOptions': {
-          'collection': Gotchi.configuratorCollection
+          'collection': Gotchi.collections.configurator
       }
   });
   view.render();

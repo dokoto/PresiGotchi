@@ -19,8 +19,8 @@ var View = Backbone.View.extend({
     menuHandler: function(e) {
         switch (e.target.id) {
             case 'new':
-                var selector = require('modules/menus/selector/selector_router').create();
-                selector.navigate('menus/selector/start', {
+                var configurator = require('modules/menus/configurator/configurator_router').create();
+                configurator.navigate('menus/configurator/start', {
                     trigger: true
                 });
                 break;

@@ -7,23 +7,28 @@ var schema = {
     block: {
         type: String
     },
-    question: {
+    blockDescription: {
         type: String
     },
-    responses: [{
-        text: {
+    questions: [{
+        question: {
             type: String
         },
-        thumb: {
-            type: String
-        },
-        direction: {
-            type: String,
-            uppercase: true,
-            trim: true,
-            enum: ['LEFT', 'RANDOM', 'RIGHT'],
-            default: 'RANDOM'
-        }
+        responses: [{
+            text: {
+                type: String
+            },
+            thumb: {
+                type: String
+            },
+            direction: {
+                type: String,
+                uppercase: true,
+                trim: true,
+                enum: ['LEFT', 'RANDOM', 'RIGHT'],
+                default: 'RANDOM'
+            }
+        }]
     }]
 };
 

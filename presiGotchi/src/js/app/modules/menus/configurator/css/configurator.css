@@ -33,7 +33,8 @@ body {
 .slider-block {
     display: none;
 }
-.slider-container {
+.slider-responses {
+    display: none;
     width: 100%;
     height: 200px;
     top: 20%;
@@ -81,7 +82,7 @@ body {
     background-position: center center;
 }
 .slider-complete {
-    background-image: url(add.png);
+    background-image: url("../assets/icons/add.png");
     background-size: cover;
     background-color: white;
     opacity: 0.6;

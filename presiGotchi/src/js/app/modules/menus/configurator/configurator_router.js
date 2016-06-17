@@ -15,7 +15,7 @@ var Router = Backbone.Router.extend({
     start: function() {
         Log.MSG_DESP('[CONFIGURATOR ROUTER] Starting');
         require("./css/configurator.css");
-        this.selectorMenu();
+        this.configuratorMenu();
     },
     configuratorMenu: function() {
       var controller = require('./configurator_controller').create();
