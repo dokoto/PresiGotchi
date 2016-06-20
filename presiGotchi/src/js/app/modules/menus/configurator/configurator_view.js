@@ -11,6 +11,12 @@ var template_item = require('./templates/configurator_item_menu.html');
 
 var ViewLayout = Backbone.View.extend({
     el: '#container-region',
+    events: {
+        'click .slider-item': 'itemSelected'
+    },
+    itemSelected: function(e) {
+        this.trigger('menu:configurator:itemSelected', e);
+    },
     render: function(e) {
         this.$el.empty();
         this.collection.each(function(value, key, list) {

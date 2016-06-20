@@ -1,4 +1,4 @@
-/*global define, module, require, window, Gotchi*/
+/*global define, module, require, window, Gotchi, $*/
 /*jshint globalstrict: true*/
 
 'use strict';
@@ -13,12 +13,39 @@ Controller.prototype.run = function() {
 };
 
 Controller.prototype.show = function() {
-  var view = require('./configurator_view').create({
-      'viewOptions': {
-          'collection': Gotchi.collections.configurator
-      }
-  });
-  view.render();
+    var view = require('./configurator_view').create({
+        'viewOptions': {
+            'collection': Gotchi.collections.configurator
+        }
+    });
+
+    view.on('menu:configurator:itemSelected', this._itemSelected, this);
+
+    view.render();
+};
+
+Controller.prototype._itemSelected = function(ev) {
+    var self = this;
+    $(ev.target.id).parent().find('.slider-item').each(function(index, value) {
+        self._resetItemResponses(this);
+    }).promise().done(function() {
+        self._toggleItemSelected(self);
+    });
+};
+
+Controller.prototype._resetItemResponses = function(el) {
+    $(el).find('.slider-item-response').css('color', 'black');
+    $(el).find('.slider-item-response').css('background-color', 'white');
+};
+
+Controller.prototype._toggleItemSelected = function(el) {
+    if ($(el).find('.slider-item-response').css('color') === 'rgb(0, 0, 0)') {
+        $(el).find('.slider-item-response').css('color', 'white');
+        $(el).find('.slider-item-response').css('background-color', 'black');
+    } else {
+        $(el).find('.slider-item-response').css('color', 'black');
+        $(el).find('.slider-item-response').css('background-color', 'white');
+    }
 };
 
 module.exports = {
