@@ -12,7 +12,7 @@ $(document).ready(function() {
 
     $('#container-region').click(function() {
         $('#t1').fadeOut(2000);
-        $('#cc1').fadeIn(3000);
+        $('#slider-configurator-step').fadeIn(3000);
     });
 
     $('.slider-item ').click(function(ev) {

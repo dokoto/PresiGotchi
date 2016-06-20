@@ -11,8 +11,7 @@ html, body {
     height: 100%;
 }
 ::-webkit-scrollbar {
-    width: 0;
-    background: transparent;
+    display: none;
 }
 body {
     padding: 0;
@@ -30,20 +29,22 @@ body {
     transform: translate(-50%, -80%);
     top: 80%;
 }
-.slider-block {
+.slider-hide {
     display: none;
 }
 .slider-responses {
-    display: none;
     width: 100%;
-    height: 200px;
-    top: 20%;
+    height: 240px;    
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
 }
+.slider-block {
+    position: relative;
+    margin-bottom: 5px;
+}
 .slider-question {
-    position: fixed;
+    position: absolute;
     z-index: 9;
     font-family: sans-serif;
     white-space: normal;

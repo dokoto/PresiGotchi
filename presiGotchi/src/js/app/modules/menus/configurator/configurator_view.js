@@ -1,4 +1,4 @@
-/*global define, module, require*/
+/*global define, module, require, window*/
 /*jshint globalstrict: true*/
 
 'use strict';
@@ -30,12 +30,14 @@ var ViewStepCollection = Backbone.View.extend({
     render: function(e) {
         this.$el.append(this.template());
         _.each(this.model.get('questions'), function(value, key, list) {
+
             var viewBlock = new ViewBlockCollection({
+                'numOfQuestions': this.model.get('questions').length,
                 'model': value,
-                'el': this.$el.children().last()
+                'el': this.$el.children().last().find('#slider-blocks')
             });
-            this.$el.append(viewBlock.$el);
             viewBlock.render();
+
         }, this);
 
         return this;
@@ -46,13 +48,15 @@ var ViewBlockCollection = Backbone.View.extend({
     template: template_block,
     initialize: function(options) {
         this.setElement(options.el);
+        this.numOfQuestions = options.numOfQuestions;
     },
     render: function(e) {
 
         this.$el.append(this.template());
         var viewItem = new ViewItemCollection({
             'model': this.model.responses,
-            'el': this.$el.children().last().find('#slider-responses')
+            'el': this.$el.children().last().find('#slider-responses'),
+            'numOfQuestions': this.numOfQuestions
         });
         viewItem.render();
         return this;
@@ -62,14 +66,15 @@ var ViewBlockCollection = Backbone.View.extend({
 var ViewItemCollection = Backbone.View.extend({
     initialize: function(options) {
         this.setElement(options.el);
+        this.numOfQuestions = options.numOfQuestions;
     },
     render: function(e) {
         _.each(this.model, function(value, key, list) {
             var viewItem = new ViewItem({
                 'model': value,
-                'el': this.$el
+                'el': this.$el,
+                'numOfQuestions': this.numOfQuestions
             });
-            this.$el.append(viewItem.$el);
             viewItem.render();
         }, this);
         return this;
@@ -79,11 +84,14 @@ var ViewItemCollection = Backbone.View.extend({
 var ViewItem = Backbone.View.extend({
     initialize: function(options) {
         this.setElement(options.el);
+        this.numOfQuestions = options.numOfQuestions;
     },
     template: template_item,
     render: function(e) {
         this.$el.append(this.template());
-        this.$el.find('.slider-item-background').css("background-image", "url(" + this.model.thumb + ")");
+        var height = (window.innerHeight / this.numOfQuestions) - this.$el.parent().css('margin-bottom').replace('px','');
+        this.$el.css('height', height);
+        this.$el.find('.slider-item-background').last().css("background-image", "url(" + this.model.thumb + ")");
         return this;
     }
 });
