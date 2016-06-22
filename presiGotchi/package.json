@@ -48,6 +48,7 @@
     "freewall": "^1.0.8",
     "jquery": "^2.2.3",
     "json-loader": "^0.5.4",
+    "preload": "^0.1.0",
     "underscore": "^1.8.3"
   }
 }

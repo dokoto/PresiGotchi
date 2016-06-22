@@ -10,16 +10,29 @@ var baseParams = require('json!config/baseParams.json');
 var utils = require('utils/misc');
 var Backbone = require('backbone');
 
-//var ConfiguratorCollection = CollectionBase.self.extend({
 var ConfiguratorCollection = Backbone.Collection.extend({
-  urlRoot: baseParams.urlRoot,
-  url: function() {
-      return this.urlRoot + '/texts/configurator';
-  },
-  parse: function(response) {
-      return response.value.data;
-  }
+    urlRoot: baseParams.urlRoot,
+    url: function() {
+        return this.urlRoot + '/texts/configurator';
+    },
+    parse: function(response) {
+        return response.value.data;
+    },
+    getAllThumbs: function() {
+        var i, x, thumbs = [];
+        for (i in this.models) {
+            for (x in this.models[i].attributes.questions) {
+                thumbs = thumbs.concat(_.pluck(this.models[i].attributes.questions[x].responses, 'thumb'));
+            }
+        }
+
+        return thumbs.filter(function(o) {
+            return o !== '';
+        });
+    }
 });
+
+
 //_.extend(ConfiguratorCollection.prototype.defaults, CollectionBase.self.prototype.defaults);
 
 module.exports = {

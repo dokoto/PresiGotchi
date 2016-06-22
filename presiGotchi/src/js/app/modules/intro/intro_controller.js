@@ -8,10 +8,13 @@ var baseParams = require('json!config/baseParams.json');
 var _ = require('underscore');
 var Backbone = require('backbone');
 var pmsg = require('utils/pmsg').create();
+var misc = require('utils/misc');
 
 function Controller(options) {
-    window.Gotchi = window.Gotchi || {};
-    Gotchi.collections = {};
+    if (!window.Gotchi || Object.keys(window.Gotchi.collections).length === 0) {
+        window.Gotchi = window.Gotchi || {};
+        Gotchi.collections = {};
+    }
     this.emiter = {};
     _.extend(this.emiter, Backbone.Events);
 }
@@ -20,7 +23,7 @@ Controller.prototype.loadPool = [
     function(index, total) {
         var gotchiCollection = require('models/gotchiCollection').create();
         Gotchi.collections.gotchi = {};
-        gotchiCollection.on('sync', this._completeHandler.bind(this, gotchiCollection.uuid, 'gotchi', index, total));
+        gotchiCollection.on('sync', this._completeHandlerConfig.bind(this, gotchiCollection.uuid, 'gotchi', index, total));
         gotchiCollection.on('error', this._errorHandler, this);
         gotchiCollection.fetch({
             data: {
@@ -32,7 +35,7 @@ Controller.prototype.loadPool = [
     function(index, total) {
         var menusCollection = require('models/menuCollection').create();
         Gotchi.collections.menus = {};
-        menusCollection.on('sync', this._completeHandler.bind(this, menusCollection.uuid, 'menus', index, total));
+        menusCollection.on('sync', this._completeHandlerConfig.bind(this, menusCollection.uuid, 'menus', index, total));
         menusCollection.on('error', this._errorHandler, this);
         menusCollection.fetch({
             data: {
@@ -44,7 +47,7 @@ Controller.prototype.loadPool = [
     function(index, total) {
         var configuratorCollection = require('models/configuratorCollection').create();
         Gotchi.collections.configurator = {};
-        configuratorCollection.on('sync', this._completeHandler.bind(this, configuratorCollection.uuid, 'configurator', index, total));
+        configuratorCollection.on('sync', this._completeHandlerConfig.bind(this, configuratorCollection.uuid, 'configurator', index, total));
         configuratorCollection.on('error', this._errorHandler, this);
         configuratorCollection.fetch();
     },
@@ -52,9 +55,15 @@ Controller.prototype.loadPool = [
     function(index, total) {
         var quotesCollection = require('models/quotesCollection').create();
         Gotchi.collections.quotes = {};
-        quotesCollection.on('sync', this._completeHandler.bind(this, quotesCollection.uuid, 'quotes', index, total));
+        quotesCollection.on('sync', this._completeHandlerConfig.bind(this, quotesCollection.uuid, 'quotes', index, total));
         quotesCollection.on('error', this._errorHandler, this);
         quotesCollection.fetch();
+    },
+
+    function(index, total) {
+        var thumbs = Gotchi.collections.configurator.getAllThumbs();
+        var preloadManager = misc.preLoadImgs(thumbs);
+        preloadManager.once('complete', this._completeHandlerImages.bind(this, 'images', index, total));
     }
 ];
 
@@ -78,11 +87,17 @@ Controller.prototype.progress = function(current, total) {
     $('#intro-progress').text('Cargando ....... ' + progress + '%');
 };
 
-Controller.prototype.show = function() {
+Controller.prototype.run = function() {
     var view = require('./intro_view').create();
     view.once('intro:gotomain', this._gotomainHandler, this);
     view.once('intro:render:finish', function() {
-        this.loadResources();
+        if (Object.keys(Gotchi.collections).length === 0) {
+            this.loadResources();
+        } else {
+            $('#intro-progress').hide();
+            $('#intro-menu').show();
+            $('#intro-container').data('enable-click', 'true');
+        }
     }, this);
 
     view.render();
@@ -95,7 +110,7 @@ Controller.prototype._gotomainHandler = function() {
     });
 };
 
-Controller.prototype._completeHandler = function(uuid, collectionName, index, total, model, errors, options) {
+Controller.prototype._completeHandlerConfig = function(uuid, collectionName, index, total, model, errors, options) {
     Log.MSG_DESP('[INTRO CONTROLLER] Successful synchronized collection ' + collectionName + ' id: ' + uuid + ' with backend. ' + model.length + ' Items requested.');
     Gotchi.collections[collectionName] = model;
     if (index < total - 1) {
@@ -105,9 +120,23 @@ Controller.prototype._completeHandler = function(uuid, collectionName, index, to
     }
 };
 
+Controller.prototype._completeHandlerImages = function(name, index, total) {
+    Log.MSG_DESP('[INTRO CONTROLLER] Successful preloaded ' + name + ' Items requested.');
+    if (index < total - 1) {
+        this.emiter.trigger('on-processed-resource', index + 1, total);
+    } else if (index === total - 1) {
+        this.emiter.trigger('complete-pool');
+    }
+};
+
 Controller.prototype._errorHandler = function(model, response, options) {
     Log.ERROR_DESP('[INTRO CONTROLLER] Error synchroning collection ' + model.uuid + ' Msg: ' + options.textStatus);
-    pmsg.show({duration: 3000, content: 'Error de conexion :(', position: 'bottom', fixed: true});
+    pmsg.show({
+        duration: 3000,
+        content: 'Error de conexion :(',
+        position: 'bottom',
+        fixed: true
+    });
 };
 
 

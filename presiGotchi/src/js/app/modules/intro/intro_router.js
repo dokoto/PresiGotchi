@@ -14,8 +14,8 @@ var Router = Backbone.Router.extend({
     start: function() {
         Log.MSG_DESP('[INTRO ROUTER] Starting');
         require("./css/intro.css");
-        var controller = require('./intro_controller').create();        
-        controller.show();
+        var controller = require('./intro_controller').create();
+        controller.run();
     }
 
 });

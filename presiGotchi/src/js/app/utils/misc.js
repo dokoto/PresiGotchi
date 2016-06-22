@@ -1,4 +1,4 @@
-/*global define, module, require, console*/
+/*global define, module, require, console, Image*/
 /*jshint esversion: 6 */
 /*jshint globalstrict: true*/
 'use strict';
@@ -17,5 +17,32 @@ module.exports = {
                 return nibble.toString(16);
             }
         );
+    },
+
+    preLoadImgs: function(images) {
+        var Backbone = require('backbone');
+        var _ = require('underscore');
+        var emiter = {},
+            index = 0,
+            total = images.length,
+            currentIndex = 0,
+            image,
+            onloadFunc;
+
+        _.extend(emiter, Backbone.Events);
+        onloadFunc = function() {
+            currentIndex++;
+            if (currentIndex === total - 1) {
+                emiter.trigger('complete');
+            }
+        };
+
+        for (index in images) {
+            image = new Image();
+            image.onload = onloadFunc.bind(this);
+            image.src = images[index];
+        }
+
+        return emiter;
     }
 };
