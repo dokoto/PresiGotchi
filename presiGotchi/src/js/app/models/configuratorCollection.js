@@ -32,9 +32,6 @@ var ConfiguratorCollection = Backbone.Collection.extend({
     }
 });
 
-
-//_.extend(ConfiguratorCollection.prototype.defaults, CollectionBase.self.prototype.defaults);
-
 module.exports = {
     create: function() {
         var vv = new ConfiguratorCollection();

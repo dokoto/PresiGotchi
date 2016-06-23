@@ -1,4 +1,4 @@
-/*global define, module, require, window*/
+/*global define, module, require, window, $*/
 /*jshint globalstrict: true*/
 
 'use strict';
@@ -10,28 +10,31 @@ var template_block = require('./templates/configurator_block_menu.html');
 var template_item = require('./templates/configurator_item_menu.html');
 
 var ViewLayout = Backbone.View.extend({
-    el: '#container-region',
-    events: {
-        'click .slider-item': 'itemSelected'
-    },
-    itemSelected: function(e) {
-        this.trigger('menu:configurator:itemSelected', e);
-    },
     render: function(e) {
-        this.$el.empty();
+        $('#container-region').empty();
         this.collection.each(function(value, index, list) {
             var viewStep = new ViewStepCollection({
                 'model': value
-            });
-            this.$el.append(viewStep.$el);
+            });            
+            $('#container-region').append(viewStep.$el);
             viewStep.render();
+            if (index === list.length - 1) {
+                this.trigger('menu:configurator:render:finish');
+            }
         }, this);
+
         return this;
     }
 });
 
 var ViewStepCollection = Backbone.View.extend({
     el: '#container-region',
+    initialize: function(options) {
+        this.$el.on('click', function(e) {
+            e.preventDefault();
+            this.trigger('menu:configurator:nextStep', e);
+        }).bind(this);
+    },
     template: template_step,
     render: function(e) {
         this.$el.append(this.template());
@@ -44,7 +47,6 @@ var ViewStepCollection = Backbone.View.extend({
             viewBlock.render();
 
         }, this);
-
         return this;
     }
 });
@@ -87,9 +89,16 @@ var ViewItem = Backbone.View.extend({
         this.setElement(options.el);
     },
     template: template_item,
+    events: {
+        'click .slider-item': 'itemSelected'
+    },
+    itemSelected: function(e) {
+        e.preventDefault();
+        this.trigger('menu:configurator:itemSelected', e);
+    },
     render: function(e) {
         this.$el.append(this.template());
-        var height = (window.innerHeight / 3) - this.$el.parent().css('margin-bottom').replace('px','');
+        var height = (window.innerHeight / 3) - this.$el.parent().css('margin-bottom').replace('px', '');
         this.$el.css('height', height);
         this.$el.find('.slider-item-background').last().css("background-image", "url(" + this.model.thumb + ")");
         return this;

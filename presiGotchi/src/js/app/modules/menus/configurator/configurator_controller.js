@@ -6,7 +6,12 @@
 var Log = require('utils/logger');
 var _ = require('underscore');
 
-function Controller(options) {}
+function Controller(options) {
+    this.currentStep = {
+        step: 0,
+        title: true
+    };
+}
 
 Controller.prototype.run = function() {
     this.show();
@@ -20,8 +25,24 @@ Controller.prototype.show = function() {
     });
 
     view.on('menu:configurator:itemSelected', this._itemSelected, this);
-
+    view.on('menu:configurator:nextStep', this._nextStep, this);    
+    view.once('menu:configurator:render:finish', this._finishedRender, this);
     view.render();
+
+};
+
+Controller.prototype._nextStep = function(ev) {
+    this.currentStep.title = false;
+    $('.slider-configurator-step').filter('[data-index="' + this.currentStep.step + '"]').find('#slider-block-title').fadeOut();
+    $('.slider-configurator-step').filter('[data-index="' + this.currentStep.step + '"]').find('#slider-blocks').fadeIn();
+};
+
+Controller.prototype._finishedRender = function(ev) {
+    this.currentStep.step = 0;
+    this.currentStep.title = true;
+    $('.slider-configurator-step').filter('[data-index="' + this.currentStep.step + '"]').removeClass('slider-hide');
+    $('.slider-configurator-step').filter('[data-index="' + this.currentStep.step + '"]').find('#slider-block-title').fadeIn();
+    $('.slider-configurator-step').filter('[data-index="' + this.currentStep.step + '"]').find('#slider-block-title').removeClass('slider-hide');
 };
 
 Controller.prototype._itemSelected = function(ev) {
