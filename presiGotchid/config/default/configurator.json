@@ -76,8 +76,12 @@
             "thumb": "http://i.imgur.com/u9hpyWz.png",
             "direction": "RANDOM"
         }, {
-            "text": "Madre: Gerente en Multinacional, Padre: Presidente de Banca",
-            "thumb": "",
+            "text": "Padre: Carterista, Madre: Presidiaria alcoholica",
+            "thumb": "http://i.imgur.com/xsvmcnp.png",
+            "direction": "RIGHT"
+        }, {
+            "text": "Padre: Gerente en Multinacional, Madre: Millonaria",
+            "thumb": "http://i.imgur.com/7KYS2Zt.png",
             "direction": "RIGHT"
         }, {
             "text": "Madre: Cargo de la UE, Padre: Embajador",
