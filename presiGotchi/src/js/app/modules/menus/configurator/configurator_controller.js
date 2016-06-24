@@ -5,68 +5,109 @@
 
 var Log = require('utils/logger');
 var _ = require('underscore');
+var pmsg = require('utils/pmsg').create();
 
 function Controller(options) {
     this.currentStep = {
         step: 0,
         title: true
     };
+    this.direction = {
+        left: 0,
+        right: 0
+    };
 }
 
 Controller.prototype.run = function() {
-    this.show();
+    this._show();
 };
 
-Controller.prototype.show = function() {
+Controller.prototype._show = function() {
     var view = require('./configurator_view').create({
         'viewOptions': {
             'collection': Gotchi.collections.configurator
         }
     });
 
+    view.on('menu:configurator:completedStep', this._completedStepChecking, this);
     view.on('menu:configurator:itemSelected', this._itemSelected, this);
-    view.on('menu:configurator:nextStep', this._nextStep, this);    
-    view.once('menu:configurator:render:finish', this._finishedRender, this);
-    view.render();
+    view.on('menu:configurator:nextStep', this._nextStep, this);
+    view.once('menu:configurator:render:finish', this._initStep, this);
 
+    view.render();
+};
+
+Controller.prototype._processDirection = function(direction) {
+    switch (direction.toUpperCase()) {
+        case 'LEFT':
+            this.direction.left++;
+            break;
+        case 'RIGHT':
+            this.direction.right++;
+            break;
+        case 'RANDOM':
+            if (Math.floor((Math.random() * 2) + 100) % 2 === 0) {
+                this.direction.right++;
+            } else {
+                this.direction.left++;
+            }
+            break;
+        default:
+            break;
+    }
+};
+
+Controller.prototype._completedStepChecking = function(ev) {
+    var $sel = $('.slider-configurator-step').filter('[data-index="' + this.currentStep.step + '"]');
+    if ($sel.find('.slider-block').length ===
+        $sel.find('.slider-item-response.selected').length) {
+        var self = this;
+        $sel.find('.slider-item-response.selected').each(function(index, value) {
+            self._processDirection($(value).data('direction'));
+        }, this).promise().done(function() {
+            self._completedStep();
+        });
+    } else {
+        pmsg.show({
+            duration: 4000,
+            content: 'Debes seleccionar una respuesta a cada pregunta ;)',
+            type: 'warn'
+        });
+    }
+};
+
+Controller.prototype._completedStep = function(ev) {
+    var $sel = $('.slider-configurator-step').filter('[data-index="' + this.currentStep.step + '"]');
+    $sel.find('#slider-blocks').fadeOut();
+    $sel.find('#complete').fadeOut();
+    $sel.find('#slider-block-title').addClass('slider-hide');
+    $sel.addClass('slider-hide');
+
+    this.currentStep.title = true;
+    this.currentStep.step++;
+    this._initStep(ev);
 };
 
 Controller.prototype._nextStep = function(ev) {
     this.currentStep.title = false;
-    $('.slider-configurator-step').filter('[data-index="' + this.currentStep.step + '"]').find('#slider-block-title').fadeOut();
-    $('.slider-configurator-step').filter('[data-index="' + this.currentStep.step + '"]').find('#slider-blocks').fadeIn();
+    var $sel = $('.slider-configurator-step').filter('[data-index="' + this.currentStep.step + '"]');
+    $sel.find('#slider-block-title').fadeOut();
+    $sel.find('#slider-blocks').fadeIn();
+    $sel.find('#complete').fadeIn();
 };
 
-Controller.prototype._finishedRender = function(ev) {
-    this.currentStep.step = 0;
-    this.currentStep.title = true;
-    $('.slider-configurator-step').filter('[data-index="' + this.currentStep.step + '"]').removeClass('slider-hide');
-    $('.slider-configurator-step').filter('[data-index="' + this.currentStep.step + '"]').find('#slider-block-title').fadeIn();
-    $('.slider-configurator-step').filter('[data-index="' + this.currentStep.step + '"]').find('#slider-block-title').removeClass('slider-hide');
+Controller.prototype._initStep = function(ev) {
+    var $sel = $('.slider-configurator-step').filter('[data-index="' + this.currentStep.step + '"]');
+    $sel.removeClass('slider-hide');
+    $sel.find('#slider-block-title').fadeIn();
+    $sel.find('#slider-block-title').removeClass('slider-hide');
 };
 
 Controller.prototype._itemSelected = function(ev) {
     var self = this;
-    $(ev.target.id).parent().find('.slider-item').each(function(index, value) {
-        self._resetItemResponses(this);
-    }).promise().done(function() {
-        self._toggleItemSelected(self);
+    $(ev.currentTarget).parent().find('.slider-item-response').removeClass('selected').promise().done(function() {
+        $(ev.currentTarget).find('.slider-item-response').toggleClass('selected');
     });
-};
-
-Controller.prototype._resetItemResponses = function(el) {
-    $(el).find('.slider-item-response').css('color', 'black');
-    $(el).find('.slider-item-response').css('background-color', 'white');
-};
-
-Controller.prototype._toggleItemSelected = function(el) {
-    if ($(el).find('.slider-item-response').css('color') === 'rgb(0, 0, 0)') {
-        $(el).find('.slider-item-response').css('color', 'white');
-        $(el).find('.slider-item-response').css('background-color', 'black');
-    } else {
-        $(el).find('.slider-item-response').css('color', 'black');
-        $(el).find('.slider-item-response').css('background-color', 'white');
-    }
 };
 
 module.exports = {

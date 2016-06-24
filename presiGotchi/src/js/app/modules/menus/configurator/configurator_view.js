@@ -5,17 +5,39 @@
 
 var Backbone = require('backbone');
 var _ = require('underscore');
-var template_step = require('./templates/configurator_step_menu.html');
-var template_block = require('./templates/configurator_block_menu.html');
-var template_item = require('./templates/configurator_item_menu.html');
+var template_container = require('./templates/menus_configurator_container.html');
+var template_step = require('./templates/menus_configurator_step.html');
+var template_block = require('./templates/menus_configurator_block.html');
+var template_item = require('./templates/menus_configurator_item.html');
+
 
 var ViewLayout = Backbone.View.extend({
+    el: '#container-region',
+    template: template_container,
+    events: {
+        'click #slider-configurator-container': 'nextStep',
+        'click #slider-item': 'itemSelected',
+        'click #complete': 'completedStep'
+    },
+    completedStep: function(ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        this.trigger('menu:configurator:completedStep', ev);
+    },
+    nextStep: function(ev) {
+        ev.preventDefault();
+        this.trigger('menu:configurator:nextStep', ev);
+    },
+    itemSelected: function(ev) {
+        ev.preventDefault();
+        this.trigger('menu:configurator:itemSelected', ev);
+    },
     render: function(e) {
-        $('#container-region').empty();
+        this.$el.html(this.template());
         this.collection.each(function(value, index, list) {
             var viewStep = new ViewStepCollection({
                 'model': value
-            });            
+            });
             $('#container-region').append(viewStep.$el);
             viewStep.render();
             if (index === list.length - 1) {
@@ -28,13 +50,7 @@ var ViewLayout = Backbone.View.extend({
 });
 
 var ViewStepCollection = Backbone.View.extend({
-    el: '#container-region',
-    initialize: function(options) {
-        this.$el.on('click', function(e) {
-            e.preventDefault();
-            this.trigger('menu:configurator:nextStep', e);
-        }).bind(this);
-    },
+    el: '#slider-configurator-container',
     template: template_step,
     render: function(e) {
         this.$el.append(this.template());
@@ -47,6 +63,7 @@ var ViewStepCollection = Backbone.View.extend({
             viewBlock.render();
 
         }, this);
+
         return this;
     }
 });
@@ -89,13 +106,6 @@ var ViewItem = Backbone.View.extend({
         this.setElement(options.el);
     },
     template: template_item,
-    events: {
-        'click .slider-item': 'itemSelected'
-    },
-    itemSelected: function(e) {
-        e.preventDefault();
-        this.trigger('menu:configurator:itemSelected', e);
-    },
     render: function(e) {
         this.$el.append(this.template());
         var height = (window.innerHeight / 3) - this.$el.parent().css('margin-bottom').replace('px', '');

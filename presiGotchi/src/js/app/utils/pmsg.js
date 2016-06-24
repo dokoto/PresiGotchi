@@ -1,108 +1,54 @@
 /*global define, module, require, clearTimeout, document, setTimeout, $*/
 /*jshint globalstrict: true*/
 
-/*
-Android-Toast
-(c) 2013-2014 Jad Joubran
-*/
-
 "use strict";
-
-require("css/android_toast.min.css");
 
 function Pmsg(options) {
     this.timeout_id = null;
-    this.duration = 3000;
+    this.duration = 0;
     this.content = '';
-    this.position = 'bottom';
 }
 
-Pmsg.prototype.set = function(options) {
-  var position;
-  if (!options || typeof options !== 'object') {
-      return false;
-  }
-  if (options.duration) {
-      this.duration = parseFloat(options.duration);
-  }
-  if (options.content) {
-      this.content = options.content;
-  }
-  if (options.position) {
-      position = options.position.toLowerCase();
-      if (position === 'top' || position === 'bottom') {
-          this.position = position;
-      } else {
-          this.position = 'bottom';
-      }
-  }
-  if (options.fixed) {
-      this.fixed = options.fixed;
-  }
+Pmsg.prototype._set = function(options) {
+    var position;
+    if (!options || typeof options !== 'object') {
+        return false;
+    }
+    if (options.duration) {
+        this.duration = parseFloat(options.duration);
+    }
+
+    if (options.type) {
+        this.type = options.type;
+    }
+
+    this.content = options.content;
 
 };
 
 Pmsg.prototype.show = function(options) {
-    this.set(options);
-    if (!this.content) {
-        return false;
-    }
+    this._set(options);
     clearTimeout(this.timeout_id);
-    var body = document.getElementsByTagName('body')[0];
-    var previous_toast = document.getElementById('android_toast_container');
-    if (previous_toast) {
-        body.removeChild(previous_toast);
+    if (this.duration !== 0) {
+        this.timeout_id = setTimeout(this._hide.bind(this), this.duration);
     }
-    var classes = 'android_toast_fadein';
-    if (this.position === 'top') {
-        classes = 'android_toast_fadein android_toast_top';
-    }
-    var toast_container = document.createElement('div');
-    toast_container.setAttribute('id', 'android_toast_container');
-    toast_container.setAttribute('class', classes);
-    body.appendChild(toast_container);
-    var toast = document.createElement('div');
-    toast.setAttribute('id', 'android_toast');
-    toast.innerHTML = this.content;
-    toast_container.appendChild(toast);
-    this.timeout_id = setTimeout(this.hide.bind(this), this.duration);
-
-    return true;
+    this._showPopup();
 };
 
-Pmsg.prototype.showFixedPopup = function() {
-    $("#fixed-error").text(this.content);
-    $("#fixed-error").slideToggle('slow');
+Pmsg.prototype._showPopup = function() {
+    $('#fixed-' + this.type).text(this.content);
+    $('#fixed-' + this.type).slideToggle('slow');
 };
 
-Pmsg.prototype.hide = function() {
+Pmsg.prototype._hide = function() {
     var toast_container = document.getElementById('android_toast_container');
-    if (!toast_container) {
-        return false;
-    }
     clearTimeout(this.timeout_id);
-    toast_container.className += ' android_toast_fadeout';
-
-    function remove_toast() {
-        var toast_container = document.getElementById('android_toast_container');
-        if (!toast_container) {
-            return false;
-        }
-        toast_container.parentNode.removeChild(toast_container);
-    }
-    toast_container.addEventListener('webkitAnimationEnd', remove_toast);
-    toast_container.addEventListener('animationEnd', remove_toast);
-    toast_container.addEventListener('msAnimationEnd', remove_toast);
-    toast_container.addEventListener('oAnimationEnd', remove_toast);
-
-    if (this.fixed === true) {
-        this.showFixedPopup();
-    }
-    return true;
+    $('#fixed-' + this.type).text('');
+    $('#fixed-' + this.type).slideToggle('slow');
 };
 
-module.exports =  {
-  create: function(options) {
-    return new Pmsg(options);
-  }
+module.exports = {
+    create: function(options) {
+        return new Pmsg(options);
+    }
 };

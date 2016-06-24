@@ -132,10 +132,8 @@ Controller.prototype._completeHandlerImages = function(name, index, total) {
 Controller.prototype._errorHandler = function(model, response, options) {
     Log.ERROR_DESP('[INTRO CONTROLLER] Error synchroning collection ' + model.uuid + ' Msg: ' + options.textStatus);
     pmsg.show({
-        duration: 3000,
         content: 'Error de conexion :(',
-        position: 'bottom',
-        fixed: true
+        type: 'error'
     });
 };
 
