@@ -21,6 +21,20 @@ function Controller(options) {
 
 Controller.prototype.loadPool = [
     function(index, total) {
+        var configuratorCollection = require('models/configuratorCollection').create();
+        Gotchi.collections.configurator = {};
+        configuratorCollection.on('sync', this._completeHandlerConfig.bind(this, configuratorCollection.uuid, 'configurator', index, total));
+        configuratorCollection.on('error', this._errorHandler, this);
+        configuratorCollection.fetch();
+    },
+    
+    function(index, total) {
+        var thumbs = Gotchi.collections.configurator.getAllThumbs();
+        var preloadManager = misc.preLoadImgs(thumbs);
+        preloadManager.once('complete', this._completeHandlerImages.bind(this, 'images', index, total));
+    },
+
+    function(index, total) {
         var gotchiCollection = require('models/gotchiCollection').create();
         Gotchi.collections.gotchi = {};
         gotchiCollection.on('sync', this._completeHandlerConfig.bind(this, gotchiCollection.uuid, 'gotchi', index, total));
@@ -45,26 +59,13 @@ Controller.prototype.loadPool = [
     },
 
     function(index, total) {
-        var configuratorCollection = require('models/configuratorCollection').create();
-        Gotchi.collections.configurator = {};
-        configuratorCollection.on('sync', this._completeHandlerConfig.bind(this, configuratorCollection.uuid, 'configurator', index, total));
-        configuratorCollection.on('error', this._errorHandler, this);
-        configuratorCollection.fetch();
-    },
-
-    function(index, total) {
         var quotesCollection = require('models/quotesCollection').create();
         Gotchi.collections.quotes = {};
         quotesCollection.on('sync', this._completeHandlerConfig.bind(this, quotesCollection.uuid, 'quotes', index, total));
         quotesCollection.on('error', this._errorHandler, this);
         quotesCollection.fetch();
-    },
-
-    function(index, total) {
-        var thumbs = Gotchi.collections.configurator.getAllThumbs();
-        var preloadManager = misc.preLoadImgs(thumbs);
-        preloadManager.once('complete', this._completeHandlerImages.bind(this, 'images', index, total));
     }
+
 ];
 
 Controller.prototype.loadResources = function() {

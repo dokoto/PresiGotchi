@@ -139,7 +139,7 @@
 }, {
     "index": 1,
     "block": "juventud",
-    "blockDescription": "Los Juventud",
+    "blockDescription": "La Juventud",
     "questions": [{
         "question": "Donde estudio ?",
         "responses": [{
@@ -254,7 +254,7 @@
         }]
     }]
 }, {
-    "index": 3,
+    "index": 2,
     "block": "gustos",
     "blockDescription": "Sus Gustos",
     "questions": [{
@@ -311,11 +311,11 @@
             "direction": "RANDOM"
         }, {
             "text": "Camisa y pantalon de pinzas",
-            "thumb": "",
+            "thumb": "http://i.imgur.com/Xg1Mzwa.png",
             "direction": "RANDOM"
         }, {
             "text": "Vaqueros y camiseta",
-            "thumb": "http://i.imgur.com/Xg1Mzwa.png",
+            "thumb": "http://i.imgur.com/oCmvURD.png",
             "direction": "RANDOM"
         }, {
             "text": "Ropa regalada",
