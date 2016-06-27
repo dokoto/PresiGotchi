@@ -1,7 +1,7 @@
 [{
     "index": 0,
     "block": "family",
-    "blockDescription" : "La Familia",
+    "blockDescription": "La Familia",
     "questions": [{
         "question": "Donde nacio ?",
         "responses": [{
@@ -84,16 +84,16 @@
             "thumb": "http://i.imgur.com/7KYS2Zt.png",
             "direction": "RIGHT"
         }, {
-            "text": "Madre: Cargo de la UE, Padre: Embajador",
-            "thumb": "",
+            "text": "Madre: Cargo de la UE, Padre: Jeque Arabe",
+            "thumb": "http://i.imgur.com/fQiQccd.png",
             "direction": "RIGHT"
         }, {
-            "text": "Padre: Dueño de Banco multinacional, Madre: Condesa",
-            "thumb": "",
+            "text": "Padre: Banquero, Madre: Duquesa",
+            "thumb": "http://i.imgur.com/KOlCv49.png",
             "direction": "RIGHT"
         }, {
-            "text": "Padre: Rey de España, Madre: Reina de España",
-            "thumb": "",
+            "text": "Padre: Rey, Madre: Reina",
+            "thumb": "http://i.imgur.com/F4GwbaI.jpg",
             "direction": "RIGHT"
         }, {
             "text": "Madre: En Paro, Padre: En Paro",
@@ -101,7 +101,7 @@
             "direction": "RANDOM"
         }, {
             "text": "Padre: Muerto al nacer, Madre: Cobra pension por discapacidad de 300€/Mes",
-            "thumb": "",
+            "thumb": "http://i.imgur.com/8JGnCZA.png",
             "direction": "LEFT"
         }, {
             "text": "Madre: Prostituta, Padre: Drogadicto en la carcel",
@@ -120,60 +120,230 @@
             "direction": "RANDOM"
         }, {
             "text": "Mi abuelo era carpintero y su mujer ama de casa",
-            "thumb": "",
+            "thumb": "http://i.imgur.com/mxSTI4w.png",
             "direction": "LEFT"
         }, {
             "text": "Mi abuelo era minero y su mujer ama de casa",
-            "thumb": "",
+            "thumb": "http://i.imgur.com/VGxF9jj.png",
             "direction": "LEFT"
         }, {
             "text": "Mis abuelos eran los Reyes de España",
-            "thumb": "",
+            "thumb": "http://i.imgur.com/VpGwoUT.png",
             "direction": "RIGHT"
         }, {
-            "text": "Mi abuelo tenia tierras en Cuba para el cultivo de la caña de azucar",
-            "thumb": "",
+            "text": "Negreros colonialistas",
+            "thumb": "http://i.imgur.com/rgcngbY.png",
             "direction": "RIGHT"
         }]
     }]
 }, {
     "index": 1,
-    "block": "studies",
-    "blockDescription" : "Los Estudios",
+    "block": "juventud",
+    "blockDescription": "Los Juventud",
     "questions": [{
         "question": "Donde estudio ?",
         "responses": [{
             "text": "MIT - Massachusetts",
-            "thumb": "",
+            "thumb": "http://i.imgur.com/Y7gccNQ.png",
             "direction": "RIGHT"
         }, {
             "text": "Univerdad Complutense - Madrid",
-            "thumb": "",
+            "thumb": "http://i.imgur.com/jDrvL8h.png",
             "direction": "RANDOM"
         }, {
             "text": "La Sorbona - Paris",
-            "thumb": "",
+            "thumb": "http://i.imgur.com/vadRetX.png",
             "direction": "RANDOM"
         }, {
             "text": "FP Grado Superior - Algeciras",
-            "thumb": "",
+            "thumb": "http://i.imgur.com/ZlOVqsX.png",
             "direction": "LEFT"
         }, {
             "text": "Educacion Basica - Puebla de Valles",
-            "thumb": "",
+            "thumb": "http://i.imgur.com/WMP8dEe.png",
             "direction": "RANDOM"
         }, {
             "text": "Universidad de Yale (Miembro de Skull and Bones)",
-            "thumb": "",
+            "thumb": "http://i.imgur.com/gHfLGMy.png",
             "direction": "RIGHT"
         }, {
             "text": "Universidad de la Habana - Cuba",
-            "thumb": "",
+            "thumb": "http://i.imgur.com/1NpwsPV.png",
             "direction": "LEFT"
         }, {
             "text": "Universidad Nacional E. Simon Rodriguez - Venezuela",
+            "thumb": "http://i.imgur.com/MnvBzzX.png",
+            "direction": "RANDOM"
+        }, {
+            "text": "Sin Estudios",
+            "thumb": "http://i.imgur.com/8ZtjdF3.png",
+            "direction": "RANDOM"
+        }]
+    }, {
+        "question": "Cuales eran sus amistades ?",
+        "responses": [{
+            "text": "Amigos de la hermandad",
+            "thumb": "http://i.imgur.com/fiPAE8Y.png",
+            "direction": "RIGHT"
+        }, {
+            "text": "Colegas del barrio",
+            "thumb": "http://i.imgur.com/u2i3m6n.png",
+            "direction": "LEFT"
+        }, {
+            "text": "Grupo de Rol Magic",
+            "thumb": "http://i.imgur.com/LFk615q.png",
+            "direction": "RANDOM"
+        }, {
+            "text": "Amigas del club de campo",
+            "thumb": "http://i.imgur.com/PIcr7Hb.png",
+            "direction": "RANDOM"
+        }, {
+            "text": "Sin amigos",
+            "thumb": "http://i.imgur.com/WctNfrN.png",
+            "direction": "RANDOM"
+        }]
+    }, {
+        "question": "Donde veraneaba ?",
+        "responses": [{
+            "text": "Barranquillas",
+            "thumb": "http://i.imgur.com/Eti80br.png",
+            "direction": "LEFT"
+        }, {
+            "text": "Puerto Banus",
+            "thumb": "http://i.imgur.com/0ZGCPYM.png",
+            "direction": "RIGHT"
+        }, {
+            "text": "Torrevieja",
+            "thumb": "http://i.imgur.com/hKahTgO.png",
+            "direction": "RANDOM"
+        }, {
+            "text": "Seychelles",
+            "thumb": "http://i.imgur.com/4NLJ5Jm.png",
+            "direction": "RIGHT"
+        }, {
+            "text": "Camping Albacete",
+            "thumb": "http://i.imgur.com/Q0z9jjI.png",
+            "direction": "RANDOM"
+        }, {
+            "text": "Soto Grande (Cadiz)",
+            "thumb": "http://i.imgur.com/3z0jKww.png",
+            "direction": "RANDOM"
+        }]
+    }, {
+        "question": "Novi@s ?",
+        "responses": [{
+            "text": "Activista Okupa",
+            "thumb": "http://i.imgur.com/VeXWLFJ.png",
+            "direction": "LEFT"
+        }, {
+            "text": "Modelo",
+            "thumb": "http://i.imgur.com/DeoTxaD.png",
+            "direction": "RIGHT"
+        }, {
+            "text": "Bibliotecaria",
+            "thumb": "http://i.imgur.com/MdmJsPq.png",
+            "direction": "RANDOM"
+        }, {
+            "text": "Activista Gay",
+            "thumb": "http://i.imgur.com/TNXqz6V.png",
+            "direction": "RANDOM"
+        }, {
+            "text": "Sin Novia",
+            "thumb": "http://i.imgur.com/KZj5xQV.png",
+            "direction": "RANDOM"
+        }]
+    }]
+}, {
+    "index": 3,
+    "block": "gustos",
+    "blockDescription": "Sus Gustos",
+    "questions": [{
+        "question": "Plato de comida preferido ?",
+        "responses": [{
+            "text": "Caviar",
+            "thumb": "http://i.imgur.com/k7d73Mn.png",
+            "direction": "RIGHT"
+        }, {
+            "text": "Langosta",
+            "thumb": "http://i.imgur.com/4EMldcJ.png",
+            "direction": "RIGHT"
+        }, {
+            "text": "Callos",
+            "thumb": "http://i.imgur.com/DBpFJ7Q.png",
+            "direction": "RANDOM"
+        }, {
+            "text": "Tortilla de patata",
+            "thumb": "http://i.imgur.com/OpOyeZF.png",
+            "direction": "RIGHT"
+        }, {
+            "text": "Bocata de Panceta",
+            "thumb": "http://i.imgur.com/0ooxMbu.png",
+            "direction": "LEFT"
+        }]
+    }, {
+        "question": "El telefono movil que usa?",
+        "responses": [{
+            "text": "iPhone",
+            "thumb": "http://i.imgur.com/Tr383uQ.png",
+            "direction": "RIGHT"
+        }, {
+            "text": "Samsung Galaxy",
+            "thumb": "http://i.imgur.com/lCClWRt.png",
+            "direction": "RIGHT"
+        }, {
+            "text": "Nokia",
+            "thumb": "http://i.imgur.com/O0KCMhZ.png",
+            "direction": "RANDOM"
+        }, {
+            "text": "Movil regalado por la OCU",
+            "thumb": "http://i.imgur.com/8SZLqwW.png",
+            "direction": "LEFT"
+        }, {
+            "text": "ALCATEL",
+            "thumb": "http://i.imgur.com/QbfbTAE.png",
+            "direction": "RIGHT"
+        }]
+    }, {
+        "question": "Ropa que suele ponerse?",
+        "responses": [{
+            "text": "Traje",
+            "thumb": "http://i.imgur.com/ysghjq3.png",
+            "direction": "RANDOM"
+        }, {
+            "text": "Camisa y pantalon de pinzas",
             "thumb": "",
             "direction": "RANDOM"
+        }, {
+            "text": "Vaqueros y camiseta",
+            "thumb": "http://i.imgur.com/Xg1Mzwa.png",
+            "direction": "RANDOM"
+        }, {
+            "text": "Ropa regalada",
+            "thumb": "http://i.imgur.com/QLDZOf6.png",
+            "direction": "RANDOM"
+        }]
+    }, {
+        "question": "Que coche usa ?",
+        "responses": [{
+            "text": "Maserati",
+            "thumb": "http://i.imgur.com/EuCG2kU.png",
+            "direction": "RIGHT"
+        },{
+            "text": "El mas exclusivo",
+            "thumb": "http://i.imgur.com/OSJ726h.png",
+            "direction": "RIGHT"
+        }, {
+            "text": "Opel Kadett",
+            "thumb": "http://i.imgur.com/R0iezRH.png",
+            "direction": "RANDOM"
+        }, {
+            "text": "Seat Leon",
+            "thumb": "http://i.imgur.com/pFY3yRz.png",
+            "direction": "RANDOM"
+        }, {
+            "text": "Range Rover ",
+            "thumb": "http://i.imgur.com/pS3NHem.png",
+            "direction": "RIGHT"
         }]
     }]
 }]
