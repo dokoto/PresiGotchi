@@ -3,8 +3,6 @@
 
 'use strict';
 
-var Log = require('utils/logger');
-var _ = require('underscore');
 var engineFactory = require('./logic/engine');
 
 function Controller(options) {
