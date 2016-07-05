@@ -112,7 +112,7 @@ Controller.prototype._gotomainHandler = function() {
 };
 
 Controller.prototype._completeHandlerConfig = function(uuid, collectionName, index, total, model, errors, options) {
-    Log.MSG_DESP('[INTRO CONTROLLER] Successful synchronized collection ' + collectionName + ' id: ' + uuid + ' with backend. ' + model.length + ' Items requested.');
+    Log.MSG('[INTRO CONTROLLER] Successful synchronized collection ' + collectionName + ' id: ' + uuid + ' with backend. ' + model.length + ' Items requested.');
     Gotchi.collections[collectionName] = model;
     if (index < total - 1) {
         this.emiter.trigger('on-processed-resource', index + 1, total);
@@ -122,7 +122,7 @@ Controller.prototype._completeHandlerConfig = function(uuid, collectionName, ind
 };
 
 Controller.prototype._completeHandlerImages = function(name, index, total) {
-    Log.MSG_DESP('[INTRO CONTROLLER] Successful preloaded ' + name + ' Items requested.');
+    Log.MSG('[INTRO CONTROLLER] Successful preloaded ' + name + ' Items requested.');
     if (index < total - 1) {
         this.emiter.trigger('on-processed-resource', index + 1, total);
     } else if (index === total - 1) {

@@ -6,7 +6,10 @@
 var engineFactory = require('./logic/engine');
 
 function Controller(options) {
-    this._trepiEngine = engineFactory.create({});
+    this._trepiEngine = engineFactory.create({
+        'gotchi': Gotchi.collections.gotchi,
+        'quotes': Gotchi.collections.quotes
+    });
 }
 
 Controller.prototype.run = function() {

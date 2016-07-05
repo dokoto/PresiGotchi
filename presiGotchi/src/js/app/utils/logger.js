@@ -8,7 +8,7 @@ var ERROR_H3 = function (message) {
     console.log('%c' + now() + message, 'background: #EB4651; color: #FFFFFF; font-size:18px');
 };
 
-var ERROR_DESP = function (message) {
+var ERROR = function (message) {
     console.log('%c' + now() + message, 'background: #FFFFFF; color: #EB4651; font-size:12px');
 };
 
@@ -16,7 +16,7 @@ var WARNING_H3 = function (message) {
     console.log('%c' + now() + message, 'background: #FCEA21; color: #000000; font-size:18px');
 };
 
-var WARNING_DESP = function (message) {
+var WARNING = function (message) {
     console.log('%c' + now() + message, 'background: #FFFFFF; color: #EB4651; font-size:12px');
 };
 
@@ -24,7 +24,7 @@ var MSG_H3 = function (message) {
     console.log('%c' + now() + message, 'background: #FFFFFF; color: #7A97F5; font-size:18px');
 };
 
-var MSG_DESP = function (message) {
+var MSG = function (message) {
     console.log('%c' + now() + message, 'background: #FFFFFF; color: #7A97F5; font-size:12px');
 };
 

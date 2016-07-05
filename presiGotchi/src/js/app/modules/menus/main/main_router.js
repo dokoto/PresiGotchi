@@ -13,7 +13,7 @@ var Router = Backbone.Router.extend({
     },
 
     start: function() {
-        Log.MSG_DESP('[MAIN ROUTER] Starting');
+        Log.MSG('[MAIN ROUTER] Starting');
         require("./css/main.css");
         this.mainMenu();
     },

@@ -13,7 +13,7 @@ var Router = Backbone.Router.extend({
     },
 
     start: function() {
-        Log.MSG_DESP('[SELECTOR ROUTER] Starting');
+        Log.MSG('[SELECTOR ROUTER] Starting');
         require("./css/selector.css");
         this.selectorMenu();
     },

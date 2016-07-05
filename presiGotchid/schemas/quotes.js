@@ -6,7 +6,11 @@ var Schema = require('mongoose').Schema;
 var schema = {
     status: {
         type: String,
-        index: true
+        index: true,
+        uppercase: true,
+        trim: true,
+        enum: ['FILOSOFER', 'CANDIDATE', 'POWERFUL', 'NAZI'],
+        default: 'FILOSOFER'
     },
     quotes: [{
         lang: {

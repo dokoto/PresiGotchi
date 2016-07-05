@@ -1,133 +1,13 @@
 [{
     "email": "trepigotchid@gmail.com",
-    "name": "Morinum Rajor",
+    "name": "",
     "country": "Corruptania",
-    "description": "Capitalistium zopencus",
+    "description": "Sin limites",
     "type": "POLITICIANS",
     "isDead": false,
-    "thumb": {
-        "height": 100,
-        "width": 100,
-        "url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Mariano_Rajoy_2005_%28cropped%29.jpg",
-        "credit": "Por European People&#039;s Party [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], undefined"
-    },
-    "spriteSheet": {
-        "imagePath": "assets/images/sprites/presiGotchi_temp_vec.png",
-        "boxSize": {
-            "width": 27,
-            "height": 28
-        },
-        "position": {
-            "x": 0,
-            "y": 0
-        },
-        "frames": 6
-    },
-    "actions": {
-        "WAITING": "WAITING"
-    },
-    "states": {
-        "HUNGRY": {
-            "live": {
-                "status": 100,
-                "top": 150,
-                "bottom": 0,
-                "decrease": 10
-            },
-            "time": {
-                "interval": 35000,
-                "elapsed": 0
-            }
-        },
-        "THIRSTY": {
-            "live": {
-                "status": 100,
-                "top": 150,
-                "bottom": 0,
-                "decrease": 10
-            },
-            "time": {
-                "interval": 15000,
-                "elapsed": 0
-            }
-        },
-        "SLEEPY": {
-            "live": {
-                "status": 100,
-                "top": 150,
-                "bottom": 0,
-                "decrease": 10
-            },
-            "time": {
-                "interval": 92000,
-                "elapsed": 0
-            }
-        }
-    }
-}, {
-    "email": "trepigotchid@gmail.com",
-    "name": "Pecor Sancha",
-    "country": "Corruptania",
-    "description": "Borregum clonicus",
-    "type": "POLITICIANS",
-    "isDead": false,
-    "thumb": {
-        "height": 100,
-        "width": 100,
-        "url": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Pedro_S%C3%A1nchez_2015b_%28cropped%29.jpg",
-        "credit": "Por psoe extremadura [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], undefined"
-    },
-    "spriteSheet": {
-        "imagePath": "assets/images/sprites/presiGotchi_temp_vec.png",
-        "boxSize": {
-            "width": 27,
-            "height": 28
-        },
-        "position": {
-            "x": 0,
-            "y": 0
-        },
-        "frames": 6
-    },
-    "actions": {
-        "WAITING": "WAITING"
-    },
-    "states": {
-        "HUNGRY": {
-            "live": {
-                "status": 100,
-                "top": 150,
-                "bottom": 0,
-                "decrease": 10
-            },
-            "time": {
-                "interval": 35000,
-                "elapsed": 0
-            }
-        },
-        "THIRSTY": {
-            "live": {
-                "status": 100,
-                "top": 150,
-                "bottom": 0,
-                "decrease": 10
-            },
-            "time": {
-                "interval": 15000,
-                "elapsed": 0
-            }
-        },
-        "SLEEPY": {
-            "live": {
-                "status": 100,
-                "top": 150,
-                "bottom": 0,
-                "decrease": 10
-            },
-            "time": {
-                "interval": 92000,
-                "elapsed": 0
-            }
-        }
+    "state": {
+        "direction": "RANDOM",
+        "stage": "FILOSOFER",
+        "status": 0
     }
 }]

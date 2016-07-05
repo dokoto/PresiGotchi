@@ -5,6 +5,7 @@
 
 var Log = require('utils/logger');
 var _ = require('underscore');
+var Log = require('utils/logger');
 var pmsg = require('utils/pmsg').create();
 
 function Controller(options) {
@@ -85,7 +86,17 @@ Controller.prototype._completedStep = function(ev) {
 
     this.currentStep.title = true;
     this.currentStep.step++;
-    this._initStep(ev);
+    if( $('.slider-configurator-step').length < this.currentStep.step++) {
+        this._initStep(ev);
+    } else if( $('.slider-configurator-step').length === this.currentStep.step++) {
+        this._finishConfigurator();
+    } else {
+        Log.ERROR('[CONFIGURATOR] Something went wrong');
+    }
+};
+
+Controller.prototype._finishConfigurator = function(ev) {
+    Gotchi.collections.gotchi.state.direction = (this.direction.right > this.direction.left) ? 'RIGHT' : 'LEFT';
 };
 
 Controller.prototype._nextStep = function(ev) {

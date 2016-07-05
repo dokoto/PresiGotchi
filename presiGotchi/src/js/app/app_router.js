@@ -13,12 +13,12 @@ var Router = Backbone.Router.extend({
   },
 
   help: function() {
-    Log.MSG_DESP('[APP ROUTER] Gotchi Help');
+    Log.MSG('[APP ROUTER] Gotchi Help');
   },
 
   start: function() {
     Log.APP_TITLE('=== GOTCHI ENGINE ===');
-    Log.MSG_DESP('[APP ROUTER] Starting');
+    Log.MSG('[APP ROUTER] Starting');
     var intro = require('modules/intro/intro_router').create();
     intro.navigate('intro/start', {trigger: true});
   }
