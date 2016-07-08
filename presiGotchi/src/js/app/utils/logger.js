@@ -47,10 +47,10 @@ var now = function ()
 
 module.exports = {
     ERROR_H3 : ERROR_H3,
-    ERROR_DESP : ERROR_DESP,
+    ERROR : ERROR,
     WARNING_H3 : WARNING_H3,
-    WARNING_DESP : WARNING_DESP,
+    WARNING : WARNING,
     MSG_H3 : MSG_H3,
-    MSG_DESP : MSG_DESP,
+    MSG : MSG,
     APP_TITLE : APP_TITLE
 };

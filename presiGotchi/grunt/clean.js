@@ -1,9 +1,12 @@
-module.exports = function (grunt, options) {
-  'use strict';
+module.exports = function(grunt, options) {
+    'use strict';
 
-  return {
-    sources: {
-      src: ['builds/dev/*']
-    }
-  };
+    return {
+        web_builds: {
+            src: ['builds/web/<%=args.mode%>/*']
+        },
+        bin_builds: {
+            src: ['builds/bin/<%=args.mode%>/*']
+        }
+    };
 };

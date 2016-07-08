@@ -15,7 +15,7 @@ module.exports = function(grunt) {
             entry: './src/js/app/app.js',
             output: {
                 devtoolLineToLine: true,
-                path: "builds/dev/",
+                path: "builds/web/dev/",
                 filename: "<%=base.appName%>.js",
                 pathinfo: true,
                 sourceMapFilename: "<%=base.appName%>.js.map",
@@ -85,7 +85,7 @@ module.exports = function(grunt) {
             // webpack options
             entry: './src/js/app/app.js',
             output: {
-                path: "builds/prod/",
+                path: "builds/web/prod/",
                 filename: "<%=base.appName%>.js",
             },
 

@@ -86,9 +86,9 @@ Controller.prototype._completedStep = function(ev) {
 
     this.currentStep.title = true;
     this.currentStep.step++;
-    if( $('.slider-configurator-step').length < this.currentStep.step++) {
+    if( this.currentStep.step < $('.slider-configurator-step').length) {
         this._initStep(ev);
-    } else if( $('.slider-configurator-step').length === this.currentStep.step++) {
+    } else if( $('.slider-configurator-step').length === this.currentStep.step) {
         this._finishConfigurator();
     } else {
         Log.ERROR('[CONFIGURATOR] Something went wrong');

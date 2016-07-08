@@ -2,9 +2,9 @@ module.exports = function(grunt, options) {
 	'use strict';
 
 	return {
-    	src: {
+    	builds: {
             options: {
-                create: ['<%=git.destinationFolderName%>']
+                create: ['builds/bin', 'builds/web']
             }
         }
    	};

@@ -117,6 +117,7 @@ var doMap = {
     data.base.keystore = conf.base.fetch(['keyStore']).path + (grunt.option('keystore') || 'default');
     data.base.buildFolder = conf.base.fetch(['buildFolder']);
     data.base.proyectFolderName = __dirname.substr(__dirname.lastIndexOf(path.sep) + 1);
+    data.base.cordova = conf.base.fetch(['cordova']);
 
     return data;
   },
