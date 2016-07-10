@@ -7,6 +7,9 @@ module.exports = function(grunt, options) {
         },
         bin_builds: {
             src: ['builds/bin/<%=args.mode%>/*']
-        }
+        },
+        bin_builds_www: {
+            src: ['builds/bin/<%=args.mode%>/<%=base.appName%>/www/*']
+        },
     };
 };

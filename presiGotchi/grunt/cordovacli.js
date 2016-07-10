@@ -3,7 +3,7 @@ module.exports = function(grunt, options) {
 
     return {
         options: {
-            path: 'builds/bin/<%=args.mode%>/',
+            path: 'builds/bin/<%=args.mode%>/<%=base.appName%>',
             cli: 'cordova'
         },
         cordova: {
@@ -11,7 +11,7 @@ module.exports = function(grunt, options) {
                 command: ['create', 'platform', 'plugin', 'build'],
                 platforms: ['ios', 'android'],
                 plugins: ['device', 'dialogs'],
-                path: 'builds/bin/<%=args.mode%>/',
+                path: 'builds/bin/<%=args.mode%>/<%=base.appName%>',
                 id: '<%=base.cordova.domain%>.<%=base.cordova.mainClassName%>',
                 name: '<%=base.appName%>'
             }
@@ -27,7 +27,7 @@ module.exports = function(grunt, options) {
             options: {
                 command: 'platform',
                 action: 'add',
-                platforms: ['ios', 'android']
+                platforms: ['android']
             }
         },
         build_ios: {

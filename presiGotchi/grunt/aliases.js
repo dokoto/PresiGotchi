@@ -10,8 +10,11 @@ module.exports = function(grunt, options) {
         'copy:single_html_page',
         'clean:bin_builds',
         'cordovacli:create',
+        'cordovacli:add_platforms',
         'copy:android_assets',
-        'copy:compiled_sources'
+        'clean:bin_builds_www',
+        'copy:compiled_sources',
+        'cordovacli:build_android'
     ];
 
     var build_android_dev = [
