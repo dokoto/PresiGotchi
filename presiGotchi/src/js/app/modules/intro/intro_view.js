@@ -16,7 +16,7 @@ var View = Backbone.View.extend({
     render: function() {
         this.$el.html(this.template({
             title: baseParams.appName,
-            message: 'Press screen to continue ',
+            message: 'Pulse la pantalla para continuar ',
             loadingMsg: 'Loading ....... 0%'
         }));
         this.trigger('intro:render:finish');
