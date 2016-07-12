@@ -4,6 +4,7 @@
 'use strict';
 
 const EventEmitter = require('events');
+let QuoteProcessor = require('./quoteProcessor');
 
 var DBManagerOptions = {
     'uri': Config.fetch('db', 'db.mongo.gotchi.uri'),
