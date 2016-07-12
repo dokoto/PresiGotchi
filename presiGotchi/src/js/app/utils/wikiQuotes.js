@@ -36,17 +36,19 @@ WikiQuote.prototype.queryTitles = function(titles, options) {
                 }
             }
             if (pageid > 0) {
-                console.log('[WikiQuote queryTitles] Pageid : ' + pageid + ' title: ' + result.query.pages[pageid].title);
-                this.emiter.trigger('pageid-complete', pageid, {url: options.url});
+                console.log('[WikiQuote queryTitles]         TITLE: "' + result.query.pages[pageid].title + '" Pageid : ' + pageid);
+                this.emiter.trigger('pageid-complete', pageid, {
+                    url: options.url
+                });
             } else {
-                this.emiter.trigger('error');
-                console.log('[WikiQuote queryTitles] No results');
+                console.error('[WikiQuote queryTitles]         TITLE: "' + result.query.pages[pageid].title + '" Pageid : ' + pageid);
+                this.emiter.trigger('error', null);
             }
         }.bind(this),
 
         error: function(xhr, result, status) {
-            self.emiter.trigger('pageid-error');
             console.error("[WikiQuote queryTitles] Error processing your query");
+            self.emiter.trigger('pageid-error');
         }
     });
 };
@@ -77,11 +79,11 @@ WikiQuote.prototype.getSectionsForPage = function(pageid, options) {
             if (sectionArray.length === 0) {
                 sectionArray.push("1");
             }
-            console.log('[WikiQuote getSectionsForPage] Title: "' + result.parse.displaytitle + '" Sections : ' + JSON.stringify(sectionArray));
+            console.log('[WikiQuote getSectionsForPage]  TITLE: "' + result.parse.title + '" Sections : ' + JSON.stringify(sectionArray));
             self.emiter.trigger('sections-complete', pageid, sectionArray, options);
         }.bind(this, pageid, options),
         error: function(xhr, result, status) {
-            console.error("[WikiQuote getSectionsForPage] Error processing your query");
+            console.error('[WikiQuote getSectionsForPage]  TITLE: "' + result.parse.title);
             self.emiter.trigger('error');
         }
     });
@@ -118,42 +120,38 @@ WikiQuote.prototype.getQuotesForSection = function(pageid, sectionIndex, options
                     quoteArray.push($(this).html());
                 }
             });
-            console.log('[WikiQuote getQuotesForSection] Title: "' + result.parse.displaytitle + '" Num Quotes : ' + quoteArray.length);
+            console.log('[WikiQuote getQuotesForSection] TITLE: "' + result.parse.displaytitle + '" Num Quotes : ' + quoteArray.length + ' Secction : ' + sectionIndex);
             self.emiter.trigger('quotes-complete', quoteArray);
             //console.log(JSON.stringify(quoteArray, null, '\t'));
         }.bind(this, options),
         error: function(xhr, result, status) {
-            console.error("[WikiQuote getQuotesForSection] Error processing your query");
+            console.error('[WikiQuote getQuotesForSection] TITLE: "' + result.parse.displaytitle);
             self.emiter.trigger('error');
         }
     });
 };
 
-WikiQuote.prototype.getAllQuotes = function(titles, options) {
-    options = options || {};
-    var allQuotes = [],
-        sectionsLength = 0;
-
-    this.emiter.on('pageid-complete', function(pageid, options) {
+WikiQuote.prototype.getQuotes = function(titles, options) {
+    this.emiter.once('pageid-complete', function(pageid, options) {
         this.getSectionsForPage(pageid, options);
     }, this);
 
-    this.emiter.on('sections-complete', function(pageid, sections, options) {
-        sectionsLength = sections.length;
-        sections.forEach(function(value, index, array) {
-            this.getQuotesForSection(pageid, value, options);
-        }, this);
-    }, this);
-
-    this.emiter.on('quotes-complete', function(quotes) {
-        sectionsLength--;
-        allQuotes.push(quotes);
-        if (0 === sectionsLength) {
-            this.emiter.trigger('all-quotes-complete', allQuotes);
-        }
+    this.emiter.once('sections-complete', function(pageid, sections, options) {
+        options.index = 0;
+        this._extractQuotes(pageid, sections, options);
     }, this);
 
     this.queryTitles(titles, options);
+};
+
+WikiQuote.prototype._extractQuotes = function(pageid, sections, options, allQuotes) {
+    if (options.index > sections.length - 1) {
+        this.emiter.trigger('all-quotes-complete', allQuotes);
+    } else {
+        this.getQuotesForSection(pageid, sections[options.index], options);
+        options.index++;
+        this.emiter.once('quotes-complete', this._extractQuotes.bind(this, pageid, sections, options));
+    }
 };
 
 module.exports = {

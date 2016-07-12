@@ -34,8 +34,8 @@ Controller.prototype.loadResources = function() {
 };
 
 Controller.prototype.progress = function(current, total) {
-    var progress = ((current + 1) * 100) / total;
-    $('#intro-progress').text('Cargando ' + progress + '%');
+    var progress = ((current) * 100) / total;
+    $('#intro-progress').text('Cargando ' + progress.toFixed(2) + '%');
 };
 
 Controller.prototype.run = function() {
