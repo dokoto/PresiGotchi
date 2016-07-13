@@ -4,7 +4,6 @@
 'use strict';
 
 const EventEmitter = require('events');
-let QuoteProcessor = require('./quoteProcessor');
 
 var DBManagerOptions = {
     'uri': Config.fetch('db', 'db.mongo.gotchi.uri'),
@@ -36,15 +35,29 @@ class InitParams extends EventEmitter {
     constructor(options) {
         super();
         this.options = options || {};
+        this._quotesModels = null;
     }
 
-    ddbb() {
-        dbManager = require('../utils/dbManager').create(DBManagerOptions);
+    run() {
+        this._preProcessing().once('finish-all-quotes', function(quotesBlocks) {
+            this._quotesModels = quotesBlocks;
+            this._ddbb();
+        }, this);
+    }
+
+    _preProcessing() {
+        let quoteProcessor = require('./quoteProcessor').create();
+        quoteProcessor.process();
+        return quoteProcessor;
+    }
+
+    _ddbb() {
+        let dbManager = require('../utils/dbManager').create(DBManagerOptions);
 
         if (options.args.initdb === true) {
             var gotchiModels = require('../config/default/gotchi.json');
             var menusModels = require('../config/default/menus.json');
-            var quotesModels = require('../config/default/quotes.json');
+            let QuoteProcessor = require('./quoteProcessor');
             var configuratorModels = require('../config/default/configurator.json');
 
             dbManager.addCollections([{
@@ -55,7 +68,7 @@ class InitParams extends EventEmitter {
                 collection: menusModels
             }, {
                 collectionName: 'quotes',
-                collection: quotesModels
+                collection: this._quotesModels
             }, {
                 collectionName: 'configurator',
                 collection: configuratorModels
@@ -75,6 +88,7 @@ class InitParams extends EventEmitter {
 
         }
     }
+
 }
 
 module.exports = {

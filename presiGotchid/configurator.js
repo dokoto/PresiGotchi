@@ -158,7 +158,7 @@ var ConfiguratorWrapper = (function() {
 
     Configurator.prototype._initActions = function() {
         var initParams = require('./utils/initParams').create();
-        initParams.ddbb();
+        initParams.run();
         initParams.once('complete', function(response) {
             global.dbManager = response.dbManager;
         });

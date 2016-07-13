@@ -38,45 +38,42 @@ class WikiQuote extends EventEmitter {
     }
 
     _queryTitles(titles, options) {
-        Request({
-                method: 'GET',
-                url: options.url || this.options.url,
-                qs: {
-                    format: "json",
-                    action: "query",
-                    redirects: "",
-                    titles: titles
-                }
-            })
-            .on('response', function(error, response, body) {
-                if (!error && response.statusCode == 200) {
-                    var pages = body.query.pages;
-                    var pageid = -1;
-                    for (var p in pages) {
-                        var page = pages[p];
-                        // api can return invalid recrods, these are marked as "missing"
-                        if (!("missing" in page)) {
-                            pageid = page.pageid;
-                            break;
-                        }
-                    }
-                    if (pageid > 0) {
-                        console.log('[WikiQuote queryTitles]         TITLE: "' + body.query.pages[pageid].title + '" Pageid : ' + pageid);
-                        this.emit('pageid-complete', pageid, {
-                            url: options.url
-                        });
-                    } else {
-                        console.error('[WikiQuote queryTitles]         TITLE: "' + body.query.pages[pageid].title + '" Pageid : ' + pageid);
-                        this.emit('error', null);
-                    }
-                } else {
+        var requestOptions = {
+            url: options.url || this.options.url,
+            qs: {
+                format: "json",
+                action: "query",
+                redirects: "",
+                titles: titles
+            }
+        };
 
+        Request(requestOptions, function(error, response, body) {
+            var pageid = -1;
+            if (!error && response.statusCode == 200) {
+                var pages = body.query.pages;
+                for (var p in pages) {
+                    var page = pages[p];
+                    // api can return invalid recrods, these are marked as "missing"
+                    if (!("missing" in page)) {
+                        pageid = page.pageid;
+                        break;
+                    }
                 }
-            })
-            .on('aborted', function() {
-                console.error("[WikiQuote queryTitles] Error processing your query");
-                this.emit('pageid-error');
-            });
+                if (pageid > 0) {
+                    console.log('[WikiQuote queryTitles]         TITLE: "' + body.query.pages[pageid].title + '" Pageid : ' + pageid);
+                    this.emit('pageid-complete', pageid, {
+                        url: options.url
+                    });
+                } else {
+                    console.error('[WikiQuote queryTitles]         TITLE: "' + body.query.pages[pageid].title + '" Pageid : ' + pageid);
+                    this.emit('error', null);
+                }
+            } else {
+                console.error('[WikiQuote queryTitles] Error de conexion');
+                this.emit('error', null);
+            }
+        });
     }
 
     _getSectionsForPage(pageid, options) {

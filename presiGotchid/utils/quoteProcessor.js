@@ -13,11 +13,13 @@ class QuoteProcessor extends EventEmitter {
     constructor(options) {
         super();
         this.options = options || {};
+        this._items = [];
+        this._progress = 0;
         this._quotesBlocks = require('../config/default/quotes.json');
     }
 
     process() {
-        this._processQuotes.bind(this);
+        this._processQuotes();
     }
 
     _processQuotes() {
@@ -33,7 +35,7 @@ class QuoteProcessor extends EventEmitter {
         if (this._items.length === 0) {
             this.emit('error-quotes');
         } else if (this._progress > this._items.length - 1) {
-            this.emit('finish-all-quotes');
+            this.emit('finish-all-quotes', this._quotesBlocks);
         } else {
             wikiquote.getQuotes(this._items[this._progress].page, {
                 url: this._items[this._progress].urlRoot
@@ -49,8 +51,8 @@ class QuoteProcessor extends EventEmitter {
             x = 0,
             quotes;
 
-        for (i in this._quotesBlocks.models) {
-            quotes = this._quotesBlocks.models[i].get('quotes');
+        for (i in this._quotesBlocks) {
+            quotes = this._quotesBlocks[i].quotes;
             for (x in quotes) {
                 if (quotes[x].urlRoot) {
                     this._items.push(quotes[x]);
