@@ -4,8 +4,8 @@
 'use strict';
 
 const EventEmitter = require('events');
-const Request = require('request');
-const $ = require('cheerio');
+var request = require('request');
+var $ = require('cheerio');
 
 class WikiQuote extends EventEmitter {
     constructor(options) {
@@ -48,7 +48,7 @@ class WikiQuote extends EventEmitter {
             }
         };
 
-        Request(requestOptions, function(error, response, body) {
+        request(requestOptions, function(error, response, body) {
             var pageid = -1;
             if (!error && response.statusCode == 200) {
                 console.log('[WikiQuote queryTitles] ');
@@ -81,7 +81,7 @@ class WikiQuote extends EventEmitter {
     }
 
     _getSectionsForPage(pageid, options) {
-        Request({
+        request({
                 method: 'GET',
                 url: options.url || this.options.url,
                 qs: {
@@ -115,7 +115,7 @@ class WikiQuote extends EventEmitter {
     }
 
     _getQuotesForSection(pageid, sectionIndex, options) {
-        Request({
+        request({
                 method: 'GET',
                 url: options.url || this.options.url,
                 qs: {
