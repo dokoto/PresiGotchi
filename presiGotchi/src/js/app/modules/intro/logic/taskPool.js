@@ -51,13 +51,6 @@ module.exports = [
         quotesCollection.on('sync', this._completeHandlerConfig.bind(this, quotesCollection.uuid, 'quotes', index, total));
         quotesCollection.on('error', this._errorHandler, this);
         quotesCollection.fetch();
-    },
-
-    function(index, total) {
-        var quoteProcessor = require('./quoteProcessor').create();
-        quoteProcessor.emiter.once('finish-all-quotes', this._completeHandler.bind(this, 'quotes-processor', index, total));
-        quoteProcessor.emiter.once('error', this._errorHandler, this);
-        quoteProcessor.process(Gotchi.collections.quotes);
     }
 
 ];

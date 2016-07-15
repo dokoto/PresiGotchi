@@ -42,7 +42,7 @@ class InitParams extends EventEmitter {
         this._preProcessing().once('finish-all-quotes', function(quotesBlocks) {
             this._quotesModels = quotesBlocks;
             this._ddbb();
-        }, this);
+        }.bind(this));
     }
 
     _preProcessing() {
