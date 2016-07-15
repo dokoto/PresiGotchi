@@ -51,11 +51,8 @@ class WikiQuote extends EventEmitter {
         Request(requestOptions, function(error, response, body) {
             var pageid = -1;
             if (!error && response.statusCode == 200) {
-                console.log('[WikiQuote queryTitles] ');
-                console.log('ERROR: ' + JSON.stringify(error, null, '\t'));
-                console.log('RESPONSE: ' + JSON.stringify(response, null, '\t'));
-                console.log('BODY: ' + JSON.stringify(body, null, '\t'));
-                var pages = body.pages;
+                body = JSON.parse(body);
+                var pages = body.query.pages;
                 for (var p in pages) {
                     var page = pages[p];
                     // api can return invalid recrods, these are marked as "missing"
@@ -65,12 +62,12 @@ class WikiQuote extends EventEmitter {
                     }
                 }
                 if (pageid > 0) {
-                    console.log('[WikiQuote queryTitles]         TITLE: "' + body.pages[pageid].title + '" Pageid : ' + pageid);
+                    console.log('[WikiQuote queryTitles]         TITLE: "' + body.query.pages[pageid].title + '" Pageid : ' + pageid);
                     this.emit('pageid-complete', pageid, {
                         url: options.url
                     });
                 } else {
-                    console.error('[WikiQuote queryTitles]         TITLE: "' + body.pages[pageid].title + '" Pageid : ' + pageid);
+                    console.error('[WikiQuote queryTitles] Pageid : ' + pageid);
                     this.emit('error', null);
                 }
             } else {
@@ -92,8 +89,9 @@ class WikiQuote extends EventEmitter {
                 }
             }, function(error, response, body) {
                 if (!error && response.statusCode == 200) {
+                    body = JSON.parse(body);
                     var sectionArray = [];
-                    var sections = body.sections;
+                    var sections = body.parse.sections;
                     for (var s in sections) {
                         var splitNum = sections[s].number.split('.');
                         if (splitNum.length > 1 && splitNum[0] === "1") {
@@ -104,7 +102,7 @@ class WikiQuote extends EventEmitter {
                     if (sectionArray.length === 0) {
                         sectionArray.push("1");
                     }
-                    console.log('[WikiQuote getSectionsForPage]  TITLE: "' + body.title + '" Sections : ' + JSON.stringify(sectionArray));
+                    console.log('[WikiQuote getSectionsForPage]  TITLE: "' + body.parse.title + '" Sections : ' + JSON.stringify(sectionArray));
                     this.emit('sections-complete', pageid, sectionArray, options);
                 }
             })
@@ -127,7 +125,8 @@ class WikiQuote extends EventEmitter {
                 }
             }, function(error, response, body) {
                 if (!error && response.statusCode == 200) {
-                    var quotes = body.text["*"];
+                    body = JSON.parse(body);
+                    var quotes = body.parse.text["*"];
                     var quoteArray = [];
 
                     // Find top level <li> only
@@ -144,7 +143,7 @@ class WikiQuote extends EventEmitter {
                             quoteArray.push($(this).html());
                         }
                     });
-                    console.log('[WikiQuote getQuotesForSection] TITLE: "' + body.displaytitle + '" Num Quotes : ' + quoteArray.length + ' Secction : ' + sectionIndex);
+                    console.log('[WikiQuote getQuotesForSection] TITLE: "' + body.parse.displaytitle + '" Num Quotes : ' + quoteArray.length + ' Secction : ' + sectionIndex);
                     this.emit('quotes-complete', quoteArray);
                     //console.log(JSON.stringify(quoteArray, null, '\t'));
                 }
