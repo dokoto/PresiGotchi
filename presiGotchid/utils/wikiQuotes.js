@@ -5,7 +5,11 @@
 
 const EventEmitter = require('events');
 const Request = require('request');
-const $ = require('cheerio');
+var jsdom = require('jsdom').jsdom;
+var document = jsdom('<html></html>', {});
+var window = document.defaultView;
+var $ = require('jquery')(window);
+
 
 class WikiQuote extends EventEmitter {
     constructor(options) {
@@ -132,21 +136,28 @@ class WikiQuote extends EventEmitter {
 
                     // Find top level <li> only
                     var $lis = $(quotes).find('li:not(li li)');
+                    var text;
                     $lis.each(function() {
                         // Remove all children that aren't <b>
                         $(this).children().remove(':not(b)');
                         var $bolds = $(this).find('b');
 
                         // If the section has bold text, use it.  Otherwise pull the plain text.
-                        if ($bolds.length > 0) {
-                            quoteArray.push($bolds.html());
-                        } else {
-                            quoteArray.push($(this).html());
+                        text = ($bolds.length > 0) ? $bolds.html() : $(this).html();
+                        text = text.replace(/[\"]/g, '\\"')
+                            .replace(/[\\]/g, '\\\\')
+                            .replace(/[\/]/g, '\\/')
+                            .replace(/[\b]/g, '\\b')
+                            .replace(/[\f]/g, '\\f')
+                            .replace(/[\n]/g, '\\n')
+                            .replace(/[\r]/g, '\\r')
+                            .replace(/[\t]/g, '\\t').trim();
+                        if (text.length > 0) {
+                            quoteArray.push(text);
                         }
                     });
                     console.log('[WikiQuote getQuotesForSection] TITLE: "' + body.parse.displaytitle + '" Num Quotes : ' + quoteArray.length + ' Secction : ' + sectionIndex);
                     this._localEmiter.emit('quotes-complete', quoteArray);
-                    //console.log(JSON.stringify(quoteArray, null, '\t'));
                 }
             }.bind(this))
             .on('aborted', function() {
