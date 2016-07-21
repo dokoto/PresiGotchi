@@ -136,7 +136,16 @@ class WikiQuote extends EventEmitter {
 
                     // Find top level <li> only
                     var $lis = $(quotes).find('li:not(li li)');
+                    if (quotes.indexOf('Los 27 millones de soviéticos que murieron en la') !== -1) {
+                        console.log('AQUI');
+                    }
                     var text;
+
+                    // Usar uan expresion regular sobre %li para sacar cada cita, algo como:
+                    //^<li>(.*)</li>$
+                    // var StrippedString = OriginalString.replace(/(<([^>]+)>)/ig,"");
+
+
                     $lis.each(function() {
                         // Remove all children that aren't <b>
                         $(this).children().remove(':not(b)');
@@ -144,14 +153,9 @@ class WikiQuote extends EventEmitter {
 
                         // If the section has bold text, use it.  Otherwise pull the plain text.
                         text = ($bolds.length > 0) ? $bolds.html() : $(this).html();
-                        text = text.replace(/[\"]/g, '\\"')
-                            .replace(/[\\]/g, '\\\\')
-                            .replace(/[\/]/g, '\\/')
-                            .replace(/[\b]/g, '\\b')
-                            .replace(/[\f]/g, '\\f')
-                            .replace(/[\n]/g, '\\n')
-                            .replace(/[\r]/g, '\\r')
-                            .replace(/[\t]/g, '\\t').trim();
+                        text = text.replace(/\\n|«|»|\\t/g, '').trim();
+                        text = text.replace('\"', '"');
+
                         if (text.length > 0) {
                             quoteArray.push(text);
                         }
