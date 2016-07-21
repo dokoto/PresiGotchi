@@ -143,7 +143,7 @@ class WikiQuote extends EventEmitter {
 
                     // Usar uan expresion regular sobre %li para sacar cada cita, algo como:
                     //^<li>(.*)</li>$
-                    // var StrippedString = OriginalString.replace(/(<([^>]+)>)/ig,"");
+                    // var StrippedString = OriginalString.replace(/<(?:.|\n)*?>/gm, "");
 
 
                     $lis.each(function() {
@@ -153,7 +153,7 @@ class WikiQuote extends EventEmitter {
 
                         // If the section has bold text, use it.  Otherwise pull the plain text.
                         text = ($bolds.length > 0) ? $bolds.html() : $(this).html();
-                        text = text.replace(/<(?:.|\n)*?>/gm, "").trim();
+                        text = text.replace(/\\n|«|»|\\t/g, '').trim();
                         text = text.replace('\"', '"');
 
                         if (text.length > 0) {
