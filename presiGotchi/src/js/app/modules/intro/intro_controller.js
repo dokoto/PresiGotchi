@@ -90,7 +90,7 @@ Controller.prototype._completeHandlerImages = function(name, index, total) {
 };
 
 Controller.prototype._errorHandler = function(model, response, options) {
-    Log.ERROR_DESP('[INTRO CONTROLLER] Error synchroning collection ' + model.uuid + ' Msg: ' + options.textStatus);
+    Log.ERROR('[INTRO CONTROLLER] Error synchroning collection ' + model.uuid + ' Msg: ' + options.textStatus);
     pmsg.show({
         content: 'Error de conexion :(',
         type: 'error'

@@ -31,7 +31,7 @@ var DBManagerOptions = {
     }
 };
 
-class InitParams extends EventEmitter {
+class InitDBParams extends EventEmitter {
     constructor(options) {
         super();
         this.options = options || {};
@@ -39,10 +39,13 @@ class InitParams extends EventEmitter {
     }
 
     run() {
-        this._preProcessing().once('finish-all-quotes', function(quotesBlocks) {
-            this._quotesModels = quotesBlocks;
-            this._ddbb();
-        }.bind(this));
+        dbManager = require('../utils/dbManager').create(DBManagerOptions);
+        if (options.args.initdb === true) {
+            this._preProcessing().once('finish-all-quotes', function(quotesBlocks) {
+                this._quotesModels = quotesBlocks;
+                this._ddbb();
+            }.bind(this));
+        }
     }
 
     _preProcessing() {
@@ -52,47 +55,42 @@ class InitParams extends EventEmitter {
     }
 
     _ddbb() {
-        let dbManager = require('../utils/dbManager').create(DBManagerOptions);
+        var gotchiModels = require('../config/default/gotchi.json');
+        var menusModels = require('../config/default/menus.json');
+        let QuoteProcessor = require('./quoteProcessor');
+        var configuratorModels = require('../config/default/configurator.json');
 
-        if (options.args.initdb === true) {
-            var gotchiModels = require('../config/default/gotchi.json');
-            var menusModels = require('../config/default/menus.json');
-            let QuoteProcessor = require('./quoteProcessor');
-            var configuratorModels = require('../config/default/configurator.json');
+        dbManager.addCollections([{
+            collectionName: 'gotchi',
+            collection: gotchiModels
+        }, {
+            collectionName: 'menus',
+            collection: menusModels
+        }, {
+            collectionName: 'quotes',
+            collection: this._quotesModels
+        }, {
+            collectionName: 'configurator',
+            collection: configuratorModels
+        }]);
 
-            dbManager.addCollections([{
-                collectionName: 'gotchi',
-                collection: gotchiModels
-            }, {
-                collectionName: 'menus',
-                collection: menusModels
-            }, {
-                collectionName: 'quotes',
-                collection: this._quotesModels
-            }, {
-                collectionName: 'configurator',
-                collection: configuratorModels
-            }]);
-
-            dbManager.once('complete-collections', (responses) => {
-                this.emit('complete', {
-                    "status": true
-                });
+        dbManager.once('complete-collections', (responses) => {
+            this.emit('complete', {
+                "status": true
             });
+        });
 
-            dbManager.once('error', (error) => {
-                this.emit('error', {
-                    "error": error
-                });
+        dbManager.once('error', (error) => {
+            this.emit('error', {
+                "error": error
             });
+        });
 
-        }
     }
-
 }
 
 module.exports = {
     create: function(options) {
-        return new InitParams(options);
+        return new InitDBParams(options);
     }
 };

@@ -13,8 +13,8 @@ var Router = Backbone.Router.extend({
 
     start: function() {
         Log.MSG('[TREPI-ENGINE] Starting');
-        require("./css/engine-base.css");
-        var controller = require('./stage_constroler.js').create();
+        require("./css/stage-base.css");
+        var controller = require('./stage_controller.js').create();
         controller.run();
     }
 

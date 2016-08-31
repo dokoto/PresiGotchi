@@ -41,7 +41,7 @@ var ConfiguratorWrapper = (function() {
         this._Express();
         this._log4js();
         this._Definitions();
-        this._initActions();
+        this._initDBParams();        
 
         return {
             app: this._rest,
@@ -115,11 +115,10 @@ var ConfiguratorWrapper = (function() {
 
         this._options.args.debug = false;
         if (process.argv.indexOf("--debug") !== -1) {
+            this._options.args.debug = true;
             this._options.args.noAuth = true;
             this._options.args.nohttps = true;
             this._options.args.nocluster = true;
-            console.log('[DEBUG] Activated arguments: ');
-            console.log(JSON.stringify(this._options.args));
         }
 
         this._options.args.initdb = false;
@@ -128,9 +127,10 @@ var ConfiguratorWrapper = (function() {
             this._options.args.noAuth = true;
             this._options.args.nohttps = true;
             this._options.args.nocluster = true;
-            console.log('[DEBUG] Activated arguments: ');
-            console.log(JSON.stringify(this._options.args));
         }
+
+        console.log('[DEBUG] Activated arguments: ');
+        console.log(JSON.stringify(this._options.args));
 
     };
 
@@ -156,13 +156,13 @@ var ConfiguratorWrapper = (function() {
         });
     };
 
-    Configurator.prototype._initActions = function() {
-        var initParams = require('./utils/initParams').create();
-        initParams.run();
-        initParams.once('complete', function(response) {
+    Configurator.prototype._initDBParams = function() {
+        var initDBParams = require('./utils/initDBParams').create();
+        initDBParams.run();
+        initDBParams.once('complete', function(response) {
             global.dbManager = response.dbManager;
         });
-        initParams.once('error', function(response) {
+        initDBParams.once('error', function(response) {
             console.error(response.error);
         });
     };

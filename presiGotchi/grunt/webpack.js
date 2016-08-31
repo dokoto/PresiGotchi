@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     var webpack = require('webpack');
     var options = grunt.config.data;
     var path = require('path');
-
+    
     return {
         dev: {
             cache: false,

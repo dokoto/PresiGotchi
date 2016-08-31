@@ -96,7 +96,11 @@ Controller.prototype._completedStep = function(ev) {
 };
 
 Controller.prototype._finishConfigurator = function(ev) {
-    Gotchi.collections.gotchi.state.direction = (this.direction.right > this.direction.left) ? 'RIGHT' : 'LEFT';
+    Gotchi.collections.gotchi.first().get('state').direction = (this.direction.right > this.direction.left) ? 'RIGHT' : 'LEFT';
+    var stage = require('modules/stage/stage_router').create();
+    stage.navigate('stage/engine/start', {
+        trigger: true
+    });
 };
 
 Controller.prototype._nextStep = function(ev) {
