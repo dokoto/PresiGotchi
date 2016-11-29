@@ -1,12 +1,9 @@
-/*global define, module, require*/
-/*jshint globalstrict: true*/
-
 'use strict';
 
-var Backbone = require('backbone');
-var template = require('./templates/main_menu.html');
+const Backbone = require('backbone');
+const template = require('./templates/main_menu.html');
 
-var View = Backbone.View.extend({
+let View = Backbone.View.extend({
     el: '#container-region',
     template: template,
     events: {
@@ -19,13 +16,13 @@ var View = Backbone.View.extend({
     menuHandler: function(e) {
         switch (e.target.id) {
             case 'new':
-                var configurator = require('modules/menus/configurator/configurator_router').create();
+                let configurator = require('modules/menus/configurator/configurator_router').create();
                 configurator.navigate('menus/configurator/start', {
                     trigger: true
                 });
                 break;
             case 'close':
-                var intro = require('modules/intro/intro_router').create();
+                let intro = require('modules/intro/intro_router').create();
                 intro.navigate('intro/start', {
                     trigger: true
                 });

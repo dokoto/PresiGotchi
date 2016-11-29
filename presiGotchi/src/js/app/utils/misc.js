@@ -1,6 +1,3 @@
-/*global define, module, require, console, Image*/
-/*jshint esversion: 6 */
-/*jshint globalstrict: true*/
 'use strict';
 
 module.exports = {
@@ -38,7 +35,7 @@ module.exports = {
         };
 
         for (index in images) {
-            image = new Image();
+            image = new window.Image();
             image.onload = onloadFunc.bind(this);
             image.src = images[index];
         }

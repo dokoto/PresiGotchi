@@ -1,13 +1,10 @@
-/*global define, module, require, $*/
-/*jshint globalstrict: true*/
-
 'use strict';
 
-var Backbone = require('backbone');
-var template = require('./templates/intro.html');
-var baseParams = require('json!../../config/baseParams.json');
+const Backbone = require('backbone');
+const template = require('./templates/intro.html');
+const baseParams = require('json!../../config/baseParams.json');
 
-var View = Backbone.View.extend({
+let View = Backbone.View.extend({
     el: '#container-region',
     template: template,
     events: {

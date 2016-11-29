@@ -1,17 +1,14 @@
-/*global define, module, require, window, $*/
-/*jshint globalstrict: true*/
-
 'use strict';
 
-var Backbone = require('backbone');
-var _ = require('underscore');
-var template_container = require('./templates/menus_configurator_container.html');
-var template_step = require('./templates/menus_configurator_step.html');
-var template_block = require('./templates/menus_configurator_block.html');
-var template_item = require('./templates/menus_configurator_item.html');
+const Backbone = require('backbone');
+const _ = require('underscore');
+const template_container = require('./templates/menus_configurator_container.html');
+const template_step = require('./templates/menus_configurator_step.html');
+const template_block = require('./templates/menus_configurator_block.html');
+const template_item = require('./templates/menus_configurator_item.html');
 
 
-var ViewLayout = Backbone.View.extend({
+let ViewLayout = Backbone.View.extend({
     el: '#container-region',
     template: template_container,
     events: {
@@ -49,7 +46,7 @@ var ViewLayout = Backbone.View.extend({
     }
 });
 
-var ViewStepCollection = Backbone.View.extend({
+let ViewStepCollection = Backbone.View.extend({
     el: '#slider-configurator-container',
     template: template_step,
     render: function(e) {
@@ -68,7 +65,7 @@ var ViewStepCollection = Backbone.View.extend({
     }
 });
 
-var ViewBlockCollection = Backbone.View.extend({
+let ViewBlockCollection = Backbone.View.extend({
     template: template_block,
     initialize: function(options) {
         this.setElement(options.el);
@@ -85,13 +82,13 @@ var ViewBlockCollection = Backbone.View.extend({
     }
 });
 
-var ViewItemCollection = Backbone.View.extend({
+let ViewItemCollection = Backbone.View.extend({
     initialize: function(options) {
         this.setElement(options.el);
     },
     render: function(e) {
         _.each(this.model, function(value, index, list) {
-            var viewItem = new ViewItem({
+            let viewItem = new ViewItem({
                 'model': value,
                 'el': this.$el,
             });
@@ -101,14 +98,14 @@ var ViewItemCollection = Backbone.View.extend({
     }
 });
 
-var ViewItem = Backbone.View.extend({
+let ViewItem = Backbone.View.extend({
     initialize: function(options) {
         this.setElement(options.el);
     },
     template: template_item,
     render: function(e) {
         this.$el.append(this.template());
-        var height = (window.innerHeight / 3) - this.$el.parent().css('margin-bottom').replace('px', '');
+        let height = (window.innerHeight / 3) - this.$el.parent().css('margin-bottom').replace('px', '');
         this.$el.css('height', height);
         this.$el.find('.slider-item-background').last().css("background-image", "url(" + this.model.thumb + ")");
         return this;

@@ -1,18 +1,15 @@
-/*global define, module, require*/
-/*jshint globalstrict: true*/
-
 'use strict';
 
-var Backbone = require('backbone');
-var Log = require('utils/logger');
+const Backbone = require('backbone');
+const Log = require('utils/logger');
 
-var Router = Backbone.Router.extend({
+let Router = Backbone.Router.extend({
     routes: {
         'intro/start': 'start'
     },
 
     start: function() {
-        Log.MSG('[INTRO ROUTER] Starting');
+        console.log('[INTRO ROUTER] Starting');
         require("./css/intro.css");
         var controller = require('./intro_controller').create();
         controller.run();

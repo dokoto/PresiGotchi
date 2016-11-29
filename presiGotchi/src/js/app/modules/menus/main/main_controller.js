@@ -1,28 +1,26 @@
-/*global define, module, require, window, Gotchi*/
-/*jshint globalstrict: true*/
-
 'use strict';
 
-var Log = require('utils/logger');
-var _ = require('underscore');
+const Log = require('utils/logger');
+const _ = require('underscore');
 
-function Controller(options) {}
+class Controller {
+    constructor(options) {}
 
+    _show(menusCollection) {
+        let view = require('./main_view').create({
+            'viewOptions': {
+                'model': window.Gotchi.collections.menus.findWhere({
+                    name: 'main'
+                })
+            }
+        });
+        view.render();
+    }
 
-Controller.prototype._show = function(menusCollection) {
-    var view = require('./main_view').create({
-        'viewOptions': {
-            'model': Gotchi.collections.menus.findWhere({
-                name: 'main'
-            })
-        }
-    });
-    view.render();
-};
-
-Controller.prototype.show = function() {
-    this._show();
-};
+    show() {
+        this._show();
+    }
+}
 
 
 module.exports = {

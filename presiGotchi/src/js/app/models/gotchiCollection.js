@@ -1,26 +1,23 @@
-/*global define, module, require*/
-/*jshint globalstrict: true*/
-
 'use strict';
 
 
-var CollectionBase = require('./base/CollectionBase');
-var _ = require('underscore');
-var baseParams = require('json!config/baseParams.json');
-var utils = require('utils/misc');
-var Backbone = require('backbone');
+const _ = require('underscore');
+const baseParams = require('json!config/baseParams.json');
+const utils = require('utils/misc');
+const Backbone = require('backbone');
 
-//var GotchiCollection = CollectionBase.self.extend({
-var GotchiCollection = Backbone.Collection.extend({
-    urlRoot: baseParams.urlRoot,
-    url: function() {
-        return this.urlRoot + '/characters/gotchis';
-    },
-    parse: function(response) {
-        return response.value.data;
+class GotchiCollection extends Backbone.Collection {
+    constructor() {
+        super();
+        this.urlRoot = baseParams.urlRoot;
+        this.url = function() {
+            return this.urlRoot + '/characters/gotchis';
+        };
+        this.parse = function(response) {
+            return response.value.data;
+        };
     }
-});
-//_.extend(GotchiCollection.prototype.defaults, CollectionBase.self.prototype.defaults);
+}
 
 module.exports = {
     create: function() {

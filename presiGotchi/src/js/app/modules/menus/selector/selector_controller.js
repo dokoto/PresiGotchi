@@ -1,21 +1,20 @@
-/*global define, module, require, window, Gotchi*/
-/*jshint globalstrict: true*/
-
 'use strict';
 
-var Log = require('utils/logger');
-var _ = require('underscore');
+const Log = require('utils/logger');
+const _ = require('underscore');
 
-function Controller(options) {}
+class Controller {
+    constructor(options) {}
 
-Controller.prototype.show = function() {
-  var view = require('./selector_view').create({
-      'viewOptions': {
-          'collection': Gotchi.gotchiCollection
-      }
-  });
-  view.render();
-};
+    show() {
+        var view = require('./selector_view').create({
+            'viewOptions': {
+                'collection': window.Gotchi.gotchiCollection
+            }
+        });
+        view.render();
+    }
+}
 
 module.exports = {
     create: function(options) {

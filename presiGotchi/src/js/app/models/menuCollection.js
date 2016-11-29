@@ -1,32 +1,30 @@
-/*global define, module, require*/
-/*jshint globalstrict: true*/
-
 'use strict';
 
 
-var CollectionBase = require('./base/CollectionBase');
-var _ = require('underscore');
-var baseParams = require('json!config/baseParams.json');
-var utils = require('utils/misc');
-var Backbone = require('backbone');
+const _ = require('underscore');
+const baseParams = require('json!config/baseParams.json');
+const utils = require('utils/misc');
+const Backbone = require('backbone');
 
-//var MenusCollection = CollectionBase.self.extend({
-var MenusCollection = Backbone.Collection.extend({
-  urlRoot: baseParams.urlRoot,
-  url: function() {
-      return this.urlRoot + '/texts/menus';
-  },
-  parse: function(response) {
-      return response.value.data;
-  }
-});
-//_.extend(MenusCollection.prototype.defaults, CollectionBase.self.prototype.defaults);
+class MenusCollection extends Backbone.Collection {
+    constructor() {
+        super();
+        this.urlRoot = baseParams.urlRoot;
+        this.url = function() {
+            return this.urlRoot + '/texts/menus';
+        };
+        this.parse = function(response) {
+            return response.value.data;
+        };
+    }
+}
+
 
 module.exports = {
     create: function() {
-        var vv = new MenusCollection();
-        vv.uuid = utils.uuid();
-        return vv;
+        var menus = new MenusCollection();
+        menus.uuid = utils.uuid();
+        return menus;
     },
     self: MenusCollection
 };

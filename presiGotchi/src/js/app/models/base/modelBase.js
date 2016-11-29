@@ -1,6 +1,3 @@
-/*global define, module, require*/
-/*jshint globalstrict: true*/
-
 'use strict';
 
 var Backbone = require('backbone');
