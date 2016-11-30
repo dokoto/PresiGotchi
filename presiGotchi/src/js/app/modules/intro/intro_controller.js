@@ -7,7 +7,7 @@ const MainRouter = require('modules/menus/main/main_router');
 
 class Controller {
     constructor(options) {
-        if (!APP.Gotchi || Object.keys(APP.Gotchi.collections).length === 0) {
+        if (!APP.Gotchi || !APP.Gotchi.collections || Object.keys(APP.Gotchi.collections).length === 0) {
             APP.Gotchi = APP.Gotchi || {};
             APP.Gotchi.collections = {};
         }

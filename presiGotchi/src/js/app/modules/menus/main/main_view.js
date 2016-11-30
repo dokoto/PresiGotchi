@@ -18,7 +18,13 @@ let View = Backbone.View.extend({
     menuHandler: function(e) {
         switch (e.target.id) {
             case 'new':
-                new ConfiguratorRouter().navigate('menus/configurator/start', {
+                /*
+                    new ConfiguratorRouter().navigate('menus/configurator/start', {
+                        trigger: true
+                    });
+                    */
+                const StageRouter = require('modules/stage/stage_router');
+                new StageRouter().navigate('stage/engine/start', {
                     trigger: true
                 });
                 break;

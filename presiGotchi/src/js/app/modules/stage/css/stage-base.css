@@ -1,19 +1,15 @@
-.css-typing {
-    width: 30em;
-    white-space: nowrap;
-    overflow: hidden;
-    -webkit-animation: type 5s steps(50, end);
-    animation: type 5s steps(50, end);
+.typing-font {
+    color: black;
+    font-size: 0.8em;
+    font-family: sans-serif;
+    text-align: justify;
 }
 
-@keyframes type {
-    from {
-        width: 0;
-    }
-}
-
-@-webkit-keyframes type {
-    from {
-        width: 0;
-    }
+.typing-block {
+    overflow: scroll;
+    height: 20%;
+    bottom: 1px;
+    width: 95%;
+    padding: 2%;
+    position: absolute;
 }

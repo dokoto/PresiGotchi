@@ -1,6 +1,8 @@
 'use strict';
 
+require('./css/stage-base.css');
 const Engine = require('./logic/engine');
+const View = require('./stage_view');
 
 class Controller {
     constructor(options) {
@@ -12,6 +14,7 @@ class Controller {
     }
 
     run() {
+        new View().render();
         this.engine.start();
     }
 }
