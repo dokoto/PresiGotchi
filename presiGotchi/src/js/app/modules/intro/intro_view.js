@@ -26,8 +26,4 @@ let View = Backbone.View.extend({
     }
 });
 
-module.exports = {
-    create: function(options) {
-        return new View();
-    }
-};
+module.exports = View;

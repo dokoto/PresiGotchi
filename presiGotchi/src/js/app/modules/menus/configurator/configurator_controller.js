@@ -1,9 +1,8 @@
 'use strict';
 
-const Log = require('utils/logger');
 const _ = require('underscore');
-const Log = require('utils/logger');
-const pmsg = require('utils/pmsg').create();
+const View = require('./configurator_view');
+const StageRouter = require('modules/stage/stage_router');
 
 class Controller {
     constructor(options) {
@@ -15,6 +14,10 @@ class Controller {
             left: 0,
             right: 0
         };
+        this.viewOptions = {
+            'collection': window.Gotchi.collections.configurator
+        };
+        this.view = new View(this.viewOptions);
     }
 
     run() {
@@ -22,18 +25,12 @@ class Controller {
     }
 
     _show() {
-        let view = require('./configurator_view').create({
-            'viewOptions': {
-                'collection': window.Gotchi.collections.configurator
-            }
-        });
+        this.view.on('menu:configurator:completedStep', this._completedStepChecking, this);
+        this.view.on('menu:configurator:itemSelected', this._itemSelected, this);
+        this.view.on('menu:configurator:nextStep', this._nextStep, this);
+        this.view.once('menu:configurator:render:finish', this._initStep, this);
 
-        view.on('menu:configurator:completedStep', this._completedStepChecking, this);
-        view.on('menu:configurator:itemSelected', this._itemSelected, this);
-        view.on('menu:configurator:nextStep', this._nextStep, this);
-        view.once('menu:configurator:render:finish', this._initStep, this);
-
-        view.render();
+        this.view.render();
     }
 
     _processDirection(direction) {
@@ -67,7 +64,7 @@ class Controller {
                 self._completedStep();
             });
         } else {
-            pmsg.show({
+            APP.popup.show({
                 duration: 4000,
                 content: 'Debes seleccionar una respuesta a cada pregunta ;)',
                 type: 'warn'
@@ -95,8 +92,7 @@ class Controller {
 
     _finishConfigurator(ev) {
         window.Gotchi.collections.gotchi.first().get('state').direction = (this.direction.right > this.direction.left) ? 'RIGHT' : 'LEFT';
-        let stage = require('modules/stage/stage_router').create();
-        stage.navigate('stage/engine/start', {
+        new StageRouter().navigate('stage/engine/start', {
             trigger: true
         });
     }
@@ -124,8 +120,4 @@ class Controller {
     }
 }
 
-module.exports = {
-    create: function(options) {
-        return new Controller(options);
-    }
-};
+module.exports = Controller;

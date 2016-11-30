@@ -1,7 +1,7 @@
 'use strict';
 
 const Backbone = require('backbone');
-const Log = require('utils/logger');
+const Controller = require('./configurator_controller');
 
 let Router = Backbone.Router.extend({
     routes: {
@@ -14,15 +14,11 @@ let Router = Backbone.Router.extend({
         require("./css/configurator.css");
         this.configuratorMenu();
     },
+
     configuratorMenu: function() {
-      let controller = require('./configurator_controller').create();
-      controller.run();
+        new Controller().run();
     }
 
 });
 
-module.exports = {
-    create: function() {
-        return new Router();
-    }
-};
+module.exports = Router;

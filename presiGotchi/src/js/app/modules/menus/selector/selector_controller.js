@@ -1,23 +1,17 @@
 'use strict';
 
-const Log = require('utils/logger');
-const _ = require('underscore');
+const View = require('./selector_view');
 
 class Controller {
-    constructor(options) {}
+    constructor(options) {
+        this.viewOptions = {
+            'collection': window.Gotchi.gotchiCollection
+        };
+    }
 
     show() {
-        var view = require('./selector_view').create({
-            'viewOptions': {
-                'collection': window.Gotchi.gotchiCollection
-            }
-        });
-        view.render();
+        new View(this.viewOptions).render();
     }
 }
 
-module.exports = {
-    create: function(options) {
-        return new Controller(options);
-    }
-};
+module.exports = Controller;

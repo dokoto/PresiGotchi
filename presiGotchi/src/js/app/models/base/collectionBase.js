@@ -1,20 +1,14 @@
 'use strict';
 
 var Backbone = require('backbone');
-var Log = require('utils/logger');
-var ModelBase = require('./modelBase');
+const utils = require('utils/misc');
 
-var CollectionBase = Backbone.Collection.extend({
-    model: ModelBase.self,
-    parse: function(response) {
-        return response.value.data;
+class CollectionBase extends Backbone.Collection {
+    constructor() {
+        super();
+        this.uuid = utils.uuid();
+        this.parse = response => response.value.data;
     }
-});
+}
 
-
-module.exports = {
-    create: function() {
-        return new CollectionBase();
-    },
-    self: CollectionBase
-};
+module.exports = CollectionBase;

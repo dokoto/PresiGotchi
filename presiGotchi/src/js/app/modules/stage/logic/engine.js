@@ -1,20 +1,15 @@
 'use strict';
 
-require('typed-text');
 
 class Engine {
     constructor(options) {
-        super();
         this._options = options;
     }
 
     start() {
-        $('#block-text').typedText("La casa de pepito ni es suya ni mia ni de nadie, es efimera como el resto de cosas", 100);
+        $('#block-text').text("La casa de pepito ni es suya ni mia ni de nadie, es efimera como el resto de cosas");
+        $('#block-text').addClass('css-typing');
     }
 }
 
-module.exports = {
-    create: function(options) {
-        return new Engine(options);
-    }
-};
+module.exports = Engine;

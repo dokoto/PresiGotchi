@@ -1,30 +1,20 @@
 'use strict';
 
-const Log = require('utils/logger');
-const _ = require('underscore');
+const View = require('./main_view');
 
 class Controller {
-    constructor(options) {}
-
-    _show(menusCollection) {
-        let view = require('./main_view').create({
-            'viewOptions': {
-                'model': window.Gotchi.collections.menus.findWhere({
-                    name: 'main'
-                })
-            }
-        });
-        view.render();
+    constructor(options) {
+        this.viewOptions = {
+            'model': window.Gotchi.collections.menus.findWhere({
+                name: 'main'
+            })
+        };
     }
 
     show() {
-        this._show();
+        new View(this.viewOptions).render();
     }
 }
 
 
-module.exports = {
-    create: function(options) {
-        return new Controller(options);
-    }
-};
+module.exports = Controller;

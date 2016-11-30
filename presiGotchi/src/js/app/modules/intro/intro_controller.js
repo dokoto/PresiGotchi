@@ -1,9 +1,9 @@
 'use strict';
 
-const Log = require('utils/logger');
 const _ = require('underscore');
 const Backbone = require('backbone');
-const pmsg = require('utils/pmsg').create();
+const View = require('./intro_view');
+const MainRouter = require('modules/menus/main/main_router');
 
 class Controller {
     constructor(options) {
@@ -11,6 +11,7 @@ class Controller {
             window.Gotchi = window.Gotchi || {};
             window.Gotchi.collections = {};
         }
+        this.view = new View();
         this.emiter = {};
         this.loadPool = require('./logic/taskPool');
         _.extend(this.emiter, Backbone.Events);
@@ -37,9 +38,8 @@ class Controller {
     }
 
     run() {
-        var view = require('./intro_view').create();
-        view.once('intro:gotomain', this._gotomainHandler, this);
-        view.once('intro:render:finish', function() {
+        this.view.once('intro:gotomain', this._gotomainHandler, this);
+        this.view.once('intro:render:finish', function() {
             if (Object.keys(window.Gotchi.collections).length === 0) {
                 this.loadResources();
             } else {
@@ -49,12 +49,11 @@ class Controller {
             }
         }, this);
 
-        view.render();
+        this.view.render();
     }
 
     _gotomainHandler() {
-        var main = require('modules/menus/main/main_router').create();
-        main.navigate('menus/main/start', {
+        new MainRouter().navigate('menus/main/start', {
             trigger: true
         });
     }
@@ -89,7 +88,7 @@ class Controller {
 
     _errorHandler(model, response, options) {
         console.error('[INTRO CONTROLLER] Error synchroning collection ' + model.uuid + ' Msg: ' + options.textStatus);
-        pmsg.show({
+        APP.popup.show({
             content: 'Error de conexion :(',
             type: 'error'
         });
@@ -97,8 +96,4 @@ class Controller {
 }
 
 
-module.exports = {
-    create: function(options) {
-        return new Controller(options);
-    }
-};
+module.exports = Controller;

@@ -1,7 +1,7 @@
 'use strict';
 
 const Backbone = require('backbone');
-const Log = require('utils/logger');
+const Controller = require('./selector_controller');
 
 let Router = Backbone.Router.extend({
     routes: {
@@ -12,17 +12,13 @@ let Router = Backbone.Router.extend({
     start: function() {
         console.log('[SELECTOR ROUTER] Starting');
         require("./css/selector.css");
-        this.selectorMenu();
+        this._selectorMenu();
     },
-    selectorMenu: function() {
-      let controller = require('./selector_controller').create();
-      controller.show();
+
+    _selectorMenu: function() {
+        new Controller().show();
     }
 
 });
 
-module.exports = {
-    create: function() {
-        return new Router();
-    }
-};
+module.exports = Router;

@@ -1,6 +1,6 @@
 "use strict";
 
-class Pmsg {
+class Popup {
 
     constructor(options) {
         this.timeout_id = null;
@@ -47,8 +47,4 @@ class Pmsg {
     }
 }
 
-module.exports = {
-    create: function(options) {
-        return new Pmsg(options);
-    }
-};
+module.exports = Popup;

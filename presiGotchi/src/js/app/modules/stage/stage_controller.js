@@ -1,24 +1,19 @@
 'use strict';
 
-const engineFactory = require('./logic/engine');
+const Engine = require('./logic/engine');
 
 class Controller {
     constructor(options) {
-        this._trepiEngine = engineFactory.create({
-            'collections': {
-                'gotchi': window.Gotchi.collections.gotchi,
-                'quotes': window.Gotchi.collections.quotes
-            }
-        });
+        this.collections = {
+            'gotchi': window.Gotchi.collections.gotchi,
+            'quotes': window.Gotchi.collections.quotes
+        };
+        this._engine = new Engine(this.collections);
     }
 
     run() {
-        this._trepiEngine.start();
+        this._engine.start();
     }
 }
 
-module.exports = {
-    create: function(options) {
-        return new Controller(options);
-    }
-};
+module.exports = Controller;

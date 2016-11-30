@@ -3,6 +3,7 @@
 const Backbone = require('backbone');
 const template = require('./templates/selector_menu.html');
 const FreewallLib = require('freewall');
+const StageRouter = require('modules/stage/stage_router');
 
 let View = Backbone.View.extend({
     el: '#container-region',
@@ -35,15 +36,10 @@ let View = Backbone.View.extend({
             name: e.target.id
         });
 
-        let stage = require('modules/stage/stage_router').create();
-        stage.navigate('menus/stage/start', {
+        new StageRouter().navigate('menus/stage/start', {
             trigger: true
         });
     }
 });
 
-module.exports = {
-    create: function(options) {
-        return new View(options.viewOptions);
-    }
-};
+module.exports = View;

@@ -112,8 +112,4 @@ let ViewItem = Backbone.View.extend({
     }
 });
 
-module.exports = {
-    create: function(options) {
-        return new ViewLayout(options.viewOptions);
-    }
-};
+module.exports = ViewLayout;

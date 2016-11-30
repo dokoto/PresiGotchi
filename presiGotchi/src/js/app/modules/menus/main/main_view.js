@@ -2,6 +2,8 @@
 
 const Backbone = require('backbone');
 const template = require('./templates/main_menu.html');
+const ConfiguratorRouter = require('modules/menus/configurator/configurator_router');
+const IntroRouter = require('modules/intro/intro_router');
 
 let View = Backbone.View.extend({
     el: '#container-region',
@@ -16,14 +18,12 @@ let View = Backbone.View.extend({
     menuHandler: function(e) {
         switch (e.target.id) {
             case 'new':
-                let configurator = require('modules/menus/configurator/configurator_router').create();
-                configurator.navigate('menus/configurator/start', {
+                new ConfiguratorRouter().navigate('menus/configurator/start', {
                     trigger: true
                 });
                 break;
             case 'close':
-                let intro = require('modules/intro/intro_router').create();
-                intro.navigate('intro/start', {
+                new IntroRouter().navigate('intro/start', {
                     trigger: true
                 });
                 break;
@@ -31,8 +31,4 @@ let View = Backbone.View.extend({
     }
 });
 
-module.exports = {
-    create: function(options) {
-        return new View(options.viewOptions);
-    }
-};
+module.exports = View;
