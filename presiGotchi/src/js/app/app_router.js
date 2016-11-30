@@ -21,6 +21,7 @@ let Router = Backbone.Router.extend({
         });
         window.APP = {};
         window.APP.popup = new Popup();
+        APP.Gotchi = {};
     }
 
 });

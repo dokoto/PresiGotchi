@@ -7,9 +7,9 @@ const MainRouter = require('modules/menus/main/main_router');
 
 class Controller {
     constructor(options) {
-        if (!window.Gotchi || Object.keys(window.Gotchi.collections).length === 0) {
-            window.Gotchi = window.Gotchi || {};
-            window.Gotchi.collections = {};
+        if (!APP.Gotchi || Object.keys(APP.Gotchi.collections).length === 0) {
+            APP.Gotchi = APP.Gotchi || {};
+            APP.Gotchi.collections = {};
         }
         this.view = new View();
         this.emiter = {};
@@ -40,7 +40,7 @@ class Controller {
     run() {
         this.view.once('intro:gotomain', this._gotomainHandler, this);
         this.view.once('intro:render:finish', function() {
-            if (Object.keys(window.Gotchi.collections).length === 0) {
+            if (Object.keys(APP.Gotchi.collections).length === 0) {
                 this.loadResources();
             } else {
                 $('#intro-progress').hide();
@@ -60,7 +60,7 @@ class Controller {
 
     _completeHandlerConfig(uuid, collectionName, index, total, model, errors, options) {
         console.log('[INTRO CONTROLLER] Successful synchronized collection ' + collectionName + ' id: ' + uuid + ' with backend. ' + model.length + ' Items requested.');
-        window.Gotchi.collections[collectionName] = model;
+        APP.Gotchi.collections[collectionName] = model;
         if (index < total - 1) {
             this.emiter.trigger('on-processed-resource', index + 1, total);
         } else if (index === total - 1) {

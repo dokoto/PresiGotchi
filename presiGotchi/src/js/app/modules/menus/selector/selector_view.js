@@ -32,7 +32,7 @@ let View = Backbone.View.extend({
         wall.fitWidth();
     },
     menuHandler: function(e) {
-        window.Gotchi.selected = window.Gotchi.gotchiCollection.findWhere({
+        APP.Gotchi.selected = APP.Gotchi.gotchiCollection.findWhere({
             name: e.target.id
         });
 

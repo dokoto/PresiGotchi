@@ -1,6 +1,7 @@
 'use strict';
 
 const Backbone = require('backbone');
+const Controller = require('./stage_controller.js');
 
 let Router = Backbone.Router.extend({
     routes: {
@@ -10,7 +11,6 @@ let Router = Backbone.Router.extend({
     start: function() {
         console.log('[TREPI-ENGINE] Starting');
         require("./css/stage-base.css");
-        let Controller = require('./stage_controller.js');
         new Controller().run();
     }
 
