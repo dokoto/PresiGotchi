@@ -5,7 +5,7 @@ const View = require('./main_view');
 class Controller {
     constructor(options) {
         this.viewOptions = {
-            'model': APP.Gotchi.collections.menus.findWhere({
+            'model': APP.Gotchi.menus.findWhere({
                 name: 'main'
             })
         };

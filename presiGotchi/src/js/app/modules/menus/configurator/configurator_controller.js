@@ -15,7 +15,7 @@ class Controller {
             right: 0
         };
         this.viewOptions = {
-            'collection': APP.Gotchi.collections.configurator
+            'collection': APP.Gotchi.configurator
         };
         this.view = new View(this.viewOptions);
     }
@@ -91,7 +91,7 @@ class Controller {
     }
 
     _finishConfigurator(ev) {
-        APP.Gotchi.collections.gotchi.first().get('state').direction = (this.direction.right > this.direction.left) ? 'RIGHT' : 'LEFT';
+        APP.Gotchi.gotchi.first().get('state').direction = (this.direction.right > this.direction.left) ? 'RIGHT' : 'LEFT';
         new StageRouter().navigate('stage/engine/start', {
             trigger: true
         });

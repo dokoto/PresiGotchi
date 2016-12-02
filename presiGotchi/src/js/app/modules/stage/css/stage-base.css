@@ -6,10 +6,19 @@
 }
 
 .typing-block {
+    border: 2px;
+    border-style: groove;
+    border-radius: 7px;
+    background-color: #fffbfb;
     overflow: scroll;
     height: 20%;
     bottom: 1px;
-    width: 95%;
+    width: 90%;
+    margin: 3%;
     padding: 2%;
     position: absolute;
+}
+
+.typing-block::-webkit-scrollbar {
+    display: none;
 }

@@ -7,8 +7,8 @@ const View = require('./stage_view');
 class Controller {
     constructor(options) {
         this.collections = {
-            'gotchi': APP.Gotchi.collections.gotchi,
-            'quotes': APP.Gotchi.collections.quotes
+            'gotchi': APP.Gotchi.gotchi,
+            'quotes': APP.Gotchi.quotes
         };
         this.engine = new Engine(this.collections);
     }
