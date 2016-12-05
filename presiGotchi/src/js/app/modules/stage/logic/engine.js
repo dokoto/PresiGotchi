@@ -5,8 +5,14 @@ const _ = require('underscore');
 class Engine {
     constructor(options) {
         this._options = options;
-        this._quotes = this._options.quotes.find(item => item.get('status') === 'NAZI' ).get('quotes');
-        this._quotes = _.find(this._quotes, item => item.direction === 'LEFT');
+        this.gotchi = this._options.gotchi.find(item=>item.get('activated'));
+        this._quotesByStage = this._options.quotes.find(item => item.get('status') === this.gotchi.get('state').stage).get('quotes');
+        this._quotes = [];
+        _.each(this._quotesByStage, (item) => {
+            if (item.direction === 'LEFT') {
+                this._quotes.push(item);
+            }
+        });
     }
 
     start() {
@@ -20,7 +26,8 @@ class Engine {
         let porc = 6;
         let progressUnit = ($(spans).length * (100 / porc)) / 100;
         let progress = progressUnit;
-        let hiddenHeight = 0, scroll = 0;
+        let hiddenHeight = 0,
+            scroll = 0;
         $(spans).hide().appendTo(id).each(function(i) {
             $(this).delay(100 * i).css({
                 display: 'inline',
