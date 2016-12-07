@@ -5,7 +5,7 @@ const _ = require('underscore');
 class Engine {
     constructor(options) {
         this._options = options;
-        this.gotchi = this._options.gotchi.find(item=>item.get('activated'));
+        this._gotchi = this._options.gotchi.find(item=>item.get('activated'));
         this._quotesByStage = this._options.quotes.find(item => item.get('status') === this.gotchi.get('state').stage).get('quotes');
         this._quotes = [];
         _.each(this._quotesByStage, (item) => {
