@@ -1,11 +1,11 @@
 [{
     "email": "trepigotchid@gmail.com",
     "name": "",
-    "country": "Corruptania",
-    "description": "Sin limites",
-    "type": "POLITICIANS",
-    "isDead": false,
+    "country": "",
+    "description": "",
     "state": {
+        "activated": false,
+        "isDead": false,
         "direction": "RANDOM",
         "stage": "FILOSOFER",
         "status": 0

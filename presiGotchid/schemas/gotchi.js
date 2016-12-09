@@ -26,22 +26,19 @@ var schema = {
     description: {
         type: String
     },
-    type: {
-        type: String,
-        required: true,
-        uppercase: true,
-        trim: true,
-        index: true,
-        enum: ['POLITICIANS', 'DICTATORS', 'CELEBRITIES', 'RELIGIOUS'],
-        default: 'POLITICIANS'
-    },
-    isDead: {
-        type: Boolean,
-        required: true,
-        index: true,
-        default: false
-    },
     state: {
+        "activated": {
+            type: Boolean,
+            required: true,
+            index: true,
+            default: false
+        },
+        "isDead": {
+            type: Boolean,
+            required: true,
+            index: true,
+            default: false
+        },
         "direction": {
             type: String,
             uppercase: true,

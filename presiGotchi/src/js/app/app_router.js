@@ -18,7 +18,7 @@ let Router = Backbone.Router.extend({
         window.APP = {};
         APP.popup = new Popup();
         APP.Gotchi = {};
-
+        APP.consts = require('json!config/constants.json');
         let Intro = require('modules/intro/intro_router');
         new Intro().navigate('intro/start', {
             trigger: true

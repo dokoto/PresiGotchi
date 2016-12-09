@@ -1,10 +1,12 @@
-module.exports = function(grunt) {
-    'use strict';
+'use strict';
 
-    var webpack = require('webpack');
-    var options = grunt.config.data;
-    var path = require('path');
-    
+module.exports = function(grunt, options) {
+
+    const webpack = require('webpack');
+    const path = require('path');
+    const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+    const chalk = require('chalk');
+
     return {
         dev: {
             cache: false,
@@ -21,10 +23,20 @@ module.exports = function(grunt) {
                 sourceMapFilename: "<%=base.appName%>.js.map",
             },
             stats: {
-                // Configure the console output
                 colors: true,
-                modules: true,
-                reasons: true
+                modules: options.args.verbose,
+                reasons: options.args.verbose,
+                hash: options.args.verbose,
+                version: options.args.verbose,
+                timings: options.args.verbose,
+                assets: options.args.verbose,
+                chunks: options.args.verbose,
+                children: options.args.verbose,
+                source: options.args.verbose,
+                errors: options.args.verbose,
+                errorDetails: options.args.verbose,
+                warnings: options.args.verbose,
+                publicPath: options.args.verbose
             },
             // stats: false disables the stats output
 
@@ -68,6 +80,10 @@ module.exports = function(grunt) {
                     $: "jquery",
                     jQuery: "jquery",
                     "window.jQuery": "jquery"
+                }),
+                new ProgressBarPlugin({
+                    format: '  build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)',
+                    clear: false
                 })
             ],
             resolve: {
@@ -90,10 +106,20 @@ module.exports = function(grunt) {
             },
 
             stats: {
-                // Configure the console output
-                colors: false,
-                modules: true,
-                reasons: true
+                colors: true,
+                modules: options.args.verbose,
+                reasons: options.args.verbose,
+                hash: options.args.verbose,
+                version: options.args.verbose,
+                timings: options.args.verbose,
+                assets: options.args.verbose,
+                chunks: options.args.verbose,
+                children: options.args.verbose,
+                source: options.args.verbose,
+                errors: options.args.verbose,
+                errorDetails: options.args.verbose,
+                warnings: options.args.verbose,
+                publicPath: options.args.verbose
             },
             // stats: false disables the stats output
 
@@ -142,6 +168,10 @@ module.exports = function(grunt) {
                     VERSION: '<%= args.versionApp %>',
                     TARGET: '<%= args.target %>',
                     TARGET_OS: '<%= args.targetOS %>',
+                }),
+                new ProgressBarPlugin({
+                    format: '  build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)',
+                    clear: false
                 })
             ]
         }

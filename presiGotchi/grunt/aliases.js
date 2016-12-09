@@ -6,6 +6,7 @@ module.exports = function(grunt, options) {
         'jshint',
         'mkdir:builds',
         'clean:web_builds',
+        'copy:constants',
         'webpack:dev',
         'copy:single_html_page',
         'clean:bin_builds',
@@ -20,6 +21,7 @@ module.exports = function(grunt, options) {
     var build_android_dev = [
         'jshint',
         'clean:web_builds',
+        'copy:constants',
         'webpack:dev',
         'copy:single_html_page'
     ];

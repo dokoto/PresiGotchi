@@ -92,6 +92,7 @@ class Controller {
 
     _finishConfigurator(ev) {
         APP.Gotchi.gotchi.first().get('state').direction = (this.direction.right > this.direction.left) ? 'RIGHT' : 'LEFT';
+        APP.Gotchi.gotchi.first().get('state').activated = true;
         new StageRouter().navigate('stage/engine/start', {
             trigger: true
         });

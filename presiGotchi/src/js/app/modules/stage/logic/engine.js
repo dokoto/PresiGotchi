@@ -1,22 +1,31 @@
 'use strict';
 
 const _ = require('underscore');
+const utils = require('utils/misc');
 
 class Engine {
     constructor(options) {
         this._options = options;
-        this._gotchi = this._options.gotchi.find(item=>item.get('activated'));
-        this._quotesByStage = this._options.quotes.find(item => item.get('status') === this.gotchi.get('state').stage).get('quotes');
-        this._quotes = [];
-        _.each(this._quotesByStage, (item) => {
-            if (item.direction === 'LEFT') {
-                this._quotes.push(item);
-            }
-        });
+        if (APP.consts.mocks) {
+            this._options.gotchi.first().get('state').activated = true;
+        }
+        this._gotchi = this._options.gotchi.find(item => item.get('state').activated);
+        this._quotesByStage = this._options.quotes.find(item => item.get('status') === this._gotchi.get('state').stage).get('quotes');
+        if (this._gotchi.get('state').stage === 'FILOSOFER') {
+            this._quotes = this._quotesByStage;
+        } else {
+            _.each(this._quotesByStage, (item) => {
+                if (this._gotchi.get('state').stage === 'FILOSOFER' || item.direction === this._gotchi.get('state').direction) {
+                    this._quotes.push(item);
+                }
+            });
+        }
     }
 
     start() {
-        let str = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.';
+        let randAuthor = utils.getRandomIntInclusive(0, this._quotes.length - 1);
+        let randQuote = utils.getRandomIntInclusive(0, this._quotes[randAuthor].texts.length - 1);
+        let str = utils.cleanText(this._quotes[randAuthor].texts[randQuote]);
         this.typingText(str);
     }
 
