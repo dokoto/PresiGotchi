@@ -1,3 +1,10 @@
+.message-region {
+    position: absolute;
+    height: auto;
+    overflow: hidden;
+    bottom: 2px;
+}
+
 .typing-font {
     color: black;
     font-size: 0.8em;
@@ -11,14 +18,42 @@
     border-radius: 7px;
     background-color: #fffbfb;
     overflow: scroll;
-    height: 20%;
     bottom: 1px;
     width: 90%;
-    margin: 3%;
+    margin-bottom: 2%;
+    margin-right: 3%;
     padding: 2%;
-    position: absolute;
+    float: right;    
+    /*height: 160px;*/
 }
 
 .typing-block::-webkit-scrollbar {
     display: none;
+}
+
+.response-bar {
+    width: 90%;
+    background-color: mintcream;
+    margin-bottom: 2%;
+    margin-right: 3%;
+    padding: 2%;
+    border: 2px;
+    border-style: groove;
+    border-radius: 7px;
+    float: right
+}
+
+.buttom-response {
+    width: 45%;
+    float: right;
+    padding: 1%;
+    margin: 1%;
+}
+
+.reponse-font {
+    color: black;
+    font-size: 0.8em;
+    font-family: sans-serif;
+    text-align: justify;
+    font-weight: bold;
 }

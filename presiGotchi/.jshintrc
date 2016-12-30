@@ -15,6 +15,7 @@
         "i18n": true,
         "btoa": true,
         "describe": true,
-        "it": true
+        "it": true,
+        "Log": true
     }
 }

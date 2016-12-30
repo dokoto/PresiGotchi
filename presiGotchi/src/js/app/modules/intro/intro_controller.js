@@ -12,7 +12,7 @@ class Controller {
         }
         this.view = new View();
         this.emiter = {};
-        this.loadPool = require('./logic/taskPool');
+        this.loadPool = require('./logic/taskPool');        
         _.extend(this.emiter, Backbone.Events);
     }
 

@@ -1,6 +1,7 @@
+'use strict';
+
 module.exports = function (grunt, options) {
   grunt.registerTask('help', function () {
-    'use strict';
 
     Log.info.v0('Use : #> grunt [options] [task]');
     Log.info.v0('Ej: #> grunt --os=android --mode=dev --versionApp=0.0.1 --logger=0 build');
@@ -15,6 +16,7 @@ module.exports = function (grunt, options) {
     Log.info.v0('*versionApp     : Version a generar ej: --versionApp=287.3.3');
     Log.info.v0('mode            : Tipo de compilacion ej: --mode=[dev(por defecto)|prod]');
     Log.info.v0('logger          : Nivel de traza ej: --logger=[0: Pocas trazas(por defecto), 1: Maximo posible de trazas]');
+    Log.info.v0('mocks           : Activa los mocks ej: --mode=[false(por defecto)|true]');
 
 
     Log.info.v0(' ');
