@@ -22,7 +22,13 @@ class Controller {
     }
 
     _handleQuotes(quote) {
+        this.typing.on('typing:finish', this._typingFinished.bind(this));
         this.typing.start(quote);
+    }
+
+    _typingFinished() {
+        console.log('[STAGE COSNTROLLER] Typer finis, showing response bar');
+        $('#response-bar').fadeIn('slow');
     }
 }
 

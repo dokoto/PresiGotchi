@@ -3,6 +3,7 @@
     height: auto;
     overflow: hidden;
     bottom: 2px;
+    width: 100%;
 }
 
 .typing-font {
@@ -23,7 +24,7 @@
     margin-bottom: 2%;
     margin-right: 3%;
     padding: 2%;
-    float: right;    
+    float: right;
     /*height: 160px;*/
 }
 
@@ -32,11 +33,10 @@
 }
 
 .response-bar {
-    width: 90%;
-    background-color: mintcream;
+    width: 92%;
     margin-bottom: 2%;
     margin-right: 3%;
-    padding: 2%;
+    padding: 1%;
     border: 2px;
     border-style: groove;
     border-radius: 7px;
@@ -45,9 +45,32 @@
 
 .buttom-response {
     width: 45%;
-    float: right;
     padding: 1%;
-    margin: 1%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.75);
+    border-radius: 4px;
+    transition: 300ms;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.buttom-response:active {
+    border: 1px solid green;
+    outline: 0 !important;
+}
+
+.buttom-response:focus {
+    outline: 0 !important;
+}
+
+.buttom-response.right {
+    float: right;
+    text-align: right !important;
+}
+
+.buttom-response.left {
+    float: left;
+    text-align: left !important
 }
 
 .reponse-font {
