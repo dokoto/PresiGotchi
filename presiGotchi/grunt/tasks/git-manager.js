@@ -1,10 +1,9 @@
-/*global module*/
+'use strict';
 
 module.exports = function(grunt) {
 
   var options = grunt.config.data;
   grunt.registerTask('git-manager', function() {
-    'use strict';
 
     var sh = require('shelljs');
     var utilsShell = require('../utils/shell');

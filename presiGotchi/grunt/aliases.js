@@ -1,5 +1,6 @@
+'use strict';
+
 module.exports = function(grunt, options) {
-    'use strict';
 
     var build_android_full_dev = [
         'git-manager',
@@ -12,6 +13,7 @@ module.exports = function(grunt, options) {
         'clean:bin_builds',
         'cordovacli:create',
         'cordovacli:add_platforms',
+        'cordovacli:add_plugins',
         'copy:android_assets',
         'clean:bin_builds_www',
         'copy:compiled_sources',

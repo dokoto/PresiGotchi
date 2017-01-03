@@ -49,5 +49,15 @@ module.exports = {
         }
 
         return emiter;
+    },
+    time: {
+        ms: {
+            second: 1000,
+            minute: 60000,
+            hour: 3600000,
+            day: 86400000,
+            week: 604800016,
+            month: 2629800000            
+        }
     }
 };

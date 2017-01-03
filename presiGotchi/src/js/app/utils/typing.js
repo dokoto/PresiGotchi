@@ -4,12 +4,22 @@ const Backbone = require('backbone');
 const _ = require('underscore');
 
 class Typing {
-    constructor() {
+    constructor(options) {
         _.extend(this, Backbone.Events);
-        this.setAttribs();
+        if (!options.parent) {
+            throw Error('options.parent is mandatory');
+        }
+        this.parent = options.parent;
+        if (!options.id) {
+            throw Error('options.id is mandatory');
+        }
+        this.id = options.id;
+        this.wantedPorcHeight = options.wantedPorcHeight || 20;
+
+        this.initAttribs();
     }
 
-    setAttribs() {
+    initAttribs() {
         this.spans = '';
         this.porc = 0;
         this.length = 0;
@@ -20,30 +30,36 @@ class Typing {
         this.idHeightPorc = 0;
         this.idHeightPixels = 0;
         this.wantedPixelHeight = 0;
-        this.wantedPorcHeight = 20;
     }
 
-    start(text, id) {
-        id = id || '#typing-text';
-        $(id).css('visibility', 'hidden');
-        this.setAttribs();
+    hide() {
+        $('#response-bar').fadeOut('slow');
+        $(this.parent).fadeOut();
+        $(this.id).empty();
+        $(this.id).removeAttr('style');
+    }
+
+    show(text, id) {
+        $(this.parent).fadeIn();
+        $(this.id).css('visibility', 'hidden');
+        this.initAttribs();
         this.spans = '<span>' + text.split('').join('</span><span>') + '</span>';
         this.porc = 6;
         this.length = $(this.spans).length;
         this.progressUnit = (this.length * (100 / this.porc)) / 100;
         this.progress = this.progressUnit;
-        $(this.spans).appendTo(id);
-        this.idHeightPixels = $(id).height();
-        $(id).children('span').hide();
-        this.idHeightPorc = this._calcHeightPorcOfWindow(id);
+        $(this.spans).appendTo(this.id);
+        this.idHeightPixels = $(this.id).height();
+        $(this.id).children('span').hide();
+        this.idHeightPorc = this._calcHeightPorcOfWindow(this.id);
         this.wantedPixelHeight = this._calcHeightPixelsOfWin(this.wantedPorcHeight);
-        $(id).css('visibility', 'visible');
+        $(this.id).css('visibility', 'visible');
         if (this.idHeightPixels > this.wantedPixelHeight) {
-            $(id).css('height', this.wantedPixelHeight);
+            $(this.id).css('height', this.wantedPixelHeight);
         } else {
             $(id).css('height', this.idHeightPixels);
         }
-        $(id).children('span').each(this._handleAllCharacteres.bind(this, id));
+        $(this.id).children('span').each(this._handleAllCharacteres.bind(this, this.id));
     }
 
     _calcHeightPorcOfWindow(id) {
@@ -81,7 +97,12 @@ class Typing {
         }
         if (index === this.length - 1) {
             this.trigger('typing:finish');
+            this._finishTyping();
         }
+    }
+
+    _finishTyping() {
+        $('#response-bar').fadeIn('slow');
     }
 }
 

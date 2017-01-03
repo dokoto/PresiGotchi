@@ -1,5 +1,6 @@
+'use strict';
+
 module.exports = function(grunt, options) {
-    'use strict';
 
     return {
         options: {
@@ -28,6 +29,15 @@ module.exports = function(grunt, options) {
                 command: 'platform',
                 action: 'add',
                 platforms: ['android']
+            }
+        },
+        add_plugins: {
+            options: {
+                command: 'plugin',
+                action: 'add',
+                plugins: [
+                    'cordova-plugin-local-notifications'
+                ]
             }
         },
         build_ios: {

@@ -12,23 +12,37 @@ class Controller {
             'quotes': APP.Gotchi.quotes
         };
         this.engine = new Engine(this.collections);
-        this.typing = new Typing();
+        this.typing = new Typing({
+            parent: '#message-region',
+            id: '#typing-text'
+        });
     }
 
     run() {
         new View().render();
+        this._setListeners();
+        this.engine.nextTic();
+    }
+
+    _setListeners() {
+        this.typing.on('typing:finish', this._typingFinished.bind(this));
+        this.typing.on('typing:button:click', this._typingButtonClick.bind(this));
         this.engine.on('new:quote', this._handleQuotes.bind(this));
-        this.engine.start();
+        $('.buttom-response').on('click', this._typingButtonClick.bind(this));
     }
 
     _handleQuotes(quote) {
-        this.typing.on('typing:finish', this._typingFinished.bind(this));
-        this.typing.start(quote);
+        this.typing.show(quote);
     }
 
     _typingFinished() {
-        console.log('[STAGE COSNTROLLER] Typer finis, showing response bar');
-        $('#response-bar').fadeIn('slow');
+        console.log('[STAGE COSNTROLLER] Typer finished, showing response bar');
+    }
+
+    _typingButtonClick(ev) {
+        console.log('[STAGE COSNTROLLER] Button %o clicked', $(ev.currentTarget).attr('id'));
+        this.typing.hide();
+        this.engine.nextTic();
     }
 }
 
