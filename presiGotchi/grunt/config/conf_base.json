@@ -6,10 +6,6 @@
     "appName": "TrepiGotchi",
     "buildFolder": "build/",
     "proxy": {
-        "url": "http://http.internetpsa.inetpsa.com",
-        "port": "80",
-        "user": "E454989",
-        "password": "a1022016"
     },
     "keyStore": {
         "path": "assets/config/android/keyStore/"
@@ -24,16 +20,10 @@
             "androidManifest": "platforms/android/AndroidManifest.xml",
             "cleanCmd": "/platforms/android/cordova/clean",
             "gradleUrl": "https://services.gradle.org/distributions/gradle-2.2.1-all.zip",
-            "apkFileName": "PresiGotchi",
-            "sdk": {
-                "urlBase": "https://dl.google.com/android/repository/",
-                "repository": "repository-11.xml",
-                "sdkForder": "androidSDK",
-                "sdkDownLoadFolder": "downloads"
-            }
+            "apkFileName": "TrepiGotchi"
         },
         "ios": {
-            "ipaFileName": "PresiGotchi"
+            "ipaFileName": "TrepiGotchi"
         }
     }
 }

@@ -1,0 +1,68 @@
+{
+    "toModify": [{
+        "nodeName": "widget",
+        "nodeFather": "widget",
+        "attributes": [{
+            "key": "version",
+            "value": {
+                "nodeLibs": [],
+                "code": "return options.args.versionApp;"
+            }
+        }]
+    }, {
+        "nodeName": "name",
+        "nodeFather": "widget",
+        "value": {
+            "nodeLibs": [],
+            "code": "return options.pkg.nameApp"
+        }
+    }, {
+        "nodeName": "description",
+        "nodeFather": "widget",
+        "value": "return options.pkg.description"
+    }, {
+        "nodeName": "author",
+        "nodeFather": "widget",
+        "value": "PSA Tablet team",
+        "attributes": [{
+            "key": "email",
+            "value": "return options.pkg.author"
+        }, {
+            "key": "href",
+            "value": "return options.pkg.homepage"
+        }]
+    }],
+    "toCreate": [{
+        "nodeName": "preference",
+        "nodeFather": {
+            "tag": "platform",
+            "attributes": [{
+                "key": "name",
+                "value": "android"
+            }]
+        },
+        "attributes": [{
+            "key": "name",
+            "value": "android-minSdkVersion"
+        }, {
+            "key": "value",
+            "value": "24"
+        }]
+    }, {
+        "nodeName": "preference",
+        "nodeFather": {
+            "tag": "platform",
+            "attributes": [{
+                "key": "name",
+                "value": "android"
+            }]
+        },
+        "attributes": [{
+            "key": "name",
+            "value": "android-targetSdkVersion"
+        }, {
+            "key": "value",
+            "value": "25"
+        }]
+    }]
+}

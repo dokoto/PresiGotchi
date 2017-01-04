@@ -26,8 +26,8 @@ module.exports = function(grunt) {
 
       try {
         var cmd;
-        Log.info.v0('* Updating sources from git');
-        Log.info.v0('==> Changin to path : ' + path.join(options.baseDir, options.git.destinationFolderName));
+        this.grunt.log.writeln('* Updating sources from git');
+        this.grunt.log.writeln('==> Changin to path : ' + path.join(options.baseDir, options.git.destinationFolderName));
         grunt.file.setBase(path.join(options.baseDir, options.git.destinationFolderName));
         cmd = 'git pull';
         executeGitCmd(cmd, true);

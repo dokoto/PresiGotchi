@@ -62,14 +62,12 @@ var doMap = {
     mkConf: function(grunt) {
         return {
             base: new Configurator(grunt, './config/conf_base.json'),
-            git: new Configurator(grunt, './config/conf_git.json'),
+            git: new Configurator(grunt, './config/conf_git.json')
         };
     },
 
     global: function(grunt) {
         var data = {};
-        global.Log = require('./utils/Logger').create(grunt, data);
-
         return data;
     },
 
@@ -121,13 +119,18 @@ var doMap = {
         data.base.buildFolder = conf.base.fetch(['buildFolder']);
         data.base.proyectFolderName = __dirname.substr(__dirname.lastIndexOf(path.sep) + 1);
         data.base.cordova = conf.base.fetch(['cordova']);
-
         return data;
     },
 
     git: function(grunt, conf, data) {
         data.git = conf.git.data;
+        return data;
+    },
 
+    cordova(grunt, conf, data) {
+        data.cordova = {};
+        data.cordova.configXmlPath = path.join('assets/cons', conf.base.fetch(['cordova', 'configFile']));
+        data.cordova.configXmlActions = require('./config/cordova/settings_config_xml.json');
         return data;
     },
 
@@ -158,6 +161,9 @@ function mainProcess(grunt, data) {
 
     // BASE
     data = doMap.base(grunt, conf, data);
+
+    // CORDOVA
+    data = doMap.cordova(grunt, conf, data);
 
     // GIT
     data = doMap.git(grunt, conf, data);

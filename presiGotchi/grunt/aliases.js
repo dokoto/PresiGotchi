@@ -12,6 +12,7 @@ module.exports = function(grunt, options) {
         'copy:single_html_page',
         'clean:bin_builds',
         'cordovacli:create',
+        'cordova-settings',
         'cordovacli:add_platforms',
         'cordovacli:add_plugins',
         'copy:android_assets',
@@ -28,11 +29,11 @@ module.exports = function(grunt, options) {
         'copy:single_html_page'
     ];
 
-    var build_android_full_prod = [
-    ];
-
-    var build_android_prod = [
-    ];
+    var test_ios = [],
+        build_ios_full_dev = [],
+        build_android_prod = [],
+        build_android_full_prod = [],
+        build_ios_dev = [];
 
     function test(key) {
         if (key === 'ios') {

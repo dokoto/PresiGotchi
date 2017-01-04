@@ -22,9 +22,9 @@ module.exports = {
 
     var sh = require('shelljs');
     if (envVars !== '') {
-      Log.info.v0('==> $> ' + envVars);
+      this.grunt.log.writeln('==> $> ' + envVars);
     }
-    Log.info.v0('==> $> ' + cmd);
+    this.grunt.log.writeln('==> $> ' + cmd);
     if (hideCmdArgs !== undefined) {
       cmd += ' ' + hideCmdArgs;
     }
@@ -43,7 +43,7 @@ module.exports = {
     var ee = require('events');
 
     cmd = (execEnv !== undefined) ? execEnv + cmd : cmd;
-    Log.info.v0('==> $> ' + cmd);
+    this.grunt.log.writeln('==> $> ' + cmd);
     var child = sh.exec(cmd, {
       async: true,
       silent: (options.logger === 1) ? false : true

@@ -48,7 +48,7 @@ module.exports = function(grunt, options) {
                             }
                         }
                         for (let key in options.args) {
-                          builtConsts[key] = options.args[key];
+                            builtConsts[key] = options.args[key];
                         }
                         return JSON.stringify(builtConsts);
                     } catch (error) {
