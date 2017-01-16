@@ -16,6 +16,7 @@
         "btoa": true,
         "describe": true,
         "it": true,
-        "Log": true
+        "Log": true,
+        "cordova": true
     }
 }

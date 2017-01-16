@@ -13,14 +13,14 @@ module.exports = function(grunt, options) {
                 platforms: ['ios', 'android'],
                 plugins: ['device', 'dialogs'],
                 path: 'builds/bin/<%=args.mode%>/<%=base.appName%>',
-                id: '<%=base.cordova.domain%>.<%=base.cordova.mainClassName%>',
+                id: '<%=cordova.domain%>.<%=cordova.mainClassName%>',
                 name: '<%=base.appName%>'
             }
         },
         create: {
             options: {
                 command: 'create',
-                id: '<%=base.cordova.domain%>.<%=base.cordova.mainClassName%>',
+                id: '<%=cordova.domain%>.<%=cordova.mainClassName%>',
                 name: '<%=base.appName%>'
             }
         },
@@ -36,7 +36,7 @@ module.exports = function(grunt, options) {
                 command: 'plugin',
                 action: 'add',
                 plugins: [
-                    'cordova-plugin-local-notifications'
+                    'https://github.com/Telerik-Verified-Plugins/LocalNotification.git'
                 ]
             }
         },

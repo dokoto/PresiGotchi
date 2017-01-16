@@ -14,22 +14,31 @@
         "nodeFather": "widget",
         "value": {
             "nodeLibs": [],
-            "code": "return options.pkg.nameApp"
+            "code": "return options.pkg.name;"
         }
     }, {
         "nodeName": "description",
         "nodeFather": "widget",
-        "value": "return options.pkg.description"
+        "value": {
+            "nodeLibs": [],
+            "code": "return options.pkg.description;"
+        }
     }, {
         "nodeName": "author",
         "nodeFather": "widget",
-        "value": "PSA Tablet team",
+        "value": "DOKOTOR-IDEA",
         "attributes": [{
             "key": "email",
-            "value": "return options.pkg.author"
+            "value": {
+                "nodeLibs": [],
+                "code": "return options.pkg.author;"
+            }
         }, {
             "key": "href",
-            "value": "return options.pkg.homepage"
+            "value": {
+                "nodeLibs": [],
+                "code": "return options.pkg.homepage;"
+            }
         }]
     }],
     "toCreate": [{

@@ -16,17 +16,21 @@ class CordorvaConfTool {
 
     _addAttributes(that, el, node) {
         if (node.attributes !== undefined) {
-            var attributeIndex, attribute;
+            let attributeIndex, attribute, value;
             for (attributeIndex = 0; attributeIndex < node.attributes.length; attributeIndex++) {
                 attribute = node.attributes[attributeIndex];
-                el.setAttribute(attribute.key, that.resolveComplexVal(this.grunt, this.options, attribute.value));
+                value = misc.resolveComplexVal(this.grunt, this.options, attribute.value);
+                if (typeof value !== 'string' && typeof value !== 'number') {
+                    this.grunt.fatal('[_addAttributes] Complex value resolution error valueToResolv :' + attribute.value + ' valureResolved: ' + value);
+                }
+                el.setAttribute(attribute.key, value);
             }
         }
     }
 
     _resolveFather(node, father) {
-        //this.grunt.log.writeln('[RESOLVE_FATHER]');
-        //this.grunt.log.writeln('[RESOLVE_FATHER] INIT');
+        this.grunt.log.writeln('[RESOLVE_FATHER]');
+        this.grunt.log.writeln('[RESOLVE_FATHER] INIT');
         if (father === undefined) {
             if (node.nodeFather instanceof Object) {
                 this.grunt.log.writeln('[RESOLVE_FATHER] ' + node.nodeFather.tag);
@@ -55,11 +59,16 @@ class CordorvaConfTool {
         }
     }
 
-    createNewNode(that, node, father) {
+    _createNewNode(that, node, father) {
         let i;
         let new_el = this.xmlObject.createElement(node.nodeName);
         if (node.value !== undefined) {
-            let new_text = this.xmlObject.createTextNode(misc.resolveComplexVal(this.grunt, this.options, node.value));
+            let text = misc.resolveComplexVal(this.grunt, this.options, node.value);
+            if (typeof text !== 'string' && typeof text !== 'number') {
+                this.grunt.fatal('[_createNewNode] Complex value resolution error valueToResolv :' + node.value + ' valureResolved: ' + text);
+            }
+            this.grunt.log.writeln('[CREATE] Node: ' + node.nodeName + ' Value: ' + text);
+            let new_text = this.xmlObject.createTextNode(text);
             new_el.appendChild(new_text);
         }
         //var el = (father === undefined) ? xmlObject.getElementsByTagName(node.nodeFather)[0] : father;
@@ -83,7 +92,11 @@ class CordorvaConfTool {
         }
         if (node.value !== undefined) {
             let new_text = el.childNodes[0];
-            let text = that.resolveComplexVal(this.grunt, this.options, node.value);
+            let text = misc.resolveComplexVal(this.grunt, this.options, node.value);
+            if (typeof text !== 'string' && typeof text !== 'number') {
+                this.grunt.fatal('[_modifyNode] Complex value resolution error valueToResolv :' + node.value + ' valureResolved: ' + text);
+            }
+            this.grunt.log.writeln('[MODIFY] Node: ' + JSON.stringify(node.value) + ' Value: ' + text);
             new_text.nodeValue = text;
             new_text.data = text;
         }
@@ -119,7 +132,7 @@ class CordorvaConfTool {
             this._editXML(this.nodes);
             fs.writeFileSync(this.xmlPath, new xmldom.XMLSerializer().serializeToString(this.xmlObject));
         } catch (error) {
-            this.grunt.log.fatal(error);
+            this.grunt.fatal(error);
         }
     }
 }

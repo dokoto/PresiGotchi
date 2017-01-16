@@ -46,12 +46,16 @@ module.exports = {
                     funcDepsTxt.push(funcNode.nodeLibs[i]);
                 }
                 funcDepsTxt.push(funcNode.code);
-                dFunc = Function.apply(null, funcDepsTxt);
-
-                return dFunc.apply(null, funcDeps);
+                try {
+                    dFunc = Function.apply(null, funcDepsTxt);
+                    let result = dFunc.apply(null, funcDeps);
+                    return result;
+                } catch(error) {
+                    grunt.fatal(error);
+                }
             }
         } catch (error) {
-            Log.error.v0(error);
+            grunt.fatal(error);
         }
     },
 };

@@ -29,6 +29,7 @@ module.exports = {
                 jQuery: true,
                 i18n: true,
                 btoa: true
+                cordova: true
             }
         },
         gruntfile: {
