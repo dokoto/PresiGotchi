@@ -31,7 +31,7 @@ module.exports = function(grunt, options) {
             files: [{
                 expand: true,
                 cwd: __dirname + '/config/',
-                src: ['constants.json'],
+                src: ['runtime_constants.json'],
                 dest: 'src/js/app/config/'
             }],
             options: {

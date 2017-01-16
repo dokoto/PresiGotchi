@@ -1,0 +1,8 @@
+{
+    "buildFolder": "build/",
+    "proxy": {
+    },
+    "keyStore": {
+        "path": "assets/config/android/keyStore/"
+    }
+}
