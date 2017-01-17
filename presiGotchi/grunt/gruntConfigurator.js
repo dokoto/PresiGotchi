@@ -44,6 +44,9 @@ Configurator.prototype.explore = function(ptr, args) {
 };
 
 Configurator.prototype.fetch = function(args) {
+    if (!args) {
+        return this.data;
+    }
     var params = args.slice(0);
     var result = this.explore(this.data, params);
     if (result.error === true) {
@@ -61,8 +64,9 @@ Configurator.prototype.fetch = function(args) {
 var doMap = {
     mkConf: function(grunt) {
         return {
-            base: new Configurator(grunt, './config/conf_base.json'),
-            git: new Configurator(grunt, './config/conf_git.json')
+            base: new Configurator(grunt, './config/build_conf_base.json'),
+            cordova: new Configurator(grunt, './config/build_cordova_conf_base.json'),
+            git: new Configurator(grunt, './config/build_conf_git.json')
         };
     },
 
@@ -71,10 +75,9 @@ var doMap = {
         return data;
     },
 
-    args: function(grunt, data) {
-        var packageApp = grunt.file.readJSON('package.json');
+    args: function(grunt, data) {        
         data.baseDir = process.cwd();
-        data.pkg = packageApp;
+        data.pkg = grunt.file.readJSON('package.json');
 
         data.args = {};
         if (grunt.option('versionApp') === undefined) {
@@ -112,9 +115,7 @@ var doMap = {
     base: function(grunt, conf, data) {
         data.base = {};
 
-        data.base.appName = conf.base.fetch(['appName']);
         data.base.proxy = conf.base.fetch(['proxy']);
-        data.base.log = conf.base.fetch(['log']);
         data.base.keystore = conf.base.fetch(['keyStore']).path + (grunt.option('keystore') || 'default');
         data.base.buildFolder = conf.base.fetch(['buildFolder']);
         data.base.proyectFolderName = __dirname.substr(__dirname.lastIndexOf(path.sep) + 1);
@@ -128,9 +129,9 @@ var doMap = {
 
     cordova(grunt, conf, data) {
         data.cordova = {};
-        data.cordova = conf.base.fetch(['cordova']);
-        data.cordova.configXmlPath = path.join('assets/cons', conf.base.fetch(['cordova', 'configFile']));
-        data.cordova.configXmlActions = require('./config/cordova/settings_config_xml.json');
+        data.cordova = conf.cordova.fetch();
+        data.cordova.configXmlPath = path.join('assets/cons', data.cordova.configFile);
+        data.cordova.configXmlActions = require('./config/build_cordova_config_xml.json');
         return data;
     },
 

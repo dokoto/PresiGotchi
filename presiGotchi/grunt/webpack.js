@@ -18,9 +18,9 @@ module.exports = function(grunt, options) {
             output: {
                 devtoolLineToLine: true,
                 path: "builds/web/dev/",
-                filename: "<%=base.appName%>.js",
+                filename: "<%=pkg.name%>.js",
                 pathinfo: true,
-                sourceMapFilename: "<%=base.appName%>.js.map",
+                sourceMapFilename: "<%=pkg.name%>.js.map",
             },
             stats: {
                 colors: true,
@@ -102,7 +102,7 @@ module.exports = function(grunt, options) {
             entry: './src/js/app/app.js',
             output: {
                 path: "builds/web/prod/",
-                filename: "<%=base.appName%>.js",
+                filename: "<%=pkg.name%>.js",
             },
 
             stats: {

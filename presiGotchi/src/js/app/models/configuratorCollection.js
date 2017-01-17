@@ -2,13 +2,12 @@
 
 
 const _ = require('underscore');
-const baseParams = require('json!config/baseParams.json');
 const BaseCollection = require('./base/collectionbase');
 
 class ConfiguratorCollection extends BaseCollection {
     constructor() {
         super();
-        this.url = baseParams.urlRoot + '/texts/configurator';
+        this.url = APP.consts.SERVICE_URL + '/texts/configurator';
     }
 
     getAllThumbs() {

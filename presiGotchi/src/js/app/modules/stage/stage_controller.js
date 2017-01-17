@@ -4,9 +4,11 @@ require('./css/stage-base.css');
 const Engine = require('./logic/engine');
 const View = require('./stage_view');
 const Typing = require('utils/typing');
+const moment = require('moment');
 
 class Controller {
     constructor(options) {
+        moment().format();
         this.collections = {
             'gotchi': APP.Gotchi.gotchi,
             'quotes': APP.Gotchi.quotes
@@ -22,24 +24,36 @@ class Controller {
         new View().render();
         this._setListeners();
         this.engine.nextTic();
+        document.addEventListener('pause', () => {
+            alert('PAUSE');
+        }, false);
         /*
-        cordova.plugins.notification.local.schedule({
-            id: 1,
-            title: "Production Jour fixe",
-            text: "Duration 1h",
-            firstAt: monday_9_am,
-            every: "week",
-            sound: "file://sounds/reminder.mp3",
-            icon: "http://icons.com/?cal_id=1",
-            data: {
-                meetingId: "123#fg8"
-            }
-        });*/
+        var now = new Date().getTime(),
+        _15_sec_from_now = new Date(now + 15*1000);
 
-        cordova.plugins.notification.local.update({
+        APP.plugins.notification.local.schedule(
+        {
             id: 10,
-            title: "Meeting in 5 minutes!"
+            title: "New Message",
+            at: _15_sec_from_now,
+            text: "Hi, are you ready? We are waiting."
         });
+
+         APP.plugins.notification.local.on("click",
+         function (notification) {
+            if (notification.id === 10) {
+                console.log('Click en notification : %o', notification);
+            }
+         });
+
+         APP.plugins.notification.local.on("trigger",
+         function (notification) {
+             if (notification.id === 10) {
+                alert(JSON.stringify(notification));
+            }
+         });
+*/
+
     }
 
     _setListeners() {

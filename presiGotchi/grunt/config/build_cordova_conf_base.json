@@ -1,4 +1,4 @@
-"cordova": {
+{
     "cmd": "cordova",
     "destinationFolderName": "trepiGotchi",
     "mainClassName": "trepi",

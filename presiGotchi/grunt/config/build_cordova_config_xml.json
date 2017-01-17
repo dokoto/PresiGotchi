@@ -6,7 +6,7 @@
             "key": "version",
             "value": {
                 "nodeLibs": [],
-                "code": "return options.args.versionApp;"
+                "code": "return options.pkg.version;"
             }
         }]
     }, {
@@ -55,7 +55,7 @@
             "value": "android-minSdkVersion"
         }, {
             "key": "value",
-            "value": "24"
+            "value": "22"
         }]
     }, {
         "nodeName": "preference",

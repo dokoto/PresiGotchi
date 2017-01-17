@@ -2,7 +2,6 @@
 
 const Backbone = require('backbone');
 const template = require('./templates/intro.html');
-const baseParams = require('json!../../config/baseParams.json');
 
 let View = Backbone.View.extend({
     el: '#container-region',
@@ -12,7 +11,7 @@ let View = Backbone.View.extend({
     },
     render: function() {
         this.$el.html(this.template({
-            title: baseParams.appName,
+            title: APP.consts.NAME,
             message: 'Pulse la pantalla para continuar ',
             loadingMsg: 'Loading ....... 0%'
         }));

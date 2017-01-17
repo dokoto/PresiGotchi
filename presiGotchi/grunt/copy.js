@@ -16,7 +16,7 @@ module.exports = function(grunt, options) {
                 expand: true,
                 cwd: 'builds/web/<%=args.mode%>/',
                 src: ['**/*'],
-                dest: 'builds/bin/<%=args.mode%>/<%=base.appName%>/www/'
+                dest: 'builds/bin/<%=args.mode%>/<%=pkg.name%>/www/'
             }]
         },
         android_assets: {
@@ -24,7 +24,7 @@ module.exports = function(grunt, options) {
                 expand: true,
                 cwd: 'assets/<%=args.targetOS%>/icons/',
                 src: ['**/*'],
-                dest: 'builds/bin/<%=args.mode%>/<%=base.appName%>/platforms/<%=args.targetOS%>/res/'
+                dest: 'builds/bin/<%=args.mode%>/<%=pkg.name%>/platforms/<%=args.targetOS%>/res/'
             }]
         },
         constants: {
@@ -42,13 +42,16 @@ module.exports = function(grunt, options) {
                         let builtConsts = {};
                         for (let key in constsToModify) {
                             if (options.args[key.toLowerCase()] !== undefined) {
-                                builtConsts[key] = options.args[key.toLowerCase()];
+                                builtConsts[key.toUpperCase()] = options.args[key.toLowerCase()];
                             } else {
-                                builtConsts[key] = constsToModify[key];
+                                builtConsts[key.toUpperCase()] = constsToModify[key];
                             }
                         }
                         for (let key in options.args) {
-                            builtConsts[key] = options.args[key];
+                            builtConsts[key.toUpperCase()] = options.args[key];
+                        }
+                        for (let key in options.pkg) {
+                            builtConsts[key.toUpperCase()] = options.pkg[key];
                         }
                         return JSON.stringify(builtConsts);
                     } catch (error) {

@@ -18,7 +18,7 @@ let View = Backbone.View.extend({
     menuHandler: function(e) {
         switch (e.target.id) {
             case 'new':
-                if (APP.consts.mocks === false) {
+                if (APP.consts.MOCKS === false) {
                     new ConfiguratorRouter().navigate('menus/configurator/start', {
                         trigger: true
                     });

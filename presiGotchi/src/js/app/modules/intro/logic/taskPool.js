@@ -1,6 +1,5 @@
 'use strict';
 
-const baseParams = require('json!config/baseParams.json');
 const misc = require('utils/misc');
 const ConfiguratorCollection = require('models/configuratorCollection');
 const GotchiCollection = require('models/gotchiCollection');
@@ -29,7 +28,7 @@ module.exports = [
         gotchiCollection.on('error', this._errorHandler, this);
         gotchiCollection.fetch({
             data: {
-                email: baseParams.email
+                email: APP.consts.EMAIL
             }
         });
     },
