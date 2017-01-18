@@ -2,8 +2,8 @@
 
 
 class LocalStoreNotify {
-    constructor() {
-
+    constructor(options) {
+        this.startTime = options.startTime;        
     }
 }
 

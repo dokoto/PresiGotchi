@@ -25,7 +25,7 @@ class Controller {
         this._setListeners();
         this.engine.nextTic();
         document.addEventListener('pause', () => {
-            alert('PAUSE');
+            //alert('PAUSE');
         }, false);
         /*
         var now = new Date().getTime(),
